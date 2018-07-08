@@ -1,0 +1,128 @@
+:root {
+    --progress-bar-height: 4px;
+    --progress-bar-color: gainsboro;
+    --progress-bar-value-color: dodgerblue;
+    --progress-bar-value: 20%;
+}
+
+.article-title {
+    position: sticky;
+    top: 0;
+    padding-bottom: 24px;  
+}
+  
+.progress-wrapper {
+    position: relative;
+}
+
+.progress-label {
+    position: absolute;
+    right: 0; bottom: 0;
+    font-size: 14px;
+}
+
+progress {
+    appearance: none;
+    position: absolute;
+    width: 100%;
+    height: var(--progress-bar-height);
+    background-color: var(--progress-bar-color);
+    border: none;
+    
+    &::-moz-progress-bar {
+        background-color: var(--progress-bar-value-color);
+    }
+    
+    &::-webkit-progress-bar {
+        background-color: var(--progress-bar-color);
+    }
+    
+    &::-webkit-progress-value {
+        background-color: var(--progress-bar-value-color);
+    }
+    
+    &::-ms-fill {
+        background-color: var(--progress-bar-value-color);
+    }
+}
+
+.post-header {
+    background-color: #fafbfc;
+    background: none;
+    padding: 20px 0px;
+    margin-bottom: 20px;
+    border-bottom: 0px solid #e1e4e8;
+
+    h1 {
+        font-size: 32px;
+        margin-right: 150px;
+        margin-bottom: 0;
+        font-weight: 400;
+        line-height: 1.125;
+        word-wrap: break-word;
+    }
+
+    .post-head-buttons {
+        float: right;
+        margin-top: 5px;
+    }
+
+    .author-link {
+        font-weight: bold;
+        color: #586069 !important;
+    }
+
+    .post-meta {
+        padding: 5px;
+        font-size: 13px;
+    }
+}
+
+.sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1020; 
+
+    &.toc {
+        top: 70px !important;
+    }
+
+    &.title {
+        top: 5px !important;
+    }
+}
+
+.page-single-title-bar {
+	background-color: #24292e;
+	color: #c8c9ca;
+    font-weight: 600;
+    display: none;
+    transform: translateY(-60px);
+    -webkit-transform: translateY(-60px);
+    transform-origin: top;
+    transition: .5s ease;
+
+    .container {
+        justify-content: flex-start;
+    }
+    
+    &.slide-down {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+    
+	.logo-img {
+		height: 32px;
+	}
+
+	.navbar-brand {
+		padding: 0;
+	}
+
+	.navbar {
+		padding: 10px !important;
+	}
+}
+
+
+

@@ -1,0 +1,18 @@
+html.wp-toolbar {
+    padding-top: 0 !important;
+    padding-bottom: 32px !important;
+	box-sizing: border-box;
+}
+
+body {
+    &.admin_bar {
+        padding-top: 0px !important;
+        padding-bottom: 32px !important;
+    }
+
+    #wpadminbar {
+        top: auto !important;
+        bottom: 0 !important;
+    }
+}
+
