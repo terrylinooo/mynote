@@ -11,6 +11,7 @@ Githuber is a github-style WordPress theme with preferred features for developer
 - New post type - Repository.
 - Page reading progress bar.
 - Reponsive.
+- WordPress Coding Standards - 99.9% passed by PHP_CodeSniffer ([WDCS](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards))
 
 #### Preview:
 
