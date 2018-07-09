@@ -11,10 +11,10 @@ get_header();
 
 			<article id="post-404">
 
-				<h1><?php html_esc_e( 'Page not found', 'githuber' ); ?></h1>
+				<h1><?php esc_html_e( 'Page not found', 'githuber' ); ?></h1>
 
 				<h2>
-					<a href="<?php echo esc_url( home_url() ); ?>"><?php html_esc_e( 'Return home?', 'githuber' ); ?></a>
+					<a href="<?php echo esc_url( home_url() ); ?>"><?php esc_html_e( 'Return home?', 'githuber' ); ?></a>
 				</h2>
 
 			</article>

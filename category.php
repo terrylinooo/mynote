@@ -5,7 +5,7 @@
 		<section>
 
 			<h1>
-				<?php html_esc_e( 'Categories for ', 'githuber' ); ?>
+				<?php esc_html_e( 'Categories for ', 'githuber' ); ?>
 				<?php single_cat_title(); ?>
 
 			</h1>

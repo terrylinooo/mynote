@@ -70,7 +70,7 @@ get_header();
 
 			<article>
 
-				<h2><?php html_esc_e( 'Sorry, nothing to display.', 'githuber' ); ?></h2>
+				<h2><?php esc_html_e( 'Sorry, nothing to display.', 'githuber' ); ?></h2>
 
 			</article>
 

@@ -16,7 +16,7 @@ get_header(); ?>
 
 		<section>
 
-			<h1><?php html_esc_e( 'Latest Posts', 'githuber' ); ?></h1>
+			<h1><?php esc_html_e( 'Latest Posts', 'githuber' ); ?></h1>
 			<?php get_template_part( 'loop' ); ?>
 			<?php get_template_part( 'pagination' ); ?>
 

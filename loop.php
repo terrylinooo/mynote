@@ -36,7 +36,7 @@
 		</span>
 
 		<span class="author">
-			<?php html_esc_e( 'Published by', 'githuber' ); ?> <?php the_author_posts_link(); ?>
+			<?php esc_html_e( 'Published by', 'githuber' ); ?> <?php the_author_posts_link(); ?>
 		</span>
 
 		<span class="comments">
@@ -57,7 +57,7 @@
 
 	<article>
 
-		<h2><?php html_esc_e( 'Sorry, nothing to display.', 'githuber' ); ?></h2>
+		<h2><?php esc_html_e( 'Sorry, nothing to display.', 'githuber' ); ?></h2>
 
 	</article>
 

@@ -17,7 +17,7 @@
 		<section>
 
 			<h1>
-				<?php html_esc_e( 'Tag Archive: ', 'githuber' ); ?>
+				<?php esc_html_e( 'Tag Archive: ', 'githuber' ); ?>
 				<?php echo single_tag_title( '', false ); ?>
 			</h1>
 
