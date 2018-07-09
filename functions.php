@@ -55,6 +55,18 @@ function githuber_nav() {
 }
 
 /**
+ * If header_menu not set.
+ */
+function default_nav() { ?>
+	<div id="githuber-nav-bar" class="collapse navbar-collapse">
+		<ul id="menu-primary-menu" class="navbar-nav mr-auto">
+			<li class="nav-item"><a href="<?php get_home_url(); ?>" class="nav-link">Home</a></li>
+		</ul>
+	</div>
+<?php
+}
+
+/**
  * Add scripts
  */
 function githuber_header_scripts() {

@@ -40,7 +40,11 @@
 							<input type="text" name="s" class="search-input" placeholder="<?php _e( 'To search, type and hit enter.', 'githuber' ); ?>">
 						</form>
 					</div>
-					<?php githuber_nav(); ?>
+					<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
+						<?php githuber_nav(); ?>
+					<?php else : ?>
+						<?php default_nav(); ?>
+					<?php endif; ?>
 				</div>	
 			</nav>
 		</header>
