@@ -98,6 +98,9 @@ function githuber_styles() {
 	wp_register_style( 'fontawesome-solid', get_template_directory_uri() . '/vendor/fontawesome/css/fa-solid.min.css', array(), '5.0.12', 'all' );
 	wp_enqueue_style( 'fontawesome-solid' );
 
+	wp_register_style( 'google-font-roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400', array(), '1.0', 'all' );
+	wp_enqueue_style( 'google-font-roboto' );
+
 	wp_register_style( 'githuber', get_template_directory_uri() . '/style.css', array(), '1.0', 'all' );
 	wp_enqueue_style( 'githuber' );
 
@@ -260,7 +263,8 @@ function bootstrap4_pagination( $range = 2 ) {
 		}
 	}
 
-	if ( 1 !== $pages ) { ?>
+	if ( 1 !== $pages ) {
+		?>
 
 		<nav aria-label="Page navigation" role="navigation">
 			<span class="sr-only"><?php esc_html_e( 'Page navigation', 'githuber' ); ?></span>
@@ -610,7 +614,7 @@ function githuber_comment_fileds() {
 		'before' => '<div class="form-row">',
 		'author' => $author,
 		'email'  => $email,
-		'url'    => $url,	
+		'url'    => $url,
 		'after'  => '</div>',
 	);
 
@@ -933,6 +937,22 @@ function githuner_admin_bar() {
 <?php
 }
 
+/**
+ * Show category labels on homepage.
+ *
+ * @return void
+ */
+function home_category_labels() {
+	$categories = get_categories();
+
+	$i = 0;
+	foreach ( $categories as $cat ) {
+		echo '<a href="' . esc_url( get_term_link( $cat->slug, 'category' ) ) . '" class="x-label x-label-' . $i . '">' . esc_html( $cat->name ) . '</a>';
+		if ( 8 === ++$i ) {
+			$i = 0;
+		}
+	}
+}
 
 // Display the links to the extra feeds such as category feeds.
 remove_action( 'wp_head', 'feed_links_extra', 3 );
