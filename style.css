@@ -1,6 +1,6 @@
 /*
 	Theme Name: githuber
-	Theme URI: https://github.com/terrylinworks/githuber
+	Theme URI: https://github.com/terrylinooo/githuber
 	Description: A github-style WordPress theme for developers, markdown friendly, built-in TOC and code syntax highlighter.
 	Version: 1.0.0
 	Author: Terry Lin
@@ -122,99 +122,6 @@ progress::-ms-fill {
   padding: 10px !important;
 }
 
-.alignnone {
-  margin: 5px 20px 20px 0;
-}
-
-.aligncenter,
-div.aligncenter {
-  display: block;
-  margin: 5px auto 5px auto;
-}
-
-.alignright {
-  float: right;
-  margin: 5px 0 20px 20px;
-}
-
-.alignleft {
-  float: left;
-  margin: 5px 20px 20px 0;
-}
-
-a img.alignright {
-  float: right;
-  margin: 5px 0 20px 20px;
-}
-
-a img.alignnone {
-  margin: 5px 20px 20px 0;
-}
-
-a img.alignleft {
-  float: left;
-  margin: 5px 20px 20px 0;
-}
-
-a img.aligncenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.wp-caption {
-  background: #FFF;
-  border: 1px solid #F0F0F0;
-  max-width: 96%;
-  padding: 5px 3px 10px;
-  text-align: center;
-}
-
-.wp-caption.alignnone {
-  margin: 5px 20px 20px 0;
-}
-
-.wp-caption.alignleft {
-  margin: 5px 20px 20px 0;
-}
-
-.wp-caption.alignright {
-  margin: 5px 0 20px 20px;
-}
-
-.wp-caption img {
-  border: 0 none;
-  height: auto;
-  margin: 0;
-  max-width: 98.5%;
-  padding: 0;
-  width: auto;
-}
-
-.wp-caption .wp-caption-text,
-.gallery-caption {
-  font-size: 11px;
-  line-height: 17px;
-  margin: 0;
-  padding: 0 4px 5px;
-}
-
-html.wp-toolbar {
-  padding-top: 0 !important;
-  padding-bottom: 32px !important;
-  box-sizing: border-box;
-}
-
-body.admin_bar {
-  padding-top: 0px !important;
-  padding-bottom: 32px !important;
-}
-body #wpadminbar {
-  top: auto !important;
-  bottom: 0 !important;
-  display: block !important;
-}
-
 ::selection {
   background: #04A4CC;
   color: #FFF;
@@ -231,6 +138,96 @@ body #wpadminbar {
   background: #04A4CC;
   color: #FFF;
   text-shadow: none;
+}
+
+.f-14 {
+  font-size: 14px !important;
+}
+
+.c-light {
+  color: #586069 !important;
+}
+
+.header {
+  background-color: #24292e;
+  color: #c8c9ca;
+  font-weight: 600;
+}
+.header .logo-img {
+  height: 32px;
+}
+.header .navbar-brand {
+  padding: 0;
+}
+.header .navbar {
+  padding: 10px !important;
+}
+.header.fixed-top .container {
+  justify-content: flex-start;
+}
+.header .search-bar {
+  width: 300px;
+  min-height: 30px;
+  font-size: inherit;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.125);
+  border: 0;
+  box-shadow: none;
+  margin-right: 10px;
+}
+.header .search-bar .search-input {
+  font-size: 13px;
+  display: table-cell;
+  width: 100%;
+  min-height: 30px;
+  padding: 0 10px;
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+.header .search-bar .search-input:focus {
+  background-color: #fafbfc;
+  color: #c6cacd;
+  outline: none;
+}
+.header .navbar-nav > li > a {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 14px;
+}
+.header .navbar-nav > li > a:hover {
+  color: white !important;
+}
+
+.footer {
+  margin: 20px;
+}
+.footer .site-info {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.section-intro {
+  width: 100vw;
+  height: 640px;
+  background-color: #2b3137;
+  font-family: "Roboto", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif !important;
+  background-image: url("./images/bg_circuit.png");
+  color: #ffffff;
+  overflow: hidden;
+  font-weight: 300;
+}
+.section-intro a {
+  color: #fff !important;
+  font-weight: 400;
+  cursor: pointer;
+}
+.section-intro h1 {
+  font-size: 4.5rem;
+  font-weight: 300;
+}
+.section-intro .desc-text {
+  font-size: 1.6rem;
+  color: #adb5bd;
 }
 
 .discussion-timeline {
@@ -338,72 +335,6 @@ body #wpadminbar {
 .comment-reply-title {
   font-size: 18px;
   margin: 10px 0;
-}
-
-.header {
-  background-color: #24292e;
-  color: #c8c9ca;
-  font-weight: 600;
-}
-.header .logo-img {
-  height: 32px;
-}
-.header .navbar-brand {
-  padding: 0;
-}
-.header .navbar {
-  padding: 10px !important;
-}
-.header.fixed-top .container {
-  justify-content: flex-start;
-}
-.header .search-bar {
-  width: 300px;
-  min-height: 30px;
-  font-size: inherit;
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.125);
-  border: 0;
-  box-shadow: none;
-  margin-right: 10px;
-}
-.header .search-bar .search-input {
-  font-size: 13px;
-  display: table-cell;
-  width: 100%;
-  min-height: 30px;
-  padding: 0 10px;
-  background: none;
-  border: 0;
-  box-shadow: none;
-}
-.header .search-bar .search-input:focus {
-  background-color: #fafbfc;
-  color: #c6cacd;
-  outline: none;
-}
-.header .navbar-nav > li > a {
-  color: rgba(255, 255, 255, 0.75) !important;
-  font-size: 14px;
-}
-.header .navbar-nav > li > a:hover {
-  color: white !important;
-}
-
-.footer {
-  margin: 20px;
-}
-.footer .site-info {
-  font-weight: 400;
-  font-size: 12px;
-}
-
-.f-14 {
-  font-size: 14px !important;
-}
-
-.c-light {
-  color: #586069 !important;
 }
 
 .btn-counter {
@@ -534,21 +465,80 @@ a.btn-info {
   border-color: #c6c8ca;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus
-input:-webkit-autofill,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  color: #1b1f23 !important;
-  border: 1px solid d1d5da !important;
-  -webkit-text-fill-color: d1d5da !important;
-  -webkit-box-shadow: none !important;
-  transition: background-color 5000s ease-in-out 0s;
+.x-label {
+  padding: .25rem .5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .3rem;
+  border: 1px solid transparent;
+  margin: 5px;
+  word-break: keep-all !important;
+  display: inline-block;
+}
+
+.x-label-0 {
+  color: #fff !important;
+  background-color: #007bff !important;
+}
+
+.x-label-1 {
+  color: #fff !important;
+  background-color: #6610f2 !important;
+}
+
+.x-label-2 {
+  color: #fff !important;
+  background-color: #6f42c1 !important;
+}
+
+.x-label-3 {
+  color: #fff !important;
+  background-color: #e83e8c !important;
+}
+
+.x-label-4 {
+  color: #fff !important;
+  background-color: #dc3545 !important;
+}
+
+.x-label-5 {
+  color: #fff !important;
+  background-color: #fd7e14 !important;
+}
+
+.x-label-6 {
+  color: #fff !important;
+  background-color: #ffc107 !important;
+}
+
+.x-label-7 {
+  color: #fff !important;
+  background-color: #28a745 !important;
+}
+
+.x-label-8 {
+  color: #fff !important;
+  background-color: #20c997 !important;
+}
+
+.x-label-9 {
+  color: #fff !important;
+  background-color: #17a2b8 !important;
+}
+
+.x-label-10 {
+  color: #fff !important;
+  background-color: #fff !important;
+}
+
+.x-label-11 {
+  color: #fff !important;
+  background-color: #6c757d !important;
+}
+
+.x-label-12 {
+  color: #fff !important;
+  background-color: #343a40 !important;
 }
 
 nav[data-toggle='toc'] .nav > li > a {
@@ -607,4 +597,143 @@ nav[data-toggle='toc'] .nav .nav > li > .active:focus {
 
 nav[data-toggle='toc'] .nav-link.active + ul {
   display: block;
+}
+
+.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+}
+
+.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption {
+  background: #FFF;
+  border: 1px solid #F0F0F0;
+  max-width: 96%;
+  padding: 5px 3px 10px;
+  text-align: center;
+}
+
+.wp-caption.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+  margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+  border: 0 none;
+  height: auto;
+  margin: 0;
+  max-width: 98.5%;
+  padding: 0;
+  width: auto;
+}
+
+.wp-caption .wp-caption-text,
+.gallery-caption {
+  font-size: 11px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 4px 5px;
+}
+
+html.wp-toolbar {
+  padding-top: 0 !important;
+  padding-bottom: 32px !important;
+  box-sizing: border-box;
+}
+
+body.admin_bar {
+  padding-top: 0px !important;
+  padding-bottom: 32px !important;
+}
+body #wpadminbar {
+  top: auto !important;
+  bottom: 0 !important;
+  display: block !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  color: #1b1f23 !important;
+  border: 1px solid d1d5da !important;
+  -webkit-text-fill-color: d1d5da !important;
+  -webkit-box-shadow: none !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (max-width: 575.98px) {
+  .px-responsive {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .px-responsive {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+@media (max-width: 991.98px) {
+  .px-responsive {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+@media (max-width: 1199.98px) {
+  .px-responsive {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+}
+.px-responsive {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
 }
