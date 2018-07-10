@@ -1,6 +1,6 @@
 /*
 	Theme Name: githuber
-	Theme URI: https://github.com/terrylinworks/githuber
+	Theme URI: https://github.com/terrylinooo/githuber
 	Description: A github-style WordPress theme for developers, markdown friendly, built-in TOC and code syntax highlighter.
 	Version: 1.0.0
 	Author: Terry Lin
@@ -10,18 +10,21 @@
 	License: GPLv3 (or later)
 	License URI: https://www.gnu.org/licenses/gpl.html
 */
-
+@import "variables";
+@import "functions";
+@import "bootstrap4";
 @import "main";
-@import "wordpress";
 @import "misc";
-@import "comment";
+@import "typography";
 @import "header";
 @import "footer";
-@import "typography";
+@import "home";
+@import "comment";
 @import "buttons";
 @import "labels";
-@import "chrome_autocomplete";
 @import "table_of_content";
+@import "wordpress";
+@import "chrome_autocomplete";
 @import "responsive";
 
 

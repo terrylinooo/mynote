@@ -1,23 +1,39 @@
 
-@media only screen and (min-width:320px) {
 
-}
-@media only screen and (min-width:480px) {
 
-}
-@media only screen and (min-width:768px) {
 
+@include media-breakpoint-down(mx) {
+    .px-responsive {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
 }
-@media only screen and (min-width:1024px) {
 
+@include media-breakpoint-down(sm) {
+    .px-responsive {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
 }
-@media only screen and (min-width:1140px) {
 
+@include media-breakpoint-down(md) {
+    .px-responsive {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
 }
-@media only screen and (min-width:1280px) {
 
+@include media-breakpoint-down(lg) {
+    .px-responsive {
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
 }
-@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min-resolution:144dpi) {
 
+@include media-breakpoint-down(xl) {
+    .px-responsive {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
 }
-				
+

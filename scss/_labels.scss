@@ -49,3 +49,24 @@
     }
 }
 
+.x-label {
+    padding: .25rem .5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+    border: 1px solid transparent;
+    margin: 5px;
+    word-break: keep-all !important;
+    display: inline-block;
+}
+
+$i: 0;
+@each $color-name, $color-code in $colors {
+    .x-label-#{$i} {
+        color: $white !important;
+        background-color: $color-code !important;
+    }
+    $i: $i + 1;
+}
+
+
