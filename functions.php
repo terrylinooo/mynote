@@ -953,7 +953,7 @@ function home_category_labels() {
 			continue;
 		}
 		echo '<a href="' . esc_url( get_term_link( $cat->slug, 'category' ) ) . '" class="x-label x-label-' . $i . '">' . esc_html( $cat->name ) . '</a>';
-		if ( 8 === ++$i ) {
+		if ( 10 === ++$i ) {
 			$i = 0;
 		}
 	}

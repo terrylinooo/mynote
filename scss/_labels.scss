@@ -64,6 +64,8 @@ $i: 0;
 @each $color-name, $color-code in $colors {
     .x-label-#{$i} {
         color: $white !important;
+        border-top-color: lighten($color-code, 10%) !important;
+        border-bottom-color: darken($color-code, 10%) !important;
         background-color: $color-code !important;
     }
     $i: $i + 1;

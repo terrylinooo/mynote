@@ -478,66 +478,92 @@ a.btn-info {
 
 .x-label-0 {
   color: #fff !important;
+  border-top-color: #3395ff !important;
+  border-bottom-color: #0062cc !important;
   background-color: #007bff !important;
 }
 
 .x-label-1 {
   color: #fff !important;
+  border-top-color: #8540f5 !important;
+  border-bottom-color: #510bc4 !important;
   background-color: #6610f2 !important;
 }
 
 .x-label-2 {
   color: #fff !important;
+  border-top-color: #8c68ce !important;
+  border-bottom-color: #59339d !important;
   background-color: #6f42c1 !important;
 }
 
 .x-label-3 {
   color: #fff !important;
+  border-top-color: #ed6ca7 !important;
+  border-bottom-color: #d91a72 !important;
   background-color: #e83e8c !important;
 }
 
 .x-label-4 {
   color: #fff !important;
+  border-top-color: #e4606d !important;
+  border-bottom-color: #bd2130 !important;
   background-color: #dc3545 !important;
 }
 
 .x-label-5 {
   color: #fff !important;
+  border-top-color: #fd9a47 !important;
+  border-bottom-color: #dc6502 !important;
   background-color: #fd7e14 !important;
 }
 
 .x-label-6 {
   color: #fff !important;
+  border-top-color: #ffce3a !important;
+  border-bottom-color: #d39e00 !important;
   background-color: #ffc107 !important;
 }
 
 .x-label-7 {
   color: #fff !important;
+  border-top-color: #34ce57 !important;
+  border-bottom-color: #1e7e34 !important;
   background-color: #28a745 !important;
 }
 
 .x-label-8 {
   color: #fff !important;
+  border-top-color: #3ce0af !important;
+  border-bottom-color: #199d76 !important;
   background-color: #20c997 !important;
 }
 
 .x-label-9 {
   color: #fff !important;
+  border-top-color: #1fc8e3 !important;
+  border-bottom-color: #117a8b !important;
   background-color: #17a2b8 !important;
 }
 
 .x-label-10 {
   color: #fff !important;
+  border-top-color: white !important;
+  border-bottom-color: #e6e6e6 !important;
   background-color: #fff !important;
 }
 
 .x-label-11 {
   color: #fff !important;
+  border-top-color: #868e96 !important;
+  border-bottom-color: #545b62 !important;
   background-color: #6c757d !important;
 }
 
 .x-label-12 {
   color: #fff !important;
+  border-top-color: #4b545c !important;
+  border-bottom-color: #1d2124 !important;
   background-color: #343a40 !important;
 }
 
