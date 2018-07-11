@@ -190,6 +190,12 @@ progress::-ms-fill {
   color: #c6cacd;
   outline: none;
 }
+@media (max-width: 767.98px) {
+  .header .search-bar {
+    width: calc(100% - 100px) !important;
+    float: left;
+  }
+}
 .header .navbar-nav > li > a {
   color: rgba(255, 255, 255, 0.75) !important;
   font-size: 14px;

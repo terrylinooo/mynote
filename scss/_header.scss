@@ -48,7 +48,13 @@
                 color: #c6cacd;
                 outline: none;
             }
-        }
+		}
+		
+		@include media-breakpoint-down(sm) {
+			width: calc(100% - 100px) !important;
+			float: left;
+			
+		}
 	}
 
 	.navbar-nav {
