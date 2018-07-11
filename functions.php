@@ -939,6 +939,7 @@ function githuner_admin_bar() {
 
 /**
  * Show category labels on homepage.
+ * Parent only.
  *
  * @return void
  */
@@ -947,6 +948,10 @@ function home_category_labels() {
 
 	$i = 0;
 	foreach ( $categories as $cat ) {
+		if ( ! empty( $cat->parent ) ) {
+			// Only shows parent catrgories.
+			continue;
+		}
 		echo '<a href="' . esc_url( get_term_link( $cat->slug, 'category' ) ) . '" class="x-label x-label-' . $i . '">' . esc_html( $cat->name ) . '</a>';
 		if ( 8 === ++$i ) {
 			$i = 0;
