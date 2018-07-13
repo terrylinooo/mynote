@@ -2,10 +2,9 @@
 
 .section-intro {
     width: 100vw;
-    height: $home_intro_box_height;
+    min-height: $home_intro_box_height;
     background-color: $home_intro_bg;
     font-family: $font-family-base !important;
-    background-image: url("./images/bg_circuit.png");
     color: $home-intro-font-color;
     overflow: hidden;
     font-weight: $home-intro-font-weight;
@@ -27,4 +26,5 @@
     }
 
 }
+
 
