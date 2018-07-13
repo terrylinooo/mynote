@@ -356,7 +356,7 @@ function githuber_excerpt() {
 	$output = get_the_excerpt();
 	$output = apply_filters( 'wptexturize', $output );
 	$output = apply_filters( 'convert_chars', $output );
-	echo '<p>' . esc_html( $output ) . '</p>';
+	echo esc_html( $output );
 }
 
 /**

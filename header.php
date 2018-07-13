@@ -27,26 +27,27 @@
 <body data-spy="scroll" data-target="#toc" <?php body_class(); ?>>
 	<div class="wrapper">
 		<header class="header clear" role="banner">
-			
-				<div class="container">
-					<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
+			<div class="container">
+				<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
+
 					<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>">
 						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo_githuber_s.png" alt="Logo" class="logo-img">
 					</a>
+
 					<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
 						<?php githuber_nav(); ?>
 					<?php else : ?>
 						<?php default_nav(); ?>
 					<?php endif; ?>
 					<div class="search-bar">
-						<form class="search" method="get" action="<?php echo home_url(); ?>" role="search">
+						<form id="search-form" class="search" method="get" action="<?php echo home_url(); ?>" role="search">
 							<input type="text" name="s" class="search-input" placeholder="<?php _e( 'To search, type and hit enter.', 'githuber' ); ?>">
+							<span class="search-icon" onclick="document.getElementById('search-form').submit();"><i class="fas fa-search"></i></span>
 						</form>
 					</div>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#githuber-nav-bar" aria-controls="githuber-nav-bar" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
-					</nav>
-				</div>	
-			
+				</nav>
+			</div>
 		</header>
