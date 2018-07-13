@@ -2,6 +2,9 @@
 
 Githuber is a github-style WordPress theme with preferred features for developers.
 
+![Cover](https://i.imgur.com/XgXtWBW.png)
+
+
 ## Features
 
 - Markdown friendly. The first version you can choose GitHub style or my Githuber style.
