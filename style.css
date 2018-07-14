@@ -82,7 +82,7 @@ progress::-ms-fill {
   line-height: 1.125;
   word-wrap: break-word;
 }
-.post-header .post-head-buttons {
+.post-header .post-githuber-buttons {
   float: right;
   margin-top: 5px;
 }
@@ -243,7 +243,7 @@ progress::-ms-fill {
 }
 
 .section-intro {
-  width: 100vw;
+  width: 100%;
   min-height: 640px;
   background-color: #2b3137;
   font-family: "Roboto", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif !important;
@@ -423,17 +423,17 @@ progress::-ms-fill {
   border-bottom-right-radius: 3px;
 }
 
-.post-head-buttons a, .post-head-buttons a:hover {
+.post-githuber-buttons a, .post-githuber-buttons a:hover {
   text-decoration: none !important;
 }
-.post-head-buttons > div {
+.post-githuber-buttons > div {
   margin-left: 5px;
 }
-.post-head-buttons .github-button-container {
+.post-githuber-buttons .github-button-container {
   display: inline-block;
   margin-left: 5px;
 }
-.post-head-buttons .github-button-container a {
+.post-githuber-buttons .github-button-container a {
   display: none;
 }
 
@@ -444,7 +444,7 @@ progress::-ms-fill {
   color: #ffffff;
 }
 
-a.btn {
+a.btn, a.button-like-link {
   text-decoration: none !important;
 }
 a.btn-xs {

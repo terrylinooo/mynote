@@ -52,7 +52,7 @@
     }
 }
 
-.post-head-buttons {
+.post-githuber-buttons {
     a, a:hover {
         text-decoration: none !important;
     }
@@ -79,7 +79,7 @@
 }
 
 a {
-    &.btn {
+    &.btn, &.button-like-link {
         text-decoration: none !important;
     }
     &.btn-xs {
