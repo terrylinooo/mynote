@@ -67,6 +67,41 @@ function default_nav() { ?>
 }
 
 /**
+ * Show GitHub Repository Buttons
+ *
+ * @param array $types An array list of GitHub button types.
+ */
+function the_github_buttons( $types = array() ) {
+	if ( empty( $types ) ) {
+		$github = get_post_meta( get_the_ID(), 'github_repository', true );
+	} else {
+		$github = $types;
+	}
+
+	$github_buttons = array(
+		'watch'    => array( 'octicon-eye', '/subscription' ),
+		'star'     => array( 'octicon-star', '' ),
+		'fork'     => array( 'octicon-repo-forked', '/fork' ),
+		'issue'    => array( 'octicon-issue-opened', '/issues' ),
+		'download' => array( 'octicon-cloud-download', '/archive/master.zip' ),
+	);
+
+	foreach ( $github_buttons as $k => $v ) {
+		if ( ! empty( $github[ $k ] ) ) {
+			?>
+
+			<div class="github-button-container">
+				<a class="github-button" href="<?php echo esc_url( $github['url'] . $v[1] ); ?>" data-icon="<?php echo $v[0]; ?>" data-size="large" data-show-count="true">
+					<?php echo ucfirst( $k ); ?>
+				</a>
+			</div>
+
+			<?php
+		}
+	}
+}
+
+/**
  * Add scripts
  */
 function githuber_header_scripts() {
@@ -92,11 +127,8 @@ function githuber_styles() {
 	wp_register_style( 'bootstrap', get_template_directory_uri() . '/vendor/bootstrap/css/bootstrap.min.css', array(), '4.1.o', 'all' );
 	wp_enqueue_style( 'bootstrap' );
 
-	wp_register_style( 'fontawesome', get_template_directory_uri() . '/vendor/fontawesome/css/fontawesome.min.css', array(), '5.0.12', 'all' );
+	wp_register_style( 'fontawesome', get_template_directory_uri() . '/vendor/fontawesome/css/fontawesome-all.min.css', array(), '5.1.0', 'all' );
 	wp_enqueue_style( 'fontawesome' );
-
-	wp_register_style( 'fontawesome-solid', get_template_directory_uri() . '/vendor/fontawesome/css/fa-solid.min.css', array(), '5.0.12', 'all' );
-	wp_enqueue_style( 'fontawesome-solid' );
 
 	wp_register_style( 'google-font-roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400', array(), '1.0', 'all' );
 	wp_enqueue_style( 'google-font-roboto' );
@@ -898,12 +930,80 @@ function the_edit_button() {
 	}
 
 	echo '
-		<a href="' . esc_url( get_edit_post_link() ) . '">
+		<a href="' . esc_url( get_edit_post_link() ) . '" class="button-like-link">
 			<div class="btn-counter text-only">		
-				<div class="btn btn-green">' . esc_html__( 'Edit', 'githuber' ) . '</div>
+				<div class="btn">' . esc_html__( 'Edit', 'githuber' ) . '</div>
 			</div>
 		</a>
 	';
+}
+
+/**
+ * The comment button.
+ *
+ * @return void
+ */
+function the_comment_button( $show_label = false ) {
+	echo '
+		<div class="btn-counter">
+			<div class="btn">
+				' . ( ( $show_label ) ? '<i class="fas fa-comment-dots"></i> ' . esc_html__( 'Comment', 'githuber' ) : '<i class="fas fa-comment-dots"></i>' ) . '
+			</div>
+			<div class="count-box">' . esc_html( get_comments_number() ) . '</div>
+		</div>
+	';
+}
+
+/**
+ * The Githuber button.
+ * 
+ * @param bool $show_label Show text label or not.
+ * @return void
+ */
+function the_read_button() {
+	echo '
+		<a href="' . esc_url( get_the_permalink() ) . '" class="button-like-link">
+			<div class="btn-counter text-only">		
+				<div class="btn">' . esc_html__( 'Read', 'githuber' ) . '</div>
+			</div>
+		</a>
+	';
+}
+
+/**
+ * The posted date button.
+ * 
+ * @param bool $show_label Show text label or not.
+ * @return void
+ */
+function the_posted_date_button( $show_label = false ) {
+	echo '
+		<div class="btn-counter">
+			<div class="btn">
+				<i class="far fa-calendar-alt"></i> ' . ( ( $show_label ) ? esc_html__( 'Date', 'githuber' ) : '' ) . '
+			</div>
+			<div class="count-box">' . date( 'Y-m-d', get_the_time( 'U' ) ) . '</div>
+		</div>
+	';
+}
+
+/**
+ * The authour posted date.
+ */
+function the_author_posted_date() {
+	printf( '<a href="%1$s" title="written %2$s" class="author-link">%3$s</a> <time itemprop="datePublished" datetime="%4$s">%5$s</time>',
+		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+		sprintf( esc_html__( '%1$s @ %2$s', 'githuber' ),
+			esc_html( get_the_date() ), 
+			esc_attr( get_the_time() )
+		),
+		get_the_author(),
+		get_the_time( 'c' ),
+		sprintf( 
+			_x( 'written %s ago', '%s', 'githuber' ),
+			human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
+		)
+	);
 }
 
 /**
