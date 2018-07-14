@@ -1,3 +1,5 @@
+/* Comment */
+
 .discussion-timeline {
     margin-top: 20px;
     padding-top: 2px;
@@ -57,7 +59,6 @@
 
         .comment-header-btn {
             display: inline-block;
-            float: right;
             margin: 8px 0 0 10px;
 
             a {
@@ -69,8 +70,6 @@
     }
 
     cite {
-        font-style: normal !important;
-        font-weight: 600 !important; 
 
         &.author  {
             color: #c43d3d;
@@ -97,7 +96,6 @@
         width: 100%;
         padding: 15px;
         overflow: visible;
-        font-size: 14px;
     }
 
 }
@@ -116,12 +114,7 @@
     }
 }
 
-.comment-notes {
-    font-size: 12px;
-}
-
 .comment-reply-title {
-    font-size: 18px;
     margin: 10px 0;
 }
 

@@ -13,39 +13,51 @@
 ?>
 <?php if ( have_posts() ) : ?>
 
-	<?php while ( have_posts() ) : ?>
+	<div class="row">
 
-	<?php the_post(); ?>
+		<?php while ( have_posts() ) : ?>
 
-	<article id="post-<?php the_ID(); ?>">
-		<div class="card my-2 w-50">
-			<img class="card-img-top" src="..." alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title">
+		<?php the_post(); ?>
+
+		<div class="col-sm-6">
+			<article id="post-<?php the_ID(); ?>" class="article-list">
+				<div class="card my-3">
 					<?php if ( has_post_thumbnail() ) : ?>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-						<?php the_post_thumbnail( array( 120, 120 ) ); ?>
-					</a>
-					<?php endif; ?>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-				</h5>
-				<p class="card-text"><?php githuber_excerpt(); ?></p>
-			</div>
-			<div class="card-footer text-muted text-center">
-				<?php the_author_posted_date(); ?>
-			</div>
-			<!-- 
-			<?php the_posted_date_button(); ?>
-				<?php the_comment_button(); ?>
-				<?php the_edit_button(); ?>
-				<?php the_read_button(); ?>
+					<?php
 
-				-->
+					the_post_thumbnail(
+						array( 120, 120 ),
+						array(
+							'class' => 'card-img-top',
+							'alt'   => get_the_title(),
+						)
+					);
+
+					?>
+					<?php endif; ?>
+
+					<div class="card-body" style="min-height: 250px; overflow: hidden">
+						<h5 class="card-title">
+							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+						</h5>
+						<p class="card-text"><?php githuber_excerpt(); ?></p>
+					</div>
+					<div class="card-footer text-muted text-center">
+						<?php the_author_posted_date(); ?>
+					</div>
+					<!-- 
+					<?php the_posted_date_button(); ?>
+					<?php the_comment_button(); ?>
+					<?php the_edit_button(); ?>
+					<?php the_read_button(); ?>
+					-->
+				</div>
+			</article>
 		</div>
 
-	</article>
+		<?php endwhile; ?>
 
-	<?php endwhile; ?>
+	</div>
 
 <?php else : ?>
 

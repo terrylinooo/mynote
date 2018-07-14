@@ -4,25 +4,29 @@
     width: 100%;
     min-height: $home_intro_box_height;
     background-color: $home_intro_bg;
-    font-family: $font-family-base !important;
     color: $home-intro-font-color;
     overflow: hidden;
-    font-weight: $home-intro-font-weight;
- 
+    
     a {
         color: $white !important;
-        font-weight: 400;
         cursor: pointer;
     }
 
-    h1 {
-        font-size: 4.5rem;
-        font-weight: 300; 
+    .desc-text {
+        color: gray("500");
     }
 
-    .desc-text {
-        font-size: 1.6rem;
-        color: gray("500");
+}
+
+.article-list {
+    color: #666666;
+
+    a {
+        color: #333333;
+
+        &:hover {
+            color: #0366dd;
+        }
     }
 
 }

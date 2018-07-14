@@ -1,3 +1,73 @@
+/* Typography */
+
+.header {
+    font-weight: 600;
+
+    .search-bar {
+        font-size: inherit;
+    
+        .search-input {
+            font-size: 13px;
+        }
+    }
+
+    .navbar-nav {
+		& > li > a {
+			font-size: 14px;
+		}
+	}
+}
+
+.section-intro {
+    font-family: $font-family-base !important;
+    font-weight: $home-intro-font-weight;
+
+    a {
+        font-weight: 400;
+    }
+
+    h1 {
+        font-size: 4.5rem;
+        font-weight: 300; 
+    }
+
+    .desc-text {
+        font-size: 1.6rem;
+    }
+}
+
+/* Typography - Comment - Begin */
+
+.comment-wrapper {
+    cite {
+        font-style: normal !important;
+        font-weight: 600 !important;
+    }
+    .comment-body {
+        font-size: 14px;
+    }
+}
+
+.comment-notes {
+    font-size: 12px;
+}
+
+.comment-reply-title {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Typography - Comment - End */
+
+
+.label {
+    font-size: .675rem;
+}
+
+.x-label {
+    font-size: 1rem;
+}
+
 .f-14 {
     font-size: 14px !important;
 }
