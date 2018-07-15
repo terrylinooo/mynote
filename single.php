@@ -28,9 +28,9 @@ get_header();
 
 				<div class="post-githuber-buttons">
 
-					<?php the_edit_button(); ?>
+					<?php githuber_edit_button(); ?>
 
-					<?php the_comment_button(); ?>
+					<?php githuber_comment_button(); ?>
 
 					<?php if ( is_single() && get_post_type() === 'repository' ) : ?>
 						<?php the_github_buttons(); ?>
@@ -38,7 +38,7 @@ get_header();
 				</div>
 
 				<div class="post-meta">
-					<?php the_author_posted_date(); ?>
+					<?php githuber_author_posted_date(); ?>
 				</div>
 
 			</div>

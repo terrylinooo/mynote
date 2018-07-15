@@ -20,6 +20,8 @@
 
 .article-list {
     color: #666666;
+    min-height: 250px;
+    overflow: hidden;
 
     a {
         color: #333333;
@@ -27,6 +29,10 @@
         &:hover {
             color: #0366dd;
         }
+    }
+
+    .read-more-link {
+        color: #0366dd;
     }
 
 }

@@ -74,6 +74,7 @@ body {
     }
 
     #wpadminbar {
+		position: fixed !important;
         top: auto !important;
 		bottom: 0 !important;
 		display: block !important;

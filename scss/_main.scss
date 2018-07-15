@@ -124,5 +124,15 @@ progress {
 	}
 }
 
+#progress-title {
+    width: calc(100% - 80px);
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: keep-all !important;
+    overflow: hidden;
+
+}
+
 
 

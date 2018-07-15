@@ -134,6 +134,15 @@ progress::-ms-fill {
   padding: 10px !important;
 }
 
+#progress-title {
+  width: calc(100% - 80px);
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: keep-all !important;
+  overflow: hidden;
+}
+
 ::selection {
   background: #04A4CC;
   color: #FFF;
@@ -304,6 +313,7 @@ body.admin_bar {
   padding-bottom: 32px !important;
 }
 body #wpadminbar {
+  position: fixed !important;
   top: auto !important;
   bottom: 0 !important;
   display: block !important;
@@ -404,11 +414,16 @@ body #wpadminbar {
 
 .article-list {
   color: #666666;
+  min-height: 250px;
+  overflow: hidden;
 }
 .article-list a {
   color: #333333;
 }
 .article-list a:hover {
+  color: #0366dd;
+}
+.article-list .read-more-link {
   color: #0366dd;
 }
 

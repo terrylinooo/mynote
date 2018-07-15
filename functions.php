@@ -20,10 +20,9 @@ if ( function_exists( 'add_theme_support' ) ) {
 
 	// Add Thumbnail Theme Support.
 	add_theme_support( 'post-thumbnails' );
-	add_image_size( 'large', 700, '', true );        // Large Thumbnail.
-	add_image_size( 'medium', 250, '', true );       // Medium Thumbnail.
-	add_image_size( 'small', 120, '', true );        // Small Thumbnail.
-	add_image_size( 'custom-size', 700, 200, true ); // Custom Thumbnail Size call using the_post_thumbnail( 'custom-size'); .
+
+	// Custom Thumbnail Size call using the_post_thumbnail( '360x240' ); .
+	add_image_size( '360x240', 360, 240, true );
 
 	// Enables post and comment RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -102,6 +101,18 @@ function the_github_buttons( $types = array() ) {
 }
 
 /**
+ * The githuber Post thumbnail.
+ */
+function githuber_post_thumbnail() {
+	the_post_thumbnail( '360x240',
+		array(
+			'class' => 'card-img-top',
+			'alt'   => get_the_title(),
+		)
+	);
+}
+
+/**
  * Add scripts
  */
 function githuber_header_scripts() {
@@ -171,6 +182,18 @@ function register_githuber_menu() {
 }
 
 add_action( 'init', 'register_githuber_menu' );
+
+/**
+ * Remove setsec attribute.
+ *
+ * @return bool
+ */
+function disable_srcset() {
+	return false;
+}
+
+add_filter( 'wp_calculate_image_srcset', 'disable_srcset' );
+
 
 /**
  * Remove surrounding <div> from WP Navigation to cleanup markup
@@ -388,7 +411,7 @@ function githuber_excerpt() {
 	$output = get_the_excerpt();
 	$output = apply_filters( 'wptexturize', $output );
 	$output = apply_filters( 'convert_chars', $output );
-	echo esc_html( $output );
+	echo $output;
 }
 
 /**
@@ -399,7 +422,7 @@ function githuber_excerpt() {
  */
 function githuber_read_more( $more ) {
 	global $post;
-	return '... <a class="view-article" href="' . get_permalink( $post->ID ) . '">' . __( 'View Article', 'githuber' ) . '</a>';
+	return '... &raquo; <a class="read-more-link" href="' . get_permalink( $post->ID ) . '">' . __( 'read more', 'githuber' ) . '</a>';
 }
 
 add_filter( 'excerpt_more', 'githuber_read_more' );
@@ -922,7 +945,7 @@ add_post_type_support( 'repository', 'wpcom-markdown' );
  *
  * @return void
  */
-function the_edit_button() {
+function githuber_edit_button() {
 	global $post;
 
 	if ( ! current_user_can( 'edit_post', $post->ID ) ) {
@@ -943,7 +966,7 @@ function the_edit_button() {
  *
  * @return void
  */
-function the_comment_button( $show_label = false ) {
+function githuber_comment_button( $show_label = false ) {
 	echo '
 		<div class="btn-counter">
 			<div class="btn">
@@ -960,7 +983,7 @@ function the_comment_button( $show_label = false ) {
  * @param bool $show_label Show text label or not.
  * @return void
  */
-function the_read_button() {
+function githuber_read_button() {
 	echo '
 		<a href="' . esc_url( get_the_permalink() ) . '" class="button-like-link">
 			<div class="btn-counter text-only">		
@@ -976,7 +999,7 @@ function the_read_button() {
  * @param bool $show_label Show text label or not.
  * @return void
  */
-function the_posted_date_button( $show_label = false ) {
+function githuber_posted_date_button( $show_label = false ) {
 	echo '
 		<div class="btn-counter">
 			<div class="btn">
@@ -990,7 +1013,7 @@ function the_posted_date_button( $show_label = false ) {
 /**
  * The authour posted date.
  */
-function the_author_posted_date() {
+function githuber_author_posted_date() {
 	printf( '<a href="%1$s" title="written %2$s" class="author-link">%3$s</a> <time itemprop="datePublished" datetime="%4$s">%5$s</time>',
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 		sprintf( esc_html__( '%1$s @ %2$s', 'githuber' ),

@@ -13,44 +13,36 @@
 ?>
 <?php if ( have_posts() ) : ?>
 
-	<div class="row">
+	<div class="row my-4">
 
 		<?php while ( have_posts() ) : ?>
 
 		<?php the_post(); ?>
 
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<article id="post-<?php the_ID(); ?>" class="article-list">
-				<div class="card my-3">
+				<div class="card my-2">
 					<?php if ( has_post_thumbnail() ) : ?>
-					<?php
-
-					the_post_thumbnail(
-						array( 120, 120 ),
-						array(
-							'class' => 'card-img-top',
-							'alt'   => get_the_title(),
-						)
-					);
-
-					?>
+						<?php githuber_post_thumbnail(); ?>
 					<?php endif; ?>
 
-					<div class="card-body" style="min-height: 250px; overflow: hidden">
+					<div class="card-body">
 						<h5 class="card-title">
 							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 						</h5>
-						<p class="card-text"><?php githuber_excerpt(); ?></p>
+						<p class="card-text">
+							<?php githuber_excerpt(); ?>
+						</p>
+						<div class="card-body-footer">
+							<?php // githuber_posted_date_button(); ?>
+							<?php githuber_comment_button(); ?>
+							<?php githuber_read_button(); ?>
+							<?php githuber_edit_button(); ?>
+						</div>
 					</div>
 					<div class="card-footer text-muted text-center">
-						<?php the_author_posted_date(); ?>
+						<?php githuber_author_posted_date(); ?>
 					</div>
-					<!-- 
-					<?php the_posted_date_button(); ?>
-					<?php the_comment_button(); ?>
-					<?php the_edit_button(); ?>
-					<?php the_read_button(); ?>
-					-->
 				</div>
 			</article>
 		</div>
