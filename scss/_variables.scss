@@ -1,12 +1,11 @@
 
 
-
-$font-family-base: "Roboto", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif !default;
+$font-family-base: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif !default;
+$font-family-title: "Roboto", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif !default;
 
 $home_intro_box_height: 640px !default;
 $home_intro_bg:         #2b3137 !default;
 $home_intro_font_color: #ffffff !default;
-$home_intro_font_weight: 300 !default;
 
 $header_navbar_bg: #24292e !default;
 $header_navbar_link_color: #c8c9ca !default;

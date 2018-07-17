@@ -38,7 +38,7 @@ get_header();
 				</div>
 
 				<div class="post-meta">
-					<?php githuber_author_posted_date(); ?>
+					<?php githuber_author_posted_date( true ); ?>
 				</div>
 
 			</div>

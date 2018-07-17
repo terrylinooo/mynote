@@ -18,9 +18,20 @@
 	}
 }
 
+/* Typography - Single post page */
+
+#post-title {
+    font-family: $font-family-title !important;
+    font-size: 2.2rem;
+    font-weight: 300;
+    padding: 0.5rem 0;
+}
+
+/* Typography - Home page */
+
 .section-intro {
-    font-family: $font-family-base !important;
-    font-weight: $home-intro-font-weight;
+    font-family: $font-family-title !important;
+    font-weight: 300;
 
     a {
         font-weight: 400;
@@ -36,7 +47,7 @@
     }
 }
 
-/* Typography - Comment - Begin */
+/* Typography - Comment */
 
 .comment-wrapper {
     cite {
@@ -57,7 +68,7 @@
     margin: 10px 0;
 }
 
-/* Typography - Comment - End */
+/* Typography - Others */
 
 
 .label {

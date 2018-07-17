@@ -74,7 +74,11 @@ progress {
 
     .post-meta {
         padding: 5px;
-        font-size: 13px;
+        font-size: 14px;
+
+        .poster-avatar {
+            margin-right: 5px;
+        }
     }
 }
 
