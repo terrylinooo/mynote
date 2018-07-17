@@ -44,7 +44,7 @@
 
         .comment-header-text {
             padding: 10px 0;
-            max-width: 80%;
+            max-width: 300px;
         }
 
         .comment-label {
@@ -58,7 +58,8 @@
         }
 
         .comment-header-btn {
-            display: inline-block;
+            display: block;
+            float: right;
             margin: 8px 0 0 10px;
 
             a {
