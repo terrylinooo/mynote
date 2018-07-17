@@ -1012,8 +1012,17 @@ function githuber_posted_date_button( $show_label = false ) {
 
 /**
  * The authour posted date.
+ *
+ * @param bool $show_avatar Show author avatar.
+ * @param int  $avatar_size Avatar size.
+ * @return void
  */
-function githuber_author_posted_date() {
+function githuber_author_posted_date( $show_avatar = false, $avatar_size = 40 ) {
+	echo '<div class="author-posted-date">';
+
+	if ( $show_avatar ) {
+		echo '<img src="' . esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => $avatar_size ) ) ) . '" class="rounded-circle poster-avatar" align="middle"> ';
+	}
 	printf( '<a href="%1$s" title="written %2$s" class="author-link">%3$s</a> <time itemprop="datePublished" datetime="%4$s">%5$s</time>',
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 		sprintf( esc_html__( '%1$s @ %2$s', 'githuber' ),
@@ -1027,6 +1036,29 @@ function githuber_author_posted_date() {
 			human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
 		)
 	);
+
+	echo '</div>';
+}
+
+/**
+ * The author card.
+ */
+function githuber_author_card() {
+	?>
+		<aside class="author-card">
+			<div class="author-avatar">
+				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID', array( 'size' => 32 ) ) ) ); ?>" class="rounded-circle">
+			</div>
+			<div class="author-info">
+				<div class="author-title">
+					<?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
+				</div>
+				<div class="author-description">
+					<?php echo esc_html( get_the_author_meta( 'description' ) ); ?>
+				</div>
+			</div>
+		</aside>
+	<?php
 }
 
 /**
