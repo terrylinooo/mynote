@@ -24,7 +24,7 @@
 <?php wp_head(); ?>
 
 </head>
-<body data-spy="scroll" data-target="#toc" <?php body_class(); ?>>
+<body <?php body_class(); ?>>
 	<div class="wrapper">
 		<header class="header clear" role="banner">
 			<div class="container">

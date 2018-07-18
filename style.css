@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 	Theme Name: githuber
 	Theme URI: https://github.com/terrylinooo/githuber
@@ -10,6 +11,14 @@
 	License: GPLv3 (or later)
 	License URI: https://www.gnu.org/licenses/gpl.html
 */
+/* Font settings */
+/* Font settings - for Mandarin Chinese */
+/* Font settings - for Japenese */
+/* Font settings - for Korean */
+/* Home- Intro box */
+/* Header - Navbar */
+/* Table of Content */
+/* Base functions to get safe web font */
 /*
 
 $grid-breakpoints: (
@@ -235,6 +244,47 @@ progress::-ms-fill {
 
 .c-light {
   color: #586069 !important;
+}
+
+/* Use the best fit font for different languages */
+:lang(en) body {
+  font-family: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
+}
+:lang(en) h1, :lang(en) h2, :lang(en) h3, :lang(en) h4, :lang(en) h5, :lang(en) h6 {
+  font-family: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
+}
+:lang(en) .section-intro, :lang(en) #post-title {
+  font-family: "Roboto", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
+}
+
+:lang(zh) body {
+  font-family: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "微軟正黑體", "Microsoft JhengHei", "SimHei", "Microsoft YaHei", "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "標楷體", "DFKai-SB";
+}
+:lang(zh) h1, :lang(zh) h2, :lang(zh) h3, :lang(zh) h4, :lang(zh) h5, :lang(zh) h6 {
+  font-family: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "微軟正黑體", "Microsoft JhengHei", "SimHei", "Microsoft YaHei", "標楷體", "DFKai-SB";
+}
+:lang(zh) .section-intro, :lang(zh) #post-title {
+  font-family: "Roboto", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "微軟正黑體", "Microsoft JhengHei", "SimHei", "Microsoft YaHei", "標楷體", "DFKai-SB";
+}
+
+:lang(ja) body {
+  font-family: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Osaka", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS PGothic";
+}
+:lang(ja) h1, :lang(ja) h2, :lang(ja) h3, :lang(ja) h4, :lang(ja) h5, :lang(ja) h6 {
+  font-family: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Osaka", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS PGothic";
+}
+:lang(ja) .section-intro, :lang(ja) #post-title {
+  font-family: "Roboto", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Osaka", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS PGothic";
+}
+
+:lang(ko) body {
+  font-family: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "Dotum", "Gulim";
+}
+:lang(ko) h1, :lang(ko) h2, :lang(ko) h3, :lang(ko) h4, :lang(ko) h5, :lang(ko) h6 {
+  font-family: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "Dotum", "Gulim";
+}
+:lang(ko) .section-intro, :lang(ko) #post-title {
+  font-family: "Roboto", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "Dotum", "Gulim";
 }
 
 .alignnone {
@@ -794,7 +844,7 @@ nav[data-toggle='toc'] .nav-link.active:focus {
 
 /* Nav: second level (shown on .active) */
 nav[data-toggle='toc'] .nav-link + ul {
-  display: none;
+  /* display: none; */
   /* Hide by default, but at >768px, show it */
   padding-bottom: 10px;
 }

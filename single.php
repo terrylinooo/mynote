@@ -89,7 +89,7 @@ get_header();
 
 			</div>
 			<div class="col col-sm-4">
-				<nav id="toc" data-toggle="toc" class="sticky-top toc"></nav>
+				<nav id="toc" class="sticky-top toc"></nav>
 			</div>
 		</section>
 	</main>
