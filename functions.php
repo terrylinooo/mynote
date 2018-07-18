@@ -868,7 +868,7 @@ function post_progress_title_script() {
 		const setPercent = () => Math.round( win.scrollTop() / (doc.height() - win.height()) * 100 );
 		const pageTitle = $( '#post-title' );
 		const pageTitleTop = pageTitle.offset().top;
-		const progressBarContainer = $( '.page-single-title-bar' );
+		const progressBarContainer = $( '.single-post-title-bar' );
 		const headerNavBrand = $( '.header .navbar-brand' );
 		const progressTitle = $( '#progress-title' );
 		const headerBarContainer = $( '.header .container' );
@@ -959,7 +959,7 @@ add_action( 'wp_footer', 'post_bootstrap_toc_script', 1, 2 );
  */
 function title_progress_bar() {
 	?>
-		<div class="page-single-title-bar clear" role="banner">
+		<div class="single-post-title-bar clear" role="banner">
 			<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
 				<div class="container">
 					<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>"></a>
@@ -1084,7 +1084,7 @@ function githuber_author_card() {
 	?>
 		<aside class="author-card">
 			<div class="author-avatar">
-				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID', array( 'size' => 32 ) ) ) ); ?>" class="rounded-circle">
+				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 96 ) ) ); ?>" class="rounded-circle">
 			</div>
 			<div class="author-info">
 				<div class="author-title">

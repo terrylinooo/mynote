@@ -20,7 +20,7 @@ get_header();
 
 		<?php the_post(); ?>
 
-		<div class="post-header">
+		<div class="single-post-header">
 
 			<div class="container">
 
@@ -72,6 +72,8 @@ get_header();
 							<?php esc_html_e( 'Categorised in: ', 'githuber' ); ?>
 							<?php githuber_category(); ?>
 						</p>
+
+						<?php githuber_author_card(); ?>
 
 						<?php comments_template(); ?>
 

@@ -1,0 +1,13 @@
+.sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1020; 
+
+    &.toc {
+        top: 70px !important;
+    }
+
+    &.title {
+        top: 5px !important;
+    }
+}
