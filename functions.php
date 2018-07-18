@@ -1084,7 +1084,7 @@ function githuber_author_card() {
 	?>
 		<aside class="author-card">
 			<div class="author-avatar">
-				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 96 ) ) ); ?>" class="rounded-circle">
+				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 96 ) ) ); ?>" class="rounded-circle img-thumbnail">
 			</div>
 			<div class="author-info">
 				<div class="author-title">

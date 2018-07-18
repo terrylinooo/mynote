@@ -1,0 +1,15 @@
+
+.author-card {
+    display: flex;
+    border-left: 5px gray("200") solid;
+    background-color: gray("100");
+    border-radius: 3px;
+
+    > div {
+        padding: 25px;
+    }
+
+    img {
+        border: 1px gray("400") solid !important;
+    }
+}

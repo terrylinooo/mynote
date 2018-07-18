@@ -49,6 +49,12 @@ $grid-breakpoints: (
   text-shadow: none;
 }
 
+figcaption {
+  color: #6c757d;
+  margin: 0.25rem 0;
+  text-align: center;
+}
+
 /* Single - Post */
 .single-post-header {
   background-color: #fafbfc;
@@ -79,6 +85,13 @@ $grid-breakpoints: (
 }
 .single-post-header .post-meta .poster-avatar {
   margin-right: 5px;
+}
+
+article figcaption {
+  color: #6c757d;
+  margin: 0.25rem 0;
+  text-align: center;
+  font-style: italic;
 }
 
 /* Single - Post - A part of page title progress bar */
@@ -773,6 +786,19 @@ nav[data-toggle='toc'] .nav .nav > li > .active:focus {
 
 nav[data-toggle='toc'] .nav-link.active + ul {
   display: block;
+}
+
+.author-card {
+  display: flex;
+  border-left: 5px #e9ecef solid;
+  background-color: #f8f9fa;
+  border-radius: 3px;
+}
+.author-card > div {
+  padding: 25px;
+}
+.author-card img {
+  border: 1px #ced4da solid !important;
 }
 
 input:-webkit-autofill,

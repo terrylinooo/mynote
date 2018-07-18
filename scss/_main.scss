@@ -36,6 +36,15 @@
     }
 }
 
+article {
+    figcaption {
+        color: gray("600");
+        margin: 0.25rem 0;
+        text-align: center;
+        font-style: italic;
+    }
+}
+
 /* Single - Post - A part of page title progress bar */
 
 .single-post-title-bar {

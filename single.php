@@ -61,7 +61,12 @@ get_header();
 					<article id="post-<?php the_ID(); ?>" <?php post_class( 'markdown-body' ); ?>>
 
 						<?php if ( has_post_thumbnail() ) : ?>
+
+						<figure>
 							<?php the_post_thumbnail(); ?>
+							<figcaption>This is a test<?php echo get_the_post_thumbnail_caption(); ?></figcaption>
+						</figure>
+
 						<?php endif; ?>
 
 						<?php the_content(); ?>
