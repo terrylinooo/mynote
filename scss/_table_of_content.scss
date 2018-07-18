@@ -1,7 +1,3 @@
-$toc_main_color: dodgerblue;
-$toc_border_color: dodgerblue;
-$toc_base_font_size: 14px;
-$toc_sub_font_size: 13px;
 
 nav[data-toggle='toc'] .nav>li>a {
     display: block;
@@ -33,7 +29,7 @@ nav[data-toggle='toc'] .nav-link.active:focus {
 /* Nav: second level (shown on .active) */
 
 nav[data-toggle='toc'] .nav-link+ul {
-    display: none;
+    /* display: none; */
     /* Hide by default, but at >768px, show it */
     padding-bottom: 10px;
 }
