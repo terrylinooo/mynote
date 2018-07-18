@@ -109,6 +109,36 @@ $grid-breakpoints: (
   padding: 10px !important;
 }
 
+.section-intro {
+  width: 100%;
+  min-height: 640px;
+  background-color: #2b3137;
+  color: #ffffff;
+  overflow: hidden;
+}
+.section-intro a {
+  color: #fff !important;
+  cursor: pointer;
+}
+.section-intro .desc-text {
+  color: #adb5bd;
+}
+
+.article-list {
+  color: #666666;
+  min-height: 250px;
+  overflow: hidden;
+}
+.article-list a {
+  color: #333333;
+}
+.article-list a:hover {
+  color: #0366dd;
+}
+.article-list .read-more-link {
+  color: #0366dd;
+}
+
 .header {
   background-color: #24292e;
   color: #c8c9ca;
