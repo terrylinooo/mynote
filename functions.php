@@ -834,7 +834,19 @@ function post_repository_script() {
 		wp_enqueue_script( 'github-buttons', 'https://buttons.github.io/buttons.js', [], false, true );
 	}
 }
+
 add_action( 'wp_enqueue_scripts', 'post_repository_script' );
+
+/**
+ * Replace language attrbute from en_US to en.
+ *
+ * @return string
+ */
+function replace_language_attributes() {
+	return 'lang=' . substr( get_bloginfo( 'language' ), 0, 2 );
+}
+
+add_filter( 'language_attributes', 'replace_language_attributes' );
 
 /**
  * Article reading progress bar.
@@ -916,6 +928,31 @@ function post_progress_title_script() {
 add_action( 'wp_footer', 'post_progress_title_script', 1, 1 );
 
 /**
+ * Initial Bootstrap TOC plugin.
+ *
+ * @return void
+ */
+function post_bootstrap_toc_script() {
+	if ( is_single() ) {
+?>
+	<script>
+		jQuery( document ).ready(function( $ ) {
+			Toc.init({
+				$nav: $( '#toc' ),
+				$scope: $( '.markdown-body' )
+			});
+			$( 'body' ).scrollspy({
+				target: '#toc'
+			});
+		});
+	</script>
+<?php
+	}
+}
+
+add_action( 'wp_footer', 'post_bootstrap_toc_script', 1, 2 );
+
+/**
  * Show title progress bar.
  *
  * @return void
@@ -964,6 +1001,7 @@ function githuber_edit_button() {
 /**
  * The comment button.
  *
+ * @param bool $show_label Display label.
  * @return void
  */
 function githuber_comment_button( $show_label = false ) {
@@ -979,8 +1017,7 @@ function githuber_comment_button( $show_label = false ) {
 
 /**
  * The Githuber button.
- * 
- * @param bool $show_label Show text label or not.
+ *
  * @return void
  */
 function githuber_read_button() {
@@ -995,7 +1032,7 @@ function githuber_read_button() {
 
 /**
  * The posted date button.
- * 
+ *
  * @param bool $show_label Show text label or not.
  * @return void
  */
