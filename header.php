@@ -31,7 +31,7 @@
 				<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
 
 					<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>">
-						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo_githuber_s.png" alt="Logo" class="logo-img">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo_githuber_s.png" alt="Logo" class="logo-img">
 					</a>
 
 					<?php if ( has_nav_menu( 'header-menu' ) ) : ?>

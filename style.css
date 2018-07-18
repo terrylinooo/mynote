@@ -81,6 +81,7 @@ $grid-breakpoints: (
   margin-right: 5px;
 }
 
+/* Single - Post - A part of page title progress bar */
 .single-post-title-bar {
   background-color: #24292e;
   color: #c8c9ca;
@@ -916,12 +917,12 @@ body #wpadminbar {
 
 @media (min-width: 1200px) {
   .section-intro {
-    background-image: url("./images/bg_circuit.png");
+    background-image: url("./assets/images/bg_circuit.png");
   }
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .section-intro {
-    background-image: url("./images/bg_circuit_xl.png");
+    background-image: url("./assets/images/bg_circuit_xl.png");
   }
   .section-intro h1 {
     font-size: 4.2rem;
@@ -932,7 +933,7 @@ body #wpadminbar {
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .section-intro {
-    background-image: url("./images/bg_circuit_lg.png");
+    background-image: url("./assets/images/bg_circuit_lg.png");
   }
   .section-intro h1 {
     font-size: 4.0rem;
@@ -943,7 +944,7 @@ body #wpadminbar {
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   .section-intro {
-    background-image: url("./images/bg_circuit_md.png");
+    background-image: url("./assets/images/bg_circuit_md.png");
   }
   .section-intro h1 {
     font-size: 3.2rem;
@@ -954,7 +955,7 @@ body #wpadminbar {
 }
 @media (min-width: 360px) and (max-width: 575.98px) {
   .section-intro {
-    background-image: url("./images/bg_circuit_sm.png");
+    background-image: url("./assets/images/bg_circuit_sm.png");
   }
   .section-intro h1 {
     margin-top: 20px;
@@ -966,7 +967,7 @@ body #wpadminbar {
 }
 @media (max-width: 359.98px) {
   .section-intro {
-    background-image: url("./images/bg_circuit_mx.png");
+    background-image: url("./assets/images/bg_circuit_mx.png");
   }
   .section-intro h1 {
     margin-top: 30px;

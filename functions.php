@@ -147,7 +147,7 @@ function githuber_styles() {
 	wp_register_style( 'githuber', get_template_directory_uri() . '/style.css', array(), '1.0', 'all' );
 	wp_enqueue_style( 'githuber' );
 
-	wp_register_style( 'markdown', get_template_directory_uri() . '/markdown_themes/markdown_github.css', array(), '1.0', 'all' );
+	wp_register_style( 'markdown', get_template_directory_uri() . '/markdown-theme-github.css', array(), '1.0', 'all' );
 	wp_enqueue_style( 'markdown' );
 }
 
