@@ -118,10 +118,10 @@ function githuber_post_thumbnail() {
 function githuber_header_scripts() {
 	if ( 'wp-login.php' !== $GLOBALS['pagenow'] && ! is_admin() ) {
 
-		wp_register_script( 'bootstrap', get_template_directory_uri() . '/vendor/bootstrap/js/bootstrap.bundle.min.js', array( 'jquery' ), '4.1.0' );
+		wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js', array( 'jquery' ), '4.1.0' );
 		wp_enqueue_script( 'bootstrap' );
 
-		wp_register_script( 'bootstrap-toc', get_template_directory_uri() . '/vendor/bootstrap-toc/bootstrap-toc.min.js', array( 'jquery' ), '1.0.0' );
+		wp_register_script( 'bootstrap-toc', get_template_directory_uri() . '/assets/vendor/bootstrap-toc/bootstrap-toc.min.js', array( 'jquery' ), '1.0.0' );
 		wp_enqueue_script( 'bootstrap-toc' );
 
 		wp_register_script( 'githuber-script', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '1.0.0' );
@@ -135,10 +135,10 @@ add_action( 'init', 'githuber_header_scripts' );
  * Add styles
  */
 function githuber_styles() {
-	wp_register_style( 'bootstrap', get_template_directory_uri() . '/vendor/bootstrap/css/bootstrap.min.css', array(), '4.1.o', 'all' );
+	wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css', array(), '4.1.o', 'all' );
 	wp_enqueue_style( 'bootstrap' );
 
-	wp_register_style( 'fontawesome', get_template_directory_uri() . '/vendor/fontawesome/css/fontawesome-all.min.css', array(), '5.1.0', 'all' );
+	wp_register_style( 'fontawesome', get_template_directory_uri() . '/assets/vendor/fontawesome/css/fontawesome-all.min.css', array(), '5.1.0', 'all' );
 	wp_enqueue_style( 'fontawesome' );
 
 	wp_register_style( 'google-font-roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400', array(), '1.0', 'all' );
