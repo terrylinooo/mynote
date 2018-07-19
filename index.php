@@ -21,7 +21,7 @@ get_header(); ?>
 						<p class="mb4 desc-text"><?php echo html_entity_decode( get_bloginfo( 'description') ); ?></p>
 					</div>
 					<div class="col-12 col-md-5">
-						<p class="p-5"><?php home_category_labels(); ?></p>
+						<p class="p-5"><?php githuber_category_labels(); ?></p>
 					</div>
 				</div>
 			</div>
@@ -41,5 +41,7 @@ get_header(); ?>
 	</main>
 
 <?php get_sidebar(); ?>
+
+
 
 <?php get_footer(); ?>

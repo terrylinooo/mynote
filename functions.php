@@ -13,6 +13,9 @@
 // Load Bootstrap 4 Walker.
 require_once dirname( __FILE__ ) . '/inc/class-bootstrap4-walker.php';
 
+// Load shortcodes.
+require_once dirname( __FILE__ ) . '/inc/shortcode.php';
+
 if ( function_exists( 'add_theme_support' ) ) {
 	// Add Menu Support.
 	add_theme_support( 'menus' );
@@ -1135,7 +1138,7 @@ function githuner_admin_bar() {
  *
  * @return void
  */
-function home_category_labels() {
+function githuber_category_labels() {
 	$categories = get_categories();
 
 	$i = 0;
@@ -1151,24 +1154,44 @@ function home_category_labels() {
 	}
 }
 
-// Display the links to the extra feeds such as category feeds.
-remove_action( 'wp_head', 'feed_links_extra', 3 );
-// Display the links to the general feeds: Post and Comment Feed.
-remove_action( 'wp_head', 'feed_links', 2 );
-// Display the link to the Really Simple Discovery service endpoint, EditURI link.
-remove_action( 'wp_head', 'rsd_link' );
-// Display the link to the Windows Live Writer manifest file.
-remove_action( 'wp_head', 'wlwmanifest_link' );
-// Index link.
-remove_action( 'wp_head', 'index_rel_link' );
-// Prev link.
-remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
-// Start link.
-remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
-// Display relational links for the posts adjacent to the current post.
-remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
-// Display the XHTML generator that is generated on the wp_head hook, WP version.
-remove_action( 'wp_head', 'wp_generator' );
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
-remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+/**
+ * Output JSON format microdata.
+ *
+ * @param string $data_type Data type: website (homepage), article (post), breadcrumb (all).
+ * @return void
+ */
+function githuber_microdata( $data_type ) {
+	if ( 'breadcrumb' === $data_type ) {
+		$breadcrumb               = new stdClass();
+		$breadcrumb->{'@context'} = 'http://schema.org';
+		$breadcrumb->{'@type'}    = 'BreadcrumbList';
+
+		// 1: homepage.
+		// 2: primary category.
+		// 3: current post.
+		$item_list_element[1]               = new stdClass();
+		$item_list_element[1]->{'@type'}    = 'ListItem';
+		$item_list_element[1]->{'position'} = 1;
+
+		$item_list_element[1]->{'item'}           = new stdClass();
+		$item_list_element[1]->{'item'}->{'@id'}  = get_site_url();
+		$item_list_element[1]->{'item'}->{'name'} = 'dfgfdg';
+
+		$breadcrumb->{'itemListElement'} = $item_list_element;
+
+		echo wp_json_encode( $breadcrumb );
+	}
+}
+
+remove_action( 'wp_head', 'feed_links_extra' );                // Display the links to the extra feeds such as category feeds.
+remove_action( 'wp_head', 'feed_links' );                      // Display the links to the general feeds: Post and Comment Feed.
+remove_action( 'wp_head', 'rsd_link' );                        // Display the link to the Really Simple Discovery service endpoint, EditURI link.
+remove_action( 'wp_head', 'wlwmanifest_link' );                // Display the link to the Windows Live Writer manifest file.
+remove_action( 'wp_head', 'index_rel_link' );                  // Index link.
+remove_action( 'wp_head', 'parent_post_rel_link' );            // Prev link.
+remove_action( 'wp_head', 'start_post_rel_link' );             // Start link.
+remove_action( 'wp_head', 'adjacent_posts_rel_link' );         // Display relational links for the posts adjacent to the current post.
+remove_action( 'wp_head', 'wp_generator' );                    // Display the XHTML generator that is generated on the wp_head hook, WP version.
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head' );
+remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 
