@@ -10,4 +10,21 @@
     &.title {
         top: 5px !important;
     }
+
+    &.column-switch {
+        top: 0px !important;
+        z-index: 1030;
+        color: #aaaaaa;
+        height: 60px;
+
+        .btn {
+            font-size: 0.9rem;
+            margin: 5px;
+
+            &.active {
+                color: #ffffff;
+            }
+        }
+
+    }
 }

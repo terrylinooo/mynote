@@ -10,16 +10,24 @@
  * @version 1.0.0
  */
 
+if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	return;
+}
 ?>
-<aside class="sidebar" role="complementary">
 
-	<div class="sidebar-widget">
-		<?php if ( ! function_exists( 'dynamic_sidebar' ) || ! dynamic_sidebar( 'widget-area-1' ) ) ?>
-	</div>
+<div class="navbar sticky-top column-switch">
+	<ul class="nav nav-pills">
+		<li class="nav-item">
+			<a class="btn btn-primary btn-sm active" role="button" data-target="#sidebar">Sidebar</a>
+		</li>
+		<li class="nav-item">
+			<a class="btn btn-primary btn-sm active" role="button" data-target="#toc">Table of Content</a>
+		</li>
+	</ul>
+</div>
+<div id="sidebar" class="sidebar">
+	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+</div>
 
-	<div class="sidebar-widget">
-		<?php if ( ! function_exists( 'dynamic_sidebar' ) || ! dynamic_sidebar( 'widget-area-2' ) ) ?>
-	</div>
-
-</aside>
+<nav id="toc" class="sticky-top toc" role="navigation"></nav>
 

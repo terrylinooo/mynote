@@ -16,15 +16,15 @@
 
 				<div class="container site-info">
 
-					&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>  <?php esc_html_e( 'Powered by', 'githuber' ); ?> 
-					<a href="https://wordpress.org/" title="WordPress">WordPress</a> &amp; 
-					<a href="https://terryl.in/theme/githuber" title="githuber">Githuber theme</a>
+					&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>  / <?php esc_html_e( 'Powered by', 'githuber' ); ?> 
+
+					<a href="https://terryl.in/theme/githuber" title="githuber"><?php esc_html_e( 'Githuber theme', 'githuber' ); ?></a>
 
 				</div>
 
 			</footer>
 
-		</div><!-- wrapper /-->
+		</div><!-- .wrapper -->
 
 		<?php wp_footer(); ?>
 

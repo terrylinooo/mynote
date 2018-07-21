@@ -1,32 +1,30 @@
-:root {
-    --progress-bar-height: 4px;
-    --progress-bar-color: gainsboro;
-    --progress-bar-value-color: dodgerblue;
-    --progress-bar-value: 20%;
-}
+
+$progress-bar-height: 4px;
+$progress-bar-color: rgba(214, 168, 168, 0.1);
+$progress-bar-value-color: dodgerblue;
 
 progress {
     appearance: none;
     position: absolute;
     width: 100%;
-    height: var(--progress-bar-height);
-    background-color: var(--progress-bar-color);
+    height: $progress-bar-height;
+    background-color: $progress-bar-color;
     border: none;
     
     &::-moz-progress-bar {
-        background-color: var(--progress-bar-value-color);
+        background-color: $progress-bar-value-color;
     }
     
     &::-webkit-progress-bar {
-        background-color: var(--progress-bar-color);
+        background-color: $progress-bar-color;
     }
     
     &::-webkit-progress-value {
-        background-color: var(--progress-bar-value-color);
+        background-color: $progress-bar-value-color;
     }
     
     &::-ms-fill {
-        background-color: var(--progress-bar-value-color);
+        background-color: $progress-bar-value-color;
     }
 }
 
@@ -47,4 +45,5 @@ progress {
     position: absolute;
     right: 0; bottom: 0;
     font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
 }

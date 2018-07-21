@@ -1,0 +1,34 @@
+
+/* Sidebar widgets */
+
+.sidebar {
+
+    .widget {
+        border-bottom: 1px #ddd solid;
+        padding: 10px;
+        margin: 0 0 10px 0;
+
+        .search-form {
+
+        }
+
+        .search-field-wrapper {
+            padding: 10px;
+        }
+    }
+}
+
+.widget {
+    font-size: 0.9rem;
+
+    .widget-title {
+        font-size: 1.3rem;
+    }
+
+}
+
+.input-group {
+    .search-field {
+        border-right: 0;
+    }
+}

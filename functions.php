@@ -59,13 +59,14 @@ function githuber_nav() {
 /**
  * If header_menu not set.
  */
-function default_nav() { ?>
+function default_nav() {
+	?>
 	<div id="githuber-nav-bar" class="collapse navbar-collapse">
 		<ul id="menu-primary-menu" class="navbar-nav mr-auto">
 			<li class="nav-item"><a href="<?php get_home_url(); ?>" class="nav-link">Home</a></li>
 		</ul>
 	</div>
-<?php
+	<?php
 }
 
 /**
@@ -244,6 +245,7 @@ add_filter( 'the_category', 'remove_invalid_rel_for_category' );
  */
 function add_slug_to_body_class( $classes ) {
 	global $post;
+
 	if ( is_home() ) {
 		$key = array_search( 'blog', $classes, true );
 		if ( $key > -1 ) {
@@ -293,6 +295,7 @@ add_action( 'widgets_init', 'githuber_widgets_init' );
  */
 function remove_recent_comments_style() {
 	global $wp_widget_factory;
+
 	remove_action( 'wp_head', array(
 		$wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
 		'recent_comments_style',
@@ -619,8 +622,8 @@ function githuber_comment_form() {
 		'title_reply'          => __( 'Write a Reply or Comment', 'githuber' ),
 		'comment_notes_after'  => '',
 		'comment_field'        => $comment_field,
-		'title_reply_before'   => '<div id="reply-title" class="comment-reply-title">',
-		'title_reply_after'    => '</div>',
+		'title_reply_before'   => '<h3 id="reply-title" class="comment-reply-title">',
+		'title_reply_after'    => '</h3>',
 		'class_submit'         => 'btn btn-green my-1',
 		'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . '</p>',
 	);
@@ -853,10 +856,11 @@ add_filter( 'language_attributes', 'replace_language_attributes' );
 
 /**
  * Article reading progress bar.
+ * Sidebar switcher.
  *
  * @return void
  */
-function post_progress_title_script() {
+function single_post_script() {
 	if ( is_single() ) {
 ?>
 	<script>
@@ -921,6 +925,27 @@ function post_progress_title_script() {
 				} 
 			);
 		});
+
+		// Sidebar switcher
+		$( '.column-switch .btn ').click(function() {
+			var target = $( this ).attr( 'data-target' );
+			if ( $( this ).hasClass( 'active' ) ) {
+				$( this ).removeClass( 'active' );
+				$( target ).hide();
+			} else {
+				$( this ).addClass( 'active' );
+				$( target ).show();
+			}
+
+			if ( $( '.column-switch .btn.active ').length == 0 ) {
+				$( '#main-container' ).attr( 'data-previous-class', $( '#main-container' ).attr( 'class' ) );
+				$( '#main-container' ).attr( 'class', 'col col-sm-12' );
+				$( '#aside-container' ).hide();
+			} else {
+				$( '#main-container' ).attr( 'class', $( '#main-container' ).attr( 'data-previous-class' ) );
+				$( '#aside-container' ).show();
+			}
+		});
 	});
 
 	</script>
@@ -928,7 +953,7 @@ function post_progress_title_script() {
 	}
 }
 
-add_action( 'wp_footer', 'post_progress_title_script', 1, 1 );
+add_action( 'wp_footer', 'single_post_script', 1, 1 );
 
 /**
  * Initial Bootstrap TOC plugin.
@@ -963,12 +988,12 @@ add_action( 'wp_footer', 'post_bootstrap_toc_script', 1, 2 );
 function title_progress_bar() {
 	?>
 		<div class="single-post-title-bar clear" role="banner">
-			<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
-				<div class="container">
+			<div class="container">
+				<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
 					<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>"></a>
 					<div id="progress-title"></div>
-				</div>	
-			</nav>
+				</nav>
+			</div>
 			<div class="progress-wrapper">
 				<div class="progress-label"></div>
 				<progress></progress>
@@ -1084,6 +1109,15 @@ function githuber_author_posted_date( $show_avatar = false, $avatar_size = 40 ) 
  * The author card.
  */
 function githuber_author_card() {
+	$description = get_the_author_meta( 'description' );
+	$pattern     = get_shortcode_regex();
+	$author_link = '';
+
+	if ( preg_match_all( '/' . $pattern . '/s', $description, $matches ) ) {
+		foreach ( $matches as $shortcode ) {
+			$author_link .= do_shortcode( $shortcode[0] );
+		}
+	}
 	?>
 		<aside class="author-card">
 			<div class="author-avatar">
@@ -1096,6 +1130,9 @@ function githuber_author_card() {
 				<div class="author-description">
 					<?php echo esc_html( get_the_author_meta( 'description' ) ); ?>
 				</div>
+			</div>
+			<div class="author-links">
+				<?php echo $author_link; ?>
 			</div>
 		</aside>
 	<?php

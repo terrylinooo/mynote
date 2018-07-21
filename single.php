@@ -11,6 +11,7 @@
  */
 
 get_header();
+
 ?>
 
 <?php title_progress_bar(); ?>
@@ -21,7 +22,6 @@ get_header();
 		<?php the_post(); ?>
 
 		<div class="single-post-header">
-
 			<div class="container">
 
 				<h1 id="post-title"><?php the_title(); ?></h1>
@@ -29,12 +29,12 @@ get_header();
 				<div class="post-githuber-buttons">
 
 					<?php githuber_edit_button(); ?>
-
 					<?php githuber_comment_button(); ?>
 
 					<?php if ( is_single() && get_post_type() === 'repository' ) : ?>
 						<?php the_github_buttons(); ?>
 					<?php endif; ?>
+
 				</div>
 
 				<div class="post-meta">
@@ -42,68 +42,58 @@ get_header();
 				</div>
 
 			</div>
-
 		</div>
 
 	<?php endwhile; ?>
 <?php endif; ?>
 
 <div class="container">
-	<main role="main">
-		<section class="row">
-			<div class="col col-sm-8">
+	<div class="row">
+		<main id="main-container" class="col col-sm-8" role="main">
 
-				<?php if ( have_posts() ) : ?>
-					<?php while ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
+			<?php while ( have_posts() ) : ?>
 
-					<?php the_post(); ?>
+			<?php the_post(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class( 'markdown-body' ); ?>>
-
-						<?php if ( has_post_thumbnail() ) : ?>
-
-						<figure>
-							<?php the_post_thumbnail(); ?>
-							<figcaption>This is a test<?php echo get_the_post_thumbnail_caption(); ?></figcaption>
-						</figure>
-
-						<?php endif; ?>
-
-						<?php the_content(); ?>
-
-						<?php the_tags( __( 'Tags: ', 'githuber' ), ', ', '<br>' ); ?>
-
-						<p>
-							<?php esc_html_e( 'Categorised in: ', 'githuber' ); ?>
-							<?php githuber_category(); ?>
-						</p>
-
-						<?php githuber_author_card(); ?>
-
-						<?php comments_template(); ?>
-
-					</article>
-
-					<?php endwhile; ?>
-
-				<?php else : ?>
-
-					<article>
-						<h1><?php esc_html_e( 'Sorry, nothing to display.', 'githuber' ); ?></h1>
-					</article>
-
+			<article id="post-<?php the_ID(); ?>" <?php post_class( 'markdown-body' ); ?>>
+				<?php if ( has_post_thumbnail() ) : ?>
+				<figure>
+					<?php the_post_thumbnail(); ?>
+					<figcaption><?php echo esc_html( get_the_post_thumbnail_caption() ); ?></figcaption>
+				</figure>
 				<?php endif; ?>
+				<?php the_content(); ?>
+			</article>
 
-			</div>
-			<div class="col col-sm-4">
-				<nav id="toc" class="sticky-top toc"></nav>
-			</div>
-		</section>
-	</main>
+			<section>
+				<?php the_tags( __( 'Tags: ', 'githuber' ), ', ', '<br>' ); ?>
+				<p>
+					<?php esc_html_e( 'Categorised in: ', 'githuber' ); ?>
+					<?php githuber_category(); ?>
+				</p>
+			</section>
 
-	<?php get_sidebar(); ?>
+			<?php githuber_author_card(); ?>
+			<?php comments_template(); ?>
 
-</div>
+			<?php endwhile; ?>
+		<?php else : ?>
 
-<?php get_footer(); ?>
+			<article>
+				<h1><?php esc_html_e( 'Sorry, nothing to display.', 'githuber' ); ?></h1>
+			</article>
 
+		<?php endif; ?>
+
+		</main>
+		<aside id="aside-container" class="col col-sm-4" role="complementary">
+			<?php get_sidebar(); ?>
+		</aside>
+	</div><!-- .row -->
+</div><!-- .container -->
+
+
+<?php
+
+get_footer();

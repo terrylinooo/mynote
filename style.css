@@ -49,12 +49,6 @@ $grid-breakpoints: (
   text-shadow: none;
 }
 
-figcaption {
-  color: #6c757d;
-  margin: 0.25rem 0;
-  text-align: center;
-}
-
 /* Single - Post */
 .single-post-header {
   background-color: #fafbfc;
@@ -119,6 +113,7 @@ article figcaption {
   padding: 0;
 }
 .single-post-title-bar .navbar {
+  min-height: 60px;
   padding: 10px !important;
 }
 
@@ -442,6 +437,27 @@ article figcaption {
   font-family: "Roboto", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "Dotum", "Gulim";
 }
 
+/* Sidebar widgets */
+.sidebar .widget {
+  border-bottom: 1px #ddd solid;
+  padding: 10px;
+  margin: 0 0 10px 0;
+}
+.sidebar .widget .search-field-wrapper {
+  padding: 10px;
+}
+
+.widget {
+  font-size: 0.9rem;
+}
+.widget .widget-title {
+  font-size: 1.3rem;
+}
+
+.input-group .search-field {
+  border-right: 0;
+}
+
 .btn-counter {
   display: inline-block;
 }
@@ -681,33 +697,39 @@ a.btn-info {
 .sticky-top.title {
   top: 5px !important;
 }
-
-:root {
-  --progress-bar-height: 4px;
-  --progress-bar-color: gainsboro;
-  --progress-bar-value-color: dodgerblue;
-  --progress-bar-value: 20%;
+.sticky-top.column-switch {
+  top: 0px !important;
+  z-index: 1030;
+  color: #aaaaaa;
+  height: 60px;
+}
+.sticky-top.column-switch .btn {
+  font-size: 0.9rem;
+  margin: 5px;
+}
+.sticky-top.column-switch .btn.active {
+  color: #ffffff;
 }
 
 progress {
   appearance: none;
   position: absolute;
   width: 100%;
-  height: var(--progress-bar-height);
-  background-color: var(--progress-bar-color);
+  height: 4px;
+  background-color: rgba(214, 168, 168, 0.1);
   border: none;
 }
 progress::-moz-progress-bar {
-  background-color: var(--progress-bar-value-color);
+  background-color: dodgerblue;
 }
 progress::-webkit-progress-bar {
-  background-color: var(--progress-bar-color);
+  background-color: rgba(214, 168, 168, 0.1);
 }
 progress::-webkit-progress-value {
-  background-color: var(--progress-bar-value-color);
+  background-color: dodgerblue;
 }
 progress::-ms-fill {
-  background-color: var(--progress-bar-value-color);
+  background-color: dodgerblue;
 }
 
 #progress-title {
@@ -728,6 +750,7 @@ progress::-ms-fill {
   right: 0;
   bottom: 0;
   font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 nav[data-toggle='toc'] .nav > li > a {
