@@ -927,24 +927,33 @@ function single_post_script() {
 		});
 
 		// Sidebar switcher
-		$( '.column-switch .btn ').click(function() {
+		$( '#main-container' ).attr( 'data-previous-class', $( '#main-container' ).attr( 'class' ) );
+
+		$( '.column-control .btn-counter' ).click(function() {
 			var target = $( this ).attr( 'data-target' );
 			if ( $( this ).hasClass( 'active' ) ) {
 				$( this ).removeClass( 'active' );
-				$( target ).hide();
+
+				if ( target == '#aside-container' ) {
+					$( '#main-container' ).attr( 'data-previous-class', $( '#main-container' ).attr( 'class' ) );
+					$( '#main-container' ).attr( 'class', 'col col-sm-12' );
+					$( '#aside-container' ).hide();
+				}
+				if ( target == '#sidebar') {
+					$( target ).show();
+				}
 			} else {
 				$( this ).addClass( 'active' );
-				$( target ).show();
+
+				if ( target == '#aside-container' ) {
+					$( '#main-container' ).attr( 'class', $( '#main-container' ).attr( 'data-previous-class' ) );
+					$( '#aside-container' ).show();
+				}
+                if ( target == '#sidebar') {
+					$( target ).hide();
+				}
 			}
 
-			if ( $( '.column-switch .btn.active ').length == 0 ) {
-				$( '#main-container' ).attr( 'data-previous-class', $( '#main-container' ).attr( 'class' ) );
-				$( '#main-container' ).attr( 'class', 'col col-sm-12' );
-				$( '#aside-container' ).hide();
-			} else {
-				$( '#main-container' ).attr( 'class', $( '#main-container' ).attr( 'data-previous-class' ) );
-				$( '#aside-container' ).show();
-			}
 		});
 	});
 
@@ -1024,6 +1033,24 @@ function githuber_edit_button() {
 			</div>
 		</a>
 	';
+}
+
+/**
+ * Adjust columns.
+ *
+ * @return void
+ */
+function githuber_column_control_button() {
+	?>
+		<div class="btn-group column-control">
+			<div class="btn-counter text-only active" data-target="#aside-container" role="button">		
+				<div class="btn"><i class="fas fa-columns"></i></div>
+			</div>
+			<div class="btn-counter text-only" data-target="#sidebar" role="button">		
+				<div class="btn"><i class="fas fa-list-ul"></i></div>
+			</div> 
+		</div>
+	<?php
 }
 
 /**

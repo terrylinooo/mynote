@@ -26,8 +26,9 @@ get_header();
 
 				<h1 id="post-title"><?php the_title(); ?></h1>
 
-				<div class="post-githuber-buttons">
 
+				<div class="post-githuber-buttons">
+					<?php githuber_column_control_button(); ?>
 					<?php githuber_edit_button(); ?>
 					<?php githuber_comment_button(); ?>
 

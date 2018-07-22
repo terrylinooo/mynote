@@ -490,6 +490,9 @@ article figcaption {
   -moz-appearance: none;
   appearance: none;
 }
+.btn-counter.active .btn {
+  background-image: linear-gradient(-180deg, #dddddd 0%, #ffffff 90%);
+}
 .btn-counter.text-only .btn {
   border-top-right-radius: 0.25em;
   border-bottom-right-radius: 0.25em;
@@ -509,11 +512,33 @@ article figcaption {
   border-bottom-right-radius: 3px;
 }
 
+.btn-group {
+  display: inline-block;
+  font-size: 0;
+}
+.btn-group .btn-counter .btn {
+  border-radius: 0;
+}
+.btn-group .btn-counter:first-child .btn {
+  border-top-left-radius: 0.25em;
+  border-bottom-left-radius: 0.25em;
+}
+.btn-group .btn-counter:last-child .btn {
+  border-left-width: 0 !important;
+  border-top-right-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+}
+
+.post-githuber-buttons {
+  overflow: hidden;
+  font-size: 0;
+  display: flex;
+}
 .post-githuber-buttons a, .post-githuber-buttons a:hover {
   text-decoration: none !important;
 }
-.post-githuber-buttons > div {
-  margin-left: 5px;
+.post-githuber-buttons > div, .post-githuber-buttons > a {
+  margin-left: 5px !important;
 }
 .post-githuber-buttons .github-button-container {
   display: inline-block;
@@ -822,23 +847,6 @@ nav[data-toggle='toc'] .nav-link.active + ul {
 }
 .author-card img {
   border: 1px #ced4da solid !important;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus
-input:-webkit-autofill,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  color: #1b1f23 !important;
-  border: 1px solid d1d5da !important;
-  -webkit-text-fill-color: d1d5da !important;
-  -webkit-box-shadow: none !important;
-  transition: background-color 5000s ease-in-out 0s;
 }
 
 .alignnone {

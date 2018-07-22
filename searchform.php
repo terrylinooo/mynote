@@ -12,7 +12,7 @@ $unique_id = uniqid( 'search-form-' );
 
 ?>
 
-<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" autocomplete="off">
 	<label for="<?php echo esc_attr( $unique_id ); ?>">
 		<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label', 'githuber' ); ?></span>
 	</label>
