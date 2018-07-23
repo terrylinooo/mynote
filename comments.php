@@ -25,6 +25,8 @@ if ( post_password_required() ) {
 
 <div id="comments" class="discussion-wrapper">
 
+	<h3 class="comment-section-title"><?php esc_html_e( 'Comments', 'githuber' ); ?></h3>
+
 	<div class="discussion-sidebar">
 
 	</div>

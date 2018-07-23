@@ -1015,6 +1015,17 @@ function title_progress_bar() {
 add_post_type_support( 'repository', 'wpcom-markdown' );
 
 /**
+ * We always have header search bar, so we don't need this.
+ *
+ * @return void
+ */
+function unregister_default_widgets() {
+	unregister_widget( 'WP_Widget_Search' );
+}
+
+add_action( 'widgets_init', 'unregister_default_widgets', 11 );
+
+/**
  * Custom edit button with GitHub style.
  *
  * @return void
@@ -1061,12 +1072,14 @@ function githuber_column_control_button() {
  */
 function githuber_comment_button( $show_label = false ) {
 	echo '
-		<div class="btn-counter">
-			<div class="btn">
-				' . ( ( $show_label ) ? '<i class="fas fa-comment-dots"></i> ' . esc_html__( 'Comment', 'githuber' ) : '<i class="fas fa-comment-dots"></i>' ) . '
+		<a href="#comments" class="button-like-link">
+			<div class="btn-counter">
+				<div class="btn">
+					' . ( ( $show_label ) ? '<i class="fas fa-comment-dots"></i> ' . esc_html__( 'Comment', 'githuber' ) : '<i class="fas fa-comment-dots"></i>' ) . '
+				</div>
+				<div class="count-box">' . esc_html( get_comments_number() ) . '</div>
 			</div>
-			<div class="count-box">' . esc_html( get_comments_number() ) . '</div>
-		</div>
+		</a>
 	';
 }
 
@@ -1141,25 +1154,28 @@ function githuber_author_card() {
 	$author_link = '';
 
 	if ( preg_match_all( '/' . $pattern . '/s', $description, $matches ) ) {
-		foreach ( $matches as $shortcode ) {
-			$author_link .= do_shortcode( $shortcode[0] );
+		$all_matches = [];
+		foreach ( $matches[0] as $shortcode ) {
+			$all_matches[] = $shortcode;
+			$author_link .= do_shortcode( $shortcode );
 		}
+		$description = str_replace( $all_matches, '', $description );
 	}
 	?>
 		<aside class="author-card">
 			<div class="author-avatar">
-				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 96 ) ) ); ?>" class="rounded-circle img-thumbnail">
+				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 96 ) ) ); ?>" class="rounded-circle">
 			</div>
 			<div class="author-info">
 				<div class="author-title">
 					<?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
 				</div>
 				<div class="author-description">
-					<?php echo esc_html( get_the_author_meta( 'description' ) ); ?>
+					<?php echo esc_html( $description ); ?>
 				</div>
-			</div>
-			<div class="author-links">
-				<?php echo $author_link; ?>
+				<div class="author-links">
+					<?php echo $author_link; ?>
+				</div>
 			</div>
 		</aside>
 	<?php

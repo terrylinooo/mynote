@@ -11,14 +11,14 @@
  */
 
 $author_bio_icons = array(
-	'github'        => '<i class="fab fa-github"></i>',
+	'github'        => '<i class="fab fa-github-alt"></i>',
 	'gitlab'        => '<i class="fab fa-gitlab"></i>',
 	'stackoverflow' => '<i class="fab fa-stack-overflow"></i>',
-	'facebook'      => '<i class="fab fa-facebook"></i>',
+	'facebook'      => '<i class="fab fa-facebook-f"></i>',
 	'twitter'       => '<i class="fab fa-twitter"></i>',
-	'google'        => '<i class="fab fa-google-plus"></i>',
+	'google'        => '<i class="fab fa-google"></i>',
 	'instagram'     => '<i class="fab fa-instagram"></i>',
-	'pinterest'     => '<i class="fab fa-pinterest"></i>',
+	'pinterest'     => '<i class="fab fa-pinterest-p"></i>',
 	'youtube'       => '<i class="fab fa-youtube"></i>',
 );
 
@@ -30,7 +30,7 @@ $author_bio_icons = array(
  */
 function get_social_url( $type = '' ) {
 	global $author_bio_icons;
-	return '<a href="' . $link . '" class="brand-link brand-' . $type . '">' . $author_bio_icons[ $type ] . '</a>';
+	return '<a href="' . $link . '" class="brand-link brand-' . $type . ' brand-sm">' . $author_bio_icons[ $type ] . '</a>';
 }
 
 /**
@@ -123,5 +123,31 @@ function twitter_sortcode( $atts, $link = '' ) {
 }
 
 add_shortcode( 'twitter', 'twitter_sortcode' );
+
+/**
+ * Short Code - Google icon and link.
+ *
+ * @param array  $atts Just leave it blank.
+ * @param string $link Your Google Plus URL.
+ * @return string
+ */
+function google_sortcode( $atts, $link = '' ) {
+	return get_social_url( 'google' );
+}
+
+add_shortcode( 'google', 'google_sortcode' );
+
+/**
+ * Short Code - Youtube icon and link.
+ *
+ * @param array  $atts Just leave it blank.
+ * @param string $link Your Youtube Page URL.
+ * @return string
+ */
+function youtube_sortcode( $atts, $link = '' ) {
+	return get_social_url( 'youtube' );
+}
+
+add_shortcode( 'youtube', 'youtube_sortcode' );
 
 

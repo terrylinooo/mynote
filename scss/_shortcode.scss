@@ -1,0 +1,26 @@
+.brand-link {
+    text-align: center;
+    border: 1px #dddddd solid;
+    border-radius: 50%;
+
+    @each $color-name, $color-code in $brand-colors {
+        &.brand-#{$color-name} {
+            
+            border-top-color: lighten($color-code, 10%) !important;
+            border-left-color: lighten($color-code, 10%) !important;
+            border-right-color: darken($color-code, 10%) !important;
+            border-bottom-color: darken($color-code, 10%) !important;
+            color: $color-code !important;
+        }
+    }
+
+
+
+    &.brand-sm {
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        font-size: 0.85rem;
+        line-height: 25px;
+    }
+}

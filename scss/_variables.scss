@@ -70,6 +70,20 @@ $toc_border_color: dodgerblue;
 $toc_base_font_size: 14px;
 $toc_sub_font_size:  13px;
 
+/* Brand Color */
+$brand-colors: () !default;
+$brand-colors: map-merge((
+	"github": #333333,
+	"gitlab": #fca326,
+	"stackoverflow": #f48024,
+	"facebook": #3b5998,
+	"twitter": #1da1f2,
+	"google": #dd4b39,
+	"instagram": #833ab4,
+	"pinterest": #bd081c,
+	"youtube": #ff0000
+), $brand-colors);
+
 $white:    #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
