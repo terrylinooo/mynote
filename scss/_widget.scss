@@ -25,7 +25,17 @@
         font-size: 1.3rem;
     }
 
+    ul {
+        padding-left: 30px;
+    }
 
+    a {
+        color: #767676;
+
+        &:hover {
+            color: dodgerblue;
+        }
+    }
 
 }
 

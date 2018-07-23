@@ -454,6 +454,15 @@ article figcaption {
 .widget .widget-title {
   font-size: 1.3rem;
 }
+.widget ul {
+  padding-left: 30px;
+}
+.widget a {
+  color: #767676;
+}
+.widget a:hover {
+  color: dodgerblue;
+}
 
 .input-group .search-field {
   border-right: 0;
