@@ -16,7 +16,7 @@ get_header();
 
 	<main role="main">
 
-		<section>
+		<div class="container">
 
 		<?php if ( have_posts()): the_post(); ?>
 
@@ -78,7 +78,7 @@ get_header();
 
 			<?php get_template_part( 'pagination' ); ?>
 
-		</section>
+		</div>
 
 	</main>
 

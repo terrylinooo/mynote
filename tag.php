@@ -14,7 +14,7 @@
 
 	<main role="main">
 
-		<section>
+		<div class="container">
 
 			<h1>
 				<?php esc_html_e( 'Tag Archive: ', 'githuber' ); ?>
@@ -25,7 +25,7 @@
 
 			<?php get_template_part( 'pagination' ); ?>
 
-		</section>
+		</div>
 
 	</main>
 
