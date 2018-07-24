@@ -11,7 +11,6 @@
  */
 
 get_header();
-
 ?>
 
 <?php title_progress_bar(); ?>
@@ -53,11 +52,13 @@ get_header();
 				</figure>
 				<?php endif; ?>
 				<?php the_content(); ?>
-				<p class="alignright" style="text-align: right">
-					<?php the_tags( __( 'Tags: ', 'githuber' ), ', ', '' ); ?><br />
-					<?php esc_html_e( 'Last modified: ', 'githuber' ); ?><?php the_modified_date(); ?>
-				</p>
 			</article>
+			<section class="modified-date">
+				<?php esc_html_e( 'Last modified: ', 'githuber' ); ?><?php the_modified_date(); ?>
+			</section>
+			<section class="tags">
+					<?php the_tags( '', '' ); ?>
+			</section>
 			<?php githuber_author_card(); ?>
 			<?php comments_template(); ?>
 			<?php endwhile; ?>
@@ -74,5 +75,4 @@ get_header();
 </div><!-- .container -->
 
 <?php
-
 get_footer();

@@ -80,6 +80,39 @@ article {
 	}
 }
 
+.tags {
+    margin: 15px 0;
+    text-align: right;
+
+    a {
+        padding: 2px 5px;
+        margin: 5px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        color: #24292e;
+        border-radius: 3px;
+
+        &:hover {
+            background-image: linear-gradient(-180deg, #dddddd 0%, #ffffff 90%);
+        }
+
+        &:before {
+            font-family: 'Font Awesome 5 Free';
+            content: "\f02b";
+            font-size: 13px;
+            font-weight: 900;
+            padding-right: 5px;
+            color: #aaaaaa;
+        }
+    }
+}
+
+.modified-date {
+    margin: 40px !important;
+    text-align: center;
+    font-size: 0.85rem;
+    font-style: italic;
+}
 
 
 

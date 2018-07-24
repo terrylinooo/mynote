@@ -1162,6 +1162,7 @@ function githuber_author_card() {
 		$description = str_replace( $all_matches, '', $description );
 	}
 	?>
+		<h3 class="author-section-title"><?php esc_html_e( 'Author', 'githuber' ); ?></h3>
 		<aside class="author-card">
 			<div class="author-avatar">
 				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 96 ) ) ); ?>" class="rounded-circle">

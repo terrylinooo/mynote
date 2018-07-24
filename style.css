@@ -118,6 +118,37 @@ article figcaption {
   padding: 10px !important;
 }
 
+.tags {
+  margin: 15px 0;
+  text-align: right;
+}
+.tags a {
+  padding: 2px 5px;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #24292e;
+  border-radius: 3px;
+}
+.tags a:hover {
+  background-image: linear-gradient(-180deg, #dddddd 0%, #ffffff 90%);
+}
+.tags a:before {
+  font-family: 'Font Awesome 5 Free';
+  content: "\f02b";
+  font-size: 13px;
+  font-weight: 900;
+  padding-right: 5px;
+  color: #aaaaaa;
+}
+
+.modified-date {
+  margin: 40px !important;
+  text-align: center;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
 .section-intro {
   width: 100%;
   min-height: 640px;
@@ -375,7 +406,7 @@ article figcaption {
   font-size: 12px;
 }
 
-.comment-reply-title, .comment-section-title {
+.comment-reply-title, .comment-section-title, .author-section-title {
   font-size: 18px;
   margin: 10px 0;
 }
