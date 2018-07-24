@@ -30,24 +30,21 @@ get_header();
 					<?php if ( is_single() && get_post_type() === 'repository' ) : ?>
 						<?php the_github_buttons(); ?>
 					<?php endif; ?>
-				</div>
+				</div><!-- .post-githuber-buttons -->
 				<div class="post-meta">
 					<?php githuber_author_posted_date( true ); ?>
 				</div>
-			</div>
-		</div>
+			</div><!-- .container -->
+		</div><!-- .single-post-header -->
 	<?php endwhile; ?>
 <?php endif; ?>
 
 <div class="container">
 	<div class="row">
 		<main id="main-container" class="col col-sm-8" role="main">
-
 		<?php if ( have_posts() ) : ?>
 			<?php while ( have_posts() ) : ?>
-
 			<?php the_post(); ?>
-
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'markdown-body' ); ?>>
 				<?php if ( has_post_thumbnail() ) : ?>
 				<figure>
@@ -56,37 +53,25 @@ get_header();
 				</figure>
 				<?php endif; ?>
 				<?php the_content(); ?>
-
-				<p><?php esc_html_e( 'Last modified: ', 'githuber' ); ?><?php the_modified_date(); ?></p>
-			</article>
-
-			<section>
-				<?php the_tags( __( 'Tags: ', 'githuber' ), ', ', '<br>' ); ?>
-				<p>
-					<?php esc_html_e( 'Categorised in: ', 'githuber' ); ?>
-					<?php githuber_category(); ?>
+				<p class="alignright" style="text-align: right">
+					<?php the_tags( __( 'Tags: ', 'githuber' ), ', ', '' ); ?><br />
+					<?php esc_html_e( 'Last modified: ', 'githuber' ); ?><?php the_modified_date(); ?>
 				</p>
-			</section>
-
+			</article>
 			<?php githuber_author_card(); ?>
 			<?php comments_template(); ?>
-
 			<?php endwhile; ?>
 		<?php else : ?>
-
 			<article>
 				<h1><?php esc_html_e( 'Sorry, nothing to display.', 'githuber' ); ?></h1>
 			</article>
-
 		<?php endif; ?>
-
 		</main>
 		<aside id="aside-container" class="col col-sm-4" role="complementary">
 			<?php get_sidebar(); ?>
 		</aside>
 	</div><!-- .row -->
 </div><!-- .container -->
-
 
 <?php
 
