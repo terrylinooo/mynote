@@ -18,33 +18,24 @@ get_header();
 
 <?php if ( have_posts() ) : ?>
 	<?php while ( have_posts() ) : ?>
-
 		<?php the_post(); ?>
-
+		<?php githuber_post_breadcrumb(); ?>
 		<div class="single-post-header">
 			<div class="container">
-
 				<h1 id="post-title"><?php the_title(); ?></h1>
-
-
 				<div class="post-githuber-buttons">
 					<?php githuber_column_control_button(); ?>
 					<?php githuber_edit_button(); ?>
 					<?php githuber_comment_button(); ?>
-
 					<?php if ( is_single() && get_post_type() === 'repository' ) : ?>
 						<?php the_github_buttons(); ?>
 					<?php endif; ?>
-
 				</div>
-
 				<div class="post-meta">
 					<?php githuber_author_posted_date( true ); ?>
 				</div>
-
 			</div>
 		</div>
-
 	<?php endwhile; ?>
 <?php endif; ?>
 
@@ -65,6 +56,8 @@ get_header();
 				</figure>
 				<?php endif; ?>
 				<?php the_content(); ?>
+
+				<p><?php esc_html_e( 'Last modified: ', 'githuber' ); ?><?php the_modified_date(); ?></p>
 			</article>
 
 			<section>

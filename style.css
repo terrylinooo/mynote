@@ -457,12 +457,6 @@ article figcaption {
 .widget ul {
   padding-left: 30px;
 }
-.widget a {
-  color: #767676;
-}
-.widget a:hover {
-  color: dodgerblue;
-}
 
 .input-group .search-field {
   border-right: 0;
@@ -920,6 +914,14 @@ nav[data-toggle='toc'] .nav-link.active + ul {
   display: inline-block;
   font-size: 0.85rem;
   line-height: 25px;
+}
+
+.breadcrumb {
+  font-size: 0.813rem !important;
+  border-radius: 0 !important;
+}
+.breadcrumb i {
+  color: #333333;
 }
 
 .author-card {

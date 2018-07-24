@@ -1235,31 +1235,46 @@ function githuber_category_labels() {
 }
 
 /**
- * Output JSON format microdata.
+ * Breadcrumb for single post.
  *
- * @param string $data_type Data type: website (homepage), article (post), breadcrumb (all).
  * @return void
  */
-function githuber_microdata( $data_type ) {
-	if ( 'breadcrumb' === $data_type ) {
-		$breadcrumb               = new stdClass();
-		$breadcrumb->{'@context'} = 'http://schema.org';
-		$breadcrumb->{'@type'}    = 'BreadcrumbList';
+function githuber_post_breadcrumb() {
+	global $post;
 
-		// 1: homepage.
-		// 2: primary category.
-		// 3: current post.
-		$item_list_element[1]               = new stdClass();
-		$item_list_element[1]->{'@type'}    = 'ListItem';
-		$item_list_element[1]->{'position'} = 1;
+	if ( is_singular() ) {
+		$categories   = get_the_category( $post->ID );
 
-		$item_list_element[1]->{'item'}           = new stdClass();
-		$item_list_element[1]->{'item'}->{'@id'}  = get_site_url();
-		$item_list_element[1]->{'item'}->{'name'} = 'dfgfdg';
+		$is_first_cat = false;
+		foreach ( $categories as $cat ) {
+			if ( empty( $cat->parent ) && ! $is_first_cat ) {
+				$is_first_cat = true;
+				$first_cat = $cat;
+			}
+		}
+		// Looking for child category.
+		$is_child_cat = false;
+		foreach ( $categories as $cat ) {
+			if ( $cat->category_parent === $first_cat->cat_ID && ! $is_child_cat ) {
+				$is_child_cat = true;
+				$child_cat = $cat;
+			}
+		}
 
-		$breadcrumb->{'itemListElement'} = $item_list_element;
+		?>
 
-		echo wp_json_encode( $breadcrumb );
+		<nav class="breadcrumb">
+			<div class="container">
+				<a class="breadcrumb-item" href="<?php site_url(); ?>"><i class="fas fa-globe"></i></a>
+				<a class="breadcrumb-item" href="<?php echo esc_url( get_term_link( $first_cat->slug, 'category' ) ); ?>"><?php echo esc_html( $first_cat->name ); ?></a>
+				<?php if ( ! empty( $child_cat ) ) : ?>
+				<a class="breadcrumb-item" href="<?php echo esc_url( get_term_link( $child_cat->slug, 'category' ) ); ?>"><?php echo esc_html( $child_cat->name ); ?></a>
+				<?php endif; ?>
+				<span class="breadcrumb-item active"><?php the_title(); ?></span>
+			</div>
+		</nav>
+
+		<?php
 	}
 }
 
