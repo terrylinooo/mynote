@@ -637,7 +637,7 @@ function githuber_comment_form() {
 		'title_reply'          => __( 'Write a Reply or Comment', 'githuber' ),
 		'comment_notes_after'  => '',
 		'comment_field'        => $comment_field,
-		'title_reply_before'   => '<h3 id="reply-title" class="comment-reply-title">',
+		'title_reply_before'   => '<h3 id="reply-title" class="section-title">',
 		'title_reply_after'    => '</h3>',
 		'class_submit'         => 'btn btn-green my-1',
 		'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . '</p>',
@@ -1177,7 +1177,7 @@ function githuber_author_card() {
 		$description = str_replace( $all_matches, '', $description );
 	}
 	?>
-		<h3 class="author-section-title"><?php esc_html_e( 'Author', 'githuber' ); ?></h3>
+		<h3 class="section-title"><?php esc_html_e( 'Author', 'githuber' ); ?></h3>
 		<aside class="author-card" itemscope itemprop="author" itemtype="http://schema.org/Person">
 			<div class="author-avatar">
 				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 96 ) ) ); ?>" class="rounded-circle" itemprop="image">

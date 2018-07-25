@@ -423,9 +423,9 @@ article figcaption {
   font-size: 12px;
 }
 
-.comment-reply-title, .comment-section-title, .author-section-title {
+.section-title {
   font-size: 18px;
-  margin: 10px 0;
+  margin: 40px 0 10px 0;
 }
 
 /* Typography - Others */
