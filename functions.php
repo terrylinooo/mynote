@@ -10,6 +10,8 @@
  * @since 1.0.0
  */
 
+define( 'SCHEMA_ARTICLE_TYPE', 'TechArticle' );
+
 // Load Bootstrap 4 Walker.
 require_once dirname( __FILE__ ) . '/inc/class-bootstrap4-walker.php';
 
@@ -35,6 +37,19 @@ if ( function_exists( 'add_theme_support' ) ) {
 
 	// Localisation Support.
 	load_theme_textdomain( 'githuber', get_template_directory() . '/languages' );
+}
+
+/**
+ * Get article schemal.
+ *
+ * @return string
+ */
+function githuber_article_schemal() {
+	$schema = 'Article';
+	if ( is_single() ) {
+		$schema = SCHEMA_ARTICLE_TYPE;
+	}
+	return 'http://schema.org/' . $schema;
 }
 
 /**
@@ -949,7 +964,7 @@ function single_post_script() {
 					$( '#main-container' ).attr( 'class', $( '#main-container' ).attr( 'data-previous-class' ) );
 					$( '#aside-container' ).show();
 				}
-                if ( target == '#sidebar') {
+				if ( target == '#sidebar') {
 					$( target ).hide();
 				}
 			}
@@ -1163,15 +1178,15 @@ function githuber_author_card() {
 	}
 	?>
 		<h3 class="author-section-title"><?php esc_html_e( 'Author', 'githuber' ); ?></h3>
-		<aside class="author-card">
+		<aside class="author-card" itemscope itemprop="author" itemtype="http://schema.org/Person">
 			<div class="author-avatar">
-				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 96 ) ) ); ?>" class="rounded-circle">
+				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 96 ) ) ); ?>" class="rounded-circle" itemprop="image">
 			</div>
 			<div class="author-info">
-				<div class="author-title">
+				<div class="author-title" itemprop="name">
 					<?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
 				</div>
-				<div class="author-description">
+				<div class="author-description" itemprop="description">  
 					<?php echo esc_html( $description ); ?>
 				</div>
 				<div class="author-links">
@@ -1261,20 +1276,41 @@ function githuber_post_breadcrumb() {
 				$child_cat = $cat;
 			}
 		}
-
+		$pos = 1;
 		?>
-
 		<nav class="breadcrumb">
 			<div class="container">
-				<a class="breadcrumb-item" href="<?php site_url(); ?>"><i class="fas fa-globe"></i></a>
-				<a class="breadcrumb-item" href="<?php echo esc_url( get_term_link( $first_cat->slug, 'category' ) ); ?>"><?php echo esc_html( $first_cat->name ); ?></a>
-				<?php if ( ! empty( $child_cat ) ) : ?>
-				<a class="breadcrumb-item" href="<?php echo esc_url( get_term_link( $child_cat->slug, 'category' ) ); ?>"><?php echo esc_html( $child_cat->name ); ?></a>
-				<?php endif; ?>
-				<span class="breadcrumb-item active"><?php the_title(); ?></span>
+				<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a href="<?php echo esc_url( get_home_url() ); ?>" itemprop="item">
+							<span itemprop="name"><i class="fas fa-globe"></i><span class="sr-only">Home</span></span>
+						</a>
+						<meta itemprop="position" content="<?php echo $pos++; ?>" />
+					</li>
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a href="<?php echo esc_url( get_term_link( $first_cat->slug, 'category' ) ); ?>" itemprop="item">
+							<span itemprop="name"><?php echo esc_html( $first_cat->name ); ?></span>
+						</a>
+						<meta itemprop="position" content="<?php echo $pos++; ?>" />
+					</li>
+					<?php $next = 3; ?>
+					<?php if ( ! empty( $child_cat ) ) : ?>
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a class="breadcrumb-item" href="<?php echo esc_url( get_term_link( $child_cat->slug, 'category' ) ); ?>" itemprop="item">
+							<span itemprop="name"><?php echo esc_html( $child_cat->name ); ?></span>
+						</a>
+						<meta itemprop="position" content="<?php echo $pos++; ?>" />
+					</li>
+					<?php $next++; ?>
+					<?php endif; ?>
+					<li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<span itemprop="name"><?php the_title(); ?></span>
+						<meta itemprop="item" content="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" />
+						<meta itemprop="position" content="<?php echo $pos++; ?>" />
+					</li>
+				</ul>
 			</div>
 		</nav>
-
 		<?php
 	}
 }

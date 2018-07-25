@@ -89,6 +89,23 @@ article figcaption {
   font-style: italic;
 }
 
+/* Category page. */
+.category-header {
+  background-color: #fafbfc;
+  background: none;
+  padding: 20px 0px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e1e4e8;
+}
+.category-header h1 {
+  font-size: 32px;
+  margin-right: 150px;
+  margin-bottom: 0;
+  font-weight: 400;
+  line-height: 1.125;
+  word-wrap: break-word;
+}
+
 /* Single - Post - A part of page title progress bar */
 .single-post-title-bar {
   background-color: #24292e;
@@ -950,6 +967,11 @@ nav[data-toggle='toc'] .nav-link.active + ul {
 .breadcrumb {
   font-size: 0.813rem !important;
   border-radius: 0 !important;
+}
+.breadcrumb ul, .breadcrumb li {
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 .breadcrumb i {
   color: #333333;

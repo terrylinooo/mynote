@@ -45,6 +45,25 @@ article {
     }
 }
 
+/* Category page. */
+
+.category-header {
+    background-color: #fafbfc;
+    background: none;
+    padding: 20px 0px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e1e4e8;
+
+    h1 {
+        font-size: 32px;
+        margin-right: 150px;
+        margin-bottom: 0;
+        font-weight: 400;
+        line-height: 1.125;
+        word-wrap: break-word;
+    }
+}
+
 /* Single - Post - A part of page title progress bar */
 
 .single-post-title-bar {
