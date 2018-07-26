@@ -102,6 +102,10 @@ article {
             content: '\f002';
         }
 
+        &.user:before {
+            content: '\f007';
+        }
+
         .badge {
             font-size: 0.81rem;
         }

@@ -145,6 +145,9 @@ article figcaption {
 .category-header h1.search:before {
   content: '\f002';
 }
+.category-header h1.user:before {
+  content: '\f007';
+}
 .category-header h1 .badge {
   font-size: 0.81rem;
 }
@@ -1055,6 +1058,23 @@ nav[data-toggle='toc'] .nav-link.active + ul {
   line-height: 150%;
   margin-bottom: 10px;
   font-weight: bold;
+}
+
+/* Author page */
+.category-header .author-card {
+  border: 0px;
+  background: none;
+  border-radius: 0px;
+  margin: 0;
+}
+.category-header .author-card .author-title {
+  font-size: 1.6rem;
+  line-height: 150%;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.category-header .section-title {
+  display: none;
 }
 
 .alignnone {

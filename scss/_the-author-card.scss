@@ -39,4 +39,28 @@
     }
 }
 
+/* Author page */
+
+.category-header {
+
+    .author-card {
+        border: 0px;
+        background: none;
+        border-radius: 0px;
+        margin: 0;
+    
+        .author-title {
+            font-size: 1.6rem;
+            line-height: 150%;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    }
+
+    .section-title {
+        display: none;
+    }
+    
+}
+
 
