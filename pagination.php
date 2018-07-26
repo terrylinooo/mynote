@@ -13,6 +13,6 @@
 ?>
 
 <div class="pagination">
-	<?php githuber_pagination(); ?>
+	<?php //githuber_pagination(); ?>
 </div>
 
