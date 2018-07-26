@@ -416,7 +416,7 @@ function bootstrap4_pagination( $range = 2 ) {
  * @return integer
  */
 function githuber_excerpt_length( $length ) {
-	return 20;
+	return 100;
 }
 
 add_filter( 'excerpt_length', 'githuber_excerpt_length' );
@@ -1287,6 +1287,10 @@ function githuber_post_breadcrumb() {
 			}
 		}
 		$pos = 1;
+
+		if ( empty( $is_child_cat ) ) {
+			return null;
+		}
 		?>
 		<nav class="breadcrumb">
 			<div class="container">
@@ -1297,13 +1301,14 @@ function githuber_post_breadcrumb() {
 						</a>
 						<meta itemprop="position" content="<?php echo $pos++; ?>" />
 					</li>
+					<?php if ( ! empty( $child_cat ) ) : ?>
 					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 						<a href="<?php echo esc_url( get_term_link( $first_cat->slug, 'category' ) ); ?>" itemprop="item">
 							<span itemprop="name"><?php echo esc_html( $first_cat->name ); ?></span>
 						</a>
 						<meta itemprop="position" content="<?php echo $pos++; ?>" />
 					</li>
-					<?php $next = 3; ?>
+					<?php endif; ?>
 					<?php if ( ! empty( $child_cat ) ) : ?>
 					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 						<a class="breadcrumb-item" href="<?php echo esc_url( get_term_link( $child_cat->slug, 'category' ) ); ?>" itemprop="item">
@@ -1311,7 +1316,6 @@ function githuber_post_breadcrumb() {
 						</a>
 						<meta itemprop="position" content="<?php echo $pos++; ?>" />
 					</li>
-					<?php $next++; ?>
 					<?php endif; ?>
 					<li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 						<span itemprop="name"><?php the_title(); ?></span>

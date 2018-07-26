@@ -21,6 +21,20 @@
         padding-left: 10px !important;
         padding-right: 10px !important;
     }
+    .container {
+        width: calc(100% - 20px);
+        max-width: calc(100% - 20px);
+    }
+
+    nav.breadcrumb {
+        padding-left: 0;
+        padding-right: 0;
+
+        ul {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 
     .header {
         .container {
@@ -56,6 +70,7 @@
 }
 
 @include media-breakpoint-down(lg) {
+
     .px-responsive {
         padding-left: 25px !important;
         padding-right: 25px !important;

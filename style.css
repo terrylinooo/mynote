@@ -1122,6 +1122,20 @@ body #wpadminbar {
     padding-right: 10px !important;
   }
 
+  .container {
+    width: calc(100% - 20px);
+    max-width: calc(100% - 20px);
+  }
+
+  nav.breadcrumb {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  nav.breadcrumb ul {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .header .container {
     min-height: 60px;
     max-width: 100%;
