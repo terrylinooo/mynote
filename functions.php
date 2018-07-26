@@ -1161,6 +1161,16 @@ function githuber_author_posted_date( $show_avatar = false, $avatar_size = 40 ) 
 }
 
 /**
+ * Site icon.
+ *
+ * @return void
+ */
+function githuber_site_icon() {
+	$fallback_url = get_template_directory_uri() . '/assets/images/logo_githuber_s.png';
+	echo esc_url( get_site_icon_url( '32', $fallback_url ) );
+}
+
+/**
  * The author card.
  */
 function githuber_author_card() {
