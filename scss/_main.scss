@@ -49,18 +49,66 @@ article {
 
 .category-header {
     background-color: #fafbfc;
-    background: none;
     padding: 20px 0px;
     margin-bottom: 20px;
     border-bottom: 1px solid #e1e4e8;
 
     h1 {
-        font-size: 32px;
+        font-size: 2rem;
         margin-right: 150px;
         margin-bottom: 0;
         font-weight: 400;
-        line-height: 1.125;
+        line-height: 48px;
         word-wrap: break-word;
+
+        &:before {
+            font-family: 'Font Awesome 5 Free';
+            border: 0px #dddddd solid;
+            border-radius: 5px;
+            width: 48px;
+            height: 48px;
+            padding-left: 6px;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            top: -3px;
+            overflow: hidden;
+            text-align: center;
+            margin-right: 10px;
+            line-height: 48px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            padding-right: 5px;
+            @include metal();
+        }
+
+        &.category:before {
+            content: '\f0c6';
+        }
+
+        &.archive:before {
+            content: '\f1c6';
+        }
+
+        &.tag:before {
+            content: '\f02c';
+        }
+
+        &.git:before {
+            content: '\f1d3';
+        }
+
+        &.search:before {
+            content: '\f002';
+        }
+
+        .badge {
+            font-size: 0.81rem;
+        }
+    }
+
+    .term-desctiotion {
+        font-size: 0.81rem !important;
     }
 }
 
@@ -98,6 +146,8 @@ article {
 		padding: 10px !important;
 	}
 }
+
+/* Tags */
 
 .tags {
     margin: 15px 0;

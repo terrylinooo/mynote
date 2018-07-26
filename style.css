@@ -20,6 +20,8 @@
 /* Table of Content */
 /* Brand Color */
 /* Base functions to get safe web font */
+/* Background image color */
+/* Metal */
 /*
 
 $grid-breakpoints: (
@@ -92,18 +94,62 @@ article figcaption {
 /* Category page. */
 .category-header {
   background-color: #fafbfc;
-  background: none;
   padding: 20px 0px;
   margin-bottom: 20px;
   border-bottom: 1px solid #e1e4e8;
 }
 .category-header h1 {
-  font-size: 32px;
+  font-size: 2rem;
   margin-right: 150px;
   margin-bottom: 0;
   font-weight: 400;
-  line-height: 1.125;
+  line-height: 48px;
   word-wrap: break-word;
+}
+.category-header h1:before {
+  font-family: 'Font Awesome 5 Free';
+  border: 0px #dddddd solid;
+  border-radius: 5px;
+  width: 48px;
+  height: 48px;
+  padding-left: 6px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -3px;
+  overflow: hidden;
+  text-align: center;
+  margin-right: 10px;
+  line-height: 48px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding-right: 5px;
+  text-shadow: rgba(102, 102, 102, 0.5) 0 -1px 0, rgba(255, 255, 255, 0.6) 0 2px 1px;
+  background-image: -webkit-repeating-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 6%, rgba(255, 255, 255, 0.1) 7.5%), -webkit-repeating-linear-gradient(left, transparent 0%, transparent 4%, rgba(0, 0, 0, 0.03) 4.5%), -webkit-repeating-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 1.2%, rgba(255, 255, 255, 0.15) 2.2%), linear-gradient(180deg, #c7c7c7 0%, #e6e6e6 47%, #c7c7c7 53%, #b3b3b3 100%);
+  color: #333333;
+  box-shadow: inset rgba(38, 38, 38, 0.2) 0 0px 0px 1px, inset rgba(38, 38, 38, 0.2) 0 -1px 2px 3px, inset rgba(0, 0, 0, 0.25) 0 -1px 0px 4px, inset rgba(255, 255, 255, 0.7) 0 2px 1px 4px, rgba(0, 0, 0, 0.15) 0 -2px 2px 2px, rgba(255, 255, 255, 0.5) 0 2px 2px 2px;
+  /* outer HL */
+}
+.category-header h1.category:before {
+  content: '\f0c6';
+}
+.category-header h1.archive:before {
+  content: '\f1c6';
+}
+.category-header h1.tag:before {
+  content: '\f02c';
+}
+.category-header h1.git:before {
+  content: '\f1d3';
+}
+.category-header h1.search:before {
+  content: '\f002';
+}
+.category-header h1 .badge {
+  font-size: 0.81rem;
+}
+.category-header .term-desctiotion {
+  font-size: 0.81rem !important;
 }
 
 /* Single - Post - A part of page title progress bar */
@@ -135,6 +181,7 @@ article figcaption {
   padding: 10px !important;
 }
 
+/* Tags */
 .tags {
   margin: 15px 0;
   text-align: right;

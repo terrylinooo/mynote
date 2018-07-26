@@ -158,6 +158,24 @@ $theme-colors: map-merge((
 	"dark":       $dark
 ), $theme-colors);
 
+$bg-image-colors: () !default;
+
+$bg-image-gold:    linear-gradient(-180deg, #fffd76 0%, #fffed1 90%);
+$bg-image-silver:  linear-gradient(-180deg, #dddddd 0%, #ffffff 90%);
+$bg-image-copper:  linear-gradient(-180deg, #8a8b27 0%, #ffffff 90%);
+$bg-image-crystal: linear-gradient(-180deg, #4b9bc9 0%, #ffffff 90%);
+$bg-image-emerald: linear-gradient(-180deg, #37c075 0%, #ffffff 90%);
+
+$bg-image-colors: map-merge((
+	"gold":    $bg-image-gold,
+	"silver":  $bg-image-silver,
+	"copper":  $bg-image-copper,
+	"crystal": $bg-image-crystal,
+	"emerald": $bg-image-emerald,
+), $bg-image-colors);
+
+
+
 $grid-breakpoints: (
 	xs: 0,
 	mx: 360px,

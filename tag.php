@@ -9,26 +9,26 @@
  * @since 1.0
  * @version 1.0.0
  */
+
+get_header();
 ?>
-<?php get_header(); ?>
 
-	<main role="main">
-
-		<div class="container">
-
-			<h1>
-				<?php esc_html_e( 'Tag Archive: ', 'githuber' ); ?>
-				<?php echo single_tag_title( '', false ); ?>
-			</h1>
-
-			<?php get_template_part( 'loop' ); ?>
-
-			<?php get_template_part( 'pagination' ); ?>
-
-		</div>
-
-	</main>
+<div class="category-header">
+	<div class="container">
+		<h1 id="post-title" class="tag" itemprop="headline">
+			<?php single_cat_title(); ?>
+		</h1>
+		<?php if ( ! empty( category_description() ) ) : ?>
+			<div class="term-desctiotion"><?php echo category_description(); ?></div>
+		<?php endif; ?>
+	</div>
+</div>
+<main role="main">
+	<div class="container">
+		<?php get_template_part( 'loop' ); ?>
+		<?php get_template_part( 'pagination' ); ?>
+	</div>
+</main>
 
 <?php get_sidebar(); ?>
-
 <?php get_footer(); ?>

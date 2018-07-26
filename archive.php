@@ -11,24 +11,23 @@
  * @version 1.0.0
  */
 
+get_header();
 ?>
 
-<?php get_header(); ?>
-
-	<main role="main">
-
-		<div class="container">
-
-			<h1><?php _e( 'Archives', 'githuber' ); ?></h1>
-
-			<?php get_template_part('loop'); ?>
-
-			<?php get_template_part('pagination'); ?>
-
-		</div>
-
-	</main>
+<div class="category-header">
+	<div class="container">
+		<h1 id="post-title" class="archive" itemprop="headline">
+			<?php esc_html_e( 'Archives', 'githuber' ); ?>
+			<span class="badge badge-secondary"><?php echo get_the_date( 'F, Y' ); ?></span>
+		</h1>
+	</div>
+</div>
+<main role="main">
+	<div class="container">
+		<?php get_template_part( 'loop' ); ?>
+		<?php get_template_part( 'pagination' ); ?>
+	</div>
+</main>
 
 <?php get_sidebar(); ?>
-
 <?php get_footer(); ?>
