@@ -41,7 +41,7 @@
 
 /* Author page */
 
-.category-header {
+.author-page {
 
     .author-card {
         border: 0px;
@@ -50,10 +50,15 @@
         margin: 0;
     
         .author-title {
-            font-size: 1.6rem;
+            font-size: 2.5rem;
             line-height: 150%;
             margin-bottom: 10px;
             font-weight: bold;
+
+            a {
+                color: #333333;
+                text-decoration: none;
+            }
         }
     }
 

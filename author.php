@@ -13,16 +13,9 @@
 get_header();
 ?>
 
-<div class="category-header">
-	<div class="container">
-		<h1 id="post-title" class="user" itemprop="headline">
-			<?php esc_html_e( 'Author Archives', 'githuber' ); ?>
-		</h1>
-		<?php githuber_author_card(); ?>
-	</div>
-</div>
 <main role="main">
-	<div class="container">
+	<div class="container author-page">
+		<?php githuber_author_card( 150, 'lg' ); ?>
 		<?php get_template_part( 'loop' ); ?>
 		<?php get_template_part( 'pagination' ); ?>
 	</div>

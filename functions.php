@@ -1172,8 +1172,13 @@ function githuber_site_icon() {
 
 /**
  * The author card.
+ *
+ * @param integer $avatar_size The avatar size.
+ * @param string  $icon_size   The social icon size. sm: 24px. md: 32px. lg: 48px. xl: 64px.
+ *
+ * @return void
  */
-function githuber_author_card() {
+function githuber_author_card( $avatar_size = 96, $icon_size = 'sm' ) {
 	$description = get_the_author_meta( 'description' );
 	$pattern     = get_shortcode_regex();
 	$author_link = '';
@@ -1190,7 +1195,7 @@ function githuber_author_card() {
 		<h3 class="section-title"><?php esc_html_e( 'Author', 'githuber' ); ?></h3>
 		<aside class="author-card" itemscope itemprop="author" itemtype="http://schema.org/Person">
 			<div class="author-avatar">
-				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 96 ) ) ); ?>" class="rounded-circle" itemprop="image">
+				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => $avatar_size ) ) ); ?>" class="rounded-circle" itemprop="image">
 			</div>
 			<div class="author-info">
 				<div class="author-title">
@@ -1201,7 +1206,7 @@ function githuber_author_card() {
 				<div class="author-description" itemprop="description">  
 					<?php echo esc_html( $description ); ?>
 				</div>
-				<div class="author-links">
+				<div class="author-links brand-<?php echo $icon_size; ?>">
 					<?php echo $author_link; ?>
 				</div>
 			</div>

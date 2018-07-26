@@ -30,7 +30,7 @@ $author_bio_icons = array(
  */
 function get_social_url( $type = '' ) {
 	global $author_bio_icons;
-	return '<a href="' . $link . '" class="brand-link brand-' . $type . ' brand-sm">' . $author_bio_icons[ $type ] . '</a>';
+	return '<a href="' . $link . '" class="brand-link brand-' . $type . '">' . $author_bio_icons[ $type ] . '</a>';
 }
 
 /**
