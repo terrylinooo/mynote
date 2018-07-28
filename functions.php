@@ -320,16 +320,18 @@ function remove_recent_comments_style() {
 add_action( 'widgets_init', 'remove_recent_comments_style' );
 
 /**
- * Bootstrap 4 Pagination
+ * Githuber - Bootstrap 4 Pagination
  *
  * @param integer $range - range of pagination to show previous and next pages.
  * @return void
  */
-function bootstrap4_pagination( $range = 2 ) {
+function githuber_pagination( $range = 1 ) {
 	global $paged, $wp_query;
 
+	$current    = $paged;
 	$pages      = $wp_query->max_num_pages;
-	$pagi_items = ( $range * 2 ) + 1;
+	// $pagi_items = ( $range * 2 ) + 1;
+	$pagi_items = $range;
 
 	if ( empty( $pages ) ) {
 		$pages = $wp_query->max_num_pages;
@@ -337,6 +339,10 @@ function bootstrap4_pagination( $range = 2 ) {
 		if ( empty( $pages ) ) {
 			$pages = 1;
 		}
+	}
+
+	if ( 0 === $current ) {
+		$current = 1;
 	}
 
 	if ( 1 !== $pages ) {
@@ -347,29 +353,29 @@ function bootstrap4_pagination( $range = 2 ) {
 			<ul class="pagination justify-content-center ft-wpbs">
 
 				<li class="page-item disabled hidden-md-down d-none d-lg-block">
-					<span class="page-link"><?php echo esc_html( $paged ); ?> / <?php echo esc_html( $pages ); ?></span>
+					<span class="page-link"><?php echo esc_html( $current ); ?> / <?php echo esc_html( $pages ); ?></span>
 				</li>
 
-				<?php if ( $paged > 2 && $paged > $range + 1 && $pagi_items < $pages ) : ?>
+				<?php if ( $current > 2 && $current > $range + 1 && $pagi_items < $pages ) : ?>
 
 				<li class="page-item">
-					<a class="page-link" href="<?php echo esc_url( get_pagenum_link( 1 ) ); ?>" aria-label="<?php esc_html_e( 'First Page', 'githuber' ); ?>">
-						&laquo; <span class="hidden-sm-down d-none d-md-block"> First</span>
+					<a class="page-link" href="<?php echo esc_url( get_pagenum_link( 1 ) ); ?>" aria-label="<?php esc_attr_e( 'First Page', 'githuber' ); ?>">
+						&laquo;<span class="hidden-sm-down d-none d-md-inline-block">&nbsp;<?php esc_html_e( 'First', 'githuber' ); ?></span>
 					</a>
 				</li>
 				<?php endif; ?>
 
-				<?php if ( $paged > 1 && $pagi_items < $pages ) : ?>
+				<?php if ( $current > 1 && $pagi_items < $pages ) : ?>
 					<li class="page-item">
-						<a class="page-link" href="<?php echo esc_url( get_pagenum_link( $paged - 1 ) ); ?>" aria-label="<?php esc_html_e( 'Previous Page', 'githuber' ); ?>">
-							&lsaquo; <span class="hidden-sm-down d-none d-md-block"> Previous</span>
+						<a class="page-link" href="<?php echo esc_url( get_pagenum_link( $current - 1 ) ); ?>" aria-label="<?php esc_attr_e( 'Previous Page', 'githuber' ); ?>">
+							&lsaquo;<span class="hidden-sm-down d-none d-md-inline-block">&nbsp;<?php esc_html_e( 'Previous', 'githuber' ); ?></span>
 						</a>
 					</li>
 				<?php endif; ?>
 
 				<?php for ( $i = 1; $i <= $pages; $i++ ) : ?>
-					<?php if ( 1 !== $pages && ( ! ( $i >= $paged + $range + 1 || $i <= ( $paged - $range ) - 1 ) || $pages <= $pagi_items ) ) : ?>
-						<?php if ( $paged === $i ) : ?>
+					<?php if ( 1 !== $pages && ( ! ( $i >= $current + $range + 1 || $i <= ( $current - $range ) - 1 ) || $pages <= $pagi_items ) ) : ?>
+						<?php if ( $current === $i ) : ?>
 							<li class="page-item active">
 								<span class="page-link">
 									<span class="sr-only"><?php esc_html_e( 'Current Page', 'githuber' ); ?></span>
@@ -378,8 +384,8 @@ function bootstrap4_pagination( $range = 2 ) {
 							</li>
 						<?php else : ?>
 							<li class="page-item">
-								<a class="page-link" href="<?php echo esc_url( get_pagenum_link( $i ) ); ?>'">
-									<span class="sr-only">Page </span>
+								<a class="page-link" href="<?php echo esc_url( get_pagenum_link( $i ) ); ?>">
+									<span class="sr-only"><?php esc_html_e( 'Page', 'githuber' ); ?></span>
 									<?php echo esc_html( $i ); ?>
 								</a>
 							</li>
@@ -387,20 +393,20 @@ function bootstrap4_pagination( $range = 2 ) {
 					<?php endif; ?>
 				<?php endfor; ?>
 
-				<?php if ( $paged < $pages && $pagi_items < $pages ) : ?>
+				<?php if ( $current < $pages && $pagi_items < $pages ) : ?>
 					<li class="page-item">
-						<a class="page-link" href="<?php echo esc_url( et_pagenum_link( $paged + 1 ) ); ?>" aria-label="Next Page">
-							<span class="hidden-sm-down d-none d-md-block">Next </span>&rsaquo;
+						<a class="page-link" href="<?php echo esc_url( get_pagenum_link( $current + 1 ) ); ?>" aria-label="<?php esc_attr_e( 'Next Page', 'githuber' ); ?>">
+							<span class="hidden-sm-down d-none d-md-inline-block"><?php esc_html_e( 'Next', 'githuber' ); ?>&nbsp;</span>&rsaquo;
 						</a>
 					</li>
 				<?php endif; ?>
 
-				<?php if ( $paged < $pages - 1 && $paged + $range - 1 < $pages && $pagi_items < $pages ) : ?>
+				<?php if ( $current < $pages - 1 && $current + $range - 1 < $pages && $pagi_items < $pages ) : ?>
 					<li class="page-item">
-						<a class="page-link" href="<?php echo esc_url( get_pagenum_link( $pages ) ); ?>" aria-label="Last Page">
-							<span class="hidden-sm-down d-none d-md-block">Last </span>&raquo;
+						<a class="page-link" href="<?php echo esc_url( get_pagenum_link( $pages ) ); ?>" aria-label="<?php esc_attr_e( 'Last Page', 'githuber' ); ?>">
+							<span class="hidden-sm-down d-none d-md-inline-block"><?php esc_html_e( 'Last', 'githuber' ); ?>&nbsp;</span>&raquo;
 						</a>
-					</li>';
+					</li>
 				<?php endif; ?>
 			</ul>
 		</nav>

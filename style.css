@@ -20,7 +20,6 @@
 /* Table of Content */
 /* Brand Color */
 /* Base functions to get safe web font */
-/* Background image color */
 /* Metal */
 /*
 
@@ -127,7 +126,7 @@ article figcaption {
   text-shadow: rgba(102, 102, 102, 0.5) 0 -1px 0, rgba(255, 255, 255, 0.6) 0 2px 1px;
   background-image: -webkit-repeating-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 6%, rgba(255, 255, 255, 0.1) 7.5%), -webkit-repeating-linear-gradient(left, transparent 0%, transparent 4%, rgba(0, 0, 0, 0.03) 4.5%), -webkit-repeating-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 1.2%, rgba(255, 255, 255, 0.15) 2.2%), linear-gradient(180deg, #c7c7c7 0%, #e6e6e6 47%, #c7c7c7 53%, #b3b3b3 100%);
   color: #333333;
-  box-shadow: inset rgba(38, 38, 38, 0.2) 0 0px 0px 1px, inset rgba(38, 38, 38, 0.2) 0 -1px 2px 3px, inset rgba(0, 0, 0, 0.25) 0 -1px 0px 4px, inset rgba(255, 255, 255, 0.7) 0 2px 1px 4px, rgba(0, 0, 0, 0.15) 0 -2px 2px 2px, rgba(255, 255, 255, 0.5) 0 2px 2px 2px;
+  box-shadow: inset rgba(38, 38, 38, 0.2) 0 0px 0px 1px, inset rgba(38, 38, 38, 0.2) 0 -1px 1px 1px, inset rgba(0, 0, 0, 0.25) 0 -1px 0px 2px, inset rgba(255, 255, 255, 0.7) 0 1px 0px 2px, rgba(0, 0, 0, 0.15) 0 -1px 1px 1px, rgba(255, 255, 255, 0.5) 0 1px 1px 1px;
   /* outer HL */
 }
 .category-header h1.category:before {
@@ -214,6 +213,11 @@ article figcaption {
   text-align: center;
   font-size: 0.85rem;
   font-style: italic;
+}
+
+/* Pagination */
+.pagination-container {
+  margin: 20px auto !important;
 }
 
 .section-intro {
@@ -317,11 +321,12 @@ article figcaption {
 }
 
 .footer {
-  margin: 20px;
+  margin: 40px 0 20px 0;
 }
 .footer .site-info {
   font-weight: 400;
   font-size: 12px;
+  text-align: center;
 }
 
 /* Comment */

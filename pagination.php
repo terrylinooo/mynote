@@ -12,7 +12,7 @@
 
 ?>
 
-<div class="pagination">
-	<?php //githuber_pagination(); ?>
+<div class="pagination-container">
+	<?php githuber_pagination(); ?>
 </div>
 
