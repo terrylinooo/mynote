@@ -572,6 +572,32 @@ figcaption {
   padding-left: 30px;
 }
 
+.home-middle-sidebar {
+  width: 100%;
+  background-color: #414b54;
+  color: #b3b3b3;
+  overflow: hidden;
+  display: block;
+  margin: 20px 0;
+}
+.home-middle-sidebar .widget .widget-title {
+  color: #ffffff;
+}
+.home-middle-sidebar .widget .tag-cloud-link {
+  color: #333333;
+  background-color: #ffffff;
+  border-radius: 3px;
+  margin: 2px 4px;
+  line-height: 150%;
+  padding: 2px 5px;
+  word-break: keep-all;
+  overflow: hidden;
+  display: inline-block;
+}
+.home-middle-sidebar .widget a {
+  color: #f1f1f1;
+}
+
 .input-group .search-field {
   border-right: 0;
 }

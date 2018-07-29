@@ -28,6 +28,41 @@
     ul {
         padding-left: 30px;
     }
+
+    .tag-cloud-link {
+        
+    }
+}
+
+.home-middle-sidebar {
+    width: 100%;
+    background-color: lighten($home_intro_bg, 10%);
+    color: darken($home-intro-font-color, 30%);
+    overflow: hidden;
+    display: block;
+    margin: 20px 0;
+
+    .widget {
+        .widget-title {
+            color: #ffffff;
+        }
+        .tag-cloud-link {
+            color: #333333;
+            background-color: #ffffff;
+            border-radius: 3px;
+            margin: 2px 4px;
+            line-height: 150%;
+            padding: 2px 5px;
+            word-break: keep-all;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        a {
+            color: #f1f1f1;
+        }
+
+    }
 }
 
 .input-group {

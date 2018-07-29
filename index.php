@@ -12,6 +12,7 @@
 
 get_header(); ?>
 
+<div class="data-schema">
 	<main role="main">
 		<div class="section-intro d-flex align-items-center">
 			<div class="container px-responsive">
@@ -39,5 +40,17 @@ get_header(); ?>
 		</div>
 
 	</main>
+
+	<br class="clearfix" />
+
+	<?php if ( is_active_sidebar( 'sidebar-4' ) ) : ?>
+	<aside class="home-middle-sidebar">
+		<div class="container px-responsive">
+			<div class="row my-4">
+				<?php dynamic_sidebar( 'sidebar-4' ); ?>
+			</div>
+		</div>
+	</div>
+	<?php endif; ?>
 
 <?php get_footer(); ?>

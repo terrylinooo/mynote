@@ -440,9 +440,9 @@ function githuber_widgets_init() {
 
 	register_sidebar( array(
 		'name'          => __( 'Footer', 'githuber' ),
-		'id'            => 'footer-1',
+		'id'            => 'sidebar-2',
 		'description'   => __( 'Add widgets here to appear in your footer.', 'githuber' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="widget %2$s col-lg col-md-4 col-sm-12">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
@@ -450,9 +450,19 @@ function githuber_widgets_init() {
 
 	register_sidebar( array(
 		'name'          => __( 'Sticky Sidebar', 'githuber' ),
-		'id'            => 'sidebar-2',
+		'id'            => 'sidebar-3',
 		'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'githuber' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Homepage', 'githuber' ),
+		'id'            => 'sidebar-4',
+		'description'   => __( 'Add widgets here to appear in your homepage.', 'githuber' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s col-lg col-md-4 col-sm-12">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
