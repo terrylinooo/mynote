@@ -823,8 +823,8 @@ a.btn-info {
   position: sticky;
   z-index: 1020;
 }
-.sticky-top.toc {
-  top: 70px !important;
+.sticky-top.sidebar {
+  top: 90px !important;
 }
 .sticky-top.title {
   top: 5px !important;

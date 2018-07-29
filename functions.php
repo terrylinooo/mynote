@@ -12,11 +12,14 @@
 
 define( 'SCHEMA_ARTICLE_TYPE', 'TechArticle' );
 
-// Load Bootstrap 4 Walker.
-require_once dirname( __FILE__ ) . '/inc/class-bootstrap4-walker.php';
+// Load Githuber Walker.
+require_once dirname( __FILE__ ) . '/inc/class-githuber-walker.php';
+
+// Load Githuber TOC Widget.
+require_once dirname( __FILE__ ) . '/inc/class-wp-widget-githuber-toc.php';
 
 // Load shortcodes.
-require_once dirname( __FILE__ ) . '/inc/shortcode.php';
+require_once dirname( __FILE__ ) . '/inc/githuber-shortcode.php';
 
 if ( function_exists( 'add_theme_support' ) ) {
 	// Add Menu Support.
@@ -65,8 +68,8 @@ function githuber_nav() {
 			'menu_class'      => 'navbar-nav mr-auto',
 			'menu_id'         => false,
 			'depth'           => 2,
-			'fallback_cb'     => 'Bootstrap4_Walker::fallback',
-			'walker'          => new Bootstrap4_Walker(),
+			'fallback_cb'     => 'Githuber_Walker::fallback',
+			'walker'          => new Githuber_Walker(),
 		)
 	);
 }
@@ -139,9 +142,6 @@ function githuber_header_scripts() {
 
 		wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js', array( 'jquery' ), '4.1.0' );
 		wp_enqueue_script( 'bootstrap' );
-
-		wp_register_script( 'bootstrap-toc', get_template_directory_uri() . '/assets/vendor/bootstrap-toc/bootstrap-toc.min.js', array( 'jquery' ), '1.0.0' );
-		wp_enqueue_script( 'bootstrap-toc' );
 
 		wp_register_script( 'githuber-script', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '1.0.0' );
 		wp_enqueue_script( 'githuber-script' );
@@ -292,13 +292,25 @@ function githuber_widgets_init() {
 
 	register_sidebar( array(
 		'name'          => __( 'Footer', 'githuber' ),
-		'id'            => 'sidebar-2',
+		'id'            => 'footer-1',
 		'description'   => __( 'Add widgets here to appear in your footer.', 'githuber' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Sticky Sidebar', 'githuber' ),
+		'id'            => 'sidebar-2',
+		'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'githuber' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_widget( 'WP_Widget_Githuber_TOC' );
 }
 
 add_action( 'widgets_init', 'githuber_widgets_init' );
@@ -984,31 +996,6 @@ function single_post_script() {
 }
 
 add_action( 'wp_footer', 'single_post_script', 1, 1 );
-
-/**
- * Initial Bootstrap TOC plugin.
- *
- * @return void
- */
-function post_bootstrap_toc_script() {
-	if ( is_single() ) {
-?>
-	<script>
-		jQuery( document ).ready(function( $ ) {
-			Toc.init({
-				$nav: $( '#toc' ),
-				$scope: $( '.markdown-body' )
-			});
-			$( 'body' ).scrollspy({
-				target: '#toc'
-			});
-		});
-	</script>
-<?php
-	}
-}
-
-add_action( 'wp_footer', 'post_bootstrap_toc_script', 1, 2 );
 
 /**
  * Show title progress bar.

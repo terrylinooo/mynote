@@ -10,7 +10,7 @@
  * @version 1.0.0
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+if ( ! is_active_sidebar( 'sidebar-1' ) && ! is_active_sidebar( 'sidebar-2' ) ) {
 	return;
 }
 ?>
@@ -19,5 +19,8 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 </div>
 
-<nav id="toc" class="sticky-top toc" role="navigation"></nav>
+<div id="sidebar-sticky" class="sidebar sticky-top">
+	<?php dynamic_sidebar( 'sidebar-2' ); ?>
+</div>
+
 

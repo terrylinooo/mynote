@@ -1,6 +1,6 @@
 <?php
 /**
- * Bootstrap4_Walker
+ * Githuber_Walker
  * Custom nav menu by using Bootscrap 4.
  * Bootscrap 4 CSS file is required.
  * https://getbootstrap.com/docs/4.1/getting-started/download/
@@ -15,9 +15,9 @@
  */
 
 /**
- * Bootstrap4_Walker
+ * Githuber_Walker
  */
-class Bootstrap4_Walker extends Walker_Nav_Menu {
+class Githuber_Walker extends Walker_Nav_Menu {
 	/**
 	 * Constructer.
 	 */
