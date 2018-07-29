@@ -1,6 +1,7 @@
 <?php
 /**
- * Githuber_Toc
+ * WP_Widget_Githuber_TOC
+ * Add a Table of Content for your article. This widget is for single-post pages only.
  *
  * @package   WordPress
  * @author    Terry Lin <terrylinooo>
@@ -20,7 +21,7 @@ class WP_Widget_Githuber_TOC extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array(
 			'classname'                   => 'widget_githuber_toc',
-			'description'                 => __( 'Add a sticky Table of Contnet widget to sidebar.' ),
+			'description'                 => __( 'Add a Table of Content for your article. This widget is for single-post pages only.' ),
 			'customize_selective_refresh' => true,
 		);
 		parent::__construct( 'githuber-toc', __( 'Table of Content' ), $widget_ops );

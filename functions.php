@@ -11,6 +11,7 @@
  */
 
 define( 'SCHEMA_ARTICLE_TYPE', 'TechArticle' );
+define( 'POST_TYPE_REPOSITORY', true );
 
 // Load Githuber Walker.
 require_once dirname( __FILE__ ) . '/inc/class-githuber-walker.php';
@@ -40,6 +41,188 @@ if ( function_exists( 'add_theme_support' ) ) {
 
 	// Localisation Support.
 	load_theme_textdomain( 'githuber', get_template_directory() . '/languages' );
+}
+
+if ( defined( 'POST_TYPE_REPOSITORY' ) && true === POST_TYPE_REPOSITORY ) {
+	/**
+	 * Register custom post type: Repository.
+	 *
+	 * @return void
+	 */
+	function create_post_type_repository() {
+		register_post_type( 'repository',
+			array(
+				'labels' => array(
+					'name'               => __( 'Repositories', 'githuber' ),
+					'singular_name'      => __( 'Repository', 'githuber' ),
+					'add_new'            => __( 'Add New', 'githuber' ),
+					'add_new_item'       => __( 'Add New Repository', 'githuber' ),
+					'edit'               => __( 'Edit', 'githuber' ),
+					'edit_item'          => __( 'Edit Repository', 'githuber' ),
+					'new_item'           => __( 'New Repository', 'githuber' ),
+					'view'               => __( 'View Repository', 'githuber' ),
+					'view_item'          => __( 'View Repository', 'githuber' ),
+					'search_items'       => __( 'Search Repository', 'githuber' ),
+					'not_found'          => __( 'No Repository Posts found', 'githuber' ),
+					'not_found_in_trash' => __( 'No Repository Posts found in Trash', 'githuber' ),
+				),
+
+				'public'       => true,
+				'hierarchical' => true,
+				'has_archive'  => true,
+				'can_export'   => true,
+				'menu_icon'    => 'dashicons-lightbulb',
+				'supports'     => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields' ),
+				'taxonomies'   => array( 'post_tag', 'category' ),
+			)
+		);
+
+		register_taxonomy_for_object_type( 'category', 'repository' );
+		register_taxonomy_for_object_type( 'post_tag', 'repository' );
+	}
+
+	add_action( 'init', 'create_post_type_repository' );
+
+	/**
+	 * Create Custom meta box for Repository
+	 *
+	 * @return void
+	 */
+	function add_repository_meta_box() {
+		add_meta_box(
+			'repository_meta_box',             // id.
+			'GitHub Repository',               // title.
+			'show_repository_fields_meta_box', // callback.
+			'repository',                      // screen.
+			'normal',                          // context.
+			'high'                             // priority.
+		);
+	}
+
+	add_action( 'add_meta_boxes', 'add_repository_meta_box' );
+
+	/**
+	 * Show custom meta box for Repository
+	 *
+	 * @return void
+	 */
+	function show_repository_fields_meta_box() {
+		global $post;
+		$meta = get_post_meta( $post->ID, 'github_repository', true );
+	?>
+
+		<input type="hidden" name="metabox_nonce" value="<?php echo esc_html( wp_create_nonce( basename( __FILE__ ) ) ); ?>">
+
+		<table>
+			<tr>
+				<td><strong>URL</strong></td>
+				<td><input type="text" name="github_repository[url]" style="width: 100%" value="<?php echo esc_url( $meta['url'] ); ?>"></td>
+			</tr>
+			<tr>
+				<td><strong>Buttons</strong></td>
+				<td>
+					<?php
+
+					foreach ( array( 'star', 'fork', 'watch', 'issue', 'download' ) as $v ) :
+						$checked = '';
+						if ( ! empty( $meta[ $v ] ) ) {
+							$checked = 'checked';
+						}
+					?>
+
+					<label class="selectit"><input type="checkbox" name="github_repository[<?php echo $v; ?>]" value="<?php echo $v; ?>" <?php echo $checked; ?>> <?php echo ucfirst($v); ?></label> &nbsp;
+					<?php endforeach; ?>
+				</td>
+			</tr>
+		</table>
+		</p>
+
+	<?php
+	}
+
+	/**
+	 * Save custom meta box for Repository
+	 *
+	 * @param integer $post_id Post's ID.
+	 * @return integer if return.
+	 */
+	function save_repository_meta( $post_id ) {
+		// verify nonce.
+		if ( ! empty( $_POST['metabox_nonce'] ) && ! wp_verify_nonce( sanitize_key( $_POST['metabox_nonce'] ), basename( __FILE__ ) ) ) {
+			return $post_id;
+		}
+		// check autosave.
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return $post_id;
+		}
+		// check permissions.
+		if ( ! empty( $_POST['post_type'] ) && 'page' === $_POST['post_type'] ) {
+			if ( ! current_user_can( 'edit_page', $post_id ) ) {
+				return $post_id;
+			} elseif ( ! current_user_can( 'edit_post', $post_id ) ) {
+				return $post_id;
+			}
+		}
+
+		$old = get_post_meta( $post_id, 'github_repository', true );
+		$new = $_POST['github_repository'];
+
+		if ( $new && $new !== $old ) {
+			update_post_meta( $post_id, 'github_repository', $new );
+		} elseif ( '' === $new && $old ) {
+			delete_post_meta( $post_id, 'github_repository', $old );
+		}
+	}
+
+	add_action( 'save_post', 'save_repository_meta' );
+
+	/**
+	 * Register GitHub button script.
+	 *
+	 * @return void
+	 */
+	function post_repository_script() {
+		if ( is_single() && 'repository' === get_post_type() ) {
+			wp_enqueue_script( 'github-buttons', 'https://buttons.github.io/buttons.js', [], false, true );
+		}
+	}
+
+	add_action( 'wp_enqueue_scripts', 'post_repository_script' );
+}
+
+/**
+ * Show GitHub Repository Buttons
+ *
+ * @param array $types An array list of GitHub button types.
+ */
+function the_github_buttons( $types = array() ) {
+	if ( empty( $types ) ) {
+		$github = get_post_meta( get_the_ID(), 'github_repository', true );
+	} else {
+		$github = $types;
+	}
+
+	$github_buttons = array(
+		'watch'    => array( 'octicon-eye', '/subscription' ),
+		'star'     => array( 'octicon-star', '' ),
+		'fork'     => array( 'octicon-repo-forked', '/fork' ),
+		'issue'    => array( 'octicon-issue-opened', '/issues' ),
+		'download' => array( 'octicon-cloud-download', '/archive/master.zip' ),
+	);
+
+	foreach ( $github_buttons as $k => $v ) {
+		if ( ! empty( $github[ $k ] ) ) {
+			?>
+
+			<div class="github-button-container">
+				<a class="github-button" href="<?php echo esc_url( $github['url'] . $v[1] ); ?>" data-icon="<?php echo $v[0]; ?>" data-size="large" data-show-count="true">
+					<?php echo ucfirst( $k ); ?>
+				</a>
+			</div>
+
+			<?php
+		}
+	}
 }
 
 /**
@@ -85,41 +268,6 @@ function default_nav() {
 		</ul>
 	</div>
 	<?php
-}
-
-/**
- * Show GitHub Repository Buttons
- *
- * @param array $types An array list of GitHub button types.
- */
-function the_github_buttons( $types = array() ) {
-	if ( empty( $types ) ) {
-		$github = get_post_meta( get_the_ID(), 'github_repository', true );
-	} else {
-		$github = $types;
-	}
-
-	$github_buttons = array(
-		'watch'    => array( 'octicon-eye', '/subscription' ),
-		'star'     => array( 'octicon-star', '' ),
-		'fork'     => array( 'octicon-repo-forked', '/fork' ),
-		'issue'    => array( 'octicon-issue-opened', '/issues' ),
-		'download' => array( 'octicon-cloud-download', '/archive/master.zip' ),
-	);
-
-	foreach ( $github_buttons as $k => $v ) {
-		if ( ! empty( $github[ $k ] ) ) {
-			?>
-
-			<div class="github-button-container">
-				<a class="github-button" href="<?php echo esc_url( $github['url'] . $v[1] ); ?>" data-icon="<?php echo $v[0]; ?>" data-size="large" data-show-count="true">
-					<?php echo ucfirst( $k ); ?>
-				</a>
-			</div>
-
-			<?php
-		}
-	}
 }
 
 /**
@@ -733,150 +881,6 @@ function move_comment_field_to_bottom( $fields ) {
 add_filter( 'comment_form_fields', 'move_comment_field_to_bottom' );
 
 /**
- * Register custom post type: Repository.
- *
- * @return void
- */
-function create_post_type_repository() {
-	register_post_type( 'repository',
-		array(
-			'labels' => array(
-				'name'               => __( 'Repositories', 'githuber' ),
-				'singular_name'      => __( 'Repository', 'githuber' ),
-				'add_new'            => __( 'Add New', 'githuber' ),
-				'add_new_item'       => __( 'Add New Repository', 'githuber' ),
-				'edit'               => __( 'Edit', 'githuber' ),
-				'edit_item'          => __( 'Edit Repository', 'githuber' ),
-				'new_item'           => __( 'New Repository', 'githuber' ),
-				'view'               => __( 'View Repository', 'githuber' ),
-				'view_item'          => __( 'View Repository', 'githuber' ),
-				'search_items'       => __( 'Search Repository', 'githuber' ),
-				'not_found'          => __( 'No Repository Posts found', 'githuber' ),
-				'not_found_in_trash' => __( 'No Repository Posts found in Trash', 'githuber' ),
-			),
-
-			'public'       => true,
-			'hierarchical' => true,
-			'has_archive'  => true,
-			'can_export'   => true,
-			'menu_icon'    => 'dashicons-lightbulb',
-			'supports'     => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields' ),
-			'taxonomies'   => array( 'post_tag', 'category' ),
-		)
-	);
-
-	register_taxonomy_for_object_type( 'category', 'repository' );
-	register_taxonomy_for_object_type( 'post_tag', 'repository' );
-}
-
-add_action( 'init', 'create_post_type_repository' );
-
-/**
- * Create Custom meta box for Repository
- *
- * @return void
- */
-function add_repository_meta_box() {
-	add_meta_box(
-		'repository_meta_box',             // id.
-		'GitHub Repository',               // title.
-		'show_repository_fields_meta_box', // callback.
-		'repository',                      // screen.
-		'normal',                          // context.
-		'high'                             // priority.
-	);
-}
-
-add_action( 'add_meta_boxes', 'add_repository_meta_box' );
-
-/**
- * Show custom meta box for Repository
- *
- * @return void
- */
-function show_repository_fields_meta_box() {
-	global $post;
-	$meta = get_post_meta( $post->ID, 'github_repository', true );
-?>
-
-	<input type="hidden" name="metabox_nonce" value="<?php echo esc_html( wp_create_nonce( basename( __FILE__ ) ) ); ?>">
-
-	<table>
-		<tr>
-			<td><strong>URL</strong></td>
-			<td><input type="text" name="github_repository[url]" style="width: 100%" value="<?php echo esc_url( $meta['url'] ); ?>"></td>
-		</tr>
-		<tr>
-			<td><strong>Buttons</strong></td>
-			<td>
-				<?php
-
-				foreach ( array( 'star', 'fork', 'watch', 'issue', 'download' ) as $v ) :
-					$checked = '';
-					if ( ! empty( $meta[ $v ] ) ) {
-						$checked = 'checked';
-					}
-				?>
-
-				<label class="selectit"><input type="checkbox" name="github_repository[<?php echo $v; ?>]" value="<?php echo $v; ?>" <?php echo $checked; ?>> <?php echo ucfirst($v); ?></label> &nbsp;
-				<?php endforeach; ?>
-			</td>
-		</tr>
-	</table>
-	</p>
-
-<?php
-}
-/**
- * Save custom meta box for Repository
- *
- * @param integer $post_id Post's ID.
- * @return integer if return.
- */
-function save_repository_meta( $post_id ) {
-	// verify nonce.
-	if ( ! empty( $_POST['metabox_nonce'] ) && ! wp_verify_nonce( sanitize_key( $_POST['metabox_nonce'] ), basename( __FILE__ ) ) ) {
-		return $post_id;
-	}
-	// check autosave.
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-		return $post_id;
-	}
-	// check permissions.
-	if ( ! empty( $_POST['post_type'] ) && 'page' === $_POST['post_type'] ) {
-		if ( ! current_user_can( 'edit_page', $post_id ) ) {
-			return $post_id;
-		} elseif ( ! current_user_can( 'edit_post', $post_id ) ) {
-			return $post_id;
-		}
-	}
-
-	$old = get_post_meta( $post_id, 'github_repository', true );
-	$new = $_POST['github_repository'];
-
-	if ( $new && $new !== $old ) {
-		update_post_meta( $post_id, 'github_repository', $new );
-	} elseif ( '' === $new && $old ) {
-		delete_post_meta( $post_id, 'github_repository', $old );
-	}
-}
-
-add_action( 'save_post', 'save_repository_meta' );
-
-/**
- * Register GitHub button script.
- *
- * @return void
- */
-function post_repository_script() {
-	if ( is_single() && 'repository' === get_post_type() ) {
-		wp_enqueue_script( 'github-buttons', 'https://buttons.github.io/buttons.js', [], false, true );
-	}
-}
-
-add_action( 'wp_enqueue_scripts', 'post_repository_script' );
-
-/**
  * Replace language attrbute from en_US to en.
  *
  * @return string
@@ -1257,6 +1261,19 @@ function githuber_category_labels() {
 		if ( 10 === ++$i ) {
 			$i = 0;
 		}
+	}
+}
+
+function site_info() {
+	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+	echo __( 'Copyright', 'githuber' ) .
+		' &copy; ' . date( 'Y' ) . '&nbsp;<strong><a href="' . get_site_url() . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' .
+		__( 'All rights reserved.', 'githuber' ) . '&nbsp;';
+
+	// Only homepage and single-post pages shows the theme credit link on the footer.
+	// Keeping the theme credit link encourages me to improve this theme better.
+	if ( ( is_home() || is_front_page() || is_single() ) && 1 === $paged ) {
+		echo __( 'Theme by', 'githuber' ) . '&nbsp;' . '<a href="https://terryl.in/theme/githuber" title="githuber">' . __( 'Githuber', 'githuber' ) . '</a>.&nbsp;';
 	}
 }
 

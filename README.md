@@ -7,12 +7,17 @@ Githuber is a github-style WordPress theme with preferred features for developer
 
 ## Features
 
-- Markdown friendly. The first version you can choose GitHub style or my Githuber style.
-- Built-in TOC. Sticky TOC in sidebar.
-- Bootstrap 4 nav menu
-- New post type - Repository.
+- Markdown friendly.
+- Built-in Table of Content widget. 
+- Built-in structured data supported for articles.
+- Cross-platform safe webfont supported for CJK fonts. (Chinese, Japanese, Korean)
+- Sticky sidebar widget area.
+- Bootstrap 4 nav menu.
+- Bootstrap 4 pagination.
+- Post type - Repository.
 - Page reading progress bar.
-- Reponsive.
+- Reponsive web design.
+
 - WordPress Coding Standards - 99.9% passed by PHP_CodeSniffer ([WDCS](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards))
 
 #### Preview:

@@ -100,7 +100,7 @@
             font-family: get-heading-font($lang-code);
         }
     
-        .section-intro, #post-title {
+        .section-intro, #post-title, .site-info {
             font-family: get-title-font($lang-code);
         }
     }
