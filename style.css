@@ -85,7 +85,7 @@ $grid-breakpoints: (
 
 article figcaption {
   color: #6c757d;
-  margin: 0.25rem 0;
+  margin: 0.25rem 0 1rem;
   text-align: center;
   font-style: italic;
 }
@@ -476,6 +476,10 @@ article figcaption {
 }
 .comment-wrapper .comment-body {
   font-size: 14px;
+}
+
+figcaption {
+  font-size: 0.85rem;
 }
 
 .comment-notes {
