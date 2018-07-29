@@ -106,6 +106,10 @@ article {
             content: '\f007';
         }
 
+        &.error-404:before {
+            content: '\f071';
+        }
+
         .badge {
             font-size: 0.81rem;
         }

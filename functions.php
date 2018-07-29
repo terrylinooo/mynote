@@ -1264,23 +1264,26 @@ function githuber_category_labels() {
 	}
 }
 
+/**
+ * Display site information on bottom of page.
+ *
+ * @return void
+ */
 function site_info() {
 	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-	echo __( 'Copyright', 'githuber' ) .
-		' &copy; ' . date( 'Y' ) . '&nbsp;<strong><a href="' . get_site_url() . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' .
-		__( 'All rights reserved.', 'githuber' ) . '&nbsp;';
+	echo __( 'Copyright', 'githuber' ) . ' &copy; ' . date( 'Y' ) . ' <strong><a href="' . get_site_url() . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' . __( 'All rights reserved.', 'githuber' ) . ' ';
 
 	// Only homepage and single-post pages shows the theme credit link on the footer.
 	// Keeping the theme credit link encourages me to improve this theme better.
 	if ( ( is_home() || is_front_page() || is_single() ) && 1 === $paged ) {
-		echo __( 'Theme by', 'githuber' ) . '&nbsp;' . '<a href="https://terryl.in/theme/githuber" title="githuber">' . __( 'Githuber', 'githuber' ) . '</a>.&nbsp;';
+		echo __( 'Theme by', 'githuber' ) . ' ' . '<a href="https://terryl.in/theme/githuber" title="githuber">' . __( 'Githuber', 'githuber' ) . '</a>. ';
 	}
 }
 
 /**
  * Breadcrumb for single post.
  *
- * @return void
+ * @return null
  */
 function githuber_post_breadcrumb() {
 	global $post;

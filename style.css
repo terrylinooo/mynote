@@ -147,6 +147,9 @@ article figcaption {
 .category-header h1.user:before {
   content: '\f007';
 }
+.category-header h1.error-404:before {
+  content: '\f071';
+}
 .category-header h1 .badge {
   font-size: 0.81rem;
 }
