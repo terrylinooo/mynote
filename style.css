@@ -1251,25 +1251,13 @@ body #wpadminbar {
   display: block !important;
 }
 
-.widget_calendar .calendar_wrap {
-  margin: 15px 0;
+.error404 .site-info {
+  position: fixed;
+  bottom: 10px;
+  background: #ffffff;
 }
-.widget_calendar table {
-  width: 100%;
-  border: 1px #dddddd solid;
-}
-.widget_calendar table th, .widget_calendar table td, .widget_calendar table caption {
-  text-align: center;
-  padding: 5px;
-}
-.widget_calendar table caption {
-  font-weight: bold;
-}
-.widget_calendar table thead {
-  border-bottom: 1px #dddddd solid;
-}
-.widget_calendar table tfoot {
-  border-top: 1px #dddddd solid;
+.error404.admin-bar .site-info {
+  bottom: 50px;
 }
 
 @media (max-width: 575.98px) {

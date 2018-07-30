@@ -36,36 +36,20 @@ body {
     }
 }
 
-
-.widget_calendar {
-
-	.calendar_wrap {
-		margin: 15px 0;
+.error404 {
+	.site-info {
+		position: fixed;
+		bottom: 10px;
+		background: #ffffff;
 	}
-
-	table {
-		width: 100%;
-		border: 1px #dddddd solid;
-
-		th, td, caption {
-			text-align: center;
-			padding: 5px;
-		}
-		
-		caption {
-			font-weight: bold;
-		}
-
-		thead {
-			border-bottom: 1px #dddddd solid;
-		}
-
-		tfoot {
-			border-top: 1px #dddddd solid;
+	&.admin-bar {
+		.site-info {
+			bottom: 50px;
 		}
 	}
-
-
 
 }
+
+
+
 
