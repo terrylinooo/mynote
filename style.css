@@ -1283,6 +1283,10 @@ body #wpadminbar {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
+
+  .widget {
+    margin: 15px 0;
+  }
 }
 @media (max-width: 991.98px) {
   .px-responsive {
