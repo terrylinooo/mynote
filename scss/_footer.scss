@@ -2,6 +2,7 @@
 
 .footer {
     margin: 40px 0 20px 0;
+    border-top: 1px #dddddd solid;
 
     .site-info {
         font-weight: 400;
@@ -12,5 +13,11 @@
             font-weight: normal;
             color: #333333;
         }
+    }
+}
+
+.home {
+    .footer {
+        border-top: 0;
     }
 }

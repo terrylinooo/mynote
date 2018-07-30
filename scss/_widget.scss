@@ -28,11 +28,64 @@
     ul {
         padding-left: 30px;
     }
+}
 
-    .tag-cloud-link {
+/* Widget - Calendar */
+
+.widget_calendar {
+	.calendar_wrap {
+        margin: 15px 0;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.1);
+	}
+
+	table {
+		width: 100%;
+        border: 1px #dddddd solid;
+        background-color: #ffffff;
+        color: #333333;
+
+		th, td, caption {
+			text-align: center;
+			padding: 5px;
+        }
         
+        td a {
+            color: $primary_anchor_color !important;
+        }
+		
+		caption {
+			font-weight: bold;
+		}
+
+		thead {
+			border-bottom: 1px #dddddd solid;
+		}
+
+		tfoot {
+			border-top: 1px #dddddd solid;
+		}
+	}
+}
+
+/* Widget - Tag could */
+
+.widget_tag_cloud {
+    .tag-cloud-link {
+        color: #333333;
+        background-color: #ffffff;
+        border: 1px #dddddd solid;
+        border-radius: 3px;
+        margin: 2px 4px;
+        line-height: 150%;
+        padding: 2px 5px;
+        word-break: keep-all;
+        overflow: hidden;
+        display: inline-block;
     }
 }
+
+/* Widgets in Home middle sidebar  */
 
 .home-middle-sidebar {
     width: 100%;
@@ -46,22 +99,23 @@
         .widget-title {
             color: #ffffff;
         }
-        .tag-cloud-link {
-            color: #333333;
-            background-color: #ffffff;
-            border-radius: 3px;
-            margin: 2px 4px;
-            line-height: 150%;
-            padding: 2px 5px;
-            word-break: keep-all;
-            overflow: hidden;
-            display: inline-block;
-        }
-
         a {
             color: #f1f1f1;
         }
+    }
 
+    .widget_tag_cloud {
+        .tag-cloud-link {
+            color: #333333;
+        }
+    }
+
+    .widget_calendar {
+        table { 
+            caption {
+                color: #ffffff;
+            }
+        }
     }
 }
 
