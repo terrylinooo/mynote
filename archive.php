@@ -17,8 +17,7 @@ get_header();
 <div class="category-header">
 	<div class="container">
 		<h1 id="post-title" class="archive" itemprop="headline">
-			<?php esc_html_e( 'Archives', 'githuber' ); ?>
-			<span class="badge badge-secondary"><?php echo get_the_date( 'F, Y' ); ?></span>
+			<?php echo get_the_date( 'F, Y' ); ?>
 		</h1>
 	</div>
 </div>

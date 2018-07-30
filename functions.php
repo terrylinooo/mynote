@@ -1275,6 +1275,21 @@ function githuber_category_labels() {
 }
 
 /**
+ * Remove site description from title.
+ *
+ * @param array $title The document title parts.
+ * @return array
+ */
+function remove_tagline( $title ) {
+	if ( isset( $title['tagline'] ) ) {
+		unset( $title['tagline']) ;
+	}
+	return $title;
+}
+
+add_filter( 'document_title_parts', 'remove_tagline' );
+
+/**
  * Display site information on bottom of page.
  *
  * @return void
