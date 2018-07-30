@@ -11,7 +11,7 @@
  */
 
 define( 'SCHEMA_ARTICLE_TYPE', 'TechArticle' );
-define( 'POST_TYPE_REPOSITORY', true );
+define( 'POST_TYPE_REPOSITORY', false );
 
 // Load Githuber Walker.
 require_once dirname( __FILE__ ) . '/inc/class-githuber-walker.php';
@@ -1299,9 +1299,9 @@ function site_info() {
 	echo __( 'Copyright', 'githuber' ) . ' &copy; ' . date( 'Y' ) . ' <strong><a href="' . get_site_url() . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' . __( 'All rights reserved.', 'githuber' ) . ' ';
 
 	// Only homepage and single-post pages shows the theme credit link on the footer.
-	// Keeping the theme credit link encourages me to improve this theme better.
+	// Keeping the theme credit link encourages me to improve this theme better. Thank you.
 	if ( ( is_home() || is_front_page() || is_single() ) && 1 === $paged ) {
-		echo __( 'Theme by', 'githuber' ) . ' ' . '<a href="https://terryl.in/theme/githuber" title="githuber">' . __( 'Githuber', 'githuber' ) . '</a>. ';
+		echo __( 'Theme by', 'githuber' ) . ' ' . '<a href="https://terryl.in/githuber" title="githuber">' . __( 'Githuber', 'githuber' ) . '</a>. ';
 	}
 }
 
