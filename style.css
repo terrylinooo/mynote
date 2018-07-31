@@ -223,6 +223,29 @@ article figcaption {
   margin: 20px auto !important;
 }
 
+/* Read more fade out effect */
+.card-text-fade-out {
+  height: 180px;
+  max-height: 180px;
+  position: relative !important;
+  overflow: hidden;
+}
+.card-text-fade-out .effect-layer {
+  position: absolute;
+  content: ' ';
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  display: block;
+  text-align: center;
+  z-index: 2;
+  margin: 0;
+  padding: 0 0 20px 0;
+  background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9), white);
+}
+
 .section-intro {
   width: 100%;
   min-height: 640px;
@@ -486,7 +509,7 @@ article figcaption {
   font-size: 14px;
 }
 
-figcaption {
+article figcaption {
   font-size: 0.85rem;
 }
 

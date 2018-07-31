@@ -27,12 +27,21 @@
 					<?php endif; ?>
 
 					<div class="card-body">
-						<h5 class="card-title">
-							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-						</h5>
-						<p class="card-text">
-							<?php githuber_excerpt(); ?>
-						</p>
+						<?php if ( githuber_is_text_fade_out() ) : ?>
+
+						<div class="card-text-fade-out">
+							<h5 class="card-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
+							<p class="card-text"><?php githuber_excerpt(); ?></p>
+							<div class="effect-layer"></div>
+						</div>
+
+						<?php else : ?>
+
+						<h5 class="card-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
+						<p class="card-text"><?php githuber_excerpt(); ?></p>
+
+						<?php endif; ?>
+
 						<div class="card-body-footer">
 							<?php // githuber_posted_date_button(); ?>
 							<?php githuber_comment_button(); ?>

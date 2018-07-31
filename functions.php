@@ -12,6 +12,7 @@
 
 define( 'SCHEMA_ARTICLE_TYPE', 'TechArticle' );
 define( 'POST_TYPE_REPOSITORY', false );
+define( 'POST_IS_TEXT_FADE_OUT', true );
 
 // Load Githuber Walker.
 require_once dirname( __FILE__ ) . '/inc/class-githuber-walker.php';
@@ -609,6 +610,15 @@ function githuber_excerpt() {
 	$output = apply_filters( 'wptexturize', $output );
 	$output = apply_filters( 'convert_chars', $output );
 	echo $output;
+}
+
+/**
+ * Is text fade out or not. (post list)
+ *
+ * @return bool
+ */
+function githuber_is_text_fade_out() {
+	return POST_IS_TEXT_FADE_OUT;
 }
 
 /**
