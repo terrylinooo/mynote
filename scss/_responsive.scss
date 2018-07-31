@@ -17,6 +17,18 @@
     .widget {
         margin: 15px 0;
     }
+
+    .navbar-nav {
+        .dropdown-menu {
+            &::after {
+                display: none !important;
+            }
+            &::before {
+                display: none !important;
+            }
+        }
+    }
+
 }
 
 @include media-breakpoint-down(md) {

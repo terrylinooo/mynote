@@ -43,7 +43,7 @@
 						<?php endif; ?>
 
 						<div class="card-body-footer">
-							<?php // githuber_posted_date_button(); ?>
+							<?php // githuber_posted_date_button(); Uncomment this line if needed. ?>
 							<?php githuber_comment_button(); ?>
 							<?php githuber_read_button(); ?>
 							<?php githuber_edit_button(); ?>

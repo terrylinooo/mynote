@@ -288,12 +288,8 @@ function githuber_post_thumbnail() {
  */
 function githuber_header_scripts() {
 	if ( 'wp-login.php' !== $GLOBALS['pagenow'] && ! is_admin() ) {
-
 		wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js', array( 'jquery' ), '4.1.0' );
 		wp_enqueue_script( 'bootstrap' );
-
-		wp_register_script( 'githuber-script', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '1.0.0' );
-		wp_enqueue_script( 'githuber-script' );
 	}
 }
 
