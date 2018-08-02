@@ -8,7 +8,7 @@ Githuber is a github-style WordPress theme with preferred features for developer
 ## Features
 
 - Markdown friendly.
-- Built-in Table of Content widget.
+- widget Table of Content widget.
 - Built-in structured data supported for articles.
 - Cross-platform safe webfont supported for CJK languages.
 - Sticky sidebar widget area.
@@ -34,9 +34,4 @@ Githuber is a github-style WordPress theme with preferred features for developer
 
 ![Preview](https://i.imgur.com/IUF2zCT.png)
 
-## Notice
-
-This project is currently under development, please do not use it before releasing the first release version.
-
-Please watch to get the latest updates.
 
