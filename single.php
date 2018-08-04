@@ -15,7 +15,7 @@ get_header();
 
 <?php title_progress_bar(); ?>
 
-<div class="data-schema" itemscope itemtype="<?php githuber_article_schemal(); ?>">
+<div class="data-schema" itemscope itemtype="<?php githuber_article_schemal( 'tech' ); ?>">
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>

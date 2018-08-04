@@ -10,7 +10,6 @@
  * @since 1.0.0
  */
 
-define( 'SCHEMA_ARTICLE_TYPE', 'TechArticle' );
 define( 'POST_TYPE_REPOSITORY', false );
 define( 'POST_IS_TEXT_FADE_OUT', true );
 
@@ -229,14 +228,24 @@ function the_github_buttons( $types = array() ) {
 /**
  * Get article schemal.
  *
- * @return string
+ * @param string $schema Article type.
+ * @return void
  */
-function githuber_article_schemal() {
-	$schema = 'Article';
-	if ( is_single() ) {
-		$schema = SCHEMA_ARTICLE_TYPE;
+function githuber_article_schemal( $schema = 'Article' ) {
+	switch ( $schema ) {
+		case 'tech':
+			$schema = 'TechArticle';
+			break;
+		case 'news':
+			$schema = 'NewsArticle';
+			break;
+		case 'scholarly':
+			$schema = 'ScholarlyArticles';
+			break;
+		default:
+			$schema = 'Article';
 	}
-	return 'http://schema.org/' . $schema;
+	echo 'http://schema.org/' . $schema;
 }
 
 /**
