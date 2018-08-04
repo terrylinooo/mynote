@@ -1204,7 +1204,7 @@ function githuber_author_card( $avatar_size = 96, $icon_size = 'sm' ) {
 		$all_matches = [];
 		foreach ( $matches[0] as $shortcode ) {
 			$all_matches[] = $shortcode;
-			$author_link .= do_shortcode( $shortcode );
+			$author_link  .= do_shortcode( $shortcode );
 		}
 		$description = str_replace( $all_matches, '', $description );
 	}
@@ -1221,7 +1221,7 @@ function githuber_author_card( $avatar_size = 96, $icon_size = 'sm' ) {
 					</a>
 				</div>
 				<div class="author-description" itemprop="description">  
-					<?php echo esc_html( $description ); ?>
+					<?php echo $description; ?>
 				</div>
 				<div class="author-links brand-<?php echo $icon_size; ?>">
 					<?php echo $author_link; ?>
