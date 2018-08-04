@@ -1343,9 +1343,6 @@ function githuber_post_breadcrumb() {
 		}
 		$pos = 1;
 
-		if ( empty( $is_child_cat ) ) {
-			return null;
-		}
 		?>
 		<nav class="breadcrumb">
 			<div class="container">
@@ -1356,6 +1353,14 @@ function githuber_post_breadcrumb() {
 						</a>
 						<meta itemprop="position" content="<?php echo $pos++; ?>" />
 					</li>
+					<?php if ( is_multisite() && get_home_url() !== get_site_url() ) : ?>
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a href="<?php echo esc_url( get_site_url() ); ?>" itemprop="item">
+							<span itemprop="name"><?php echo esc_html( get_bloginfo() ); ?></span>
+						</a>
+						<meta itemprop="position" content="<?php echo $pos++; ?>" />
+					</li>
+					<?php endif; ?>
 					<?php if ( ! empty( $child_cat ) ) : ?>
 					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 						<a href="<?php echo esc_url( get_term_link( $first_cat->slug, 'category' ) ); ?>" itemprop="item">
