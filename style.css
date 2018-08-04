@@ -83,6 +83,13 @@ $grid-breakpoints: (
   margin-right: 5px;
 }
 
+.page {
+  /* Hide post meta in Page */
+}
+.page .post-meta {
+  visibility: hidden;
+}
+
 article figcaption {
   color: #6c757d;
   margin: 0.25rem 0 1rem;

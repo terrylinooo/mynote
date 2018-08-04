@@ -1099,6 +1099,10 @@ function githuber_column_control_button() {
  * @return void
  */
 function githuber_comment_button( $show_label = false ) {
+	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
+		return;
+	}
+
 	echo '
 		<a href="#comments" class="button-like-link">
 			<div class="btn-counter">

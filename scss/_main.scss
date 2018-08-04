@@ -36,6 +36,13 @@
     }
 }
 
+.page {
+    /* Hide post meta in Page */
+    .post-meta {
+        visibility: hidden;
+    }
+}
+
 article {
     figcaption {
         color: gray("600");
