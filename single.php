@@ -49,10 +49,7 @@ get_header();
 				<?php the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class( 'markdown-body' ); ?>>
 					<?php if ( has_post_thumbnail() ) : ?>
-					<figure>
-						<?php the_post_thumbnail(); ?>
-						<figcaption><?php echo esc_html( get_the_post_thumbnail_caption() ); ?></figcaption>
-					</figure>
+						<?php githuber_post_figure(); ?>
 					<?php endif; ?>
 					<div itemprop="articleBody">
 						<?php the_content(); ?>

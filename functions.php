@@ -1140,6 +1140,26 @@ function githuber_read_button() {
 }
 
 /**
+ * Post figure.
+ *
+ * @return void
+ */
+function githuber_post_figure() {
+	$thumbnail_caption = get_the_post_thumbnail_caption();
+	?>
+		<figure>
+			<?php
+				the_post_thumbnail( '', array(
+					'itemprop' => 'image',
+					'alt'      => esc_attr( $thumbnail_caption ),
+				) );
+			?>
+			<figcaption><?php echo esc_html( $thumbnail_caption ); ?></figcaption>
+		</figure>
+	<?php
+}
+
+/**
  * The posted date button.
  *
  * @param bool $show_label Show text label or not.
