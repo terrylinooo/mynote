@@ -1356,9 +1356,9 @@ function githuber_post_breadcrumb() {
 		<nav class="breadcrumb">
 			<div class="container">
 				<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-					<?php if ( is_multisite() && ( get_home_url() !== get_site_url() ) ) : ?>
+					<?php if ( is_multisite() && ( get_home_url() !== network_home_url() ) ) : ?>
 					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-						<a href="<?php echo esc_url( get_site_url() ); ?>" itemprop="item">
+						<a href="<?php echo esc_url( network_home_url() ); ?>" itemprop="item">
 							<span itemprop="name"><i class="fas fa-globe"></i><span class="sr-only">Home</span></span>
 						</a>
 						<meta itemprop="position" content="<?php echo $pos++; ?>" />
