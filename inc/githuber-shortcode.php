@@ -26,9 +26,10 @@ $author_bio_icons = array(
  * Get anchor link with icon.
  *
  * @param string $type URL type.
+ * @param string $link URL.
  * @return string
  */
-function get_social_url( $type = '' ) {
+function get_social_url( $type = '', $link = '' ) {
 	global $author_bio_icons;
 	return '<a href="' . $link . '" class="brand-link brand-' . $type . '">' . $author_bio_icons[ $type ] . '</a>';
 }
@@ -41,7 +42,7 @@ function get_social_url( $type = '' ) {
  * @return string
  */
 function facebook_sortcode( $atts, $link = '' ) {
-	return get_social_url( 'facebook' );
+	return get_social_url( 'facebook', $link );
 }
 
 add_shortcode( 'facebook', 'facebook_sortcode' );
@@ -54,7 +55,7 @@ add_shortcode( 'facebook', 'facebook_sortcode' );
  * @return string
  */
 function pinterest_sortcode( $atts, $link = '' ) {
-	return get_social_url( 'pinterest' );
+	return get_social_url( 'pinterest', $link );
 }
 
 add_shortcode( 'pinterest', 'pinterest_sortcode' );
@@ -67,7 +68,7 @@ add_shortcode( 'pinterest', 'pinterest_sortcode' );
  * @return string
  */
 function github_sortcode( $atts, $link = '' ) {
-	return get_social_url( 'github' );
+	return get_social_url( 'github', $link );
 }
 
 add_shortcode( 'github', 'github_sortcode' );
@@ -80,7 +81,7 @@ add_shortcode( 'github', 'github_sortcode' );
  * @return string
  */
 function gitlab_sortcode( $atts, $link = '' ) {
-	return get_social_url( 'gitlab' );
+	return get_social_url( 'gitlab', $link );
 }
 
 add_shortcode( 'gitlab', 'gitlab_sortcode' );
@@ -93,7 +94,7 @@ add_shortcode( 'gitlab', 'gitlab_sortcode' );
  * @return string
  */
 function stackoverflow_sortcode( $atts, $link = '' ) {
-	return get_social_url( 'stackoverflow' );
+	return get_social_url( 'stackoverflow', $link );
 }
 
 add_shortcode( 'stackoverflow', 'stackoverflow_sortcode' );
@@ -106,7 +107,7 @@ add_shortcode( 'stackoverflow', 'stackoverflow_sortcode' );
  * @return string
  */
 function instagram_sortcode( $atts, $link = '' ) {
-	return get_social_url( 'instagram' );
+	return get_social_url( 'instagram', $link );
 }
 
 add_shortcode( 'instagram', 'instagram_sortcode' );
@@ -119,7 +120,7 @@ add_shortcode( 'instagram', 'instagram_sortcode' );
  * @return string
  */
 function twitter_sortcode( $atts, $link = '' ) {
-	return get_social_url( 'twitter' );
+	return get_social_url( 'twitter', $link );
 }
 
 add_shortcode( 'twitter', 'twitter_sortcode' );
@@ -132,7 +133,7 @@ add_shortcode( 'twitter', 'twitter_sortcode' );
  * @return string
  */
 function google_sortcode( $atts, $link = '' ) {
-	return get_social_url( 'google' );
+	return get_social_url( 'google', $link );
 }
 
 add_shortcode( 'google', 'google_sortcode' );
@@ -145,7 +146,7 @@ add_shortcode( 'google', 'google_sortcode' );
  * @return string
  */
 function youtube_sortcode( $atts, $link = '' ) {
-	return get_social_url( 'youtube' );
+	return get_social_url( 'youtube', $link );
 }
 
 add_shortcode( 'youtube', 'youtube_sortcode' );
