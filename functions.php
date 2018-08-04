@@ -1356,21 +1356,28 @@ function githuber_post_breadcrumb() {
 		<nav class="breadcrumb">
 			<div class="container">
 				<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+					<?php if ( is_multisite() && ( get_home_url() !== get_site_url() ) ) : ?>
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a href="<?php echo esc_url( get_site_url() ); ?>" itemprop="item">
+							<span itemprop="name"><i class="fas fa-globe"></i><span class="sr-only">Home</span></span>
+						</a>
+						<meta itemprop="position" content="<?php echo $pos++; ?>" />
+					</li>
+					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a href="<?php echo esc_url( get_home_url() ); ?>" itemprop="item">
+							<span itemprop="name"><?php echo esc_html( get_bloginfo() ); ?></span>
+						</a>
+						<meta itemprop="position" content="<?php echo $pos++; ?>" />
+					</li>
+					<?php else : ?>
 					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 						<a href="<?php echo esc_url( get_home_url() ); ?>" itemprop="item">
 							<span itemprop="name"><i class="fas fa-globe"></i><span class="sr-only">Home</span></span>
 						</a>
 						<meta itemprop="position" content="<?php echo $pos++; ?>" />
 					</li>
-					<?php if ( is_multisite() && get_home_url() !== get_site_url() ) : ?>
-					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-						<a href="<?php echo esc_url( get_site_url() ); ?>" itemprop="item">
-							<span itemprop="name"><?php echo esc_html( get_bloginfo() ); ?></span>
-						</a>
-						<meta itemprop="position" content="<?php echo $pos++; ?>" />
-					</li>
 					<?php endif; ?>
-					<?php if ( ! empty( $child_cat ) ) : ?>
+					<?php if ( ! empty( $first_cat ) ) : ?>
 					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 						<a href="<?php echo esc_url( get_term_link( $first_cat->slug, 'category' ) ); ?>" itemprop="item">
 							<span itemprop="name"><?php echo esc_html( $first_cat->name ); ?></span>
