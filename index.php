@@ -20,7 +20,7 @@ get_header(); ?>
 				<div class="d-md-flex align-items-center">
 					<div class="col-12 col-md-7 text-center text-md-left" style="min-height: 100%; overflow: hidden" >
 						<h1 class="mb-3"><?php echo get_bloginfo( 'name' ); ?></h1>
-						<p class="mb4 desc-text"><?php echo html_entity_decode( get_bloginfo( 'description') ); ?></p>
+						<p class="mb4 desc-text"><?php echo html_entity_decode( get_bloginfo( 'description' ) ); ?></p>
 					</div>
 					<div class="col-12 col-md-5">
 						<p class="p-5"><?php githuber_category_labels(); ?></p>

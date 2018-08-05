@@ -22,33 +22,34 @@
 if ( post_password_required() ) {
 	return;
 }
+
+/**
+ * If the post type is not supprted.
+ */
+if ( ! post_type_supports( get_post_type(), 'comments' ) ) {
+	return;
+}
+
+/*
+ * If comment is not open, and comment number is 0,
+ * I think it is no need to show this section.
+ */
+if ( ! comments_open() && 0 === (int) get_comments_number() ) {
+	return;
+}
+
 ?>
 
 <div id="comments" class="discussion-wrapper">
-
 	<h3 class="section-title"><?php esc_html_e( 'Comments', 'githuber' ); ?></h3>
-
-	<div class="discussion-sidebar">
-
-	</div>
-
 	<div class="discussion-timeline">
-
 		<?php if ( have_comments() ) : ?>
-
 			<?php wp_list_comments( 'type=comment&callback=githuber_comment' ); ?>
-
 		<?php endif; ?>
-
-		<?php if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-
+		<?php if ( ! comments_open() && get_comments_number() ) : ?>
 			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'githuber' ); ?></p>
-
 		<?php endif; ?>
-
 		<?php comment_form(); ?>
-
 	</div>
-
 </div>
 

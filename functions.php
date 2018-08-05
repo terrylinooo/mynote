@@ -1276,9 +1276,7 @@ function githuber_category() {
  * Move it to page bottom, because I would like to stick the page title progress bar on page top.
  */
 function githuner_admin_bar() {
-
 ?>
-
 	<style type="text/css" media="screen" id="githuner-admin-bar">
 		html { margin-top: 0px !important; margin-bottom: 32px !important; }
 		* html body { margin-top: 0px !important; margin-bottom: 32px !important; }
@@ -1287,7 +1285,6 @@ function githuner_admin_bar() {
 			* html body { margin-top: 0px !important; margin-bottom: 46px !important; }
 		}
 	</style>
-
 <?php
 }
 
@@ -1321,7 +1318,7 @@ function githuber_category_labels() {
  */
 function remove_tagline( $title ) {
 	if ( isset( $title['tagline'] ) ) {
-		unset( $title['tagline']) ;
+		unset( $title['tagline'] );
 	}
 	return $title;
 }
@@ -1335,19 +1332,19 @@ add_filter( 'document_title_parts', 'remove_tagline' );
  */
 function site_info() {
 	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-	echo __( 'Copyright', 'githuber' ) . ' &copy; ' . date( 'Y' ) . ' <strong><a href="' . get_site_url() . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' . __( 'All rights reserved.', 'githuber' ) . ' ';
+	echo esc_html__( 'Copyright', 'githuber' ) . ' &copy; ' . date( 'Y' ) . ' <strong><a href="' . esc_url( get_site_url() ) . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' . esc_html__( 'All rights reserved.', 'githuber' ) . ' ';
 
 	// Only homepage and single-post pages shows the theme credit link on the footer.
 	// Keeping the theme credit link encourages me to improve this theme better. Thank you.
 	if ( ( is_home() || is_front_page() || is_single() ) && 1 === $paged ) {
-		echo __( 'Theme by', 'githuber' ) . ' ' . '<a href="https://terryl.in/githuber" title="githuber">' . __( 'Githuber', 'githuber' ) . '</a>. ';
+		echo esc_html__( 'Theme by', 'githuber' ) . ' <a href="https://terryl.in/githuber" title="Githuber">' . esc_html__( 'Githuber', 'githuber' ) . '</a>. ';
 	}
 }
 
 /**
  * Breadcrumb for single post.
  *
- * @return null
+ * @return void
  */
 function githuber_post_breadcrumb() {
 	global $post;
@@ -1380,14 +1377,14 @@ function githuber_post_breadcrumb() {
 						<a href="<?php echo esc_url( get_home_url() ); ?>" itemprop="item">
 							<span itemprop="name"><i class="fas fa-globe"></i><span class="sr-only">Home</span></span>
 						</a>
-						<meta itemprop="position" content="<?php echo $pos++; ?>" />
+						<meta itemprop="position" content="<?php echo $pos++; ?>">
 					</li>
 					<?php if ( ! empty( $first_cat ) ) : ?>
 					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 						<a href="<?php echo esc_url( get_term_link( $first_cat->slug, 'category' ) ); ?>" itemprop="item">
 							<span itemprop="name"><?php echo esc_html( $first_cat->name ); ?></span>
 						</a>
-						<meta itemprop="position" content="<?php echo $pos++; ?>" />
+						<meta itemprop="position" content="<?php echo $pos++; ?>">
 					</li>
 					<?php endif; ?>
 					<?php if ( ! empty( $child_cat ) ) : ?>
@@ -1395,13 +1392,13 @@ function githuber_post_breadcrumb() {
 						<a class="breadcrumb-item" href="<?php echo esc_url( get_term_link( $child_cat->slug, 'category' ) ); ?>" itemprop="item">
 							<span itemprop="name"><?php echo esc_html( $child_cat->name ); ?></span>
 						</a>
-						<meta itemprop="position" content="<?php echo $pos++; ?>" />
+						<meta itemprop="position" content="<?php echo $pos++; ?>">
 					</li>
 					<?php endif; ?>
 					<li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 						<span itemprop="name"><?php the_title(); ?></span>
-						<meta itemprop="item" content="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" />
-						<meta itemprop="position" content="<?php echo $pos++; ?>" />
+						<meta itemprop="item" content="<?php echo esc_url( get_permalink( $post->ID ) ); ?>">
+						<meta itemprop="position" content="<?php echo $pos++; ?>">
 					</li>
 				</ul>
 			</div>

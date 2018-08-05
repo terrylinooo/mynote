@@ -36,7 +36,7 @@
 						<?php default_nav(); ?>
 					<?php endif; ?>
 					<div class="search-bar">
-						<form id="search-form" class="search" method="get" action="<?php echo home_url(); ?>" role="search" autocomplete="off">
+						<form id="search-form" class="search" method="get" action="<?php echo esc_url( home_url() ); ?>" role="search" autocomplete="off">
 							<input type="text" name="s" class="search-input" placeholder="<?php esc_html_e( 'To search, type and hit enter.', 'githuber' ); ?>">
 							<span class="search-icon" onclick="document.getElementById('search-form').submit();"><i class="fas fa-search"></i></span>
 						</form>
