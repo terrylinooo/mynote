@@ -1027,7 +1027,7 @@ progress::-ms-fill {
 }
 
 #progress-title {
-  width: calc(100% - 80px);
+  width: calc(100% - 50px);
   display: inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1362,6 +1362,10 @@ body #wpadminbar {
   }
   .navbar-nav .dropdown-menu::before {
     display: none !important;
+  }
+
+  .column-control {
+    display: none;
   }
 }
 @media (max-width: 991.98px) {

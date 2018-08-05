@@ -43,7 +43,7 @@ get_header();
 
 	<div class="container">
 		<div class="row">
-			<main id="main-container" class="col col-lg-8 col-md-8 col-xs-12" role="main">
+			<main id="main-container" class="col col-lg-8 col-md-8 col-sm-12 col-xs-12" role="main">
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
@@ -70,7 +70,7 @@ get_header();
 				</article>
 			<?php endif; ?>
 			</main>
-			<aside id="aside-container" class="col col-lg-4 col-md-4 col-xs-12" role="complementary">
+			<aside id="aside-container" class="col col-lg-4 col-md-4 col-sm-12 col-xs-12" role="complementary">
 				<?php get_sidebar(); ?>
 			</aside>
 		</div><!-- .row -->
