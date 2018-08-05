@@ -1,6 +1,8 @@
 <?php
 /**
- * The Tag page of Githuber theme.
+ * @author Terry Lin <terrylin.developer@gmail.com>
+ * @link https://terryl.in/githuber (online demo)
+ * @link https://github.com/terrylinooo/githuber (GitHub repository)
  *
  * @link https://terryl.in/theme/githuber
  *

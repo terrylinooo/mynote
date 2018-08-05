@@ -3,7 +3,7 @@
 /**
  * The Archive page of Githuber theme.
  *
- * @link https://terryl.in/theme/githuber
+ * @link https://terryl.in/githuber
  *
  * @package WordPress
  * @subpackage Githuber

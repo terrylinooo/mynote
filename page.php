@@ -2,7 +2,9 @@
 /**
  * Used in Search Results and for Recent Posts in Front Page panels.
  *
- * @link https://githuber.in/de
+ * @author Terry Lin <terrylin.developer@gmail.com>
+ * @link https://terryl.in/githuber (online demo)
+ * @link https://github.com/terrylinooo/githuber (GitHub repository)
  *
  * @package WordPress
  * @subpackage DevNote

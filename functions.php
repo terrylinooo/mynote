@@ -2,8 +2,9 @@
 /**
  * Githuber theme functions and definitions
  *
- * @author Terry Lin <terry.developer@email.com>
- * @link https://terryl.in
+ * @author Terry Lin <terrylin.developer@gmail.com>
+ * @link https://terryl.in/githuber (online demo)
+ * @link https://github.com/terrylinooo/githuber (GitHub repository)
  *
  * @package WordPress
  * @subpackage Githuber
