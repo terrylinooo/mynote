@@ -8,7 +8,20 @@
         padding-bottom: 0 !important;
     }
 
+    li:last-child {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: calc(100% - 210px);
+    }
+
     i {
         color: #333333;
+    }
+}
+
+.data-schema {
+    .breadcrumb {
+        margin-bottom: 0 !important;
     }
 }

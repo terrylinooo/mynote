@@ -541,6 +541,11 @@ article figcaption {
   font-weight: 300;
   padding: 0.5rem 0;
 }
+@media (max-width: 575.98px) {
+  #post-title {
+    font-size: 1.7rem;
+  }
+}
 
 /* Typography - Home page */
 .section-intro {
@@ -1238,8 +1243,18 @@ nav[data-toggle='toc'] .nav-link.active + ul {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
+.breadcrumb li:last-child {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: calc(100% - 210px);
+}
 .breadcrumb i {
   color: #333333;
+}
+
+.data-schema .breadcrumb {
+  margin-bottom: 0 !important;
 }
 
 .author-card {
@@ -1341,12 +1356,37 @@ body #wpadminbar {
   bottom: 50px;
 }
 
+/* < 360px */
+@media (max-width: 359.98px) {
+  .section-intro {
+    background-image: url("./assets/images/bg_circuit_mx.png");
+  }
+  .section-intro h1 {
+    margin-top: 30px;
+    font-size: 2rem;
+  }
+  .section-intro .desc-text {
+    font-size: 0.95rem;
+  }
+}
+/* < 576px */
 @media (max-width: 575.98px) {
   .px-responsive {
     padding-left: 10px !important;
     padding-right: 10px !important;
   }
+
+  .author-card {
+    display: block !important;
+  }
+  .author-card .author-avatar {
+    text-align: center;
+  }
+  .author-card .author-info {
+    padding-top: 0;
+  }
 }
+/* < 768px */
 @media (max-width: 767.98px) {
   .px-responsive {
     padding-left: 15px !important;
@@ -1368,6 +1408,7 @@ body #wpadminbar {
     display: none;
   }
 }
+/* < 992px */
 @media (max-width: 991.98px) {
   .px-responsive {
     padding-left: 10px !important;
@@ -1418,22 +1459,20 @@ body #wpadminbar {
     content: "";
   }
 }
+/* < 1200px */
 @media (max-width: 1199.98px) {
   .px-responsive {
     padding-left: 25px !important;
     padding-right: 25px !important;
   }
 }
-.px-responsive {
-  padding-left: 30px !important;
-  padding-right: 30px !important;
-}
-
+/* > 1200px */
 @media (min-width: 1200px) {
   .section-intro {
     background-image: url("./assets/images/bg_circuit.png");
   }
 }
+/* 992px - 1199.98px */
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .section-intro {
     background-image: url("./assets/images/bg_circuit_xl.png");
@@ -1445,6 +1484,7 @@ body #wpadminbar {
     font-size: 1.5rem;
   }
 }
+/* 768px - 991.98px */
 @media (min-width: 768px) and (max-width: 991.98px) {
   .section-intro {
     background-image: url("./assets/images/bg_circuit_lg.png");
@@ -1456,6 +1496,7 @@ body #wpadminbar {
     font-size: 1.4rem;
   }
 }
+/* 576px - 767.98px */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .section-intro {
     background-image: url("./assets/images/bg_circuit_md.png");
@@ -1467,6 +1508,7 @@ body #wpadminbar {
     font-size: 1.3rem;
   }
 }
+/* 360px - 575.98px */
 @media (min-width: 360px) and (max-width: 575.98px) {
   .section-intro {
     background-image: url("./assets/images/bg_circuit_sm.png");
@@ -1477,17 +1519,5 @@ body #wpadminbar {
   }
   .section-intro .desc-text {
     font-size: 1.1rem;
-  }
-}
-@media (max-width: 359.98px) {
-  .section-intro {
-    background-image: url("./assets/images/bg_circuit_mx.png");
-  }
-  .section-intro h1 {
-    margin-top: 30px;
-    font-size: 2rem;
-  }
-  .section-intro .desc-text {
-    font-size: 0.95rem;
   }
 }

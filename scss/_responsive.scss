@@ -1,14 +1,39 @@
 
 
+/* < 360px */
+@include media-breakpoint-down(xs) {
+    .section-intro {
+        background-image: url("./assets/images/bg_circuit_mx.png");
 
+        h1 {
+            margin-top: 30px;
+            font-size: 2rem;
+        }
+    
+        .desc-text {
+            font-size: 0.95rem;
+        }
+    }
+}
 
+/* < 576px */
 @include media-breakpoint-down(mx) {
     .px-responsive {
         padding-left: 10px !important;
         padding-right: 10px !important;
     }
+    .author-card {
+        display: block !important;
+        .author-avatar {
+            text-align: center;
+        }
+        .author-info {
+            padding-top: 0;
+        }
+    }
 }
 
+/* < 768px */
 @include media-breakpoint-down(sm) {
     .px-responsive {
         padding-left: 15px !important;
@@ -31,8 +56,10 @@
     .column-control {
         display: none;
     }
+
 }
 
+/* < 992px */
 @include media-breakpoint-down(md) {
     .px-responsive {
         padding-left: 10px !important;
@@ -86,28 +113,23 @@
     }
 }
 
+/* < 1200px */
 @include media-breakpoint-down(lg) {
-
     .px-responsive {
         padding-left: 25px !important;
         padding-right: 25px !important;
     }
 }
 
-@include media-breakpoint-down(xl) {
-    .px-responsive {
-        padding-left: 30px !important;
-        padding-right: 30px !important;
-    }
-}
-
-
+/* > 1200px */
 @include media-breakpoint-up(xl) {
+
     .section-intro {
         background-image: url("./assets/images/bg_circuit.png");
     }
 }
 
+/* 992px - 1199.98px */
 @include media-breakpoint-between(lg, lg) {
     .section-intro {
         background-image: url("./assets/images/bg_circuit_xl.png");
@@ -122,6 +144,7 @@
     }
 }
 
+/* 768px - 991.98px */
 @include media-breakpoint-between(md, md) {
     .section-intro {
         background-image: url("./assets/images/bg_circuit_lg.png");
@@ -136,6 +159,7 @@
     }
 }
 
+/* 576px - 767.98px */
 @include media-breakpoint-between(sm, sm) {
     .section-intro {
         background-image: url("./assets/images/bg_circuit_md.png");
@@ -150,6 +174,7 @@
     }
 }
 
+/* 360px - 575.98px */
 @include media-breakpoint-between(mx, mx) {
     .section-intro {
         background-image: url("./assets/images/bg_circuit_sm.png");
@@ -161,21 +186,6 @@
     
         .desc-text {
             font-size: 1.1rem;
-        }
-    }
-}
-
-@include media-breakpoint-down(xs) {
-    .section-intro {
-        background-image: url("./assets/images/bg_circuit_mx.png");
-
-        h1 {
-            margin-top: 30px;
-            font-size: 2rem;
-        }
-    
-        .desc-text {
-            font-size: 0.95rem;
         }
     }
 }
