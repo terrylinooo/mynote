@@ -1,10 +1,9 @@
 <?php
 /**
- * @author Terry Lin <terrylin.developer@gmail.com>
- * @link https://terryl.in/githuber (online demo)
- * @link https://github.com/terrylinooo/githuber (GitHub repository)
+ * The Tag page of Githuber theme.
  *
- * @link https://terryl.in/theme/githuber
+ * @author Terry Lin
+ * @link https://terryl.in/githuber
  *
  * @package WordPress
  * @subpackage Githuber

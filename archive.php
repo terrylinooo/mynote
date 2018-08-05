@@ -1,8 +1,8 @@
-
 <?php
 /**
  * The Archive page of Githuber theme.
  *
+ * @author Terry Lin
  * @link https://terryl.in/githuber
  *
  * @package WordPress

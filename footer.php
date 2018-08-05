@@ -2,6 +2,7 @@
 /**
  * The footer for Githuber theme
  *
+ * @author Terry Lin
  * @link https://terryl.in/githuber
  *
  * @package WordPress
