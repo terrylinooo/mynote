@@ -1,12 +1,13 @@
 @charset "UTF-8";
 /*
-	Theme Name: githuber
+	Theme Name: Githuber
 	Theme URI: https://github.com/terrylinooo/githuber
 	Description: Githuber is a github-style WordPress theme with preferred features for developers.
 	Version: 1.0.0
 	Author: Terry Lin
 	Author URI: https://terryl.in
 	Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, threaded-comments
+	Text Domain: githuber
 
 	License: GPLv3 (or later)
 	License URI: https://www.gnu.org/licenses/gpl.html
@@ -1334,6 +1335,66 @@ html.wp-toolbar {
   padding-top: 0 !important;
   padding-bottom: 32px !important;
   box-sizing: border-box;
+}
+
+/* Remove bottom on embeds that wrapped in paragraphs via wpautop. */
+p > embed:only-child,
+p > iframe:only-child,
+p > object:only-child {
+  margin-bottom: 0;
+}
+
+.wp-caption,
+.gallery-caption {
+  color: #666;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  font-style: italic;
+  margin-bottom: 1.5em;
+  max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.wp-caption .wp-caption-text {
+  margin: 0.8075em 0;
+}
+
+.bypostauthor {
+  border-bottom-width: 1px;
+}
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
 }
 
 body.admin_bar {
