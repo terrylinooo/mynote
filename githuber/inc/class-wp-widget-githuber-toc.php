@@ -62,11 +62,10 @@ class WP_Widget_Githuber_TOC extends WP_Widget {
 		wp_add_inline_script( 'bootstrap-toc', $inline_js );
 	}
 
-
 	/**
 	 * Outputs the content for the Githuber TOC instance.
 	 */
-	public function widget() {
+	public function widget( $args, $instance ) {
 		$this->githuber_toc_inline_js();
 
 		$output = '<nav id="toc" class="toc" role="navigation"></nav>';

@@ -24,7 +24,7 @@ class Githuber_Walker extends Walker_Nav_Menu {
 	public function __construct() {
 		add_filter( 'nav_menu_css_class', function( $classes, $item, $args, $depth ) {
 			unset( $classes );
-			return $classes;
+			return array();
 		}, 10, 4 );
 	}
 
