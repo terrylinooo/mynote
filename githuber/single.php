@@ -86,8 +86,8 @@ get_header();
 		<?php
 			the_post_navigation(
 				array(
-					'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'githuber' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'githuber' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper"><i class="fas fa-angle-left"></i></span>%title</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'githuber' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'githuber' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper"><i class="fas fa-angle-right"></i></span></span>',
+					'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous Post', 'githuber' ) . '</span> %title',
+					'next_text' => '<i class="fas fa-angle-right"></i> <span class="screen-reader-text">' . __( 'Next Post', 'githuber' ) . '</span> %title',
 				)
 			);
 		?>

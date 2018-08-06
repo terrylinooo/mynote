@@ -74,15 +74,6 @@ get_header();
 			<?php endif; ?>
 			</main>
 		</div><!-- .row -->
-		<?php
-			the_posts_pagination(
-				array(
-					'prev_text'          => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous page', 'githuber' ) . '</span>',
-					'next_text'          => '<span class="screen-reader-text">' . __( 'Next page', 'githuber' ) . '</span> <i class="fas fa-angle-right"></i>',
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'githuber' ) . ' </span>',
-				)
-			);
-		?>
 	</div><!-- .container -->
 </div>
 

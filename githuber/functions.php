@@ -15,9 +15,6 @@ define( 'POST_IS_TEXT_FADE_OUT', true );
 // Load Githuber Walker.
 require_once dirname( __FILE__ ) . '/inc/class-githuber-walker.php';
 
-// Load Githuber TOC Widget.
-require_once dirname( __FILE__ ) . '/inc/class-wp-widget-githuber-toc.php';
-
 if ( function_exists( 'add_theme_support' ) ) {
 	// Add Menu Support.
 	add_theme_support( 'title-tag' );
