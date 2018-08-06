@@ -283,8 +283,6 @@ function githuber_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-
-	register_widget( 'WP_Widget_Githuber_TOC' );
 }
 
 add_action( 'widgets_init', 'githuber_widgets_init' );
