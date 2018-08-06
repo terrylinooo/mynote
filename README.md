@@ -8,6 +8,9 @@ Both are free to use. The difference between the two versions:
 - Githuber: This version will be uploaded to WordPress theme dictionary and keep it update to date.
 - Githuber Pro: Githuber + [Githuber framework](https://github.com/githuber-wp/githuber-framework).
 
+
+## :link: [Online demo](https://terryl.in/githuber/) :link:
+
 ## Dependencies
 
 - Bootstrap 4
@@ -46,6 +49,10 @@ To do:
 - Plugin: Github oAuth + Only allow Github member to leave comments.
 - Plugin: Sync content to github page
 - Plugin: Markdown editor + preview.
+
+## :mushroom: License
+
+GPLv3 (or later)
 
 
 
