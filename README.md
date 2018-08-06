@@ -2,36 +2,50 @@
 
 Githuber is a github-style WordPress theme with preferred features for developers.
 
-![Cover](./screenshot.png)
+This repository containes two versions of Githuber theme: Githuber and Githuber Pro.
+Both are free to use. The difference between the two versions:
 
+- Githuber: This version will be uploaded to WordPress theme dictionary and keep it update to date.
+- Githuber Pro: Githuber + [Githuber framework](https://github.com/githuber-wp/githuber-framework).
+
+## Dependencies
+
+- Bootstrap 4
+- Fontawesome 5
 
 ## Features
 
 - Markdown friendly.
-- widget Table of Content widget.
-- Built-in structured data supported for articles.
-- Cross-platform safe webfont supported for CJK languages.
-- Sticky sidebar widget area.
-- Bootstrap 4 nav menu.
-- Bootstrap 4 pagination.
-- Post type - Repository. (default: false)
+- Fully reponsive web design.
+- Structured data supported:
+  - Breadcrumb
+  - Tech Article
+- Widget area:
+  - Sidebar. 
+  - Sticky sidebar.
+  - Footer sidebar.
+  - Homepage middle sidebar.
+- Cross-platform safe webfont font-family for CJK languages.
+- Bootstrap 4 navigation menu.
 - Page reading progress bar.
-- Reponsive web design.
-- Design for search engine optimization.
-- Tech Article - structured data format.
-- Breadcrumb - structured data format.
+- Search engine optimization.
 - SCSS supported - Easy to modify this theme for your needs.
-- WordPress Coding Standards - 99.9% passed by PHP_CodeSniffer ([WDCS](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards))
+- WordPress Coding Standards - 99% passed by PHP_CodeSniffer ([WDCS](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards))
 
+## Githuber framework
 
-#### Preview:
+A WordPress plugin that improves Githuber theme functionality.
 
-*Page reading progress bar + Sticky TOC*
+- Widget: Table of Content.
+- Pagination: Bootstrap 4 style pagination.
+- Post type - Repository.
 
-![Preview](https://i.imgur.com/soYQjth.png)
+To do:
 
-*GitHub Repository Post*
+- Widget: Post status dashboard.
+- Plugin: Github oAuth + Only allow Github member to leave comments.
+- Plugin: Sync content to github page
+- Plugin: Markdown editor + preview.
 
-![Preview](https://i.imgur.com/IUF2zCT.png)
 
 
