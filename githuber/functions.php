@@ -1036,6 +1036,7 @@ if ( ! function_exists( 'githuber_author_card' ) ) {
 	 * @return void
 	 */
 	function githuber_author_card( $avatar_size = 96, $icon_size = 'sm' ) {
+		$description = get_the_author_meta( 'description' );
 		?>
 			<h3 class="section-title"><?php esc_html_e( 'Author', 'githuber' ); ?></h3>
 			<aside class="author-card" itemscope itemprop="author" itemtype="http://schema.org/Person">

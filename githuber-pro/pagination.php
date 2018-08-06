@@ -16,7 +16,7 @@
 <div class="pagination-container">
 	<?php
 
-	if ( function_exist( 'githuber_pagination' ) ) {
+	if ( function_exists( 'githuber_pagination' ) ) {
 		githuber_pagination();
 	} else {
 		the_posts_pagination(
