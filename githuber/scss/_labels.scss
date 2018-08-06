@@ -1,0 +1,64 @@
+.label {
+    padding: .125rem .25rem;
+    line-height: 1.2;
+    border-radius: .2rem;
+    border: 1px solid transparent;
+    &.label-success,
+    &.label-cat {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
+    &.label-warning,
+    &.label-tag {
+        color: #856404;
+        background-color: #fff3cd;
+        border-color: #ffeeba;
+    }
+    &.label-primary {
+        color: #004085;
+        background-color: #cce5ff;
+        border-color: #b8daff;
+    }
+    &.label-secondary {
+        color: #383d41;
+        background-color: #e2e3e5;
+        border-color: #d6d8db;
+    }
+    &.label-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+    &.label-light {
+        color: #818182;
+        background-color: #fefefe;
+        border-color: #fdfdfe;
+    }
+    &.label-dark {
+        color: #1b1e21;
+        background-color: #d6d8d9;
+        border-color: #c6c8ca;
+    }
+}
+
+.x-label {
+    padding: .25rem .5rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+    border: 1px solid transparent;
+    margin: 5px;
+    word-break: keep-all !important;
+    display: inline-block;
+}
+
+$i: 0;
+@each $color-name, $color-code in $colors {
+    .x-label-#{$i} {
+        color: $white !important;
+        border-top-color: lighten($color-code, 10%) !important;
+        border-bottom-color: darken($color-code, 10%) !important;
+        background-color: $color-code !important;
+    }
+    $i: $i+1;
+}

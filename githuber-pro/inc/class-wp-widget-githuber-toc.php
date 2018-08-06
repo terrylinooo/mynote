@@ -21,10 +21,10 @@ class WP_Widget_Githuber_TOC extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array(
 			'classname'                   => 'widget_githuber_toc',
-			'description'                 => __( 'Add a Table of Content for your article. This widget is for single-post pages only.' ),
+			'description'                 => __( 'Add a Table of Content for your article. This widget is for single-post pages only.', 'githuber' ),
 			'customize_selective_refresh' => true,
 		);
-		parent::__construct( 'githuber-toc', __( 'Table of Content' ), $widget_ops );
+		parent::__construct( 'githuber-toc', __( 'Table of Content', 'githuber' ), $widget_ops );
 		$this->alt_option_name = 'widget_githuber_toc';
 
 		if ( is_active_widget( false, false, $this->id_base ) || is_customize_preview() ) {

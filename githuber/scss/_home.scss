@@ -1,0 +1,40 @@
+
+
+.section-intro {
+    width: 100%;
+    min-height: $home_intro_box_height;
+    background-color: $home_intro_bg;
+    color: $home-intro-font-color;
+    overflow: hidden;
+    
+    a {
+        color: $white !important;
+        cursor: pointer;
+    }
+
+    .desc-text {
+        color: gray("500");
+    }
+
+}
+
+.article-list {
+    color: #666666;
+    min-height: 250px;
+    overflow: hidden;
+
+    a {
+        color: #333333;
+
+        &:hover {
+            color: #0366dd;
+        }
+    }
+
+    .read-more-link {
+        color: #0366dd;
+    }
+}
+
+
+

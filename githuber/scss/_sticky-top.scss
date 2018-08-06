@@ -1,0 +1,30 @@
+.sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1020; 
+
+    &.sidebar {
+        top: 90px !important;
+    }
+
+    &.title {
+        top: 5px !important;
+    }
+
+    &.column-switch {
+        top: 0px !important;
+        z-index: 1030;
+        color: #aaaaaa;
+        height: 60px;
+
+        .btn {
+            font-size: 0.9rem;
+            margin: 5px;
+
+            &.active {
+                color: #ffffff;
+            }
+        }
+
+    }
+}

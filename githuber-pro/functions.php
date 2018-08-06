@@ -24,7 +24,6 @@ require_once dirname( __FILE__ ) . '/inc/githuber-shortcode.php';
 
 if ( function_exists( 'add_theme_support' ) ) {
 	// Add Menu Support.
-	add_theme_support( 'menus' );
 	add_theme_support( 'title-tag' );
 
 	// Add Thumbnail Theme Support.
@@ -831,7 +830,7 @@ function githuber_comment_form() {
 		'title_reply_before'   => '<h3 id="reply-title" class="section-title">',
 		'title_reply_after'    => '</h3>',
 		'class_submit'         => 'btn btn-green my-1',
-		'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . '</p>',
+		'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.', 'githuber' ) . '</p>',
 	);
 	return $comments_args;
 }
@@ -850,7 +849,7 @@ function githuber_comment_fileds() {
 				<div class="input-group-prepend">
 					<div class="input-group-text"><i class="fas fa-user"></i></div>
 				</div>
-				<input id="author" class="form-control" placeholder="' . __( 'Name' ) . '" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" maxlength="245" />
+				<input id="author" class="form-control" placeholder="' . __( 'Name', 'githuber' ) . '" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" maxlength="245" />
 			</div>
 		</div>
 	';
@@ -861,7 +860,7 @@ function githuber_comment_fileds() {
 				<div class="input-group-prepend">
 					<div class="input-group-text"><i class="fas fa-envelope"></i></div>
 				</div>
-				<input id="email" class="form-control" placeholder="' . __( 'Email' ) . '" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) . '" maxlength="100" aria-describedby="email-notes" />
+				<input id="email" class="form-control" placeholder="' . __( 'Email', 'githuber' ) . '" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) . '" maxlength="100" aria-describedby="email-notes" />
 			</div>
 		</div>
 	';
@@ -872,7 +871,7 @@ function githuber_comment_fileds() {
 				<div class="input-group-prepend">
 					<div class="input-group-text"><i class="fas fa-globe"></i></div>
 				</div>
-				<input id="url" class="form-control" placeholder="' . __( 'Website' ) . '" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" maxlength="200" />
+				<input id="url" class="form-control" placeholder="' . __( 'Website', 'githuber' ) . '" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" maxlength="200" />
 			</div>
 		</div>
 	';

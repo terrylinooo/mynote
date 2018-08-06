@@ -1,0 +1,122 @@
+/* Typography */
+
+.header {
+    font-weight: 600;
+
+    .search-bar {
+        font-size: inherit;
+    
+        .search-input {
+            font-size: 13px;
+        }
+    }
+
+    .navbar-nav {
+		& > li > a {
+			font-size: 14px;
+		}
+	}
+}
+
+/* Typography - Single post page */
+
+#post-title {
+    font-family: $font-family-title-en !important;
+    font-size: 2.2rem;
+    font-weight: 300;
+    padding: 0.5rem 0;
+
+    @include media-breakpoint-down(mx) {
+        font-size: 1.7rem;
+    }
+}
+
+/* Typography - Home page */
+
+.section-intro {
+    font-family: $font-family-title-en !important;
+    font-weight: 300;
+
+    a {
+        font-weight: 400;
+    }
+
+    h1 {
+        font-size: 4.5rem;
+        font-weight: 300; 
+    }
+
+    .desc-text {
+        font-size: 1.6rem;
+    }
+}
+
+/* Typography - Comment */
+
+.comment-wrapper {
+    cite {
+        font-style: normal !important;
+        font-weight: 600 !important;
+    }
+    .comment-body {
+        font-size: 14px;
+    }
+}
+
+article {
+    figcaption {
+        font-size: 0.85rem;
+    }
+}
+
+.comment-notes {
+    font-size: 12px;
+}
+
+.section-title {
+    font-size: 18px;
+    margin: 40px 0 10px 0;
+}
+
+/* Typography - Others */
+
+
+.label {
+    font-size: .675rem;
+}
+
+.x-label {
+    font-size: 1rem;
+}
+
+.f-14 {
+    font-size: 14px !important;
+}
+
+.c-light {
+    color: #586069 !important;
+}
+
+/* Use the best fit font for different languages */
+
+@each $lang-code in $supported-languages {
+    :lang(#{$lang-code}) {
+
+        body {
+            font-family: get-base-font($lang-code);
+        }
+    
+        h1, h2, h3, h4, h5, h6 {
+            font-family: get-heading-font($lang-code);
+        }
+    
+        .section-intro, #post-title, .site-info {
+            font-family: get-title-font($lang-code);
+        }
+    }
+}
+
+
+
+
+

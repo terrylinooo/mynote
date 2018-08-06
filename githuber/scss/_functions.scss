@@ -1,0 +1,33 @@
+/* Base functions to get safe web font */
+
+@function get-base-font($key: "en") {
+	@return map-get($font-family-base, $key);
+}
+
+@function get-title-font($key: "en") {
+	@return map-get($font-family-title, $key);
+}
+
+@function get-heading-font($key: "en") {
+	@return map-get($font-family-heading, $key);
+}
+
+/* Metal */
+
+// Designer: Simurai 
+// Credit:   http://simurai.com 
+// Source:   https://codepen.io/simurai/pen/DwJdq
+
+// Simply modify it for my need.
+
+@mixin metal() {
+	text-shadow: hsla(0,0%,40%,.5) 0 -1px 0, hsla(0,0%,100%,.6) 0 2px 1px;
+	background-image: -webkit-repeating-linear-gradient(left, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, 0) 6%, hsla(0, 0%, 100%, .1) 7.5%), -webkit-repeating-linear-gradient(left, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0) 4%, hsla(0, 0%, 0%, .03) 4.5%), -webkit-repeating-linear-gradient(left, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 100%, 0) 1.2%, hsla(0, 0%, 100%, .15) 2.2%), linear-gradient(180deg, hsl(0, 0%, 78%) 0%, hsl(0, 0%, 90%) 47%, hsl(0, 0%, 78%) 53%, hsl(0, 0%, 70%)100%);
+	color: hsla(0,0%,20%,1);
+	box-shadow: inset hsla(0,0%,15%, .2) 0  0px 0px 1px, /* border */
+		inset hsla(0,0%,15%, .2) 0 -1px 1px 1px, /* soft SD */
+		inset hsla(0,0%,0%, .25) 0 -1px 0px 2px, /* bottom SD */
+		inset hsla(0,0%,100%,.7) 0  1px 0px 2px, /* top HL */
+		hsla(0,0%, 0%,.15) 0 -1px 1px 1px, /* outer SD */
+		hsla(0,0%,100%,.5) 0  1px 1px 1px; /* outer HL */ 
+}
