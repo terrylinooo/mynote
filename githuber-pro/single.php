@@ -54,6 +54,14 @@ get_header();
 					<?php endif; ?>
 					<div itemprop="articleBody">
 						<?php the_content(); ?>
+						<?php
+							wp_link_pages(
+								array(
+									'before' => '<div class="page-links">' . __( 'Pages:', 'githuber' ),
+									'after'  => '</div>',
+								)
+							);
+						?>
 					</div>
 				</article>
 				<section class="modified-date" itemprop="dateModified" content="<?php the_modified_date( 'c' ); ?>">
@@ -75,6 +83,14 @@ get_header();
 				<?php get_sidebar(); ?>
 			</aside>
 		</div><!-- .row -->
+		<?php
+			the_post_navigation(
+				array(
+					'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'githuber' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'githuber' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper"><i class="fas fa-angle-left"></i></span>%title</span>',
+					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'githuber' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'githuber' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper"><i class="fas fa-angle-right"></i></span></span>',
+				)
+			);
+		?>
 	</div><!-- .container -->
 </div><!-- .data-schema -->
 

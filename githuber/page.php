@@ -49,6 +49,14 @@ get_header();
 					<?php endif; ?>
 					<div itemprop="articleBody">
 						<?php the_content(); ?>
+						<?php
+							wp_link_pages(
+								array(
+									'before' => '<div class="page-links">' . __( 'Pages:', 'githuber' ),
+									'after'  => '</div>',
+								)
+							);
+						?>
 					</div>
 				</article>
 				<section class="modified-date" itemprop="dateModified" content="<?php the_modified_date( 'c' ); ?>">

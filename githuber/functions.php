@@ -10,7 +10,6 @@
  * @since 1.0.0
  */
 
-define( 'POST_TYPE_REPOSITORY', false );
 define( 'POST_IS_TEXT_FADE_OUT', true );
 
 // Load Githuber Walker.
@@ -18,9 +17,6 @@ require_once dirname( __FILE__ ) . '/inc/class-githuber-walker.php';
 
 // Load Githuber TOC Widget.
 require_once dirname( __FILE__ ) . '/inc/class-wp-widget-githuber-toc.php';
-
-// Load shortcodes.
-require_once dirname( __FILE__ ) . '/inc/githuber-shortcode.php';
 
 if ( function_exists( 'add_theme_support' ) ) {
 	// Add Menu Support.
@@ -40,188 +36,6 @@ if ( function_exists( 'add_theme_support' ) ) {
 
 	// Localisation Support.
 	load_theme_textdomain( 'githuber', get_template_directory() . '/languages' );
-}
-
-if ( defined( 'POST_TYPE_REPOSITORY' ) && true === POST_TYPE_REPOSITORY ) {
-	/**
-	 * Register custom post type: Repository.
-	 *
-	 * @return void
-	 */
-	function create_post_type_repository() {
-		register_post_type( 'repository',
-			array(
-				'labels' => array(
-					'name'               => __( 'Repositories', 'githuber' ),
-					'singular_name'      => __( 'Repository', 'githuber' ),
-					'add_new'            => __( 'Add New', 'githuber' ),
-					'add_new_item'       => __( 'Add New Repository', 'githuber' ),
-					'edit'               => __( 'Edit', 'githuber' ),
-					'edit_item'          => __( 'Edit Repository', 'githuber' ),
-					'new_item'           => __( 'New Repository', 'githuber' ),
-					'view'               => __( 'View Repository', 'githuber' ),
-					'view_item'          => __( 'View Repository', 'githuber' ),
-					'search_items'       => __( 'Search Repository', 'githuber' ),
-					'not_found'          => __( 'No Repository Posts found', 'githuber' ),
-					'not_found_in_trash' => __( 'No Repository Posts found in Trash', 'githuber' ),
-				),
-
-				'public'       => true,
-				'hierarchical' => true,
-				'has_archive'  => true,
-				'can_export'   => true,
-				'menu_icon'    => 'dashicons-lightbulb',
-				'supports'     => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields' ),
-				'taxonomies'   => array( 'post_tag', 'category' ),
-			)
-		);
-
-		register_taxonomy_for_object_type( 'category', 'repository' );
-		register_taxonomy_for_object_type( 'post_tag', 'repository' );
-	}
-
-	add_action( 'init', 'create_post_type_repository' );
-
-	/**
-	 * Create Custom meta box for Repository
-	 *
-	 * @return void
-	 */
-	function add_repository_meta_box() {
-		add_meta_box(
-			'repository_meta_box',             // id.
-			'GitHub Repository',               // title.
-			'show_repository_fields_meta_box', // callback.
-			'repository',                      // screen.
-			'normal',                          // context.
-			'high'                             // priority.
-		);
-	}
-
-	add_action( 'add_meta_boxes', 'add_repository_meta_box' );
-
-	/**
-	 * Show custom meta box for Repository
-	 *
-	 * @return void
-	 */
-	function show_repository_fields_meta_box() {
-		global $post;
-		$meta = get_post_meta( $post->ID, 'github_repository', true );
-	?>
-
-		<input type="hidden" name="metabox_nonce" value="<?php echo esc_html( wp_create_nonce( basename( __FILE__ ) ) ); ?>">
-
-		<table>
-			<tr>
-				<td><strong>URL</strong></td>
-				<td><input type="text" name="github_repository[url]" style="width: 100%" value="<?php echo esc_url( $meta['url'] ); ?>"></td>
-			</tr>
-			<tr>
-				<td><strong>Buttons</strong></td>
-				<td>
-					<?php
-
-					foreach ( array( 'star', 'fork', 'watch', 'issue', 'download' ) as $v ) :
-						$checked = '';
-						if ( ! empty( $meta[ $v ] ) ) {
-							$checked = 'checked';
-						}
-					?>
-
-					<label class="selectit"><input type="checkbox" name="github_repository[<?php echo $v; ?>]" value="<?php echo $v; ?>" <?php echo $checked; ?>> <?php echo ucfirst($v); ?></label> &nbsp;
-					<?php endforeach; ?>
-				</td>
-			</tr>
-		</table>
-		</p>
-
-	<?php
-	}
-
-	/**
-	 * Save custom meta box for Repository
-	 *
-	 * @param integer $post_id Post's ID.
-	 * @return integer if return.
-	 */
-	function save_repository_meta( $post_id ) {
-		// verify nonce.
-		if ( ! empty( $_POST['metabox_nonce'] ) && ! wp_verify_nonce( sanitize_key( $_POST['metabox_nonce'] ), basename( __FILE__ ) ) ) {
-			return $post_id;
-		}
-		// check autosave.
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-			return $post_id;
-		}
-		// check permissions.
-		if ( ! empty( $_POST['post_type'] ) && 'page' === $_POST['post_type'] ) {
-			if ( ! current_user_can( 'edit_page', $post_id ) ) {
-				return $post_id;
-			} elseif ( ! current_user_can( 'edit_post', $post_id ) ) {
-				return $post_id;
-			}
-		}
-
-		$old = get_post_meta( $post_id, 'github_repository', true );
-		$new = $_POST['github_repository'];
-
-		if ( $new && $new !== $old ) {
-			update_post_meta( $post_id, 'github_repository', $new );
-		} elseif ( '' === $new && $old ) {
-			delete_post_meta( $post_id, 'github_repository', $old );
-		}
-	}
-
-	add_action( 'save_post', 'save_repository_meta' );
-
-	/**
-	 * Register GitHub button script.
-	 *
-	 * @return void
-	 */
-	function post_repository_script() {
-		if ( is_single() && 'repository' === get_post_type() ) {
-			wp_enqueue_script( 'github-buttons', 'https://buttons.github.io/buttons.js', [], false, true );
-		}
-	}
-
-	add_action( 'wp_enqueue_scripts', 'post_repository_script' );
-}
-
-/**
- * Show GitHub Repository Buttons
- *
- * @param array $types An array list of GitHub button types.
- */
-function the_github_buttons( $types = array() ) {
-	if ( empty( $types ) ) {
-		$github = get_post_meta( get_the_ID(), 'github_repository', true );
-	} else {
-		$github = $types;
-	}
-
-	$github_buttons = array(
-		'watch'    => array( 'octicon-eye', '/subscription' ),
-		'star'     => array( 'octicon-star', '' ),
-		'fork'     => array( 'octicon-repo-forked', '/fork' ),
-		'issue'    => array( 'octicon-issue-opened', '/issues' ),
-		'download' => array( 'octicon-cloud-download', '/archive/master.zip' ),
-	);
-
-	foreach ( $github_buttons as $k => $v ) {
-		if ( ! empty( $github[ $k ] ) ) {
-			?>
-
-			<div class="github-button-container">
-				<a class="github-button" href="<?php echo esc_url( $github['url'] . $v[1] ); ?>" data-icon="<?php echo $v[0]; ?>" data-size="large" data-show-count="true">
-					<?php echo ucfirst( $k ); ?>
-				</a>
-			</div>
-
-			<?php
-		}
-	}
 }
 
 /**
@@ -1047,9 +861,6 @@ function title_progress_bar() {
 	<?php
 }
 
-// Add support for WP Editor.md plugin.
-add_post_type_support( 'repository', 'wpcom-markdown' );
-
 /**
  * We always have header search bar, so we don't need this.
  *
@@ -1215,50 +1026,36 @@ function githuber_site_icon() {
 	echo esc_url( get_site_icon_url( '32', $fallback_url ) );
 }
 
-/**
- * The author card.
- *
- * @param integer $avatar_size The avatar size.
- * @param string  $icon_size   The social icon size. sm: 24px. md: 32px. lg: 48px. xl: 64px.
- *
- * @return void
- */
-function githuber_author_card( $avatar_size = 96, $icon_size = 'sm' ) {
-	$description = get_the_author_meta( 'description' );
-	$pattern     = get_shortcode_regex();
-	$author_link = '';
-
-	if ( preg_match_all( '/' . $pattern . '/s', $description, $matches ) ) {
-		$all_matches = [];
-		foreach ( $matches[0] as $shortcode ) {
-			$all_matches[] = $shortcode;
-			$author_link  .= do_shortcode( $shortcode );
-		}
-		$description = str_replace( $all_matches, '', $description );
+if ( ! function_exists( 'githuber_author_card' ) ) {
+	/**
+	 * The author card.
+	 *
+	 * @param integer $avatar_size The avatar size.
+	 * @param string  $icon_size   The social icon size. sm: 24px. md: 32px. lg: 48px. xl: 64px.
+	 *
+	 * @return void
+	 */
+	function githuber_author_card( $avatar_size = 96, $icon_size = 'sm' ) {
+		?>
+			<h3 class="section-title"><?php esc_html_e( 'Author', 'githuber' ); ?></h3>
+			<aside class="author-card" itemscope itemprop="author" itemtype="http://schema.org/Person">
+				<div class="author-avatar">
+					<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => $avatar_size ) ) ); ?>" class="rounded-circle" itemprop="image">
+				</div>
+				<div class="author-info">
+					<div class="author-title">
+						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" itemprop="name">
+							<?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
+						</a>
+					</div>
+					<div class="author-description" itemprop="description">  
+						<?php echo $description; ?>
+					</div>
+				</div>
+			</aside>
+		<?php
 	}
-	?>
-		<h3 class="section-title"><?php esc_html_e( 'Author', 'githuber' ); ?></h3>
-		<aside class="author-card" itemscope itemprop="author" itemtype="http://schema.org/Person">
-			<div class="author-avatar">
-				<img src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => $avatar_size ) ) ); ?>" class="rounded-circle" itemprop="image">
-			</div>
-			<div class="author-info">
-				<div class="author-title">
-					<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" itemprop="name">
-						<?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
-					</a>
-				</div>
-				<div class="author-description" itemprop="description">  
-					<?php echo $description; ?>
-				</div>
-				<div class="author-links brand-<?php echo $icon_size; ?>">
-					<?php echo $author_link; ?>
-				</div>
-			</div>
-		</aside>
-	<?php
 }
-
 /**
  * Bootstrap 4 styled category buttons.
  */
@@ -1279,6 +1076,7 @@ function githuner_admin_bar() {
 	<style type="text/css" media="screen" id="githuner-admin-bar">
 		html { margin-top: 0px !important; margin-bottom: 32px !important; }
 		* html body { margin-top: 0px !important; margin-bottom: 32px !important; }
+		#wpadminbar { position: fixed !important; top: auto !important; bottom: 0 !important; display: block !important; }
 		@media screen and ( max-width: 782px ) {
 			html { margin-top: 0px !important; margin-bottom: 46px !important; }
 			* html body { margin-top: 0px !important; margin-bottom: 46px !important; }
@@ -1330,13 +1128,14 @@ add_filter( 'document_title_parts', 'remove_tagline' );
  * @return void
  */
 function site_info() {
-	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+	$theme_link = 'https://terryl.in/githuber';
+	$paged      = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
 	echo esc_html__( 'Copyright', 'githuber' ) . ' &copy; ' . date( 'Y' ) . ' <strong><a href="' . esc_url( get_site_url() ) . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' . esc_html__( 'All rights reserved.', 'githuber' ) . ' ';
 
 	// Only homepage and single-post pages shows the theme credit link on the footer.
 	// Keeping the theme credit link encourages me to improve this theme better. Thank you.
 	if ( ( is_home() || is_front_page() || is_single() ) && 1 === $paged ) {
-		echo esc_html__( 'Theme by', 'githuber' ) . ' <a href="https://terryl.in/githuber" title="Githuber">' . esc_html__( 'Githuber', 'githuber' ) . '</a>. ';
+		echo esc_html__( 'Theme by', 'githuber' ) . ' <a href="' . esc_url( $theme_link ) . '" title="Githuber">' . esc_html__( 'Githuber', 'githuber' ) . '</a>. ';
 	}
 }
 
@@ -1418,3 +1217,7 @@ remove_action( 'wp_head', 'wp_generator' );                    // Display the XH
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head' );
 remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 
+// I still don't know why should I put this line to ignore them-check warning.
+if ( ! isset( $content_width ) ) {
+	$content_width = 900;
+}

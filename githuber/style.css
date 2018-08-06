@@ -1401,12 +1401,6 @@ body.admin_bar {
   padding-top: 0px !important;
   padding-bottom: 32px !important;
 }
-body #wpadminbar {
-  position: fixed !important;
-  top: auto !important;
-  bottom: 0 !important;
-  display: block !important;
-}
 
 .error404 .site-info {
   position: fixed;

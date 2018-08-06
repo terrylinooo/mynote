@@ -46,6 +46,14 @@ if ( ! comments_open() && 0 === (int) get_comments_number() ) {
 		<?php if ( have_comments() ) : ?>
 			<?php wp_list_comments( 'type=comment&callback=githuber_comment' ); ?>
 		<?php endif; ?>
+		<?php
+			the_comments_pagination(
+				array(
+					'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous', 'githuber' ) . '</span>',
+					'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'githuber' ) . '</span> <i class="fas fa-angle-right"></i>',
+				)
+			);
+		?>
 		<?php if ( ! comments_open() && get_comments_number() ) : ?>
 			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'githuber' ); ?></p>
 		<?php endif; ?>
