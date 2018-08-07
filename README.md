@@ -11,6 +11,8 @@ Both are free to use. The difference between the two versions:
 
 ## :link: [Online demo](https://terryl.in/githuber/) :link:
 
+![Screenshot](./githuber/screenshot.png)
+
 ## Dependencies
 
 - Bootstrap 4
