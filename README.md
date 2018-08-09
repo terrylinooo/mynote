@@ -11,6 +11,8 @@ Both are free to use. The difference between the two versions:
 
 ## :link: [Online demo](https://terryl.in/githuber/) :link:
 
+![Screenshot](./githuber/screenshot.png)
+
 ## Dependencies
 
 - Bootstrap 4
@@ -30,6 +32,7 @@ Both are free to use. The difference between the two versions:
   - Homepage middle sidebar.
 - Cross-platform safe webfont font-family for CJK languages.
 - Bootstrap 4 navigation menu.
+- Bootstrap 4 style pagination.
 - Page reading progress bar.
 - Search engine optimization.
 - SCSS supported - Easy to modify this theme for your needs.
@@ -40,7 +43,6 @@ Both are free to use. The difference between the two versions:
 A WordPress plugin that improves Githuber theme functionality.
 
 - Widget: Table of Content.
-- Pagination: Bootstrap 4 style pagination.
 - Post type - Repository.
 
 To do:
