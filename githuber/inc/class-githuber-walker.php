@@ -14,6 +14,12 @@
  * @copyright 2018 Terry Lin
  */
 
+if ( defined( 'GITHUBER_WALKER' ) ) {
+	return;
+}
+
+define( 'GITHUBER_WALKER', true );
+
 /**
  * Githuber_Walker
  */

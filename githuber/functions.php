@@ -10,8 +10,6 @@
  * @since 1.0.0
  */
 
-define( 'POST_IS_TEXT_FADE_OUT', true );
-
 // Load Githuber Walker.
 require_once dirname( __FILE__ ) . '/inc/class-githuber-walker.php';
 
@@ -431,7 +429,7 @@ function githuber_excerpt() {
  * @return bool
  */
 function githuber_is_text_fade_out() {
-	return POST_IS_TEXT_FADE_OUT;
+	return true;
 }
 
 /**
