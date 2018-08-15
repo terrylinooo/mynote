@@ -46,7 +46,6 @@ class WP_Widget_Githuber_TOC extends WP_Widget {
 	public function githuber_toc_inline_js() {
 
 		$inline_js = '
-		<script>
 		jQuery( document ).ready(function( $ ) {
 			Toc.init({
 				$nav: $( "#toc" ),
@@ -56,7 +55,6 @@ class WP_Widget_Githuber_TOC extends WP_Widget {
 				target: "#toc"
 			});
 		});
-		</script>
 		';
 
 		wp_add_inline_script( 'bootstrap-toc', $inline_js );

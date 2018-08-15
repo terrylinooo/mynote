@@ -13,7 +13,6 @@
 // Requires all necessary files.
 require_once GITHUBER_FRAMEWORK_DIR . 'inc/class-wp-widget-githuber-toc.php';
 require_once GITHUBER_FRAMEWORK_DIR . 'inc/class-post-type-repository.php';
-require_once GITHUBER_FRAMEWORK_DIR . 'inc/class-githuber-walker.php';
 require_once GITHUBER_FRAMEWORK_DIR . 'inc/githuber-shortcode.php';
 require_once GITHUBER_FRAMEWORK_DIR . 'inc/githuber-functions.php';
 
