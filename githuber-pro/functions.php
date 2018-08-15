@@ -32,6 +32,21 @@ if ( function_exists( 'add_theme_support' ) ) {
 	load_theme_textdomain( 'githuber', get_template_directory() . '/languages' );
 }
 
+if ( ! function_exists( 'githuber_theme_activated' ) ) {
+	/**
+	 * Set default image sizes when the theme is activated.
+	 */
+	function githuber_theme_activated() {
+		// set thumbnail size in settings > media.
+		update_option( 'large_size_w', 1024 );
+		update_option( 'large_size_h', 768 );
+
+		update_option( 'medium_size_w', 640 );
+		update_option( 'medium_size_h', 480 );
+	}
+	add_action( 'after_switch_theme', 'githuber_theme_activated' );
+}
+
 /**
  * Get article schemal.
  *
