@@ -38,6 +38,28 @@ Both are free to use. The difference between the two versions:
 - SCSS supported - Easy to modify this theme for your needs.
 - WordPress Coding Standards - 99% passed by PHP_CodeSniffer ([WDCS](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards))
 
+
+### Fully reponsive web design
+Screenshot (device width: 360px)
+
+![Screenshot](https://i.imgur.com/T9QYsBi.png)
+
+### Post
+
+![Screenshot](https://i.imgur.com/O1pEUg9.png)
+
+#### Sticky sidebar + Table of content + Page reading progress bar
+
+![Screenshot](https://i.imgur.com/nsetuSW.png)
+
+### 404 page
+
+![Screenshot](https://i.imgur.com/ObtdEdO.png)
+
+
+---
+
+
 ## Githuber framework
 
 A WordPress plugin that improves Githuber theme functionality.
