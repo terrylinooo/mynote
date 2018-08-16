@@ -80,8 +80,11 @@ GPLv3 (or later)
 
 ## :mushroom: Author
 
-[Terry Lin (en)](https://terryl.in/)
-[Terry Lin (zh)](https://terryl.in/zh/)
+Terry Lin
+
+- [Blog (en_US)](https://terryl.in/)
+
+- [Blog (zh_TW)](https://terryl.in/zh/)
 
 
 
