@@ -1,6 +1,6 @@
 # Githuber
 
-Githuber is a github-style WordPress theme with preferred features for developers.
+Githuber is a github-style WordPress theme with preferred features for developers and programmers.
 
 This repository containes two versions of Githuber theme: Githuber and Githuber Pro.
 Both are free to use. The difference between the two versions:
@@ -77,6 +77,15 @@ To do:
 ## :mushroom: License
 
 GPLv3 (or later)
+
+## :mushroom: Author
+
+Terry Lin
+
+- [Blog (en_US)](https://terryl.in/)
+
+- [Blog (zh_TW)](https://terryl.in/zh/)
+
 
 
 
