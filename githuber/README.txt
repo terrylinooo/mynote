@@ -2,7 +2,7 @@
 Contributors: Terry Lin
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.0-trunk
-Version: 1.0.0
+Version: 1.0.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, threaded-comments
@@ -21,3 +21,13 @@ For more information about Githuber please go to https://github.com/terrylinooo/
 4. Go to https://terryl.in/githuber for a guide on how to customize this theme.
 5. Navigate to Appearance > Customize in your admin panel and customize to taste.
 
+== Changelog ==
+
+= 1.0.1 =
+
+- Add homepage intro section widget area.
+- Fix CSS and HTML issues.
+
+= 1.0.0 =
+
+First release.
