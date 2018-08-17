@@ -23,7 +23,17 @@ get_header(); ?>
 						<p class="mb4 desc-text"><?php echo html_entity_decode( get_bloginfo( 'description' ) ); ?></p>
 					</div>
 					<div class="col-12 col-md-5">
+						<?php if ( is_active_sidebar( 'sidebar-5' ) ) : ?>
+						<aside class="home-intro-sidebar">
+							<div class="container px-responsive">
+								<div class="row my-4">
+									<?php dynamic_sidebar( 'sidebar-5' ); ?>
+								</div>
+							</div>
+						</aside>
+						<?php else : ?>
 						<p class="p-5"><?php githuber_category_labels(); ?></p>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>

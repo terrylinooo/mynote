@@ -37,12 +37,13 @@ if ( ! function_exists( 'githuber_theme_activated' ) ) {
 	 * Set default image sizes when the theme is activated.
 	 */
 	function githuber_theme_activated() {
-		// set thumbnail size in settings > media.
-		update_option( 'large_size_w', 1024 );
-		update_option( 'large_size_h', 768 );
+		// Set thumbnail size in settings > media.
+		// Close to Bootstrap 4 breakpoint - 992px and 576px.
+		update_option( 'large_size_w', 1000 );
+		update_option( 'large_size_h', 1000 );
 
-		update_option( 'medium_size_w', 640 );
-		update_option( 'medium_size_h', 480 );
+		update_option( 'medium_size_w', 600 );
+		update_option( 'medium_size_h', 600 );
 	}
 	add_action( 'after_switch_theme', 'githuber_theme_activated' );
 }
@@ -287,10 +288,20 @@ function githuber_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Homepage', 'githuber' ),
+		'name'          => __( 'Homepage Middle', 'githuber' ),
 		'id'            => 'sidebar-4',
-		'description'   => __( 'Add widgets here to appear in your homepage.', 'githuber' ),
+		'description'   => __( 'Add widgets here to appear in your homepage middle section.', 'githuber' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s col-lg col-md-4 col-sm-12">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Homepage Intro', 'githuber' ),
+		'id'            => 'sidebar-5',
+		'description'   => __( 'Add widgets here to appear in your homepage intro section.', 'githuber' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s my-2 col-lg-12">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',

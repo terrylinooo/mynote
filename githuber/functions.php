@@ -288,10 +288,20 @@ function githuber_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Homepage', 'githuber' ),
+		'name'          => __( 'Homepage Middle', 'githuber' ),
 		'id'            => 'sidebar-4',
-		'description'   => __( 'Add widgets here to appear in your homepage.', 'githuber' ),
+		'description'   => __( 'Add widgets here to appear in your homepage middle section.', 'githuber' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s col-lg col-md-4 col-sm-12">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Homepage Intro', 'githuber' ),
+		'id'            => 'sidebar-5',
+		'description'   => __( 'Add widgets here to appear in your homepage intro section.', 'githuber' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s my-2 col-lg-12">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
