@@ -28,8 +28,9 @@ Both are free to use. The difference between the two versions:
 - Widget area:
   - Sidebar. 
   - Sticky sidebar.
-  - Footer sidebar.
-  - Homepage middle sidebar.
+  - Footer.
+  - Homepage intro section.
+  - Homepage middle section.
 - Cross-platform safe webfont font-family for CJK languages.
 - Bootstrap 4 navigation menu.
 - Bootstrap 4 style pagination.
