@@ -141,12 +141,15 @@ class Post_Type_Repository {
 		}
 
 		$old = get_post_meta( $post_id, 'github_repository', true );
-		$new = $_POST['github_repository'];
 
-		if ( $new && $new !== $old ) {
-			update_post_meta( $post_id, 'github_repository', $new );
-		} elseif ( '' === $new && $old ) {
-			delete_post_meta( $post_id, 'github_repository', $old );
+		if ( ! empty( $_POST['github_repository'] ) ) {
+			$new = $_POST['github_repository'];
+
+			if ( $new && $new !== $old ) {
+				update_post_meta( $post_id, 'github_repository', $new );
+			} elseif ( '' === $new && $old ) {
+				delete_post_meta( $post_id, 'github_repository', $old );
+			}
 		}
 	}
 
