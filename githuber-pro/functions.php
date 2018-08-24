@@ -94,17 +94,19 @@ function githuber_nav( $position = 'header' ) {
 	}
 
 	if ( 'footer' === $position ) {
-		wp_nav_menu(
-			array(
-				'theme_location'  => 'footer-menu',
-				'container'       => 'nav',
-				'container_class' => 'footer-nav',
-				'container_id'    => 'githuber-footer-nav',
-				'menu_class'      => 'footer-menu',
-				'menu_id'         => false,
-				'depth'           => 1,
-			)
-		);
+		if ( has_nav_menu( 'footer-menu' ) ) {
+			wp_nav_menu(
+				array(
+					'theme_location'  => 'footer-menu',
+					'container'       => 'nav',
+					'container_class' => 'footer-nav',
+					'container_id'    => 'githuber-footer-nav',
+					'menu_class'      => 'footer-menu',
+					'menu_id'         => false,
+					'depth'           => 1,
+				)
+			);
+		}
 	}
 }
 
