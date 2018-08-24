@@ -13,6 +13,26 @@
             color: #333333;
         }
     }
+
+    .footer-nav {
+        text-align: center;
+        font-size: 14px;
+
+        ul.footer-menu {
+            padding: 0;
+            margin: 0;
+            display: inline-flex;
+            list-style-type: none;
+    
+            li {
+                margin: 5px 15px;
+            }
+
+            a {
+                color: #333333;
+            }
+        }
+    }
 }
 
 .home {

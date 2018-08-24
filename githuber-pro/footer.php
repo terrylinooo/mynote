@@ -24,6 +24,8 @@
 				</section>
 				<?php endif; ?>
 
+				<?php githuber_nav( 'footer' ); ?>
+
 				<div class="container site-info">
 					<?php site_info(); ?>
 				</div>

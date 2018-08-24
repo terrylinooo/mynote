@@ -416,6 +416,22 @@ article figcaption {
   font-weight: normal;
   color: #333333;
 }
+.footer .footer-nav {
+  text-align: center;
+  font-size: 14px;
+}
+.footer .footer-nav ul.footer-menu {
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  list-style-type: none;
+}
+.footer .footer-nav ul.footer-menu li {
+  margin: 5px 15px;
+}
+.footer .footer-nav ul.footer-menu a {
+  color: #333333;
+}
 
 .home .footer {
   border-top: 0;

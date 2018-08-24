@@ -72,22 +72,40 @@ function githuber_article_schemal( $schema = 'Article' ) {
 }
 
 /**
- *  Githuber navigation.
+ * Githuber navigation.
+ *
+ * @param string $position The position on a page.
  */
-function githuber_nav() {
-	wp_nav_menu(
-		array(
-			'theme_location'  => 'header-menu',
-			'container'       => 'div',
-			'container_class' => 'collapse navbar-collapse',
-			'container_id'    => 'githuber-nav-bar',
-			'menu_class'      => 'navbar-nav mr-auto',
-			'menu_id'         => false,
-			'depth'           => 2,
-			'fallback_cb'     => 'Githuber_Walker::fallback',
-			'walker'          => new Githuber_Walker(),
-		)
-	);
+function githuber_nav( $position = 'header' ) {
+	if ( 'header' === $position ) {
+		wp_nav_menu(
+			array(
+				'theme_location'  => 'header-menu',
+				'container'       => 'div',
+				'container_class' => 'collapse navbar-collapse',
+				'container_id'    => 'githuber-nav-bar',
+				'menu_class'      => 'navbar-nav mr-auto',
+				'menu_id'         => false,
+				'depth'           => 2,
+				'fallback_cb'     => 'Githuber_Walker::fallback',
+				'walker'          => new Githuber_Walker(),
+			)
+		);
+	}
+
+	if ( 'footer' === $position ) {
+		wp_nav_menu(
+			array(
+				'theme_location'  => 'footer-menu',
+				'container'       => 'nav',
+				'container_class' => 'footer-nav',
+				'container_id'    => 'githuber-footer-nav',
+				'menu_class'      => 'footer-menu',
+				'menu_id'         => false,
+				'depth'           => 1,
+			)
+		);
+	}
 }
 
 /**
@@ -173,6 +191,7 @@ function register_githuber_menu() {
 		array(
 			'header-menu'  => __( 'Header Menu', 'githuber' ),
 			'sidebar-menu' => __( 'Sidebar Menu', 'githuber' ),
+			'footer-menu' => __( 'Footer Menu', 'githuber' ),
 		)
 	);
 }
