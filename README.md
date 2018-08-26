@@ -36,6 +36,7 @@ Both are free to use. The difference between the two versions:
 - Bootstrap 4 style pagination.
 - Page reading progress bar.
 - Search engine optimization.
+- Page template: homepage.
 - SCSS supported - Easy to modify this theme for your needs.
 - WordPress Coding Standards - 99% passed by PHP_CodeSniffer ([WDCS](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards))
 
