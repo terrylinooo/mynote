@@ -30,6 +30,9 @@ if ( function_exists( 'add_theme_support' ) ) {
 
 	// Localisation Support.
 	load_theme_textdomain( 'githuber', get_template_directory() . '/languages' );
+
+	// Add excerpt to page.
+	add_post_type_support( 'page', 'excerpt' );
 }
 
 if ( ! function_exists( 'githuber_theme_activated' ) ) {

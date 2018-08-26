@@ -10,8 +10,7 @@
  * @since 1.0.0
  */
 
-// Load Githuber Walker.
-require_once dirname( __FILE__ ) . '/inc/class-githuber-walker.php';
+require_once dirname( __FILE__ ) . '/githuber-framework.php';
 
 if ( function_exists( 'add_theme_support' ) ) {
 	// Add Menu Support.
@@ -31,6 +30,9 @@ if ( function_exists( 'add_theme_support' ) ) {
 
 	// Localisation Support.
 	load_theme_textdomain( 'githuber', get_template_directory() . '/languages' );
+
+	// Add excerpt to page.
+	add_post_type_support( 'page', 'excerpt' );
 }
 
 if ( ! function_exists( 'githuber_theme_activated' ) ) {
@@ -38,12 +40,13 @@ if ( ! function_exists( 'githuber_theme_activated' ) ) {
 	 * Set default image sizes when the theme is activated.
 	 */
 	function githuber_theme_activated() {
-		// set thumbnail size in settings > media.
-		update_option( 'large_size_w', 1024 );
-		update_option( 'large_size_h', 768 );
+		// Set thumbnail size in settings > media.
+		// Close to Bootstrap 4 breakpoint - 992px and 576px.
+		update_option( 'large_size_w', 1000 );
+		update_option( 'large_size_h', 1000 );
 
-		update_option( 'medium_size_w', 640 );
-		update_option( 'medium_size_h', 480 );
+		update_option( 'medium_size_w', 600 );
+		update_option( 'medium_size_h', 600 );
 	}
 	add_action( 'after_switch_theme', 'githuber_theme_activated' );
 }
@@ -193,6 +196,7 @@ function register_githuber_menu() {
 		array(
 			'header-menu'  => __( 'Header Menu', 'githuber' ),
 			'sidebar-menu' => __( 'Sidebar Menu', 'githuber' ),
+			'footer-menu' => __( 'Footer Menu', 'githuber' ),
 		)
 	);
 }
