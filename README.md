@@ -36,7 +36,7 @@ Both are free to use. The difference between the two versions:
 - Bootstrap 4 style pagination.
 - Page reading progress bar.
 - Search engine optimization.
-- Page template: homepage.
+- Page template: custom homepage.
 - SCSS supported - Easy to modify this theme for your needs.
 - WordPress Coding Standards - 99% passed by PHP_CodeSniffer ([WDCS](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards))
 
@@ -58,9 +58,7 @@ Screenshot (device width: 360px)
 
 ![Screenshot](https://i.imgur.com/ObtdEdO.png)
 
-
 ---
-
 
 ## Githuber framework
 
@@ -68,13 +66,6 @@ A WordPress plugin that improves Githuber theme functionality.
 
 - Widget: Table of Content.
 - Post type - Repository.
-
-To do:
-
-- Widget: Post status dashboard.
-- Plugin: Github oAuth + Only allow Github member to leave comments.
-- Plugin: Sync content to github page
-- Plugin: Markdown editor + preview.
 
 ## :mushroom: License
 
