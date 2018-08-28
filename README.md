@@ -9,7 +9,10 @@ Both are free to use. The difference between the two versions:
 - Githuber Pro: Githuber + [Githuber framework](https://github.com/githuber-wp/githuber-framework).
 
 
-## :link: [Online demo](https://terryl.in/githuber/) :link:
+## Online Demo ##
+
+- [https://terryl.in/githuber/](https://terryl.in/githuber/) 
+- [https://proviscript.sh/](proviscript.sh/) 
 
 ![Screenshot](./githuber/screenshot.png)
 
