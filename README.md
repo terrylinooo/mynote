@@ -12,7 +12,7 @@ Both are free to use. The difference between the two versions:
 ## Online Demo ##
 
 - [https://terryl.in/githuber/](https://terryl.in/githuber/) 
-- [https://proviscript.sh/](proviscript.sh/) 
+- [https://proviscript.sh/](https://proviscript.sh/) 
 
 ![Screenshot](./githuber/screenshot.png)
 
