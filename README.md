@@ -10,9 +10,9 @@ Both are free to use. The difference between the two versions:
 
 
 ## Online Demo
-
-- [https://terryl.in/githuber/](https://terryl.in/githuber/) 
-- [https://proviscript.sh/](https://proviscript.sh/) 
+- [Author's blog](https://terryl.in/) 
+- [Githuber demo](https://terryl.in/githuber/) 
+- [Proviscript](https://proviscript.sh/) 
 
 ![Screenshot](./githuber/screenshot.png)
 
