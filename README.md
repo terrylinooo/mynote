@@ -2,19 +2,14 @@
 
 Githuber is a github-style WordPress theme with preferred features for developers and programmers.
 
-This repository containes two versions of Githuber theme: Githuber and Githuber Pro.
-Both are free to use. The difference between the two versions:
-
-- Githuber: This version will be uploaded to WordPress theme dictionary and keep it update to date.
-- Githuber Pro: Githuber + [Githuber framework](https://github.com/githuber-wp/githuber-framework).
-
+This theme will be uploaded to WordPress theme dictionary and keep it update to date.
 
 ## Online Demo
 - [Author's blog](https://terryl.in/) 
 - [Githuber demo](https://terryl.in/githuber/) 
 - [Proviscript](https://proviscript.sh/) 
 
-![Screenshot](./githuber/screenshot.png)
+![Screenshot](./themes/githuber/screenshot.png)
 
 ## Dependencies
 
@@ -63,7 +58,7 @@ Screenshot (device width: 360px)
 
 ---
 
-## Githuber framework
+## Githuber Enhanced Plugin
 
 A WordPress plugin that improves Githuber theme functionality.
 
