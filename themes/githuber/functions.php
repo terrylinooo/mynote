@@ -10,8 +10,6 @@
  * @since 1.0.0
  */
 
-require_once dirname( __FILE__ ) . '/githuber-framework.php';
-
 if ( function_exists( 'add_theme_support' ) ) {
 	// Add Menu Support.
 	add_theme_support( 'title-tag' );
@@ -1247,6 +1245,18 @@ function githuber_post_breadcrumb() {
 		<?php
 	}
 }
+
+/**
+ * Add responsive container to embeds
+ *
+ * @param string $html Original embed HTML code.
+ * @return string
+ */
+function alx_embed_html( $html ) {
+    return '<div class="video-container">' . $html . '</div>';
+}
+add_filter( 'embed_oembed_html', 'alx_embed_html', 10, 3 );
+add_filter( 'video_embed_html', 'alx_embed_html' );
 
 remove_action( 'wp_head', 'feed_links_extra' );                // Display the links to the extra feeds such as category feeds.
 remove_action( 'wp_head', 'feed_links' );                      // Display the links to the general feeds: Post and Comment Feed.

@@ -1,4 +1,37 @@
 .DS_Store
+*.rej
 
-.git
-.vscode
+# WordPress folders
+
+languages/*
+plugins/*
+themes/*
+upgrade/*
+uploads/*
+index.php
+
+!themes/githuber
+!plugins/githuber-enhanced-plugin
+
+# IDE Files
+#-------------------------
+
+/nbproject/
+.idea/*
+
+## Sublime Text cache files
+
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+/tests/tests/
+/tests/results/
+
+# Visual Studio Code
+
+.vscode/
+.vscode/*
+
+!.gitignore
