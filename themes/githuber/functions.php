@@ -79,19 +79,33 @@ function githuber_article_schemal( $schema = 'Article' ) {
  */
 function githuber_nav( $position = 'header' ) {
 	if ( 'header' === $position ) {
-		wp_nav_menu(
-			array(
-				'theme_location'  => 'header-menu',
-				'container'       => 'div',
-				'container_class' => 'collapse navbar-collapse',
-				'container_id'    => 'githuber-nav-bar',
-				'menu_class'      => 'navbar-nav mr-auto',
-				'menu_id'         => false,
-				'depth'           => 2,
-				'fallback_cb'     => 'Githuber_Walker::fallback',
-				'walker'          => new Githuber_Walker(),
-			)
-		);
+		if ( class_exists('Githuber_Walker') ) {
+			wp_nav_menu(
+				array(
+					'theme_location'  => 'header-menu',
+					'container'       => 'div',
+					'container_class' => 'collapse navbar-collapse',
+					'container_id'    => 'githuber-nav-bar',
+					'menu_class'      => 'navbar-nav mr-auto',
+					'menu_id'         => false,
+					'depth'           => 2,
+					'fallback_cb'     => 'Githuber_Walker::fallback',
+					'walker'          => new Githuber_Walker(),
+				)
+			);
+		} else {
+			wp_nav_menu(
+				array(
+					'theme_location'  => 'header-menu',
+					'container'       => 'div',
+					'container_class' => 'collapse navbar-collapse',
+					'container_id'    => 'githuber-nav-bar',
+					'menu_class'      => 'navbar-nav mr-auto',
+					'menu_id'         => false,
+					'depth'           => 1
+				)
+			);
+		}
 	}
 
 	if ( 'footer' === $position ) {

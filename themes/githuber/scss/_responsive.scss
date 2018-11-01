@@ -14,6 +14,14 @@
     }
 }
 
+/* > 992px */
+@include media-breakpoint-up(lg) {
+    .navbar-expand-lg .navbar-nav .menu-item a {
+        padding-right: .5rem;
+        padding-left: .5rem;
+    }
+}
+
 /* 992px - 1199.98px */
 @include media-breakpoint-between(lg, lg) {
     .section-intro {

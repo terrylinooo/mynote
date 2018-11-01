@@ -140,5 +140,12 @@
 			font-weight: 600;
 		}
 	}
+
+	/* Default wordpress menu */
+
+	.menu-item a {
+		display: block;
+		padding: .5rem 0;
+    }
 }
 
