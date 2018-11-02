@@ -1,5 +1,7 @@
 # Githuber
 
+![Screenshot](./themes/githuber/assets/images/logo_githuber_banner.png)
+
 Githuber is a github-style WordPress theme with preferred features for developers and programmers.
 
 This theme will be uploaded to WordPress theme dictionary and keep it update to date.
@@ -30,7 +32,6 @@ This theme will be uploaded to WordPress theme dictionary and keep it update to 
   - Homepage intro section.
   - Homepage middle section.
 - Cross-platform safe webfont font-family for CJK languages.
-- Bootstrap 4 navigation menu.
 - Bootstrap 4 style pagination.
 - Page reading progress bar.
 - Search engine optimization.
@@ -38,6 +39,12 @@ This theme will be uploaded to WordPress theme dictionary and keep it update to 
 - SCSS supported - Easy to modify this theme for your needs.
 - WordPress Coding Standards - 99% passed by PHP_CodeSniffer ([WDCS](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards))
 
+#### Githuber Enhanced Plugin
+- Bootstrap 4 navigation menu. (2-layer dropdown menu)
+- Widget: Table of Content.
+- Post type - Repository.
+
+## Screenshots
 
 ### Fully reponsive web design
 Screenshot (device width: 360px)
@@ -58,14 +65,7 @@ Screenshot (device width: 360px)
 
 ---
 
-## Githuber Enhanced Plugin
-
-A WordPress plugin that improves Githuber theme functionality.
-
-- Widget: Table of Content.
-- Post type - Repository.
-
-## :mushroom: License
+## License
 
 GPLv3 (or later)
 
