@@ -25,7 +25,9 @@ get_header(); ?>
 				<div class="d-md-flex align-items-center">
 					<div class="<?php echo esc_attr( $css_left ); ?>" style="min-height: 100%; overflow: hidden" >
 						<h1 class="mb-3"><?php the_title(); ?></h1>
+                        <?php if ( has_excerpt() ) : ?> 
 						<p class="mb4 desc-text"><?php echo get_the_excerpt(); ?></p>
+                        <?php endif; ?>
 					</div>
 					<?php if ( is_active_sidebar( 'sidebar-5' ) ) : ?>
 					<div class="col-12 col-md-5">
@@ -74,6 +76,10 @@ get_header(); ?>
 		</div><!-- .container -->
 		<div class="container">
 			<section>
+                <?php
+                    $args = array( 'post_type' => 'post', 'posts_per_page' => 10 );
+                    $wp_query = new WP_Query( $args );
+                ?>
 				<?php get_template_part( 'loop' ); ?>
 				<?php get_template_part( 'pagination' ); ?>
 			</section>
@@ -92,6 +98,6 @@ get_header(); ?>
     </aside>
     <?php endif; ?>
 
-    <br class="clearfix" />
+    
 
 <?php get_footer(); ?>
