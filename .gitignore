@@ -11,6 +11,7 @@ uploads/*
 index.php
 
 !themes/githuber
+!themes/githuber/index.php
 !plugins/githuber-enhanced-plugin
 
 # IDE Files
