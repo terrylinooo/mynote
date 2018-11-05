@@ -44,26 +44,6 @@ This theme will be uploaded to WordPress theme dictionary and keep it update to 
 - Widget: Table of Content.
 - Post type - Repository.
 
-## Screenshots
-
-### Fully reponsive web design
-Screenshot (device width: 360px)
-
-![Screenshot](https://i.imgur.com/T9QYsBi.png)
-
-### Post
-
-![Screenshot](https://i.imgur.com/O1pEUg9.png)
-
-#### Sticky sidebar + Table of content + Page reading progress bar
-
-![Screenshot](https://i.imgur.com/nsetuSW.png)
-
-### 404 page
-
-![Screenshot](https://i.imgur.com/ObtdEdO.png)
-
----
 
 ## License
 
@@ -71,12 +51,7 @@ GPLv3 (or later)
 
 ## Author
 
-Terry Lin
-
-- [Blog (en_US)](https://terryl.in/)
-
-- [Blog (zh_TW)](https://terryl.in/zh/)
-
+Terry L. [[EN](https://terryl.in/)|[ZH](https://terryl.in/zh/)]
 
 
 
