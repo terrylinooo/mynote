@@ -18,10 +18,14 @@ For more information about Githuber please go to https://github.com/terrylinooo/
 1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
 2. Type in Githuber in the search form and press the 'Enter' key on your keyboard.
 3. Click on the 'Activate' button to use your new theme right away.
-4. Go to https://terryl.in/githuber for a guide on how to customize this theme.
-5. Navigate to Appearance > Customize in your admin panel and customize to taste.
+4. Navigate to Appearance > Customize in your admin panel and customize to taste.
 
 == Changelog ==
+
+= 1.0.5 =
+
+- Add page templates.
+- Fix some CSS issues.
 
 = 1.0.1 =
 
