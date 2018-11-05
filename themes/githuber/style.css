@@ -252,6 +252,13 @@ article figcaption {
   background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9), white);
 }
 
+/* Background image fit the center */
+.bg-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .section-intro {
   width: 100%;
   min-height: 640px;

@@ -16,11 +16,18 @@ if ( is_active_sidebar( 'sidebar-5' ) ) {
 } else {
 	$css_left = 'col-12 col-md-12 text-center text-md-left';
 }
+
+if ( has_post_thumbnail() ) {
+    $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+    $intro_style = ' bg-cover" style="background-image: url(' . $backgroundImg[0] . ')"';
+} else {
+    $intro_style = '';
+}
 get_header(); ?>
 
 <div class="data-schema">
 	<main role="main">
-		<div class="section-intro d-flex align-items-center">
+		<div class="section-intro d-flex align-items-center<?php echo $intro_style; ?>">
 			<div class="container px-responsive">
 				<div class="d-md-flex align-items-center">
 					<div class="<?php echo esc_attr( $css_left ); ?>" style="min-height: 100%; overflow: hidden" >
@@ -50,9 +57,6 @@ get_header(); ?>
 					<?php while ( have_posts() ) : ?>
 					<?php the_post(); ?>
 					<article id="post-<?php the_ID(); ?>" <?php post_class( 'markdown-body' ); ?>>
-						<?php if ( has_post_thumbnail() ) : ?>
-							<?php githuber_post_figure(); ?>
-						<?php endif; ?>
 						<div itemprop="articleBody">
 							<?php the_content(); ?>
 							<?php

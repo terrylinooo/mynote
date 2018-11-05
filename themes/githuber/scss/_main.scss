@@ -227,3 +227,10 @@ article {
     }
 }
 
+/* Background image fit the center */
+
+.bg-cover {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
