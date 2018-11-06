@@ -44,6 +44,7 @@ This theme will be uploaded to WordPress theme dictionary and keep it update to 
 *Note:*
 
 `#1` CJK: Chinese, Japanese, Koreanese.
+
 `#2`, `#3` Featured image will be displayed as header cover.
 
 #### Githuber Enhanced Plugin
@@ -55,7 +56,9 @@ This theme will be uploaded to WordPress theme dictionary and keep it update to 
 ## License
 
 GPLv3 (or later)
+
 Current verison: v1.0.5
+
 Author: Terry L. [[EN](https://terryl.in/)|[ZH](https://terryl.in/zh/)]
 
 
