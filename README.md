@@ -45,6 +45,7 @@ It is in under review currently: https://themes.trac.wordpress.org/ticket/62054
 *Note:*
 
 `#1` CJK: Chinese, Japanese, Koreanese.
+
 `#2`, `#3` Featured image will be displayed as header cover.
 
 #### Githuber Enhanced Plugin
@@ -56,7 +57,9 @@ It is in under review currently: https://themes.trac.wordpress.org/ticket/62054
 ## License
 
 GPLv3 (or later)
+
 Current verison: v1.0.5
+
 Author: Terry L. [[EN](https://terryl.in/)|[ZH](https://terryl.in/zh/)]
 
 
