@@ -29,9 +29,6 @@ get_header();
 						<?php githuber_column_control_button(); ?>
 						<?php githuber_edit_button(); ?>
 						<?php githuber_comment_button(); ?>
-						<?php if ( is_single() && get_post_type() === 'repository' ) : ?>
-							<?php the_github_buttons(); ?>
-						<?php endif; ?>
 					</div><!-- .post-githuber-buttons -->
 					<div class="post-meta">
 						<?php githuber_author_posted_date( true ); ?>

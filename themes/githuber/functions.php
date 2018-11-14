@@ -10,28 +10,33 @@
  * @since 1.0.0
  */
 
-if ( function_exists( 'add_theme_support' ) ) {
-	// Add Menu Support.
-	add_theme_support( 'title-tag' );
+if ( ! function_exists( 'githuber_setup' ) ) {
 
-	// Add Thumbnail Theme Support.
-	add_theme_support( 'post-thumbnails' );
+	function githuber_setup() {
+		// Add Menu Support.
+		add_theme_support( 'title-tag' );
 
-	// Custom Thumbnail Size call using the_post_thumbnail( '360x240' ); .
-	add_image_size( '360x240', 360, 240, true );
+		// Add Thumbnail Theme Support.
+		add_theme_support( 'post-thumbnails' );
 
-	// Enables post and comment RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+		// Enables post and comment RSS feed links to head.
+		add_theme_support( 'automatic-feed-links' );
 
-	// Move admin bar to page bottom.
-	add_theme_support( 'admin-bar', array( 'callback' => 'githuner_admin_bar' ) );
+		// Move admin bar to page bottom, because that while reading posts, there is a page reading progress bar on page top.
+		add_theme_support( 'admin-bar', array( 'callback' => 'githuner_admin_bar' ) );
 
-	// Localisation Support.
-	load_theme_textdomain( 'githuber', get_template_directory() . '/languages' );
+		// Custom Thumbnail Size call using the_post_thumbnail( '360x240' ); .
+		add_image_size( '360x240', 360, 240, true );
 
-	// Add excerpt to page.
-	add_post_type_support( 'page', 'excerpt' );
+		// Localisation Support.
+		load_theme_textdomain( 'githuber', get_template_directory() . '/languages' );
+
+		// Add excerpt to page.
+		add_post_type_support( 'page', 'excerpt' );
+	}
 }
+
+add_action( 'after_setup_theme', 'githuber_setup' );
 
 /**
  * Get article schemal.
@@ -116,7 +121,7 @@ function githuber_default_nav() {
 	?>
 	<div id="githuber-nav-bar" class="collapse navbar-collapse">
 		<ul id="menu-primary-menu" class="navbar-nav mr-auto">
-			<li class="nav-item"><a href="<?php get_home_url(); ?>" class="nav-link">Home</a></li>
+			<li class="nav-item"><a href="<?php get_home_url(); ?>" class="nav-link"><?php esc_html_e( 'Home', 'githuber' ); ?></a></li>
 		</ul>
 	</div>
 	<?php
@@ -443,18 +448,6 @@ function githuber_pagination( $range = 1 ) {
 }
 
 /**
- * Post excerpt lenth.
- *
- * @param integer $length Post excerpt lenth.
- * @return integer
- */
-function githuber_excerpt_length( $length ) {
-	return 100;
-}
-
-add_filter( 'excerpt_length', 'githuber_excerpt_length' );
-
-/**
  * Get the excerpt.
  *
  * @return void
@@ -701,7 +694,7 @@ function githuber_comment_fileds() {
 				<div class="input-group-prepend">
 					<div class="input-group-text"><i class="fas fa-user"></i></div>
 				</div>
-				<input id="author" class="form-control" placeholder="' . __( 'Name', 'githuber' ) . '" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" maxlength="245" />
+				<input id="author" class="form-control" placeholder="' . esc_attr( __( 'Name', 'githuber' ) ) . '" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" maxlength="245" />
 			</div>
 		</div>
 	';
@@ -712,7 +705,7 @@ function githuber_comment_fileds() {
 				<div class="input-group-prepend">
 					<div class="input-group-text"><i class="fas fa-envelope"></i></div>
 				</div>
-				<input id="email" class="form-control" placeholder="' . __( 'Email', 'githuber' ) . '" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) . '" maxlength="100" aria-describedby="email-notes" />
+				<input id="email" class="form-control" placeholder="' . esc_attr( __( 'Email', 'githuber' ) ) . '" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) . '" maxlength="100" aria-describedby="email-notes" />
 			</div>
 		</div>
 	';
@@ -723,7 +716,7 @@ function githuber_comment_fileds() {
 				<div class="input-group-prepend">
 					<div class="input-group-text"><i class="fas fa-globe"></i></div>
 				</div>
-				<input id="url" class="form-control" placeholder="' . __( 'Website', 'githuber' ) . '" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" maxlength="200" />
+				<input id="url" class="form-control" placeholder="' . esc_attr( __( 'Website', 'githuber' ) ) . '" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" maxlength="200" />
 			</div>
 		</div>
 	';
@@ -1217,7 +1210,7 @@ function githuber_post_breadcrumb() {
 				<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
 					<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 						<a href="<?php echo esc_url( get_home_url() ); ?>" itemprop="item">
-							<span itemprop="name"><i class="fas fa-globe"></i><span class="sr-only">Home</span></span>
+							<span itemprop="name"><i class="fas fa-globe"></i><span class="sr-only"><?php esc_html_e( 'Home', 'githuber' ); ?></span></span>
 						</a>
 						<meta itemprop="position" content="<?php echo $pos++; ?>">
 					</li>

@@ -60,6 +60,7 @@ Source: https://pixabay.com/en/board-chip-circuit-electric-158973/
 - Modify code to fit the theme review requirements.
 - Declare licenses of any resources included.
 - Remove default Githuber theme icon.
+- Remove the excerpt length limit.
 
 = 1.0.5 =
 
