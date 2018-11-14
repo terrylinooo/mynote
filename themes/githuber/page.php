@@ -14,7 +14,7 @@
 get_header();
 ?>
 
-<?php title_progress_bar(); ?>
+<?php githuber_title_progress_bar(); ?>
 
 <div class="data-schema" itemscope itemtype="<?php githuber_article_schemal(); ?>">
 	<?php if ( have_posts() ) : ?>

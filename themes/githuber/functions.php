@@ -3,7 +3,7 @@
  * Githuber theme functions and definitions
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package WordPress
  * @subpackage Githuber
@@ -31,22 +31,6 @@ if ( function_exists( 'add_theme_support' ) ) {
 
 	// Add excerpt to page.
 	add_post_type_support( 'page', 'excerpt' );
-}
-
-if ( ! function_exists( 'githuber_theme_activated' ) ) {
-	/**
-	 * Set default image sizes when the theme is activated.
-	 */
-	function githuber_theme_activated() {
-		// Set thumbnail size in settings > media.
-		// Close to Bootstrap 4 breakpoint - 992px and 576px.
-		update_option( 'large_size_w', 1000 );
-		update_option( 'large_size_h', 1000 );
-
-		update_option( 'medium_size_w', 600 );
-		update_option( 'medium_size_h', 600 );
-	}
-	add_action( 'after_switch_theme', 'githuber_theme_activated' );
 }
 
 /**
@@ -128,7 +112,7 @@ function githuber_nav( $position = 'header' ) {
 /**
  * If header_menu not set.
  */
-function default_nav() {
+function githuber_default_nav() {
 	?>
 	<div id="githuber-nav-bar" class="collapse navbar-collapse">
 		<ul id="menu-primary-menu" class="navbar-nav mr-auto">
@@ -189,20 +173,20 @@ add_action( 'wp_enqueue_scripts', 'githuber_styles' );
  *
  * @return void
  */
-function enqueue_comment_reply() {
+function githuber_enqueue_comment_reply() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'enqueue_comment_reply' );
+add_action( 'wp_enqueue_scripts', 'githuber_enqueue_comment_reply' );
 
 /**
  * Register githuber Navigation
  *
  * @return void
  */
-function register_githuber_menu() {
+function githuber_register_githuber_menu() {
 	register_nav_menus(
 		// Using array to specify more menus if needed.
 		array(
@@ -213,18 +197,18 @@ function register_githuber_menu() {
 	);
 }
 
-add_action( 'init', 'register_githuber_menu' );
+add_action( 'init', 'githuber_register_githuber_menu' );
 
 /**
  * Remove setsec attribute.
  *
  * @return bool
  */
-function disable_srcset() {
+function githuber_disable_srcset() {
 	return false;
 }
 
-add_filter( 'wp_calculate_image_srcset', 'disable_srcset' );
+add_filter( 'wp_calculate_image_srcset', 'githuber_disable_srcset' );
 
 
 /**
@@ -233,10 +217,10 @@ add_filter( 'wp_calculate_image_srcset', 'disable_srcset' );
  * @param array $args - for example: $args['container'] = false .
  * @return string|array
  */
-function remove_menu_args( $args = '' ) {
+function githuber_remove_menu_args( $args = '' ) {
 	return $args;
 }
-add_filter( 'wp_nav_menu_args', 'remove_menu_args' );
+add_filter( 'wp_nav_menu_args', 'githuber_remove_menu_args' );
 
 /**
  * Remove Injected classes, ID's and Page ID's from Navigation <li> items
@@ -244,12 +228,12 @@ add_filter( 'wp_nav_menu_args', 'remove_menu_args' );
  * @param array $var - string or array.
  * @return string|array
  */
-function remove_list_item_attributes( $var ) {
+function githuber_remove_list_item_attributes( $var ) {
 	return is_array( $var ) ? array() : '';
 }
 
-add_filter( 'nav_menu_item_id', 'remove_list_item_attributes', 100, 1 );
-add_filter( 'page_css_class', 'remove_list_item_attributes', 100, 1 );
+add_filter( 'nav_menu_item_id', 'githuber_remove_list_item_attributes', 100, 1 );
+add_filter( 'page_css_class', 'githuber_remove_list_item_attributes', 100, 1 );
 
 /**
  * Remove invalid rel attribute values in the categorylist
@@ -259,11 +243,11 @@ add_filter( 'page_css_class', 'remove_list_item_attributes', 100, 1 );
  * @param array $var - string or array.
  * @return string|array
  */
-function remove_invalid_rel_for_category( $var ) {
+function githuber_remove_invalid_rel_for_category( $var ) {
 	return str_replace( 'rel="category tag"', 'rel="tag"', $var );
 }
 
-add_filter( 'the_category', 'remove_invalid_rel_for_category' );
+add_filter( 'the_category', 'githuber_remove_invalid_rel_for_category' );
 
 /**
  * Add page slug to body class for better customization if need.
@@ -271,7 +255,7 @@ add_filter( 'the_category', 'remove_invalid_rel_for_category' );
  * @param array $classes - html class name.
  * @return array
  */
-function add_slug_to_body_class( $classes ) {
+function githuber_add_slug_to_body_class( $classes ) {
 	global $post;
 
 	if ( is_home() ) {
@@ -287,7 +271,7 @@ function add_slug_to_body_class( $classes ) {
 	return $classes;
 }
 
-add_filter( 'body_class', 'add_slug_to_body_class' );
+add_filter( 'body_class', 'githuber_add_slug_to_body_class' );
 
 /**
  * Register widget area.
@@ -351,7 +335,7 @@ add_action( 'widgets_init', 'githuber_widgets_init' );
  *
  * @return void
  */
-function remove_recent_comments_style() {
+function githuber_remove_recent_comments_style() {
 	global $wp_widget_factory;
 
 	remove_action( 'wp_head', array(
@@ -360,7 +344,7 @@ function remove_recent_comments_style() {
 	) );
 }
 
-add_action( 'widgets_init', 'remove_recent_comments_style' );
+add_action( 'widgets_init', 'githuber_remove_recent_comments_style' );
 
 /**
  * Githuber - Bootstrap 4 Pagination
@@ -512,11 +496,11 @@ add_filter( 'excerpt_more', 'githuber_read_more' );
  * @param string $html HTML string.
  * @return string
  */
-function remove_style_type( $html ) {
+function githuber_remove_style_type( $html ) {
 	return preg_replace( '~\s+type=["\'][^"\']++["\']~', '', $html );
 }
 
-add_filter( 'style_loader_tag', 'remove_style_type' );
+add_filter( 'style_loader_tag', 'githuber_remove_style_type' );
 
 /**
  * Remove width and height dynamic attributes to thumbnails that prevent fluid images in the_thumbnail.
@@ -524,12 +508,12 @@ add_filter( 'style_loader_tag', 'remove_style_type' );
  * @param string $html HTML string.
  * @return string
  */
-function remove_thumbnail_dimensions( $html ) {
+function githuber_remove_thumbnail_dimensions( $html ) {
 	$html = preg_replace( '/(width|height)=\"\d*\"\s/', '', $html );
 	return $html;
 }
 
-add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
+add_filter( 'post_thumbnail_html', 'githuber_remove_thumbnail_dimensions', 10 );
 
 /**
  * Custom avatar
@@ -537,7 +521,7 @@ add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
  * @param array $avatar_defaults Avatar.
  * @return array
  */
-function custom_gravatar( $avatar_defaults ) {
+function githuber_custom_gravatar( $avatar_defaults ) {
 	// Change filename here.
 	$myavatar = get_template_directory_uri() . '/img/gravatar.jpg';
 	// Name of the gavatar image.
@@ -545,14 +529,14 @@ function custom_gravatar( $avatar_defaults ) {
 	return $avatar_defaults;
 }
 
-add_filter( 'avatar_defaults', 'custom_gravatar' );
+add_filter( 'avatar_defaults', 'githuber_custom_gravatar' );
 
 /**
  * Threaded Comments
  *
  * @return void
  */
-function enable_threaded_comments() {
+function githuber_enable_threaded_comments() {
 	if ( ! is_admin() ) {
 		if ( is_singular() && comments_open() && ( 1 === get_option( 'thread_comments' ) ) ) {
 			wp_enqueue_script( 'comment-reply' );
@@ -560,7 +544,7 @@ function enable_threaded_comments() {
 	}
 }
 
-add_action( 'get_header', 'enable_threaded_comments' );
+add_action( 'get_header', 'githuber_enable_threaded_comments' );
 
 // GitHub style comment blocks.
 if ( ! function_exists( 'githuber_comment' ) ) {
@@ -763,14 +747,14 @@ add_filter( 'comment_form_default_fields', 'githuber_comment_fileds' );
  * @param array $fields Comment form fields.
  * @return array
  */
-function move_comment_field_to_bottom( $fields ) {
+function githuber_move_comment_field_to_bottom( $fields ) {
 	$comment_field = $fields['comment'];
 	unset( $fields['comment'] );
 	$fields['comment'] = $comment_field;
 	return $fields;
 }
 
-add_filter( 'comment_form_fields', 'move_comment_field_to_bottom' );
+add_filter( 'comment_form_fields', 'githuber_move_comment_field_to_bottom' );
 
 /**
  * Replace language attrbute from en_US to en.
@@ -789,7 +773,7 @@ add_filter( 'language_attributes', 'replace_language_attributes' );
  *
  * @return void
  */
-function single_post_script() {
+function githuber_single_post_script() {
 	if ( is_single() ) {
 ?>
 	<script>
@@ -891,14 +875,14 @@ function single_post_script() {
 	}
 }
 
-add_action( 'wp_footer', 'single_post_script', 1, 1 );
+add_action( 'wp_footer', 'githuber_single_post_script', 1, 1 );
 
 /**
  * Show title progress bar.
  *
  * @return void
  */
-function title_progress_bar() {
+function githuber_title_progress_bar() {
 	?>
 		<div class="single-post-title-bar clear" role="banner">
 			<div class="container">
@@ -920,11 +904,11 @@ function title_progress_bar() {
  *
  * @return void
  */
-function unregister_default_widgets() {
+function githuber_unregister_default_widgets() {
 	unregister_widget( 'WP_Widget_Search' );
 }
 
-add_action( 'widgets_init', 'unregister_default_widgets', 11 );
+add_action( 'widgets_init', 'githuber_unregister_default_widgets', 11 );
 
 /**
  * Custom edit button with GitHub style.
@@ -1073,11 +1057,11 @@ function githuber_author_posted_date( $show_avatar = false, $avatar_size = 40 ) 
 /**
  * Site icon.
  *
- * @return void
+ * @return string Icon Url
  */
 function githuber_site_icon() {
-	$fallback_url = get_template_directory_uri() . '/assets/images/logo_githuber_s.png';
-	echo esc_url( get_site_icon_url( '32', $fallback_url ) );
+	$fallback_url = '';
+	return esc_url( get_site_icon_url( '32', $fallback_url ) );
 }
 
 if ( ! function_exists( 'githuber_author_card' ) ) {
@@ -1168,21 +1152,21 @@ function githuber_category_labels() {
  * @param array $title The document title parts.
  * @return array
  */
-function remove_tagline( $title ) {
+function githuber_remove_tagline( $title ) {
 	if ( isset( $title['tagline'] ) ) {
 		unset( $title['tagline'] );
 	}
 	return $title;
 }
 
-add_filter( 'document_title_parts', 'remove_tagline' );
+add_filter( 'document_title_parts', 'githuber_remove_tagline' );
 
 /**
  * Display site information on bottom of page.
  *
  * @return void
  */
-function site_info() {
+function githuber_site_info() {
 	$theme_link = 'https://terryl.in/';
 
 	if ( 'zh' == substr( get_bloginfo ( 'language' ), 0, 2 ) ) {
@@ -1271,11 +1255,11 @@ function githuber_post_breadcrumb() {
  * @param string $html Original embed HTML code.
  * @return string
  */
-function alx_embed_html( $html ) {
+function githuber_alx_embed_html( $html ) {
     return '<div class="video-container">' . $html . '</div>';
 }
-add_filter( 'embed_oembed_html', 'alx_embed_html', 10, 3 );
-add_filter( 'video_embed_html', 'alx_embed_html' );
+add_filter( 'embed_oembed_html', 'githuber_alx_embed_html', 10, 3 );
+add_filter( 'video_embed_html', 'githuber_alx_embed_html' );
 
 remove_action( 'wp_head', 'feed_links_extra' );                // Display the links to the extra feeds such as category feeds.
 remove_action( 'wp_head', 'feed_links' );                      // Display the links to the general feeds: Post and Comment Feed.

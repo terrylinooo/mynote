@@ -3,7 +3,7 @@
  * The header part of Githuber theme.
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package WordPress
  * @subpackage Githuber
@@ -26,13 +26,16 @@
 		<header class="header clear" role="banner">
 			<div class="container">
 				<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
+					<?php if ( '' !== githuber_site_icon() ) : ?>
 					<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>">
-						<img src="<?php githuber_site_icon(); ?>" alt="Logo" class="logo-img">
+						<img src="<?php echo githuber_site_icon(); ?>" alt="Logo" class="logo-img">
 					</a>
+					<?php endif; ?>
+
 					<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
 						<?php githuber_nav(); ?>
 					<?php else : ?>
-						<?php default_nav(); ?>
+						<?php githuber_default_nav(); ?>
 					<?php endif; ?>
 					<div class="search-bar">
 						<form id="search-form" class="search" method="get" action="<?php echo esc_url( home_url() ); ?>" role="search" autocomplete="off">

@@ -27,7 +27,7 @@
 				<?php githuber_nav( 'footer' ); ?>
 
 				<div class="container site-info">
-					<?php site_info(); ?>
+					<?php githuber_site_info(); ?>
 				</div>
 			</footer>
 		</div><!-- .wrapper -->
