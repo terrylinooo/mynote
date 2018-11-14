@@ -893,17 +893,6 @@ function githuber_title_progress_bar() {
 }
 
 /**
- * We always have header search bar, so we don't need this.
- *
- * @return void
- */
-function githuber_unregister_default_widgets() {
-	unregister_widget( 'WP_Widget_Search' );
-}
-
-add_action( 'widgets_init', 'githuber_unregister_default_widgets', 11 );
-
-/**
  * Custom edit button with GitHub style.
  *
  * @return void

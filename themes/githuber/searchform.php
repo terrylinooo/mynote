@@ -23,7 +23,7 @@ $unique_id = uniqid( 'search-form-' );
 		<div class="input-group">
 			<input type="search" id="<?php echo esc_attr( $unique_id ); ?>" class="search-field form-control" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'githuber' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
 			<div class="input-group-prepend">
-				<button type="submit" class="search-submit btn btn-primary"><span class="screen-reader-text"><?php echo esc_html_x( 'Search', 'submit button', 'githuber' ); ?></span></button>
+				<button type="submit" class="search-submit btn btn-primary"><i class="fas fa-search"></i><span class="screen-reader-text"><?php echo esc_html_x( 'Search', 'submit button', 'githuber' ); ?></span></button>
 			</div>
 		</div>
 	</div>
