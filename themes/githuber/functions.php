@@ -1149,18 +1149,12 @@ add_filter( 'document_title_parts', 'githuber_remove_tagline' );
  * @return void
  */
 function githuber_site_info() {
-	$theme_link = 'https://terryl.in/';
-
-	if ( 'zh' == substr( get_bloginfo ( 'language' ), 0, 2 ) ) {
-		$theme_link = 'https://terryl.in/zh/';
-	}
-	
-	$paged      = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
 	echo esc_html__( 'Copyright', 'githuber' ) . ' &copy; ' . date( 'Y' ) . ' <strong><a href="' . esc_url( get_site_url() ) . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' . esc_html__( 'All rights reserved.', 'githuber' ) . ' ';
 
-	// Only homepage and single-post pages shows the theme credit link on the footer.
-	// Keeping the theme credit link encourages me to improve this theme better. Thank you.
-	if ( ( is_home() || is_front_page() || is_single() ) && 1 === $paged ) {
+	// Only homepage shows the theme credit link on the footer.
+	// Keeping the theme credit link (just one link in your homepage) encourages me to improve this theme better. Thank you.
+	if ( is_home() || is_front_page() ) {
+		$theme_link = 'https://terryl.in/';
 		echo esc_html__( 'Theme by', 'githuber' ) . ' <a href="' . esc_url( $theme_link ) . '">' . esc_html__( 'Githuber', 'githuber' ) . '</a>. ';
 	}
 }
