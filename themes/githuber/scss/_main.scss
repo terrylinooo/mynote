@@ -140,6 +140,13 @@ article {
     .container {
         justify-content: flex-start;
     }
+
+    @include media-breakpoint-down(md) {
+        .container {
+            padding: 0;
+        }
+    }
+
     
     &.slide-down {
         transform: translateY(0);

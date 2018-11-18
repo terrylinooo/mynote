@@ -29,12 +29,19 @@ progress {
 }
 
 #progress-title {
-    width: calc(100% - 50px);
+    width: 100%;
     display: inline-block;
     text-overflow: ellipsis;
     white-space: nowrap;
     word-break: keep-all !important;
     overflow: hidden;
+    line-height: 40px;
+}
+
+.has-site-icon {
+    #progress-title {
+        width: calc(100% - 50px);
+    }
 }
 
 .progress-wrapper {
