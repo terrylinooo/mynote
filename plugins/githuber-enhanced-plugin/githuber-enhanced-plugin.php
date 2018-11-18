@@ -6,15 +6,15 @@
  * @link https://terryl.in/githuber
  *
  * @package Githuber
- * @since 1.1.0
- * @version 1.1.0
+ * @since 1.0.0
+ * @version 1.0.1
  */
 
 /**
  * Plugin Name:       Githuber Enhanced Plugin
  * Plugin URI:        https://terryl.in/githuber
  * Description:       A WordPress plugin that improves Githuber theme functionality.
- * Version:           1.1.0
+ * Version:           1.0.1
  * Author:            Terry Lin
  * Author URI:        https://terryl.in
  * License:           GPL 3.0
@@ -27,7 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'GITHUBER_PLUGIN_VERSION', '1.1.0' );
+define( 'GITHUBER_PLUGIN_VERSION', '1.0.1' );
 define( 'GITHUBER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GITHUBER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
