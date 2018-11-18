@@ -36,7 +36,7 @@ class WP_Widget_Githuber_TOC extends WP_Widget {
 	 * Register javascript for the Githuber TOC widget.
 	 */
 	public function githuber_toc_js() {
-		wp_register_script( 'bootstrap-toc', get_template_directory_uri() . '/assets/vendor/bootstrap-toc/bootstrap-toc.min.js', array( 'jquery' ), '1.0.0' );
+		wp_register_script( 'bootstrap-toc', GITHUBER_PLUGIN_URL . 'assets/vendor/bootstrap-toc/bootstrap-toc.min.js', array( 'jquery' ), '1.0.0' );
 		wp_enqueue_script( 'bootstrap-toc' );
 	}
 
