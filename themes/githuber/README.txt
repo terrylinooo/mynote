@@ -45,10 +45,6 @@ Bootstrap, Copyright 2011-2018 Twitter, Inc.
 License: The MIT License (MIT)
 Source: https://github.com/twbs/bootstrap
 
-Bootstrap-toc, Copyright Aidan Feldman
-License: The MIT License (MIT)
-Source: https://github.com/afeld/bootstrap-toc
-
 Image: Board Chip Circuit, Copyright OpenClipart-Vectors
 License: CC0 Creative Commons (Public Domain)
 Source: https://pixabay.com/en/board-chip-circuit-electric-158973/
