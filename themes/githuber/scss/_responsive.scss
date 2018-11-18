@@ -72,11 +72,12 @@
         }
 
         .search-bar {
-            width: calc(100% - 150px) !important;
+            width: calc(100% - 86px);
             position: absolute;
             top: 15px;
             right: 76px;
         }
+
         .navbar-toggler {
             position: absolute;
             top: 10px;
@@ -84,10 +85,20 @@
         }
 
         .navbar-collapse {
-            margin-top: 60px;
+            margin-top: 50px;
+            overflow: hidden;
         }
 
         @include clearfix();
+    }
+
+    .has-site-icon {
+        .search-bar {
+            width: calc(100% - 135px) !important;
+            position: absolute;
+            top: 15px;
+            right: 76px;
+        }
     }
 }
 

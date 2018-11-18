@@ -124,25 +124,28 @@
 			border-radius: 0;
 			box-shadow: 0 8px 6px -6px rgba(0,0,0,.15);
 
-			&::before {
-				border-bottom: 9px solid rgba(0, 0, 0, 0.2);
-				border-left: 9px solid rgba(0, 0, 0, 0);
-				border-right: 9px solid rgba(0, 0, 0, 0);
-				content: "";
-				display: inline-block;
-				left: 25px;
-				position: absolute;
-				top: -8px;
-			}
-			&::after {
-				border-bottom: 8px solid #FFFFFF;
-				border-left: 9px solid rgba(0, 0, 0, 0);
-				border-right: 9px solid rgba(0, 0, 0, 0);
-				content: "";
-				display: inline-block;
-				left: 25px;
-				position: absolute;
-				top: -7px;
+			@include media-breakpoint-up(lg) {
+
+				&::before {
+					border-bottom: 9px solid rgba(0, 0, 0, 0.2);
+					border-left: 9px solid rgba(0, 0, 0, 0);
+					border-right: 9px solid rgba(0, 0, 0, 0);
+					content: "";
+					display: inline-block;
+					left: 25px;
+					position: absolute;
+					top: -8px;
+				}
+				&::after {
+					border-bottom: 8px solid #FFFFFF;
+					border-left: 9px solid rgba(0, 0, 0, 0);
+					border-right: 9px solid rgba(0, 0, 0, 0);
+					content: "";
+					display: inline-block;
+					left: 25px;
+					position: absolute;
+					top: -7px;
+				}
 			}
 		}
 

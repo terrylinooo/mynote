@@ -11,6 +11,14 @@
  * @version 1.0.0
  */
 
+$is_site_icon = false;
+$addon_body_class = '';
+
+if ( '' !== githuber_site_icon() ) {
+	$is_site_icon = true;
+	$addon_body_class = 'has-site-icon';
+}
+
 ?><!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
@@ -21,17 +29,15 @@
 <?php wp_head(); ?>
 
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class( $addon_body_class ); ?>>
 	<div class="wrapper">
 		<header class="header clear" role="banner">
 			<div class="container">
 				<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
-					<?php if ( '' !== githuber_site_icon() ) : ?>
+					<?php if ( $is_site_icon ) : ?>
 					<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>">
 						<img src="<?php echo githuber_site_icon(); ?>" alt="<?php esc_attr_e( 'Logo', 'githuber' ); ?>" class="logo-img">
 					</a>
-					<?php else : ?>
-						<a href="<?php echo esc_url( home_url() ); ?>" class="home-link"><?php esc_html_e( 'Home', 'githuber' ); ?></a>
 					<?php endif; ?>
 
 					<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
