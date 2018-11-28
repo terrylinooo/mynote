@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Githuber
+ * Class Register
  *
  * @author Terry Lin
  * @link https://terryl.in/githuber
@@ -22,13 +22,7 @@ class Register {
 	);
 
     /**
-	 * Define the core functionality of the plugin.
-	 *
-	 * Set the plugin name and the plugin version that can be used throughout the plugin.
-	 * Load the dependencies, define the locale, and set the hooks for the admin area and
-	 * the public-facing side of the site.
-	 *
-	 * @since    1.1.0
+	 * Constructer.
 	 */
 	public function __construct() {
 		global $current_user;
@@ -36,11 +30,22 @@ class Register {
 		// Load current user.
 		$this->current_user = $current_user;
 	}
+
+	/**
+	 * Initialize.
+	 */
+	public function init() {
+
+		$this->register_hooks();
+		$this->add_post_types();
+		$this->add_walker();
+		$this->add_widgets();
+	}
 	
 	/**
-	 * Activate.
+	 * Activate Githuber plugin.
 	 */
-	public function activate() {
+	public function activate_plugin() {
 
 		// Turn off Rich-text editor.
 		update_user_option( $this->current_user->ID, 'rich_editing', 'false', true );
@@ -51,9 +56,9 @@ class Register {
 	}
 
 	/**
-	 * Deactivate.
+	 * Deactivate Githuber plugin.
 	 */
-	public function deactivate() {
+	public function deactivate_plugin() {
 
 		// Turn on Rich-text editor.
 		global $current_user;
@@ -64,36 +69,36 @@ class Register {
 	/**
 	 * Initialize Githuber widgets.
 	 */
-	public function widgets() {
-		add_action( 'widgets_init', array( $this, '_widgets' ) );
+	public function add_widgets() {
+		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 	}
 
 	/**
 	 * Register post typees.
 	 */
-	public function post_types() {
+	public function add_post_types() {
 		new \Githuber_Post_Type_Repository();
 	}
 
 	/**
-	 * Register Walker
+	 * Register Walker for Bootstrap 4 header menu.
 	 */
-	public function walker() {
+	public function add_walker() {
 		new \Githuber_Walker();
 	}
 
 	/**
 	 * Register hooks.
 	 */
-	public function hooks() {
-		register_activation_hook( GITHUBER_PLUGIN_PATH, array( $this , 'activate' ) );
-		register_deactivation_hook( GITHUBER_PLUGIN_PATH, array( $this , 'deactive' ) );
+	public function register_hooks() {
+		register_activation_hook( GITHUBER_PLUGIN_PATH, array( $this , 'activate_plugin' ) );
+		register_deactivation_hook( GITHUBER_PLUGIN_PATH, array( $this , 'deactive_plugin' ) );
 	}
 
 	/**
-	 * Register Githuber widgets. (Triggered by $this->widgets).
+	 * Register Githuber widgets. (Triggered by $this->add_widgets).
 	 */
-	public function _widgets() {
+	public function register_widgets() {
 		register_widget( 'Githuber_Widget_Toc' );
 	}
 }
