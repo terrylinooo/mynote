@@ -12,7 +12,7 @@
 
 // if uninstall.php is not called by WordPress, die.
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-    die;
+	die;
 }
  
 $options_names = array(
@@ -20,8 +20,8 @@ $options_names = array(
 );
 
 foreach ( $options_names as $optionName ) {
-    delete_option( $optionName );
-    delete_site_option( $option_name );
+	delete_option( $optionName );
+	delete_site_option( $option_name );
 }
 
 // enable rich text.

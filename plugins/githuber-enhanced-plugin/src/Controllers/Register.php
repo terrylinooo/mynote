@@ -21,7 +21,7 @@ class Register {
 		'code_style'  => 'default'
 	);
 
-    /**
+	/**
 	 * Constructer.
 	 */
 	public function __construct() {
