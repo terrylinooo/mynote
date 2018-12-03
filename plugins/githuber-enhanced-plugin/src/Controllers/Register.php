@@ -12,14 +12,14 @@
 
 namespace Githuber\Controller;
 
-class Register {
+class Register extends ControllerAbstract {
 
+	/**
+	 * Load current user data from global variable $current_user.
+	 *
+	 * @var object
+	 */
 	public $current_user;
-
-	public $defaults = array(
-		'theme_style' => 'default',
-		'code_style'  => 'default'
-	);
 
 	/**
 	 * Constructer.
@@ -41,6 +41,20 @@ class Register {
 		$this->add_walker();
 		$this->add_widgets();
 	}
+
+    /**
+     * Register CSS style files.
+     */
+	public function enqueue_styles() {
+
+	}
+
+    /**
+     * Register JS files.
+     */
+	public function enqueue_scripts() {
+
+	}
 	
 	/**
 	 * Activate Githuber plugin.
@@ -61,7 +75,6 @@ class Register {
 	public function deactivate_plugin() {
 
 		// Turn on Rich-text editor.
-		global $current_user;
 		update_user_option( $current_user->ID, 'rich_editing', 'true', true );
 		delete_user_option( $current_user->ID, 'dismissed_wp_pointers', true );
 	}

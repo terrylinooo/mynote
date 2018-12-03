@@ -14,8 +14,6 @@ use Githuber\Controller as Controller;
 
 class Githuber {
 
-	public static $text_domain = 'githuber';
-
 	/**
 	 * Constructer.
 	 */
