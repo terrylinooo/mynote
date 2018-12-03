@@ -1,0 +1,15 @@
+.metabox-holder {
+  border: 1px solid #ccc;
+  border-top: 0;
+  margin: 0;
+  padding: 10px 20px 20px 20px;
+  line-height: inherit;
+}
+
+.nav-tab-active, .metabox-holder {
+  background-color: #ffffff;
+}
+
+.nav-tab-active {
+  border-bottom: 1px solid #ffffff;
+}
