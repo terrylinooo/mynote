@@ -25,6 +25,8 @@ class Register extends ControllerAbstract {
 	 * Constructer.
 	 */
 	public function __construct() {
+		parent::__construct();
+
 		global $current_user;
 
 		// Load current user.
@@ -45,14 +47,14 @@ class Register extends ControllerAbstract {
     /**
      * Register CSS style files.
      */
-	public function enqueue_styles() {
+	public function admin_enqueue_styles( $hook_suffix ) {
 
 	}
 
     /**
      * Register JS files.
      */
-	public function enqueue_scripts() {
+	public function admin_enqueue_scripts( $hook_suffix ) {
 
 	}
 	
@@ -104,8 +106,8 @@ class Register extends ControllerAbstract {
 	 * Register hooks.
 	 */
 	public function register_hooks() {
-		register_activation_hook( GITHUBER_PLUGIN_PATH, array( $this , 'activate_plugin' ) );
-		register_deactivation_hook( GITHUBER_PLUGIN_PATH, array( $this , 'deactive_plugin' ) );
+		register_activation_hook( $this->githuber_plugin_path, array( $this , 'activate_plugin' ) );
+		register_deactivation_hook( $this->githuber_plugin_path, array( $this , 'deactive_plugin' ) );
 	}
 
 	/**

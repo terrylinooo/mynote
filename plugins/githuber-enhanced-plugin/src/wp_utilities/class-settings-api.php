@@ -114,37 +114,46 @@ class WeDevs_Settings_API {
 				$callback = null;
 			}
 
-			add_settings_section( $section['id'], $section['title'], $callback, $section['id'] );
+			add_settings_section( $section['id'] . '_0', $section['title'], $callback, $section['id'] );
 		}
 
 		//register settings fields
 		foreach ( $this->settings_fields as $section => $field ) {
-			foreach ( $field as $option ) {
+			$i = 0;
+			$next_section_group = $section . '_' . $i;
 
+			foreach ( $field as $option ) {
+				$i++;
 				$name = $option['name'];
 				$type = isset( $option['type'] ) ? $option['type'] : 'text';
 				$label = isset( $option['label'] ) ? $option['label'] : '';
 				$callback = isset( $option['callback'] ) ? $option['callback'] : array( $this, 'callback_' . $type );
-
-				$args = array(
-					'id'                => $name,
-					'class'             => isset( $option['class'] ) ? $option['class'] : $name,
-					'label_for'         => "{$section}[{$name}]",
-					'desc'              => isset( $option['desc'] ) ? $option['desc'] : '',
-					'name'              => $label,
-					'section'           => $section,
-					'size'              => isset( $option['size'] ) ? $option['size'] : null,
-					'options'           => isset( $option['options'] ) ? $option['options'] : '',
-					'std'               => isset( $option['default'] ) ? $option['default'] : '',
-					'sanitize_callback' => isset( $option['sanitize_callback'] ) ? $option['sanitize_callback'] : '',
-					'type'              => $type,
-					'placeholder'       => isset( $option['placeholder'] ) ? $option['placeholder'] : '',
-					'min'               => isset( $option['min'] ) ? $option['min'] : '',
-					'max'               => isset( $option['max'] ) ? $option['max'] : '',
-					'step'              => isset( $option['step'] ) ? $option['step'] : '',
-				);
-
-				add_settings_field( "{$section}[{$name}]", $label, $callback, $section, $section, $args );
+				
+				if ( '' === $name ) {
+					// Create a section in same page if $name is empty.
+					$next_section_group = $section . '_' . $i;
+					add_settings_section( $next_section_group, $option['label'], '', $section);
+				} else {
+					$args = array(
+						'id'                => $name,
+						'class'             => isset( $option['class'] ) ? $option['class'] : $name,
+						'label_for'         => "{$section}[{$name}]",
+						'desc'              => isset( $option['desc'] ) ? $option['desc'] : '',
+						'name'              => $label,
+						'section'           => $section,
+						'size'              => isset( $option['size'] ) ? $option['size'] : null,
+						'options'           => isset( $option['options'] ) ? $option['options'] : '',
+						'std'               => isset( $option['default'] ) ? $option['default'] : '',
+						'sanitize_callback' => isset( $option['sanitize_callback'] ) ? $option['sanitize_callback'] : '',
+						'type'              => $type,
+						'placeholder'       => isset( $option['placeholder'] ) ? $option['placeholder'] : '',
+						'min'               => isset( $option['min'] ) ? $option['min'] : '',
+						'max'               => isset( $option['max'] ) ? $option['max'] : '',
+						'step'              => isset( $option['step'] ) ? $option['step'] : '',
+					);
+	
+					add_settings_field( "{$section}[{$name}]", $label, $callback, $section, $next_section_group, $args );
+				}
 			}
 		}
 

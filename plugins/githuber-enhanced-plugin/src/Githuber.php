@@ -19,6 +19,7 @@ class Githuber {
 	 */
 	public function __construct() {
 		//add_action( 'current_screen', array( $this, 'trigger_cron' ) );
+		add_action( 'init', array( $this, 'load_textdomain' ) );
 	}
 
 	/**
@@ -31,5 +32,15 @@ class Githuber {
 
 		$setting = new Controller\Setting();
 		$setting->init();
+
+		$markdown = new Controller\Markdown();
+		$markdown->init();
+	}
+
+	/**
+	 * Load plugin textdomain.
+	 */
+	public function load_textdomain() {
+		load_plugin_textdomain( GITHUBER_PLUGIN_TEXT_DOMAIN, false, GITHUBER_PLUGIN_LANGUAGE_PACK ); 
 	}
 }

@@ -20,14 +20,35 @@ abstract class ControllerAbstract {
      *
      * @var string
      */
-    public $version = '1.1.0';
+    public $version;
 
     /**
      * Text domain for transation.
      *
      * @var string
      */
-    public $text_domain = 'githuber-plugin';
+    public $text_domain;
+
+    /**
+     * The plugin url.
+     *
+     * @var string
+     */
+    public $githuber_plugin_url;
+
+    /**
+     * The plugin directory.
+     *
+     * @var string
+     */
+    public $githuber_plugin_dir;
+
+    /**
+     * The plugin loader's path.
+     *
+     * @var string
+     */
+    public $githuber_plugin_path;
 
     /**
      * Array mapping of functionality for Post Type support.
@@ -40,6 +61,22 @@ abstract class ControllerAbstract {
     );
 
     /**
+     * Constructer.
+     * 
+     * @return void
+     */
+    public function __construct() {
+        /**
+         * Basic plugin information. Mapping from the Constant in the plugin loader script.
+         */
+        $this->githuber_plugin_url  = GITHUBER_PLUGIN_URL;
+        $this->githuber_plugin_dir  = GITHUBER_PLUGIN_DIR;
+        $this->githuber_plugin_path = GITHUBER_PLUGIN_PATH;
+        $this->version              = GITHUBER_PLUGIN_VERSION;
+        $this->text_domain          = GITHUBER_PLUGIN_TEXT_DOMAIN;
+    }
+
+    /**
      * Initialize.
      *
      * @return void
@@ -49,14 +86,16 @@ abstract class ControllerAbstract {
     /**
      * Register CSS style files.
      * 
+     * @param string Hook suffix string.
      * @return void
      */
-    abstract public function enqueue_styles();
+    abstract public function admin_enqueue_styles( $hook_suffix );
 
     /**
      * Register JS files.
      * 
+     * @param string Hook suffix string.
      * @return void
      */
-    abstract public function enqueue_scripts();
+    abstract public function admin_enqueue_scripts( $hook_suffix );
 }
