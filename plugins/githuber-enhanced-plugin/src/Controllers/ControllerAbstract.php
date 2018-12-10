@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Markdown
+ * Class ControllerAbstract
  *
  * @author Terry Lin
  * @link https://terryl.in/githuber
@@ -49,16 +49,6 @@ abstract class ControllerAbstract {
      * @var string
      */
     public $githuber_plugin_path;
-
-    /**
-     * Array mapping of functionality for Post Type support.
-     * Other functionality will be added in the future.
-     * 
-     * @var array
-     */
-    public $post_type_support = array(
-        'markdown' => 'githuber_markdown'
-    );
 
     /**
      * Constructer.

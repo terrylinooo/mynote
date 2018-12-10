@@ -62,6 +62,7 @@ class Setting extends ControllerAbstract {
 	public function setting_admin_init() {
 
 		$sections = array(
+
 			array(
 				'id'    => 'githuber_markdown',
 				'title' => __( 'Markdown', $this->text_domain )
@@ -81,6 +82,7 @@ class Setting extends ControllerAbstract {
 		);
 
 		$fields = array(
+
 			'githuber_markdown' => array(
 
 				array(
@@ -89,13 +91,11 @@ class Setting extends ControllerAbstract {
 					'desc'    => __( 'Enable Markdown for post, pages or comments.', $this->text_domain ),
 					'type'    => 'multicheck',
 					'default' => array(
-						'post' => 'post', 
-						'page' => 'page'
+						'posting' => 'posting'
 					),
 					'options' => array(
-						'post'    => 'Posts',
-						'page'    => 'Pages',
-						'comment' => 'Comments'
+						'posting'    => 'Posts and pages',
+						'commenting' => 'Comments'
 					)
 				),
 
@@ -322,7 +322,6 @@ class Setting extends ControllerAbstract {
 						'no'  => __( 'No', $this->text_domain )
 					)
 				),
-
 			),
 			/*
 			'githuber_advanced' => array(

@@ -11,6 +11,7 @@
  */
 
 use Githuber\Controller as Controller;
+use Githuber\Module as Module;
 
 class Githuber {
 
@@ -35,6 +36,16 @@ class Githuber {
 
 		$markdown = new Controller\Markdown();
 		$markdown->init();
+
+		/**
+		 * Let's start loading modules.
+		 */ 
+
+		// Module Name: KaTex
+		if ( 'yes' === $setting::get_option( 'support_katex', 'githuber_markdown' ) ) {
+			$module_katex = new Module\KaTex();
+			$module_katex->init();
+		}
 	}
 
 	/**
