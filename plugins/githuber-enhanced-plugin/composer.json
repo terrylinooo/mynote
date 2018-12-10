@@ -1,6 +1,6 @@
 {
     "require": {
         "erusev/parsedown": "^1.7",
-        "tareq1988/wordpress-settings-api-class": "dev-master"
+        "erusev/parsedown-extra": "^0.7.1"
     }
 }
