@@ -69,8 +69,8 @@ class Setting extends ControllerAbstract {
 			),
 			
 			array(
-				'id'    => 'githuber_github',
-				'title' => __( 'GitHub', $this->text_domain )
+				'id'    => 'githuber_modules',
+				'title' => __( 'Modules', $this->text_domain )
 			),
 
 			/*
@@ -84,6 +84,11 @@ class Setting extends ControllerAbstract {
 		$fields = array(
 
 			'githuber_markdown' => array(
+
+				array(
+					'name'  => '_TITLE_',
+					'label' => __( 'Writing', $this->text_domain ),
+				),
 
 				array(
 					'name'    => 'enable_markdown_for',
@@ -100,7 +105,7 @@ class Setting extends ControllerAbstract {
 				),
 
 				array(
-					'name'  => '',
+					'name'  => '_TITLE_',
 					'label' => __( 'Editor Settings', $this->text_domain ),
 				),
 
@@ -153,7 +158,7 @@ class Setting extends ControllerAbstract {
 				),
 
 				array(
-					'name'  => '',
+					'name'  => '_TITLE_',
 					'label' => __( 'Editor Style', $this->text_domain ),
 				),
 
@@ -247,8 +252,32 @@ class Setting extends ControllerAbstract {
 				),
 
 				array(
-					'name'  => '',
-					'label' => __( 'Markdown Extra', $this->text_domain ),
+					'name'  => '_TITLE_',
+					'label' => __( 'Modules', $this->text_domain ),
+				),
+
+				array(
+					'name'    => 'support_prism',
+					'label'   => __( 'Syntax Highlighter', $this->text_domain ),
+					'desc'    => __( 'Highligh your code snippets by Prism.js', $this->text_domain ),
+					'type'    => 'radio',
+					'default' => 'no',
+					'options' => array(
+						'yes' => __( 'Yes', $this->text_domain ),
+						'no'  => __( 'No', $this->text_domain )
+					)
+				),
+
+				array(
+					'name'    => 'support_katex',
+					'label'   => __( 'KaTeX', $this->text_domain ),
+					'desc'    => __( 'Support <a href="https://katex.org/" target="_blank">KaTeX</a> math typesetting.', $this->text_domain ),
+					'type'    => 'radio',
+					'default' => 'no',
+					'options' => array(
+						'yes' => __( 'Yes', $this->text_domain ),
+						'no'  => __( 'No', $this->text_domain )
+					)
 				),
 
 				array(
@@ -267,18 +296,6 @@ class Setting extends ControllerAbstract {
 					'name'    => 'support_emoji',
 					'label'   => __( 'Emoji', $this->text_domain ),
 					'desc'    => __( 'Support Emoji in posts.', $this->text_domain ),
-					'type'    => 'radio',
-					'default' => 'no',
-					'options' => array(
-						'yes' => __( 'Yes', $this->text_domain ),
-						'no'  => __( 'No', $this->text_domain )
-					)
-				),
-
-				array(
-					'name'    => 'support_katex',
-					'label'   => __( 'KaTeX', $this->text_domain ),
-					'desc'    => __( 'Support <a href="https://katex.org/" target="_blank">KaTeX</a> math typesetting.', $this->text_domain ),
 					'type'    => 'radio',
 					'default' => 'no',
 					'options' => array(
@@ -320,6 +337,76 @@ class Setting extends ControllerAbstract {
 					'options' => array(
 						'yes' => __( 'Yes', $this->text_domain ),
 						'no'  => __( 'No', $this->text_domain )
+					)
+				),
+			),
+
+			'githuber_modules' =>  array(
+
+				array(
+					'name'  => '_TITLE_',
+					'label' => __( 'Syntax Highlighter', $this->text_domain ),
+					'desc'    => __( 'Prism.js', $this->text_domain ),
+				),
+
+				array(
+					'name'    => 'prism_theme',
+					'label'   => __( 'Theme', $this->text_domain ),
+					'desc'    => __( 'Choose a perferred theme for the syntax highlighter.', $this->text_domain ),
+					'type'    => 'select',
+					'default' => 'default',
+					'options' => array(
+						'default'        => 'default',
+						'dark'           => 'dark',
+						'funky'          => 'funky',
+						'okaidia'        => 'okaidia',
+						'twilight'       => 'twilight',
+						'tomorrow'       => 'tomorrow',
+						'coy'            => 'coy',
+						'solarizedlight' => 'solarizedlight'
+					)
+				),
+
+				array(
+					'name'    => 'prism_line_number',
+					'label'   => __( 'Line Number', $this->text_domain ),
+					'desc'    => __( 'Show line number in code area?', $this->text_domain ),
+					'type'    => 'radio',
+					'default' => 'no',
+					'options' => array(
+						'yes' => __( 'Yes', $this->text_domain ),
+						'no'  => __( 'No', $this->text_domain )
+					)
+				),
+
+				array(
+					'name'    => 'prism_src',
+					'label'   => __( 'File Host', $this->text_domain ),
+					'desc'    => __( 'Use this library with a CDN service or self-hosted (default)?', $this->text_domain ),
+					'type'    => 'radio',
+					'default' => 'default',
+					'options' => array(
+						'default'        => 'default',
+						'cloudflare'     => 'cdnjs.cloudflare.com', // https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js
+						'jsdelivr'       => 'cdn.jsdelivr.net',     // https://cdn.jsdelivr.net/npm/prismjs@1.15.0/prism.min.js
+					)
+				),
+
+				array(
+					'name'  => '_TITLE_',
+					'label' => __( 'KaTex', $this->text_domain )
+				),
+
+				array(
+					'name'    => 'katex_src',
+					'label'   => __( 'File Host', $this->text_domain ),
+					'desc'    => __( 'Use this library with a CDN service or self-hosted (default)?', $this->text_domain ),
+					'type'    => 'radio',
+					'default' => 'default',
+					'options' => array(
+						'default'        => 'default',
+						'cloudflare'     => 'cdnjs.cloudflare.com', // https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js
+						'jsdelivr'       => 'cdn.jsdelivr.net',     // https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js
 					)
 				),
 			),
@@ -471,24 +558,5 @@ class Setting extends ControllerAbstract {
 		self::$setting_api->show_forms();
 	
 		echo '</div>';
-	}
-
-	/**
-	* Get the value of a settings field.
-	*
-	* @param string $option  settings field name.
-	* @param string $section the section name this field belongs to.
-	* @param string $default default text if it's not found.
-	* @return mixed
-	*/
-	public static function get_option( $option, $section, $default = '' ) {
-
-		$options = get_option( $section );
-
-		if ( isset( $options[ $option ] ) ) {
-			return $options[ $option ];
-		}
-
-		return $default;
 	}
 }

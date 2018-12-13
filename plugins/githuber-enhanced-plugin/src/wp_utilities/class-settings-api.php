@@ -8,6 +8,10 @@
  * @author Tareq Hasan <tareq@weDevs.com>
  * @link https://tareq.co Tareq Hasan
  * @license MIT
+ * 
+ * Notice:
+ * If you're looking for original code, go visit https://github.com/tareq1988/wordpress-settings-api-class
+ * This script is modified by Terry L., for Githuber plugin.
  */
 
 class WeDevs_Settings_API {
@@ -106,15 +110,17 @@ class WeDevs_Settings_API {
 			if ( isset($section['desc']) && !empty($section['desc']) ) {
 				$section['desc'] = '<div class="inside">' . $section['desc'] . '</div>';
 				$callback = function() use ( $section ) {
-			echo str_replace( '"', '\"', $section['desc'] );
-		};
+					echo str_replace( '"', '\"', $section['desc'] );
+				};
 			} else if ( isset( $section['callback'] ) ) {
 				$callback = $section['callback'];
 			} else {
 				$callback = null;
 			}
 
-			add_settings_section( $section['id'] . '_0', $section['title'], $callback, $section['id'] );
+			$page_title = '<span class="g-tab-title">' . $section['title'] . '</span>';
+
+			add_settings_section( $section['id'] . '_0', $page_title, $callback, $section['id'] );
 		}
 
 		//register settings fields
@@ -129,10 +135,27 @@ class WeDevs_Settings_API {
 				$label = isset( $option['label'] ) ? $option['label'] : '';
 				$callback = isset( $option['callback'] ) ? $option['callback'] : array( $this, 'callback_' . $type );
 				
-				if ( '' === $name ) {
+				if ( '_TITLE_' === $name ) {
 					// Create a section in same page if $name is empty.
 					$next_section_group = $section . '_' . $i;
-					add_settings_section( $next_section_group, $option['label'], '', $section);
+					
+					$section_title = '<span class="g-section-title">' . $option['label'] . '</span>';
+
+					if ( ! empty( $option['desc'] )) {
+						$section_title = '<span class="g-section-title">' . $option['label'] . '<span class="g-section-title-desc">' . $option['desc'] . '</span></span>';
+					}
+
+					add_settings_section( $next_section_group, $section_title, '', $section);
+
+				} elseif ( '_DESCRIPTION_' === $name ) {
+					$section_desc_id = $section . '_desc_' . $i;
+
+					$args = array(
+						'desc' => '<div class="g-section-desc">' . ( isset( $option['desc'] ) ? $option['desc'] : '' ) . '</div>',
+					);
+
+					add_settings_field( $section_desc_id, $label, $callback, $section, $next_section_group, $args );
+
 				} else {
 					$args = array(
 						'id'                => $name,
@@ -254,11 +277,21 @@ class WeDevs_Settings_API {
 		$value = $this->get_option( $args['id'], $args['section'], $args['std'] );
 		$html  = '<fieldset>';
 		$html .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="" />', $args['section'], $args['id'] );
+
+		$option_count = count( $args['options'] );
+
 		foreach ( $args['options'] as $key => $label ) {
 			$checked = isset( $value[$key] ) ? $value[$key] : '0';
+
+			if ( $option_count < 5 ) {
+				$html .= '<div>';
+			} else {
+				$html .= '<div style="display: inline-block; margin-right: 15px;">';
+			}
 			$html    .= sprintf( '<label for="wpuf-%1$s[%2$s][%3$s]">', $args['section'], $args['id'], $key );
 			$html    .= sprintf( '<input type="checkbox" class="checkbox" id="wpuf-%1$s[%2$s][%3$s]" name="%1$s[%2$s][%3$s]" value="%3$s" %4$s />', $args['section'], $args['id'], $key, checked( $checked, $key, false ) );
-			$html    .= sprintf( '%1$s</label><br>',  $label );
+			$html    .= sprintf( '%1$s</label>',  $label );
+			$html .= '</div>';
 		}
 
 		$html .= $this->get_field_description( $args );
