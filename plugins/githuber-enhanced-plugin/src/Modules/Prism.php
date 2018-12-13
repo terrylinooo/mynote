@@ -49,6 +49,7 @@ class Prism extends ModuleAbstract {
 	public function front_enqueue_styles() {
 		$prism_src         = githuber_get_option( 'prism_src', 'githuber_modules' );
 		$prism_theme       = githuber_get_option( 'prism_theme', 'githuber_modules' );
+
 		$prism_line_number = githuber_get_option( 'prism_line_number', 'githuber_modules' );
 		$theme             = ( 'default' === $prism_theme ) ? 'prism' : 'prism-' . $prism_theme;
 
@@ -68,7 +69,7 @@ class Prism extends ModuleAbstract {
 				break;
 
 			default:
-				$style_url[] = $this->githuber_plugin_url . 'assets/vendor/prism//themes/prism.min.css';
+				$style_url[] = $this->githuber_plugin_url . 'assets/vendor/prism/themes/' . $theme . '.min.css';
 				if ( 'yes' === $prism_line_number ) {
 					$style_url[] = $this->githuber_plugin_url . 'assets/vendor/prism/plugins/line-numbers/prism-line-numbers.css';
 				}
