@@ -38,8 +38,9 @@ class Markdown extends ControllerAbstract {
     /**
      * Constants.
      */
-	const MD_POST_TYPE = 'githuber_markdown';
-	const MD_POST_META = '_is_githuber_markdown';
+	const MD_POST_TYPE       = 'githuber_markdown';
+	const MD_POST_META       = '_is_githuber_markdown';
+	const MD_POST_META_PRISM = '_githuber_prismjs';
 
 	/**
 	 * Parser's instance.
@@ -65,6 +66,14 @@ class Markdown extends ControllerAbstract {
 	 */
 	public $posts_to_uncache = array();
 
+
+	/**
+	 * Is supporting of Prism syntax hightlighter?
+	 *
+	 * @var boolean
+	 */
+	public $is_support_prism = false;
+
 	/**
 	 * Constructer.
 	 */
@@ -73,6 +82,10 @@ class Markdown extends ControllerAbstract {
 
 		if ( ! self::$model_instance ) {
 			self::$model_instance = new Model();
+		}
+
+		if ( 'yes' === githuber_get_option( 'support_prism', 'githuber_markdown' ) ) {
+			$this->is_support_prism = true;
 		}
 	}
 
@@ -106,7 +119,7 @@ class Markdown extends ControllerAbstract {
 		}
 
 		wp_enqueue_script( 'editormd', $this->githuber_plugin_url . 'assets/vendor/editor.md/editormd.min.js', array( 'jquery' ), $this->editormd_varsion, true );
-		wp_enqueue_script( 'githuber-plugin', $this->githuber_plugin_url . 'assets/js/githuber.js', array( 'editormd' ), $this->version, true );
+		wp_enqueue_script( 'githuber-plugin', $this->githuber_plugin_url . 'assets/js/githuber-plugin.js', array( 'editormd' ), $this->version, true );
 
 		switch ( get_bloginfo( 'language' ) ) {
 			case 'zh-TW':
@@ -138,7 +151,7 @@ class Markdown extends ControllerAbstract {
 		$editormd_localize = array();
 
 		foreach ($editormd_config_list as $setting_name) {
-			$editormd_localize[ $setting_name ] = Setting::get_option( $setting_name, 'githuber_markdown' );
+			$editormd_localize[ $setting_name ] = githuber_get_option( $setting_name, 'githuber_markdown' );
 		}
 
 		$editormd_localize['editor_modules_url'] = $this->githuber_plugin_url . 'assets/vendor/editor.md/lib/';
@@ -179,13 +192,274 @@ class Markdown extends ControllerAbstract {
 		switch ( $post_action_type ) {
 			case 'posting':
 			case 'commeting':
-				$setting = Setting::get_option( 'enable_markdown_for', 'githuber_markdown' );
+				$setting = githuber_get_option( 'enable_markdown_for', 'githuber_markdown' );
 				if ( isset( $setting[ $post_action_type ] ) && $setting[ $post_action_type ] === $post_action_type ) {
 					return true;
 				}
 				break;
 		}
 		return false;
+	}
+
+	/**
+	 * Detect the language is defined through the way recommended in the HTML5 draft: through a language-xxxx class.
+	 * Find out all of them, then put them into the post meta for frontend uses.
+	 *
+	 * @param int   $post_id       The post ID.
+	 * @param string $post_content The post content.
+	 * @return void
+	 */
+	public function detect_code_languages( $post_id, $post_content ) {
+
+		// This is what Prism.js uses.
+		$prism_codes = array(
+			'html'              => 'HTML',
+			'xml'               => 'XML',
+			'svg'               => 'SVG',
+			'mathml'            => 'MathML',
+			'css'               => 'CSS',
+			'clike'             => 'C-like',
+			'javascript'        => 'JavaScript',
+			'abap'              => 'ABAP',
+			'actionscript'      => 'ActionScript',
+			'ada'               => 'Ada',
+			'apacheconf'        => 'Apache Configuration',
+			'apl'               => 'APL',
+			'applescript'       => 'AppleScript',
+			'arduino'           => 'Arduino',
+			'arff'              => 'ARFF',
+			'asciidoc'          => 'AsciiDoc',
+			'asm6502'           => '6502 Assembly',
+			'aspnet'            => 'ASP.NET (C#)',
+			'autohotkey'        => 'AutoHotkey',
+			'autoit'            => 'AutoIt',
+			'bash'              => 'Bash',
+			'basic'             => 'BASIC',
+			'batch'             => 'Batch',
+			'bison'             => 'Bison',
+			'brainfuck'         => 'Brainfuck',
+			'bro'               => 'Bro',
+			'c'                 => 'C',
+			'csharp'            => 'C#',
+			'cpp'               => 'C++',
+			'coffeescript'      => 'CoffeeScript',
+			'clojure'           => 'Clojure',
+			'crystal'           => 'Crystal',
+			'csp'               => 'Content-Security-Policy',
+			'css-extras'        => 'CSS Extras',
+			'd'                 => 'D',
+			'dart'              => 'Dart',
+			'diff'              => 'Diff',
+			'django'            => 'Django/Jinja2',
+			'docker'            => 'Docker',
+			'eiffel'            => 'Eiffel',
+			'elixir'            => 'Elixir',
+			'elm'               => 'Elm',
+			'erb'               => 'ERB',
+			'erlang'            => 'Erlang',
+			'fsharp'            => 'F#',
+			'flow'              => 'Flow',
+			'fortran'           => 'Fortran',
+			'gedcom'            => 'GEDCOM',
+			'gherkin'           => 'Gherkin',
+			'git'               => 'Git',
+			'glsl'              => 'GLSL',
+			'go'                => 'Go',
+			'graphql'           => 'GraphQL',
+			'groovy'            => 'Groovy',
+			'haml'              => 'Haml',
+			'handlebars'        => 'Handlebars',
+			'haskell'           => 'Haskell',
+			'haxe'              => 'Haxe',
+			'http'              => 'HTTP',
+			'hpkp'              => 'HTTP Public-Key-Pins',
+			'hsts'              => 'HTTP Strict-Transport-Security',
+			'ichigojam'         => 'IchigoJam',
+			'icon'              => 'Icon',
+			'inform7'           => 'Inform 7',
+			'ini'               => 'Ini',
+			'io'                => 'Io',
+			'j'                 => 'J',
+			'java'              => 'Java',
+			'jolie'             => 'Jolie',
+			'json'              => 'JSON',
+			'julia'             => 'Julia',
+			'keyman'            => 'Keyman',
+			'kotlin'            => 'Kotlin',
+			'latex'             => 'LaTeX',
+			'less'              => 'Less',
+			'liquid'            => 'Liquid',
+			'lisp'              => 'Lisp',
+			'livescript'        => 'LiveScript',
+			'lolcode'           => 'LOLCODE',
+			'lua'               => 'Lua',
+			'makefile'          => 'Makefile',
+			'markdown'          => 'Markdown',
+			'markup-templating' => 'Markup templating',
+			'matlab'            => 'MATLAB',
+			'mel'               => 'MEL',
+			'mizar'             => 'Mizar',
+			'monkey'            => 'Monkey',
+			'n4js'              => 'N4JS',
+			'nasm'              => 'NASM',
+			'nginx'             => 'nginx',
+			'nim'               => 'Nim',
+			'nix'               => 'Nix',
+			'nsis'              => 'NSIS',
+			'objectivec'        => 'Objective-C',
+			'ocaml'             => 'OCaml',
+			'opencl'            => 'OpenCL',
+			'oz'                => 'Oz',
+			'parigp'            => 'PARI/GP',
+			'parser'            => 'Parser',
+			'pascal'            => 'Pascal',
+			'perl'              => 'Perl',
+			'php'               => 'PHP',
+			'php-extras'        => 'PHP Extras',
+			'plsql'             => 'PL/SQL',
+			'powershell'        => 'PowerShell',
+			'processing'        => 'Processing',
+			'prolog'            => 'Prolog',
+			'properties'        => '.properties',
+			'protobuf'          => 'Protocol Buffers',
+			'pug'               => 'Pug',
+			'puppet'            => 'Puppet',
+			'pure'              => 'Pure',
+			'python'            => 'Python',
+			'q'                 => 'Q (kdb+ database)',
+			'qore'              => 'Qore',
+			'r'                 => 'R',
+			'jsx'               => 'React JSX',
+			'tsx'               => 'React TSX',
+			'renpy'             => 'Ren\'py',
+			'reason'            => 'Reason',
+			'rest'              => 'reST (reStructuredText)',
+			'rip'               => 'Rip',
+			'roboconf'          => 'Roboconf',
+			'ruby'              => 'Ruby',
+			'rust'              => 'Rust',
+			'sas'               => 'SAS',
+			'sass'              => 'Sass (Sass)',
+			'scss'              => 'Sass (Scss)',
+			'scala'             => 'Scala',
+			'scheme'            => 'Scheme',
+			'smalltalk'         => 'Smalltalk',
+			'smarty'            => 'Smarty',
+			'sql'               => 'SQL',
+			'soy'               => 'Soy (Closure Template)',
+			'stylus'            => 'Stylus',
+			'swift'             => 'Swift',
+			'tcl'               => 'Tcl',
+			'textile'           => 'Textile',
+			'twig'              => 'Twig',
+			'typescript'        => 'TypeScript',
+			'vbnet'             => 'VB.Net',
+			'velocity'          => 'Velocity',
+			'verilog'           => 'Verilog',
+			'vhdl'              => 'VHDL',
+			'vim'               => 'vim',
+			'visual-basic'      => 'Visual Basic',
+			'wasm'              => 'WebAssembly',
+			'wiki'              => 'Wiki markup',
+			'xeora'             => 'Xeora',
+			'xojo'              => 'Xojo (REALbasic)',
+			'yaml'              => 'YAML',
+		);
+
+		// The below codes need a parent componet being loaded before.
+		$prism_component_parent = array(
+			'javascript'        => array( 'clike' ),
+			'actionscript'      => array( 'javascript' ),
+			'arduino'           => array( 'cpp' ),
+			'aspnet'            => array( 'markup' ),
+			'bison'             => array( 'c' ),
+			'c'                 => array( 'clike' ),
+			'csharp'            => array( 'clike' ),
+			'cpp'               => array( 'c' ),
+			'coffeescript'      => array( 'javascript' ),
+			'crystal'           => array( 'ruby' ),
+			'css-extras'        => array( 'css' ),
+			'd'                 => array( 'clike' ),
+			'dart'              => array( 'clike' ),
+			'django'            => array( 'markup' ),
+			'erb'               => array( 'ruby', 'markup-templating' ),
+			'fsharp'            => array( 'clike' ),
+			'flow'              => array( 'javascript' ),
+			'glsl'              => array( 'clike' ),
+			'go'                => array( 'clike' ),
+			'groovy'            => array( 'clike' ),
+			'haml'              => array( 'ruby' ),
+			'handlebars'        => array( 'markup-templating' ),
+			'haxe'              => array( 'clike' ),
+			'java'              => array( 'clike' ),
+			'jolie'             => array( 'clike' ),
+			'kotlin'            => array( 'clike' ),
+			'less'              => array( 'css' ),
+			'markdown'          => array( 'markup' ),
+			'markup-templating' => array( 'markup' ),
+			'n4js'              => array( 'javascript' ),
+			'nginx'             => array( 'clike' ),
+			'objectivec'        => array( 'c' ),
+			'opencl'            => array( 'cpp' ),
+			'parser'            => array( 'markup' ),
+			'php'               => array( 'clike', 'markup-templating' ),
+			'php-extras'        => array( 'php' ),
+			'plsql'             => array( 'sql' ),
+			'processing'        => array( 'clike' ),
+			'protobuf'          => array( 'clike' ),
+			'pug'               => array( 'javascript' ),
+			'qore'              => array( 'clike' ),
+			'jsx'               => array( 'markup', 'javascript' ),
+			'tsx'               => array( 'jsx', 'typescript'),
+			'reason'            => array( 'clike' ),
+			'ruby'              => array( 'clike' ),
+			'sass'              => array( 'css' ),
+			'scss'              => array( 'css' ),
+			'scala'             => array( 'java' ),
+			'smarty'            => array( 'markup-templating' ),
+			'soy'               => array( 'markup-templating' ),
+			'swift'             => array( 'clike' ),
+			'textile'           => array( 'markup' ),
+			'twig'              => array( 'markup' ),
+			'typescript'        => array( 'javascript' ),
+			'vbnet'             => array( 'basic' ),
+			'velocity'          => array( 'markup' ),
+			'wiki'              => array( 'markup' ),
+			'xeora'             => array( 'markup' )
+		);
+
+		$prism_meta_array = [];
+
+		if ( preg_match_all( '/<code class="language-([a-z\-0-9]+)"/', $post_content, $matches ) > 0 && ! empty( $matches[1] ) ) {
+			
+			foreach ( $matches[1] as $match ) {
+				if ( ! empty( $prism_codes[ $match ] ) ) {
+					$prism_meta_array[ $match ] = $match;
+				}
+
+				// Check if this componets requires the parent components or not.
+				if ( ! empty( $prism_component_parent[ $match ] ) ) {
+					foreach ( $prism_component_parent[ $match ] as $parent ) {
+						
+						// If it need a parent componet, add it to the $paris_meta_array.
+						if ( empty( $prism_meta_array[ $parent ] ) ) {
+							$prism_meta_array[ $parent ] = $parent;
+						}
+					}
+				}
+			}
+		}
+
+		// Combine array into a string.
+		$prism_meta_string = implode( ',', $prism_meta_array );
+
+		// Get string from post meta.
+		$meta_string = get_metadata( 'post', $post_id, self::MD_POST_META_PRISM );
+
+		// Store the string to post meta, for identifying what the syntax languages are used in current post.
+		if ( ! empty( $prism_meta_array ) && $prism_meta_string !== $meta_string ) {
+			update_metadata( 'post', $post_id, self::MD_POST_META_PRISM, $prism_meta_string );
+		}
 	}
 
 	/**
@@ -287,15 +561,6 @@ class Markdown extends ControllerAbstract {
 				break;
 			default:
 		}
-	}
-
-	/**
-	 * Remove KSES if it's there. Store the result to manually invoke later if needed.
-	 */
-	public function maybe_remove_kses() {
-		// Filters return true if they existed before you removed them
-		if ( $this->is_md_enabled( 'posting' ) )
-			$this->kses = remove_filter( 'content_filtered_save_pre', 'wp_filter_post_kses' ) && remove_filter( 'content_save_pre', 'wp_filter_post_kses' );
 	}
 
 	/**
@@ -416,6 +681,12 @@ class Markdown extends ControllerAbstract {
 		if ( 'revision' === $postarr['post_type'] && $this->has_markdown( $postarr['post_parent'] ) ) {
 			$this->monitoring['parent'][ $postarr['post_parent'] ] = true;
 		}
+
+		// Is it support Prism - syntax highlighter.
+		if ( $this->is_support_prism ) {
+			$this->detect_code_languages( $post_id, wp_unslash( $post_data['post_content'] ) );
+		}
+
 		return $post_data;
 	}
 

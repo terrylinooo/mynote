@@ -42,9 +42,15 @@ class Githuber {
 		 */ 
 
 		// Module Name: KaTex
-		if ( 'yes' === $setting::get_option( 'support_katex', 'githuber_markdown' ) ) {
+		if ( 'yes' === githuber_get_option( 'support_katex', 'githuber_markdown' ) ) {
 			$module_katex = new Module\KaTex();
 			$module_katex->init();
+		}
+
+		// Module Name: Prism
+		if ( 'yes' === githuber_get_option( 'support_prism', 'githuber_markdown' ) ) {
+			$module_prism = new Module\Prism();
+			$module_prism->init();
 		}
 	}
 
@@ -55,3 +61,4 @@ class Githuber {
 		load_plugin_textdomain( GITHUBER_PLUGIN_TEXT_DOMAIN, false, GITHUBER_PLUGIN_LANGUAGE_PACK ); 
 	}
 }
+

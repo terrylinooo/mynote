@@ -33,7 +33,7 @@ class Markdown extends ModelAbstract {
     function get_lastest_revision( $post_id ) {
         $this->db->get_row(
             $this->db->prepare(
-                "SELECT * FROM $this->db->posts WHERE post_type = 'revision' AND post_parent = %d ORDER BY ID DESC", 
+                "SELECT * FROM {$this->db->posts} WHERE post_type = 'revision' AND post_parent = %d ORDER BY ID DESC", 
                 $post_id
             )
         );

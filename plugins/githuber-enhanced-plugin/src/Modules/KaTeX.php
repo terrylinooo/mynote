@@ -41,14 +41,29 @@ class KaTex extends ModuleAbstract {
         add_filter( 'the_content', array( $this, 'katex_markup' ), 9 );
 		add_filter( 'comment_text', array( $this, 'katex_markup' ), 9 );
     }
-    
+ 
     /**
      * Register CSS style files for frontend use.
      * 
      * @return void
      */
     public function front_enqueue_styles() {
-        wp_enqueue_style( 'katex', $this->githuber_plugin_url . 'assets/vendor/katex/katex.min.css', array(), $this->katex_version, 'all' );
+        $option = githuber_get_option( 'prism_src', 'githuber_modules' );
+
+        switch ( $option ) {
+            case 'cloudflare':
+                $style_url = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/' . $this->katex_version . '/katex.min.css';
+                break;
+
+            case 'jsdelivr':
+                $style_url = 'https://cdn.jsdelivr.net/npm/katex@' . $this->katex_version . '/dist/katex.min.css';
+                break;
+
+            default:
+                $style_url = $this->githuber_plugin_url . 'assets/vendor/katex/katex.min.css';
+                break;
+        } 
+        wp_enqueue_style( 'katex', $style_url, array(), $this->katex_version, 'all' );
     }
 
     /**
@@ -57,9 +72,23 @@ class KaTex extends ModuleAbstract {
      * @return void
      */
     public function front_enqueue_scripts() {
-        wp_enqueue_script( 'katex', $this->githuber_plugin_url . 'assets/vendor/katex/katex.min.js', array(), $this->katex_version, true );
-    }
+        $option = githuber_get_option( 'prism_src', 'githuber_modules' );
 
+        switch ( $option ) {
+            case 'cloudflare':
+                $script_url = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/' . $this->katex_version . '/katex.min.js';
+                break;
+
+            case 'jsdelivr':
+                $script_url = 'https://cdn.jsdelivr.net/npm/katex@' . $this->katex_version . '/dist/katex.min.js';
+                break;
+
+            default:
+                $script_url = $this->githuber_plugin_url . 'assets/vendor/katex/katex.min.js';
+                break;
+        } 
+        wp_enqueue_script( 'katex', $script_url, array(), $this->katex_version, true );
+    }
 
     /**
      * Katex Markup
@@ -107,7 +136,7 @@ class KaTex extends ModuleAbstract {
 	public function katex_src( $matches ) {
 		$katex = $matches[1];
 		$katex = $this->katex_entity_decode( $katex );
-		return '<span class="katex-container">' . $katex . '</span>';
+		return '<p class="katex-container">' . $katex . '</p>';
 	}
 
     /**
