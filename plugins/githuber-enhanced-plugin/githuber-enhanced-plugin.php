@@ -72,6 +72,9 @@ define( 'GITHUBER_PLUGIN_TEXT_DOMAIN', 'githuber-plugin' );
 // Githuber autoloader.
 require_once GITHUBER_PLUGIN_DIR . 'src/autoload.php';
 
+// Load helper functions
+require_once GITHUBER_PLUGIN_DIR . 'src/helpers.php';
+
 // Composer autoloader.
 require_once GITHUBER_PLUGIN_DIR . 'vendor/autoload.php';
 
