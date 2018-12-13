@@ -38,9 +38,9 @@ class Setting extends ControllerAbstract {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_styles' ) );
 	}
 
-    /**
-     * Load specfic CSS file for the Githuber setting page.
-     */
+	/**
+	 * Load specfic CSS file for the Githuber setting page.
+	 */
 	public function admin_enqueue_styles( $hook_suffix ) {
 
 		if ( false === strpos( $hook_suffix, 'githuber-plugin' ) ) {
@@ -49,9 +49,9 @@ class Setting extends ControllerAbstract {
 		wp_enqueue_style( 'custom_wp_admin_css', $this->githuber_plugin_url . 'assets/css/admin-style.css' );
 	}
 
-    /**
-     * Register JS files.
-     */
+	/**
+	 * Register JS files.
+	 */
 	public function admin_enqueue_scripts( $hook_suffix ) {
 
 	}

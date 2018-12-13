@@ -15,23 +15,23 @@ namespace Githuber\Model;
 
 abstract class ModelAbstract {
 
-    /**
-     * WP DB instance.
-     *
-     * @var object
-     */
-    public $db;
+	/**
+	 * WP DB instance.
+	 *
+	 * @var object
+	 */
+	public $db;
 
-    /**
-     * Constructer.
-     * 
-     * @return void
-     */
-    public function __construct() {
+	/**
+	 * Constructer.
+	 * 
+	 * @return void
+	 */
+	public function __construct() {
 
-        // Get WP DB object.
-        global $wpdb;
+		// Get WP DB object.
+		global $wpdb;
 
-        $this->db = &$wpdb;
-    }
+		$this->db = &$wpdb;
+	}
 }

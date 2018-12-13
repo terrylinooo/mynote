@@ -35,9 +35,9 @@ class Markdown extends ControllerAbstract {
 	 */
 	public $post_type;
 
-    /**
-     * Constants.
-     */
+	/**
+	 * Constants.
+	 */
 	const MD_POST_TYPE       = 'githuber_markdown';
 	const MD_POST_META       = '_is_githuber_markdown';
 	const MD_POST_META_PRISM = '_githuber_prismjs';
@@ -102,16 +102,16 @@ class Markdown extends ControllerAbstract {
 		$this->jetpack_code_snippets();
 	}
 
-    /**
-     * Register CSS style files.
-     */
+	/**
+	 * Register CSS style files.
+	 */
 	public function admin_enqueue_styles( $hook_suffix ) {
 		wp_enqueue_style( 'editmd', $this->githuber_plugin_url . '/assets/vendor/editor.md/css/editormd.min.css', array(), $this->editormd_varsion, 'all' );
 	}
 
-    /**
-     * Register JS files.
-     */
+	/**
+	 * Register JS files.
+	 */
 	public function admin_enqueue_scripts( $hook_suffix ) {
 
 		if ( ! post_type_supports( get_current_screen()->post_type, self::MD_POST_TYPE ) ) {
@@ -175,11 +175,11 @@ class Markdown extends ControllerAbstract {
 	 * @return object MarkdownParser instance.
 	 */
 	public static function get_parser()
-    {
-        if ( ! self::$parser_instance ) {
-            self::$parser_instance = new \Githuber\Module\MarkdownParser();
-        }
-        return self::$parser_instance;
+	{
+		if ( ! self::$parser_instance ) {
+			self::$parser_instance = new \Githuber\Module\MarkdownParser();
+		}
+		return self::$parser_instance;
 	}
 
 	/**

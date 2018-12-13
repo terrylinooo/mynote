@@ -14,28 +14,28 @@ namespace Githuber\Model;
 
 class Markdown extends ModelAbstract {
 
-    /**
-     * Constructer.
-     * 
-     * @return void
-     */
-    public function __construct() {
-        parent::__construct();
-    }
+	/**
+	 * Constructer.
+	 * 
+	 * @return void
+	 */
+	public function __construct() {
+		parent::__construct();
+	}
 
-    /**
-     * Get the latest post revision.
-     *
-     * @param int $post_id The post ID
-     *
-     * @return object Post data
-     */
-    function get_lastest_revision( $post_id ) {
-        $this->db->get_row(
-            $this->db->prepare(
-                "SELECT * FROM {$this->db->posts} WHERE post_type = 'revision' AND post_parent = %d ORDER BY ID DESC", 
-                $post_id
-            )
-        );
-    }
+	/**
+	 * Get the latest post revision.
+	 *
+	 * @param int $post_id The post ID
+	 *
+	 * @return object Post data
+	 */
+	function get_lastest_revision( $post_id ) {
+		$this->db->get_row(
+			$this->db->prepare(
+				"SELECT * FROM {$this->db->posts} WHERE post_type = 'revision' AND post_parent = %d ORDER BY ID DESC", 
+				$post_id
+			)
+		);
+	}
 }

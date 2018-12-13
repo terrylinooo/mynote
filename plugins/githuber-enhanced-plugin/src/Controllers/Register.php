@@ -44,16 +44,16 @@ class Register extends ControllerAbstract {
 		$this->add_widgets();
 	}
 
-    /**
-     * Register CSS style files.
-     */
+	/**
+	 * Register CSS style files.
+	 */
 	public function admin_enqueue_styles( $hook_suffix ) {
 
 	}
 
-    /**
-     * Register JS files.
-     */
+	/**
+	 * Register JS files.
+	 */
 	public function admin_enqueue_scripts( $hook_suffix ) {
 
 	}
