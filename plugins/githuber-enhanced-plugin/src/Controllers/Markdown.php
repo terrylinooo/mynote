@@ -3,7 +3,7 @@
  * Class Markdown
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package Githuber
  * @since 1.1.0
@@ -66,13 +66,19 @@ class Markdown extends ControllerAbstract {
 	 */
 	public $posts_to_uncache = array();
 
-
 	/**
 	 * Is supporting of Prism syntax hightlighter?
 	 *
 	 * @var boolean
 	 */
 	public $is_support_prism = false;
+
+	/**
+	 * Is supporting of Github Flavored Markdown task lists?
+	 *
+	 * @var boolean
+	 */
+	public $is_support_task_list = false;
 
 	/**
 	 * Constructer.
@@ -86,6 +92,10 @@ class Markdown extends ControllerAbstract {
 
 		if ( 'yes' === githuber_get_option( 'support_prism', 'githuber_markdown' ) ) {
 			$this->is_support_prism = true;
+		}
+
+		if ( 'yes' === githuber_get_option( 'support_task_list', 'githuber_markdown' ) ) {
+			$this->is_support_task_list = true;
 		}
 	}
 
@@ -469,7 +479,7 @@ class Markdown extends ControllerAbstract {
 	 * @link https://github.com/Automattic/jetpack/blob/master/modules/markdown/easy-markdown.php
 	 * @license GPL
 	 */
-	function jetpack_code_snippets() {
+	public function jetpack_code_snippets() {
 		$this->maybe_load_actions_and_filters();
 
 		if ( defined( 'REST_API_REQUEST' ) && REST_API_REQUEST ) {
@@ -762,6 +772,11 @@ class Markdown extends ControllerAbstract {
 
 		// Transform it!
 		$text = $this->get_parser()->transform( $text );
+
+		// Render Github Flavored Markdown task lists if this module is enabled.
+		if ( $this->is_support_task_list ) {
+			$text = $this->get_parser()->parse_gfm_task_list( $text );
+		}
 
 		// Markdown inserts extra spaces to make itself work. Buh-bye.
 		$text = rtrim( $text );

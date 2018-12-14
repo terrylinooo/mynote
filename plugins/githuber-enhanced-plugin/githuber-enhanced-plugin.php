@@ -3,7 +3,7 @@
  * Githuber Enhanced Plugin
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package Githuber
  * @since 1.0.0
@@ -12,11 +12,11 @@
 
 /**
  * Plugin Name:       Githuber Enhanced Plugin
- * Plugin URI:        https://terryl.in/githuber
+ * Plugin URI:        https://terryl.in/
  * Description:       A WordPress plugin that improves Githuber theme functionality.
  * Version:           1.1.0
  * Author:            Terry Lin
- * Author URI:        https://terryl.in
+ * Author URI:        https://terryl.in/
  * License:           GPL 3.0
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       githuber-plugin

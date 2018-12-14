@@ -4,7 +4,7 @@
  * Class ModuleAbstract
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package Githuber
  * @since 1.1.0
@@ -54,4 +54,11 @@ abstract class ModuleAbstract {
 	 * @return void
 	 */
 	abstract public function front_enqueue_scripts();
+
+	/**
+	 * Print Javascript plaintext in page footer.
+	 *
+	 * @return void
+	 */
+	abstract public function front_print_footer_scripts();
 }

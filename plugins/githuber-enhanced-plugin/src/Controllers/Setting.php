@@ -3,7 +3,7 @@
  * Class Setting
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package Githuber
  * @since 1.1.0
@@ -134,18 +134,6 @@ class Setting extends ControllerAbstract {
 				),
 
 				array(
-					'name'    => 'editor_image_paste',
-					'label'   => __( 'Image Paste', $this->text_domain ),
-					'desc'    => __( 'Easily paste image from clipboard directly into the post content.', $this->text_domain ),
-					'type'    => 'radio',
-					'default' => 'no',
-					'options' => array(
-						'yes' => __( 'Yes', $this->text_domain ),
-						'no'  => __( 'No', $this->text_domain )
-					)
-				),
-
-				array(
 					'name'    => 'editor_html_decode',
 					'label'   => __( 'HTML Decode', $this->text_domain ),
 					'desc'    => __( 'Allow all HTML tags and attributes in the Markdown Editor. Default false to increase security.', $this->text_domain ),
@@ -258,8 +246,8 @@ class Setting extends ControllerAbstract {
 
 				array(
 					'name'    => 'support_prism',
-					'label'   => __( 'Syntax Highlighter', $this->text_domain ),
-					'desc'    => __( 'Highligh your code snippets by Prism.js', $this->text_domain ),
+					'label'   => __( 'Syntax Highlight', $this->text_domain ),
+					'desc'    => __( 'Highligh the syntax in your code snippets by Prism.js', $this->text_domain ),
 					'type'    => 'radio',
 					'default' => 'no',
 					'options' => array(
@@ -339,14 +327,26 @@ class Setting extends ControllerAbstract {
 						'no'  => __( 'No', $this->text_domain )
 					)
 				),
+
+				array(
+					'name'    => 'support_image_paste',
+					'label'   => __( 'Image Paste', $this->text_domain ),
+					'desc'    => __( 'Easily paste image from clipboard directly into the post content.', $this->text_domain ),
+					'type'    => 'radio',
+					'default' => 'no',
+					'options' => array(
+						'yes' => __( 'Yes', $this->text_domain ),
+						'no'  => __( 'No', $this->text_domain )
+					)
+				),
 			),
 
 			'githuber_modules' =>  array(
 
 				array(
 					'name'  => '_TITLE_',
-					'label' => __( 'Syntax Highlighter', $this->text_domain ),
-					'desc'    => __( 'Prism.js', $this->text_domain ),
+					'label' => __( 'Syntax Highlight', $this->text_domain ),
+					'desc'    => __( 'by Prism.js', $this->text_domain ),
 				),
 
 				array(
@@ -394,7 +394,8 @@ class Setting extends ControllerAbstract {
 
 				array(
 					'name'  => '_TITLE_',
-					'label' => __( 'KaTex', $this->text_domain )
+					'label' => __( 'KaTex', $this->text_domain ),
+					'desc'    => __( 'by KaTex.js', $this->text_domain ),
 				),
 
 				array(

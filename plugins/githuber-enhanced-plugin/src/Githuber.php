@@ -3,7 +3,7 @@
  * Class Githuber
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package Githuber
  * @since 1.1.0
@@ -19,8 +19,8 @@ class Githuber {
 	 * Constructer.
 	 */
 	public function __construct() {
-		//add_action( 'current_screen', array( $this, 'trigger_cron' ) );
 		add_action( 'init', array( $this, 'load_textdomain' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'front_enqueue_styles' ) );
 	}
 
 	/**
@@ -52,6 +52,16 @@ class Githuber {
 			$module_prism = new Module\Prism();
 			$module_prism->init();
 		}
+
+	}
+
+	/**
+	 * Register CSS style files for frontend use.
+	 * 
+	 * @return void
+	 */
+	public function front_enqueue_styles() {
+		wp_enqueue_style( 'githuber-plugin-css', GITHUBER_PLUGIN_URL . 'assets/css/githuber-plugin.css', array(), GITHUBER_PLUGIN_VERSION, 'all' );
 	}
 
 	/**

@@ -1,4 +1,14 @@
 <?php
+/**
+ * Global helper functions.
+ *
+ * @author Terry Lin
+ * @link https://terryl.in/
+ *
+ * @package Githuber
+ * @since 1.1.0
+ * @version 1.1.0
+ */
 
 /**
 * Get the value of a settings field.

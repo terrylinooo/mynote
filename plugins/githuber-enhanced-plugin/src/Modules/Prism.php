@@ -4,7 +4,7 @@
  * Module Description: A syntax highlighter.
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package Githuber
  * @since 1.1.0
@@ -171,7 +171,7 @@ class Prism extends ModuleAbstract {
 	}
 
 	/**
-	 * The Javascript part of lanuching KaTeX.
+	 * Print Javascript plaintext in page footer.
 	 */
 	public function front_print_footer_scripts() {
 

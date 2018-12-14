@@ -4,7 +4,7 @@
  * Module Description: Use KaTex markup for complex equations and other geekery.
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package Githuber
  * @since 1.1.0
@@ -72,7 +72,7 @@ class KaTex extends ModuleAbstract {
 	 * @return void
 	 */
 	public function front_enqueue_scripts() {
-		$option = githuber_get_option( 'prism_src', 'githuber_modules' );
+		$option = githuber_get_option( 'katex_src', 'githuber_modules' );
 
 		switch ( $option ) {
 			case 'cloudflare':
@@ -150,7 +150,7 @@ class KaTex extends ModuleAbstract {
 	}
 	
 	/**
-	 * The Javascript part of lanuching KaTeX.
+	 * Print Javascript plaintext in page footer.
 	 */
 	public function front_print_footer_scripts() {
 		$script = '
