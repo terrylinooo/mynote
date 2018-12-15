@@ -20,7 +20,7 @@ class Githuber {
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'load_textdomain' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'front_enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'front_enqueue_styles' ), 998 );
 	}
 
 	/**
@@ -41,9 +41,9 @@ class Githuber {
 		 * Let's start loading modules.
 		 */ 
 
-		// Module Name: KaTex
+		// Module Name: KaTeX
 		if ( 'yes' === githuber_get_option( 'support_katex', 'githuber_markdown' ) ) {
-			$module_katex = new Module\KaTex();
+			$module_katex = new Module\KaTeX();
 			$module_katex->init();
 		}
 

@@ -16,10 +16,23 @@ namespace Githuber\Module;
 
 class Prism extends ModuleAbstract {
 
+	/**
+	 * The version of Prism we are using.
+	 *
+	 * @var string
+	 */
 	public $prism_version = '1.15.0';
 
 	/**
-	 * Constants.
+	 * The priority order to load CSS file, the value should be higher than theme's.
+	 * Overwrite the theme's style to make sure that it's safe to display the correct syntax highlight.
+	 *
+	 * @var integer
+	 */
+	public $css_priority = 999;
+
+	/**
+	 * Constant. Should be same as `Markdown::MD_POST_META_PRISM`.
 	 */
 	const MD_POST_META_PRISM = '_githuber_prismjs';
 	
@@ -36,7 +49,7 @@ class Prism extends ModuleAbstract {
 	 * @return void
 	 */
 	public function init() {
-		add_action( 'wp_enqueue_scripts', array( $this, 'front_enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'front_enqueue_styles' ), $this->css_priority );
 		add_action( 'wp_enqueue_scripts', array( $this, 'front_enqueue_scripts' ) );
 		add_action( 'wp_print_footer_scripts', array( $this, 'front_print_footer_scripts' ) );
 	}
@@ -49,7 +62,6 @@ class Prism extends ModuleAbstract {
 	public function front_enqueue_styles() {
 		$prism_src         = githuber_get_option( 'prism_src', 'githuber_modules' );
 		$prism_theme       = githuber_get_option( 'prism_theme', 'githuber_modules' );
-
 		$prism_line_number = githuber_get_option( 'prism_line_number', 'githuber_modules' );
 		$theme             = ( 'default' === $prism_theme ) ? 'prism' : 'prism-' . $prism_theme;
 
@@ -91,7 +103,6 @@ class Prism extends ModuleAbstract {
 		$prism_line_number = githuber_get_option( 'prism_line_number', 'githuber_modules' );
 		$post_id           = githuber_get_current_post_id();
 		$prism_meta_string = get_metadata( 'post', $post_id, self::MD_POST_META_PRISM );
-
 		$prism_meta_array  = explode( ',', $prism_meta_string[0] );
 
 		switch ( $prism_src ) {
