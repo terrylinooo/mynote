@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-@import "lib/variables";
-@import "lib/prefixes";
+@import "variables";
+@import "prefixes";
 @import "font-awesome";
 
 @import "editormd.logo";
 
 // github-markdown.css
-@import "github-markdown";  
+@import "markdown-theme-github.scss";  
 
 #{$prefix}preview-container, #{$prefix}html-preview {
     text-align: left;
@@ -44,7 +44,7 @@
     }
 
     code {
-        border: 1px solid $borderColor;
+        border: 0px solid $borderColor;
         background: #f6f6f6;
         padding: 3px;
         border-radius: 3px;
@@ -52,7 +52,7 @@
     }
 
     pre {
-        border: 1px solid $borderColor;
+        border: 0px solid $borderColor;
         background: #f6f6f6;
         padding: 10px;
         @include border-radius(3px);
