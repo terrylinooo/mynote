@@ -65,24 +65,25 @@ class FlowChart extends ModuleAbstract {
 
 		switch ( $option ) {
             case 'cloudflare':
-                $script_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/raphael/' . $this->raphael_version . '/raphael.min.js';
-                $script_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/flowchart/' . $this->flowchart_version . '/flowchart.min.js';
+                $script_url[0] = 'https://cdnjs.cloudflare.com/ajax/libs/raphael/' . $this->raphael_version . '/raphael.min.js';
+                $script_url[1] = 'https://cdnjs.cloudflare.com/ajax/libs/flowchart/' . $this->flowchart_version . '/flowchart.min.js';
 				break;
 
             case 'jsdelivr':
-                $script_url[] = 'https://cdn.jsdelivr.net/npm/raphael@' . $this->flowchart_version . '/raphael.min.js';
-                $script_url[] = 'https://cdn.jsdelivr.net/npm/flowchart.js@' . $this->flowchart_version . '/release/flowchart.min.js';
+                $script_url[0] = 'https://cdn.jsdelivr.net/npm/raphael@' . $this->raphael_version . '/raphael.min.js';
+                $script_url[1] = 'https://cdn.jsdelivr.net/npm/flowchart.js@' . $this->flowchart_version . '/release/flowchart.min.js';
 				break;
 
             default:
-                $script_url[] = $this->githuber_plugin_url . 'assets/vendor/raphael/raphael.min.js';
-				$script_url[] = $this->githuber_plugin_url . 'assets/vendor/flowchart/flowchart.min.js';
+                $script_url[0] = $this->githuber_plugin_url . 'assets/vendor/raphael/raphael.min.js';
+				$script_url[1] = $this->githuber_plugin_url . 'assets/vendor/flowchart/flowchart.min.js';
 				break;
 		} 
   
-        foreach ( $script_url as $key => $url ) {
-			wp_enqueue_script( 'flowchart-' . $key, $url, array(), $this->prism_version, true );
-		}
+        
+        wp_enqueue_script( 'raphael', $script_url[0], array(), $this->raphael_version, true );
+        wp_enqueue_script( 'flowchart', $script_url[1], array(), $this->flowchart_version, true );
+		
 	}
 
 	/**
@@ -92,6 +93,7 @@ class FlowChart extends ModuleAbstract {
 		$script = '
 			<script>
 				(function($) {
+                    $(".language-flow").addClass("flowchart").removeClass("language-flow");
 					$(function() {
 						$(".flowchart").flowChart();
 					});

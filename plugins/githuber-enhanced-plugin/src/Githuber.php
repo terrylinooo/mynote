@@ -41,6 +41,12 @@ class Githuber {
 		 * Let's start loading modules.
 		 */ 
 
+		// Module Name: FlowChart
+		if ( 'yes' === githuber_get_option( 'support_flowchart', 'githuber_markdown' ) ) {
+			$module_flowchart = new Module\FlowChart();
+			$module_flowchart->init();
+		}
+
 		// Module Name: KaTeX
 		if ( 'yes' === githuber_get_option( 'support_katex', 'githuber_markdown' ) ) {
 			$module_katex = new Module\KaTeX();
@@ -52,13 +58,6 @@ class Githuber {
 			$module_prism = new Module\Prism();
 			$module_prism->init();
 		}
-
-		// Module Name: FlowChart
-		if ( 'yes' === githuber_get_option( 'support_flowchart', 'githuber_markdown' ) ) {
-			$module_flowchart = new Module\FlowChart();
-			$module_flowchart->init();
-		}
-		
 
 	}
 
