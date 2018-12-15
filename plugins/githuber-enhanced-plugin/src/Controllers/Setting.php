@@ -346,7 +346,7 @@ class Setting extends ControllerAbstract {
 				array(
 					'name'  => '_TITLE_',
 					'label' => __( 'Syntax Highlight', $this->text_domain ),
-					'desc'    => __( 'by Prism.js', $this->text_domain ),
+					'desc'    => __( 'prism.js', $this->text_domain ),
 				),
 
 				array(
@@ -395,11 +395,30 @@ class Setting extends ControllerAbstract {
 				array(
 					'name'  => '_TITLE_',
 					'label' => __( 'KaTex', $this->text_domain ),
-					'desc'    => __( 'by KaTex.js', $this->text_domain ),
+					'desc'    => __( 'KaTex.js', $this->text_domain ),
 				),
 
 				array(
 					'name'    => 'katex_src',
+					'label'   => __( 'File Host', $this->text_domain ),
+					'desc'    => __( 'Use this library with a CDN service or self-hosted (default)?', $this->text_domain ),
+					'type'    => 'radio',
+					'default' => 'default',
+					'options' => array(
+						'default'        => 'default',
+						'cloudflare'     => 'cdnjs.cloudflare.com', // https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js
+						'jsdelivr'       => 'cdn.jsdelivr.net',     // https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js
+					)
+				),
+
+				array(
+					'name'  => '_TITLE_',
+					'label' => __( 'Flow Chart', $this->text_domain ),
+					'desc'    => __( 'flowchart.js', $this->text_domain ),
+				),
+
+				array(
+					'name'    => 'flowchart_src',
 					'label'   => __( 'File Host', $this->text_domain ),
 					'desc'    => __( 'Use this library with a CDN service or self-hosted (default)?', $this->text_domain ),
 					'type'    => 'radio',
