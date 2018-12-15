@@ -9,10 +9,6 @@
  * @package Githuber
  * @since 1.1.0
  * @version 1.1.0
- *
- * Some code snippets are from Jetpack Module: Beautiful Math, we simply modify it for our needs.
- * @link https://github.com/Automattic/jetpack/blob/master/modules/latex.php
- * @license GPL
  */
 
 namespace Githuber\Module;

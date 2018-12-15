@@ -53,6 +53,13 @@ class Githuber {
 			$module_prism->init();
 		}
 
+		// Module Name: FlowChart
+		if ( 'yes' === githuber_get_option( 'support_flowchart', 'githuber_markdown' ) ) {
+			$module_flowchart = new Module\FlowChart();
+			$module_flowchart->init();
+		}
+		
+
 	}
 
 	/**

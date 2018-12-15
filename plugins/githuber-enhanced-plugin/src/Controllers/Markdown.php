@@ -787,7 +787,7 @@ class Markdown extends ControllerAbstract {
 
 		// Render Github Flavored Markdown task lists if this module is enabled.
 		if ( $this->is_support_task_list ) {
-			$text = $this->get_parser()->parse_gfm_task_list( $text );
+			$text = Module\TaskList::parse_gfm_task_list( $text );
 		}
 
 		// Add a HTML wrapper if this module is enabled.

@@ -293,7 +293,7 @@ class Setting extends ControllerAbstract {
 				),
 
 				array(
-					'name'    => 'support_flow_chart',
+					'name'    => 'support_flowchart',
 					'label'   => __( 'Flow Chart', $this->text_domain ),
 					'desc'    => __( 'Support <a href="http://flowchart.js.org/" target="_blank">flowchart.js</a> to draws simple SVG flow chart diagrams.', $this->text_domain ),
 					'type'    => 'radio',
