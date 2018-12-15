@@ -16,11 +16,12 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
  
 $options_names = array(
-	'gihuber_plugin'
+	'gihuber_markdown',
+	'githuber_modules'
 );
 
-foreach ( $options_names as $optionName ) {
-	delete_option( $optionName );
+foreach ( $options_names as $option_name ) {
+	delete_option( $option_name );
 	delete_site_option( $option_name );
 }
 
