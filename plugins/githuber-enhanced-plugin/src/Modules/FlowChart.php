@@ -1,0 +1,103 @@
+<?php
+/**
+ * Module Name: Flow Chart
+ * Module Description: Use KaTex markup for complex equations and other geekery.
+ *
+ * @author Terry Lin
+ * @link https://terryl.in/
+ *
+ * @package Githuber
+ * @since 1.1.0
+ * @version 1.1.0
+ */
+
+namespace Githuber\Module;
+
+class FlowChart extends ModuleAbstract {
+
+	/**
+	 * The version of flowchart.js we are using.
+	 *
+	 * @var string
+	 */
+    public $flowchart_version = '1.11.3';
+
+	/**
+	 * The version of raphael.js we are using.
+	 *
+	 * @var string
+	 */
+    public $raphael_version = '2.2.27';
+
+	/**
+	 * Constructer.
+	 */
+	public function __construct() {
+		parent::__construct();
+	}
+
+	/**
+	 * Initialize.
+	 *
+	 * @return void
+	 */
+	public function init() {
+		add_action( 'wp_enqueue_scripts', array( $this, 'front_enqueue_scripts' ) );
+		add_action( 'wp_print_footer_scripts', array( $this, 'front_print_footer_scripts' ) );
+	}
+ 
+	/**
+	 * Register CSS style files for frontend use.
+	 * 
+	 * @return void
+	 */
+	public function front_enqueue_styles() {
+
+	}
+
+	/**
+	 * Register JS files for frontend use.
+	 * 
+	 * @return void
+	 */
+	public function front_enqueue_scripts() {
+		$option = githuber_get_option( 'flowchart_src', 'githuber_modules' );
+
+		switch ( $option ) {
+            case 'cloudflare':
+                $script_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/raphael/' . $this->raphael_version . '/raphael.min.js';
+                $script_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/flowchart/' . $this->flowchart_version . '/flowchart.min.js';
+				break;
+
+            case 'jsdelivr':
+                $script_url[] = 'https://cdn.jsdelivr.net/npm/raphael@' . $this->flowchart_version . '/raphael.min.js';
+                $script_url[] = 'https://cdn.jsdelivr.net/npm/flowchart.js@' . $this->flowchart_version . '/release/flowchart.min.js';
+				break;
+
+            default:
+                $script_url[] = $this->githuber_plugin_url . 'assets/vendor/raphael/raphael.min.js';
+				$script_url[] = $this->githuber_plugin_url . 'assets/vendor/flowchart/flowchart.min.js';
+				break;
+		} 
+  
+        foreach ( $script_url as $key => $url ) {
+			wp_enqueue_script( 'flowchart-' . $key, $url, array(), $this->prism_version, true );
+		}
+	}
+
+	/**
+	 * Print Javascript plaintext in page footer.
+	 */
+	public function front_print_footer_scripts() {
+		$script = '
+			<script>
+				(function($) {
+					$(function() {
+						$(".flowchart").flowChart();
+					});
+                })(jQuery);
+			</script>
+		';
+		echo $script;
+	}
+}
