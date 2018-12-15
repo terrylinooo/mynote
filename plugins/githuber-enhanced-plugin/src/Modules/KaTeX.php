@@ -17,9 +17,22 @@
 
 namespace Githuber\Module;
 
-class KaTex extends ModuleAbstract {
+class KaTeX extends ModuleAbstract {
 
+	/**
+	 * The version of KaTeX we are using.
+	 *
+	 * @var string
+	 */
 	public $katex_version = '0.10.0';
+
+	/**
+	 * The priority order to load CSS file, the value should be higher than theme's.
+	 * Overwrite the theme's style it's safe to display the correct syntax highlight.
+	 *
+	 * @var integer
+	 */
+	public $css_priority = 1000;
 
 	/**
 	 * Constructer.
@@ -34,12 +47,21 @@ class KaTex extends ModuleAbstract {
 	 * @return void
 	 */
 	public function init() {
-		add_action( 'wp_enqueue_scripts', array( $this, 'front_enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'front_enqueue_styles'), $this->css_priority );
 		add_action( 'wp_enqueue_scripts', array( $this, 'front_enqueue_scripts' ) );
 		add_action( 'wp_print_footer_scripts', array( $this, 'front_print_footer_scripts' ) );
 
-		add_filter( 'the_content', array( $this, 'katex_markup' ), 9 );
-		add_filter( 'comment_text', array( $this, 'katex_markup' ), 9 );
+		/**
+		 * Just for debug propose, don't use it. 
+		 * Because it will excute the regex search in every page views, waste your CPU usage.
+		 * Uncomment it if you would like to debug the `katex_markup` method.
+		 * 
+		 * add_filter( 'the_content', array( $this, 'katex_markup' ), 9 );
+		 * add_filter( 'comment_text', array( $this, 'katex_markup' ), 9 );
+		 * 
+		 * You also need to comment the line in `Controller/Mardown`
+		 * $text = Module\KaTeX::katex_markup( $text );
+		 */
 	}
  
 	/**
@@ -99,8 +121,8 @@ class KaTex extends ModuleAbstract {
 	 * @param string $content
 	 * @return void
 	 */
-	public function katex_markup( $content ) {
-		$textarr = wp_html_split( $content );
+	public static function katex_markup( $content ) {
+		//$textarr = wp_html_split( $content );
 
 		$regex = '%
 			\$\$*
@@ -112,43 +134,23 @@ class KaTex extends ModuleAbstract {
 			(?<!\\\\)\$*\$ # Dollar preceded by zero slashes
 		%ix';
 
-		foreach ( $textarr as &$element ) {
-			if ( '' == $element || '<' === $element[0] ) {
-				continue;
+		$content = preg_replace_callback( $regex, function() {
+			$matches = func_get_arg(0);
+
+			if ( ! empty( $matches[1] ) ) {
+				$katex = $matches[1];
+				$katex = str_replace( array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r" ), array( '<', '>', '"', "'", '&', '&', ' ', ' ' ), $katex );
+				return '<div class="katex-container">' . trim( $katex ) . '</div>';
 			}
+		}, $content );
 
-			if ( false === stripos( $element, '$$' ) ) {
-				continue;
-			}
+		$restore_item = "<code>\$\$\n$1\n\$\$</code>";
 
-			$element = preg_replace_callback( $regex, array( $this, 'katex_src' ), $element );
-		}
-
-		return implode( '', $textarr );
+		// Restore original string in <code> blocks.
+		$content = preg_replace( "#<code><div class=\"katex-container\">(.*?)</div></code>#", $restore_item, $content );
+		return $content;
 	}
 
-	/**
-	 * Undocumented function
-	 *
-	 * @param array $matches Matched Regex array.
-	 * @return string 
-	 */
-	public function katex_src( $matches ) {
-		$katex = $matches[1];
-		$katex = $this->katex_entity_decode( $katex );
-		return '<p class="katex-container">' . $katex . '</p>';
-	}
-
-	/**
-	 * Decode HTML symbols.
-	 *
-	 * @param string $katex KaTeX string.
-	 * @return void
-	 */
-	public function katex_entity_decode( $katex ) {
-		return str_replace( array( '&lt;', '&gt;', '&quot;', '&#039;', '&#038;', '&amp;', "\n", "\r" ), array( '<', '>', '"', "'", '&', '&', ' ', ' ' ), $katex );
-	}
-	
 	/**
 	 * Print Javascript plaintext in page footer.
 	 */

@@ -40,8 +40,10 @@ class MarkdownParser extends ParsedownExtra {
 	 * @return string filtered HTML content.
 	 */
 	function parse_gfm_task_list( $text ) {
-		$checked_item = '<li class="gfm-task-list"><input type="checkbox">$1$2';
+		$checked_item   = '<li class="gfm-task-list"><input type="checkbox">$1$2';
 		$unchecked_item = '<li class="gfm-task-list"><input type="checkbox" checked>$1$2';
+
+		// Replace task-list signs to corresponding HTML code.
 		$text = preg_replace( "#<li>\[\s\] (.*?)([</li>|<ul>])#", $checked_item, $text );
 		$text = preg_replace( "#<li>\[[x]\] (.*?)([</li>|<ul>])#", $unchecked_item, $text );
 		return $text;

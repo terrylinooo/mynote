@@ -15,7 +15,8 @@
 
 namespace Githuber\Controller;
 use Githuber\Controller\Setting as Setting;
-use Githuber\Model\Markdown as Model;
+use Githuber\Module as Module;
+use Githuber\Model as Model;
 
 class Markdown extends ControllerAbstract {
 
@@ -81,13 +82,20 @@ class Markdown extends ControllerAbstract {
 	public $is_support_task_list = false;
 
 	/**
+	 * Is supporting of KaTex?
+	 *
+	 * @var boolean
+	 */
+	public $is_support_katex = false;
+
+	/**
 	 * Constructer.
 	 */
 	public function __construct() {
 		parent::__construct();
 
 		if ( ! self::$model_instance ) {
-			self::$model_instance = new Model();
+			self::$model_instance = new Model\Markdown();
 		}
 
 		if ( 'yes' === githuber_get_option( 'support_prism', 'githuber_markdown' ) ) {
@@ -96,6 +104,10 @@ class Markdown extends ControllerAbstract {
 
 		if ( 'yes' === githuber_get_option( 'support_task_list', 'githuber_markdown' ) ) {
 			$this->is_support_task_list = true;
+		}
+
+		if ( 'yes' === githuber_get_option( 'support_katex', 'githuber_markdown' ) ) {
+			$this->is_support_katex = true;
 		}
 	}
 
@@ -116,7 +128,7 @@ class Markdown extends ControllerAbstract {
 	 * Register CSS style files.
 	 */
 	public function admin_enqueue_styles( $hook_suffix ) {
-		wp_enqueue_style( 'editmd', $this->githuber_plugin_url . '/assets/vendor/editor.md/css/editormd.min.css', array(), $this->editormd_varsion, 'all' );
+		wp_enqueue_style( 'editmd', $this->githuber_plugin_url . '/assets/vendor/editor.md/css/editormd.css', array(), $this->editormd_varsion, 'all' );
 	}
 
 	/**
@@ -128,7 +140,7 @@ class Markdown extends ControllerAbstract {
 			return;
 		}
 
-		wp_enqueue_script( 'editormd', $this->githuber_plugin_url . 'assets/vendor/editor.md/editormd.min.js', array( 'jquery' ), $this->editormd_varsion, true );
+		wp_enqueue_script( 'editormd', $this->githuber_plugin_url . 'assets/vendor/editor.md/editormd.js', array( 'jquery' ), $this->editormd_varsion, true );
 		wp_enqueue_script( 'githuber-plugin', $this->githuber_plugin_url . 'assets/js/githuber-plugin.js', array( 'editormd' ), $this->version, true );
 
 		switch ( get_bloginfo( 'language' ) ) {
@@ -776,6 +788,11 @@ class Markdown extends ControllerAbstract {
 		// Render Github Flavored Markdown task lists if this module is enabled.
 		if ( $this->is_support_task_list ) {
 			$text = $this->get_parser()->parse_gfm_task_list( $text );
+		}
+
+		// Add a HTML wrapper if this module is enabled.
+		if ( $this->is_support_katex) {
+			$text = Module\KaTeX::katex_markup( $text );
 		}
 
 		// Markdown inserts extra spaces to make itself work. Buh-bye.
