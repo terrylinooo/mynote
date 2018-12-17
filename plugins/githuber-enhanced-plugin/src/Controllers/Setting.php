@@ -34,7 +34,6 @@ class Setting extends ControllerAbstract {
 	public function init() {
 		add_action( 'admin_init', array( $this, 'setting_admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'setting_admin_menu' ) );
-		
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_styles' ) );
 	}
 
@@ -163,18 +162,6 @@ class Setting extends ControllerAbstract {
 				),
 
 				array(
-					'name'    => 'editor_preview_theme',
-					'label'   => __( 'Preview Area', $this->text_domain ),
-					'desc'    => __( 'Choose a perferred style for the Editor\'s preview area.', $this->text_domain ),
-					'type'    => 'select',
-					'default' => 'default',
-					'options' => array(
-						'default' => 'default',
-						'dark'    => 'dark'
-					),
-				),
-			
-				array(
 					'name'    => 'editor_editor_theme',
 					'label'   => __( 'Editing Area', $this->text_domain ),
 					'desc'    => __( 'Choose a perferred style for the Editor\'s editing area.', $this->text_domain ),
@@ -269,30 +256,6 @@ class Setting extends ControllerAbstract {
 				),
 
 				array(
-					'name'    => 'support_toc',
-					'label'   => __( 'Table of Content', $this->text_domain ),
-					'desc'    => __( 'Display a TOC in the every first section.', $this->text_domain ),
-					'type'    => 'radio',
-					'default' => 'no',
-					'options' => array(
-						'yes' => __( 'Yes', $this->text_domain ),
-						'no'  => __( 'No', $this->text_domain )
-					)
-				),
-
-				array(
-					'name'    => 'support_emoji',
-					'label'   => __( 'Emoji', $this->text_domain ),
-					'desc'    => __( 'Support Emoji in posts.', $this->text_domain ),
-					'type'    => 'radio',
-					'default' => 'no',
-					'options' => array(
-						'yes' => __( 'Yes', $this->text_domain ),
-						'no'  => __( 'No', $this->text_domain )
-					)
-				),
-
-				array(
 					'name'    => 'support_flowchart',
 					'label'   => __( 'Flow Chart', $this->text_domain ),
 					'desc'    => __( 'Support <a href="http://flowchart.js.org/" target="_blank">flowchart.js</a> to draws simple SVG flow chart diagrams.', $this->text_domain ),
@@ -328,6 +291,32 @@ class Setting extends ControllerAbstract {
 					)
 				),
 
+				/*
+
+				array(
+					'name'    => 'support_toc',
+					'label'   => __( 'Table of Content', $this->text_domain ),
+					'desc'    => __( 'Display a TOC in the every first section.', $this->text_domain ),
+					'type'    => 'radio',
+					'default' => 'no',
+					'options' => array(
+						'yes' => __( 'Yes', $this->text_domain ),
+						'no'  => __( 'No', $this->text_domain )
+					)
+				),
+
+				array(
+					'name'    => 'support_emoji',
+					'label'   => __( 'Emoji', $this->text_domain ),
+					'desc'    => __( 'Support Emoji in posts.', $this->text_domain ),
+					'type'    => 'radio',
+					'default' => 'no',
+					'options' => array(
+						'yes' => __( 'Yes', $this->text_domain ),
+						'no'  => __( 'No', $this->text_domain )
+					)
+				),
+
 				array(
 					'name'    => 'support_image_paste',
 					'label'   => __( 'Image Paste', $this->text_domain ),
@@ -339,6 +328,8 @@ class Setting extends ControllerAbstract {
 						'no'  => __( 'No', $this->text_domain )
 					)
 				),
+
+				*/
 			),
 
 			'githuber_modules' =>  array(
@@ -387,8 +378,8 @@ class Setting extends ControllerAbstract {
 					'default' => 'default',
 					'options' => array(
 						'default'        => 'default',
-						'cloudflare'     => 'cdnjs.cloudflare.com', // https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js
-						'jsdelivr'       => 'cdn.jsdelivr.net',     // https://cdn.jsdelivr.net/npm/prismjs@1.15.0/prism.min.js
+						'cloudflare'     => 'cdnjs.cloudflare.com',
+						'jsdelivr'       => 'cdn.jsdelivr.net',
 					)
 				),
 
@@ -406,8 +397,8 @@ class Setting extends ControllerAbstract {
 					'default' => 'default',
 					'options' => array(
 						'default'        => 'default',
-						'cloudflare'     => 'cdnjs.cloudflare.com', // https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js
-						'jsdelivr'       => 'cdn.jsdelivr.net',     // https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js
+						'cloudflare'     => 'cdnjs.cloudflare.com',
+						'jsdelivr'       => 'cdn.jsdelivr.net',
 					)
 				),
 
@@ -425,121 +416,11 @@ class Setting extends ControllerAbstract {
 					'default' => 'default',
 					'options' => array(
 						'default'        => 'default',
-						'cloudflare'     => 'cdnjs.cloudflare.com', // https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js
-						'jsdelivr'       => 'cdn.jsdelivr.net',     // https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js
+						'cloudflare'     => 'cdnjs.cloudflare.com',
+						'jsdelivr'       => 'cdn.jsdelivr.net',
 					)
 				),
 			),
-			/*
-			'githuber_advanced' => array(
-				array(
-					'name' => 'text',
-					'label' => __('Text Input', $this->text_domain),
-					'desc' => __('Text input description', $this->text_domain),
-					'type' => 'text',
-					'default' => 'Title'
-				),
-				array(
-					'name' => 'textarea',
-					'label' => __('Textarea Input', $this->text_domain),
-					'desc' => __('Textarea description', $this->text_domain),
-					'type' => 'textarea'
-				),
-				array(
-					'name' => 'checkbox',
-					'label' => __('Checkbox', $this->text_domain),
-					'desc' => __('Checkbox Label', $this->text_domain),
-					'type' => 'checkbox'
-				),
-				array(
-					'name' => 'radio',
-					'label' => __('Radio Button', $this->text_domain),
-					'desc' => __('A radio button', $this->text_domain),
-					'type' => 'radio',
-					'default' => 'no',
-					'options' => array(
-						'yes' => 'Yes',
-						'no' => 'No'
-					)
-				),
-				array(
-					'name' => 'multicheck',
-					'label' => __('Multile checkbox', $this->text_domain),
-					'desc' => __('Multi checkbox description', $this->text_domain),
-					'type' => 'multicheck',
-					'default' => array('one' => 'one', 'four' => 'four'),
-					'options' => array(
-						'one' => 'One',
-						'two' => 'Two',
-						'three' => 'Three',
-						'four' => 'Four'
-					)
-				),
-				array(
-					'name' => 'selectbox',
-					'label' => __('A Dropdown', $this->text_domain),
-					'desc' => __('Dropdown description', $this->text_domain),
-					'type' => 'select',
-					'options' => array(
-						'yes' => 'Yes',
-						'no' => 'No'
-					)
-				)
-			),
-			'githuber_others' => array(
-				array(
-					'name' => 'text',
-					'label' => __('Text Input', $this->text_domain),
-					'desc' => __('Text input description', $this->text_domain),
-					'type' => 'text',
-					'default' => 'Title'
-				),
-				array(
-					'name' => 'textarea',
-					'label' => __('Textarea Input', $this->text_domain),
-					'desc' => __('Textarea description', $this->text_domain),
-					'type' => 'textarea'
-				),
-				array(
-					'name' => 'checkbox',
-					'label' => __('Checkbox', $this->text_domain),
-					'desc' => __('Checkbox Label', $this->text_domain),
-					'type' => 'checkbox'
-				),
-				array(
-					'name' => 'radio',
-					'label' => __('Radio Button', $this->text_domain),
-					'desc' => __('A radio button', $this->text_domain),
-					'type' => 'radio',
-					'options' => array(
-						'yes' => 'Yes',
-						'no' => 'No'
-					)
-				),
-				array(
-					'name' => 'multicheck',
-					'label' => __('Multile checkbox', $this->text_domain),
-					'desc' => __('Multi checkbox description', $this->text_domain),
-					'type' => 'multicheck',
-					'options' => array(
-						'one' => 'One',
-						'two' => 'Two',
-						'three' => 'Three',
-						'four' => 'Four'
-					)
-				),
-				array(
-					'name' => 'selectbox',
-					'label' => __('A Dropdown', $this->text_domain),
-					'desc' => __('Dropdown description', $this->text_domain),
-					'type' => 'select',
-					'options' => array(
-						'yes' => 'Yes',
-						'no' => 'No'
-					)
-				)
-				
-			)*/
 		);
 
 		// set sections and fields.

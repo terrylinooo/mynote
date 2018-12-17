@@ -2,6 +2,8 @@
 
 /**
  * Class ModelAbstract
+ * 
+ * Models are specifically used for dealing with the data exchange between controller and database.
  *
  * @author Terry Lin
  * @link https://terryl.in/

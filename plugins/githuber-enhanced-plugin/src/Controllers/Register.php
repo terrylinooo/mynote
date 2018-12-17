@@ -65,10 +65,6 @@ class Register extends ControllerAbstract {
 
 		// Turn off Rich-text editor.
 		update_user_option( $this->current_user->ID, 'rich_editing', 'false', true );
-
-		if ( get_option( 'gihuber_plugin' ) == false ) {
-			add_option( 'gihuber_plugin', $this->defaults, '', 'yes' );
-		}
 	}
 
 	/**

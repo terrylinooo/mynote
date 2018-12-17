@@ -31,6 +31,11 @@ class KaTeX extends ModuleAbstract {
 	public $css_priority = 1000;
 
 	/**
+	 * Constants.
+	 */
+	const MD_POST_META_KATEX    = '_is_githuber_katex';
+
+	/**
 	 * Constructer.
 	 */
 	public function __construct() {
@@ -46,7 +51,6 @@ class KaTeX extends ModuleAbstract {
 		add_action( 'wp_enqueue_scripts', array( $this, 'front_enqueue_styles'), $this->css_priority );
 		add_action( 'wp_enqueue_scripts', array( $this, 'front_enqueue_scripts' ) );
 		add_action( 'wp_print_footer_scripts', array( $this, 'front_print_footer_scripts' ) );
-
 		/**
 		 * Just for debug propose, don't use it. 
 		 * Because it will excute the regex search in every page views, waste your CPU usage.
@@ -66,22 +70,25 @@ class KaTeX extends ModuleAbstract {
 	 * @return void
 	 */
 	public function front_enqueue_styles() {
-		$option = githuber_get_option( 'prism_src', 'githuber_modules' );
+		if ( $this->is_module_should_be_loaded( self::MD_POST_META_KATEX ) ) {
+			
+			$option = githuber_get_option( 'katex_src', 'githuber_modules' );
 
-		switch ( $option ) {
-			case 'cloudflare':
-				$style_url = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/' . $this->katex_version . '/katex.min.css';
-				break;
+			switch ( $option ) {
+				case 'cloudflare':
+					$style_url = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/' . $this->katex_version . '/katex.min.css';
+					break;
 
-			case 'jsdelivr':
-				$style_url = 'https://cdn.jsdelivr.net/npm/katex@' . $this->katex_version . '/dist/katex.min.css';
-				break;
+				case 'jsdelivr':
+					$style_url = 'https://cdn.jsdelivr.net/npm/katex@' . $this->katex_version . '/dist/katex.min.css';
+					break;
 
-			default:
-				$style_url = $this->githuber_plugin_url . 'assets/vendor/katex/katex.min.css';
-				break;
-		} 
-		wp_enqueue_style( 'katex', $style_url, array(), $this->katex_version, 'all' );
+				default:
+					$style_url = $this->githuber_plugin_url . 'assets/vendor/katex/katex.min.css';
+					break;
+			} 
+			wp_enqueue_style( 'katex', $style_url, array(), $this->katex_version, 'all' );
+		}
 	}
 
 	/**
@@ -90,22 +97,25 @@ class KaTeX extends ModuleAbstract {
 	 * @return void
 	 */
 	public function front_enqueue_scripts() {
-		$option = githuber_get_option( 'katex_src', 'githuber_modules' );
+		if ( $this->is_module_should_be_loaded( self::MD_POST_META_KATEX ) ) {
 
-		switch ( $option ) {
-			case 'cloudflare':
-				$script_url = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/' . $this->katex_version . '/katex.min.js';
-				break;
+			$option = githuber_get_option( 'katex_src', 'githuber_modules' );
 
-			case 'jsdelivr':
-				$script_url = 'https://cdn.jsdelivr.net/npm/katex@' . $this->katex_version . '/dist/katex.min.js';
-				break;
+			switch ( $option ) {
+				case 'cloudflare':
+					$script_url = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/' . $this->katex_version . '/katex.min.js';
+					break;
 
-			default:
-				$script_url = $this->githuber_plugin_url . 'assets/vendor/katex/katex.min.js';
-				break;
-		} 
-		wp_enqueue_script( 'katex', $script_url, array(), $this->katex_version, true );
+				case 'jsdelivr':
+					$script_url = 'https://cdn.jsdelivr.net/npm/katex@' . $this->katex_version . '/dist/katex.min.js';
+					break;
+
+				default:
+					$script_url = $this->githuber_plugin_url . 'assets/vendor/katex/katex.min.js';
+					break;
+			} 
+			wp_enqueue_script( 'katex', $script_url, array(), $this->katex_version, true );
+		}
 	}
 
 	/**
@@ -114,11 +124,11 @@ class KaTeX extends ModuleAbstract {
 	 * Ex.
 	 * $$ x_{1,2} = {-b\pm\sqrt{b^2 - 4ac} \over 2a}.$$
 	 *
-	 * @param string $content
+	 * @param string  $content HTML or Markdown content.
+	 * @param integer $post_id Post Id.
 	 * @return void
 	 */
 	public static function katex_markup( $content ) {
-		//$textarr = wp_html_split( $content );
 
 		$regex = '%
 			\$\$*
@@ -155,17 +165,19 @@ class KaTeX extends ModuleAbstract {
 			<script>
 				(function($) {
 					$(function() {
-						$(".katex-container").each(function() {
-							var katexText = $(this).text();
-							var el = $( this ).get( 0 );
-							if ($(this).parent("code").length == 0) {
-								try {
-									katex.render(katexText, el)
-								} catch (err) {
-									$(this).html("<span class=\'err\'>" + err)
+						if ($(".katex-container").length > 0) {
+							$(".katex-container").each(function() {
+								var katexText = $(this).text();
+								var el = $( this ).get( 0 );
+								if ($(this).parent("code").length == 0) {
+									try {
+										katex.render(katexText, el)
+									} catch (err) {
+										$(this).html("<span class=\'err\'>" + err)
+									}
 								}
-							}
-						});
+							});
+						}
 					});
 				})(jQuery);
 			</script>

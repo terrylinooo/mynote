@@ -33,6 +33,9 @@ function githuber_get_option( $option, $section, $default = '' ) {
  * @return int
  */
 function githuber_get_current_post_id() {
-	global $post;
-	return $post->ID;
+	global $post, $wp_posts;
+
+	if ( ! empty( $post ) )  {
+		return $post->ID;
+	}
 }

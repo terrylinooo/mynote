@@ -14,7 +14,7 @@
  */
 
 namespace Githuber\Controller;
-use Githuber\Controller\Setting as Setting;
+use Githuber\Controller as Controller;
 use Githuber\Module as Module;
 use Githuber\Model as Model;
 
@@ -39,9 +39,12 @@ class Markdown extends ControllerAbstract {
 	/**
 	 * Constants.
 	 */
-	const MD_POST_TYPE       = 'githuber_markdown';
-	const MD_POST_META       = '_is_githuber_markdown';
-	const MD_POST_META_PRISM = '_githuber_prismjs';
+	const MD_POST_TYPE          = 'githuber_markdown';
+	const MD_POST_META          = '_is_githuber_markdown';
+	const MD_POST_META_PRISM    = '_githuber_prismjs';
+	const MD_POST_META_SEQUENCE = '_is_githuber_sequence';
+	const MD_POST_META_FLOW     = '_is_githuber_flow_chart';
+	const MD_POST_META_KATEX    = '_is_githuber_katex';
 
 	/**
 	 * Parser's instance.
@@ -68,25 +71,15 @@ class Markdown extends ControllerAbstract {
 	public $posts_to_uncache = array();
 
 	/**
-	 * Is supporting of Prism syntax hightlighter?
+	 * Module supprt.
 	 *
 	 * @var boolean
 	 */
-	public $is_support_prism = false;
-
-	/**
-	 * Is supporting of Github Flavored Markdown task lists?
-	 *
-	 * @var boolean
-	 */
+	public $is_support_prism     = false;
 	public $is_support_task_list = false;
-
-	/**
-	 * Is supporting of KaTex?
-	 *
-	 * @var boolean
-	 */
-	public $is_support_katex = false;
+	public $is_support_katex     = false;
+	public $is_support_flowchart = false;
+	public $is_support_sequence  = false;
 
 	/**
 	 * Constructer.
@@ -109,15 +102,31 @@ class Markdown extends ControllerAbstract {
 		if ( 'yes' === githuber_get_option( 'support_katex', 'githuber_markdown' ) ) {
 			$this->is_support_katex = true;
 		}
+
+		if ( 'yes' === githuber_get_option( 'support_flowchart', 'githuber_markdown' ) ) {
+			$this->is_support_flowchart = true;
+		}
+
+		if ( 'yes' === githuber_get_option( 'support_sequence_diagram', 'githuber_markdown' ) ) {
+			$this->is_support_sequence = true;
+		}
 	}
 
 	/**
 	 * Initialize.
 	 */
 	public function init() {
-		add_post_type_support( 'post', self::MD_POST_TYPE );
-		add_post_type_support( 'page', self::MD_POST_TYPE );
-		add_post_type_support( 'revision', self::MD_POST_TYPE );
+
+		$support_post_types = array(
+			'post',
+			'page',
+			'revision',
+			'repository'
+		);
+
+		foreach ( $support_post_types as $post_type ) {
+			add_post_type_support( $post_type, self::MD_POST_TYPE );
+		}
 
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 
@@ -161,11 +170,10 @@ class Markdown extends ControllerAbstract {
 			'editor_html_decode',
 			'editor_toolbar_theme',
 			'editor_editor_theme',
-			'editor_preview_theme',
 			'support_toc',
 			'support_emoji',
 			'support_katex',
-			'support_flow_chart',
+			'support_flowchart',
 			'support_sequence_diagram',
 			'support_task_list'
 		);
@@ -199,7 +207,7 @@ class Markdown extends ControllerAbstract {
 	public static function get_parser()
 	{
 		if ( ! self::$parser_instance ) {
-			self::$parser_instance = new \Githuber\Module\MarkdownParser();
+			self::$parser_instance = new Module\MarkdownParser();
 		}
 		return self::$parser_instance;
 	}
@@ -452,6 +460,13 @@ class Markdown extends ControllerAbstract {
 
 		$prism_meta_array = [];
 
+		delete_metadata( 'post', $post_id, self::MD_POST_META_PRISM);
+		delete_metadata( 'post', $post_id, self::MD_POST_META_SEQUENCE);
+		delete_metadata( 'post', $post_id, self::MD_POST_META_FLOW);
+
+		$is_sequence  = false;
+		$is_flowchart = false;
+
 		if ( preg_match_all( '/<code class="language-([a-z\-0-9]+)"/', $post_content, $matches ) > 0 && ! empty( $matches[1] ) ) {
 			
 			foreach ( $matches[1] as $match ) {
@@ -469,18 +484,45 @@ class Markdown extends ControllerAbstract {
 						}
 					}
 				}
+
+				if ( 'seq' === $match || 'sequence' === $match ) {
+					$is_sequence = true;
+				}
+
+				if ( 'flow' === $match || 'flowchart' === $match ) {
+					$is_flowchart = true;
+				}
 			}
 		}
 
 		// Combine array into a string.
 		$prism_meta_string = implode( ',', $prism_meta_array );
 
-		// Get string from post meta.
-		$meta_string = get_metadata( 'post', $post_id, self::MD_POST_META_PRISM );
-
 		// Store the string to post meta, for identifying what the syntax languages are used in current post.
-		if ( ! empty( $prism_meta_array ) && $prism_meta_string !== $meta_string ) {
+		if ( $this->is_support_prism && ! empty( $prism_meta_array ) ) {
 			update_metadata( 'post', $post_id, self::MD_POST_META_PRISM, $prism_meta_string );
+		}
+
+		if ( $this->is_support_sequence && $is_sequence ) {
+			update_metadata( 'post', $post_id, self::MD_POST_META_SEQUENCE, true );
+		}
+
+		if ( $this->is_support_flowchart && $is_flowchart ) {
+			update_metadata( 'post', $post_id, self::MD_POST_META_FLOW, true );
+		}
+	}
+
+	/**
+	 * Detect if post content contains KaTeX or not.
+	 *
+	 * @param int   $post_id       The post ID.
+	 * @param string $post_content The post content.
+	 * @return void
+	 */
+	public function detect_katex( $post_id, $post_content ) {
+		delete_metadata( 'post', $post_id, self::MD_POST_META_KATEX);
+		if ( preg_match_all( '/class="katex\-container"/', $post_content, $matches ) > 0 ) {
+			update_metadata( 'post', $post_id, self::MD_POST_META_KATEX, true );
 		}
 	}
 
@@ -705,9 +747,8 @@ class Markdown extends ControllerAbstract {
 		}
 
 		// Is it support Prism - syntax highlighter.
-		if ( $this->is_support_prism ) {
-			$this->detect_code_languages( $post_id, wp_unslash( $post_data['post_content'] ) );
-		}
+		$this->detect_code_languages( $post_id, wp_unslash( $post_data['post_content'] ) );
+		$this->detect_katex( $post_id, wp_unslash( $post_data['post_content'] ) ) ;
 
 		return $post_data;
 	}
@@ -791,7 +832,7 @@ class Markdown extends ControllerAbstract {
 		}
 
 		// Add a HTML wrapper if this module is enabled.
-		if ( $this->is_support_katex) {
+		if ( $this->is_support_katex ) {
 			$text = Module\KaTeX::katex_markup( $text );
 		}
 
@@ -888,7 +929,7 @@ class Markdown extends ControllerAbstract {
 			return;
 		}
 		include_once( ABSPATH . WPINC . '/class-IXR.php' );
-		$message = new IXR_Message( $raw_post_data );
+		$message = new \IXR_Message( $raw_post_data );
 		$message->parse();
 		$post_id_position = 'metaWeblog.getPost' === $message->methodName ? 0 : 1;
 		$this->prime_post_cache( $message->params[ $post_id_position ] );

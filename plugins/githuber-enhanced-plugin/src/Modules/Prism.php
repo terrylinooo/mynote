@@ -60,36 +60,39 @@ class Prism extends ModuleAbstract {
 	 * @return void
 	 */
 	public function front_enqueue_styles() {
-		$prism_src         = githuber_get_option( 'prism_src', 'githuber_modules' );
-		$prism_theme       = githuber_get_option( 'prism_theme', 'githuber_modules' );
-		$prism_line_number = githuber_get_option( 'prism_line_number', 'githuber_modules' );
-		$theme             = ( 'default' === $prism_theme ) ? 'prism' : 'prism-' . $prism_theme;
 
-		switch ( $prism_src ) {
-			case 'cloudflare':
-				$style_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/prism/' . $this->prism_version . '/themes/' . $theme . '.min.css';
-				if ( 'yes' === $prism_line_number ) {
-					$style_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/prism/' . $this->prism_version . '/plugins/line-numbers/prism-line-numbers.min.css';
-				}
-				break;
+		if ( $this->is_module_should_be_loaded( self::MD_POST_META_PRISM ) ) {
+			$prism_src         = githuber_get_option( 'prism_src', 'githuber_modules' );
+			$prism_theme       = githuber_get_option( 'prism_theme', 'githuber_modules' );
+			$prism_line_number = githuber_get_option( 'prism_line_number', 'githuber_modules' );
+			$theme             = ( 'default' === $prism_theme ) ? 'prism' : 'prism-' . $prism_theme;
 
-			case 'jsdelivr':
-				$style_url[] = 'https://cdn.jsdelivr.net/npm/prismjs@' . $this->prism_version . '/themes/' . $theme . '.css';
-				if ( 'yes' === $prism_line_number ) {
-					$style_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/prism/' . $this->prism_version . '/plugins/line-numbers/prism-line-numbers.css';
-				}
-				break;
+			switch ( $prism_src ) {
+				case 'cloudflare':
+					$style_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/prism/' . $this->prism_version . '/themes/' . $theme . '.min.css';
+					if ( 'yes' === $prism_line_number ) {
+						$style_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/prism/' . $this->prism_version . '/plugins/line-numbers/prism-line-numbers.min.css';
+					}
+					break;
 
-			default:
-				$style_url[] = $this->githuber_plugin_url . 'assets/vendor/prism/themes/' . $theme . '.min.css';
-				if ( 'yes' === $prism_line_number ) {
-					$style_url[] = $this->githuber_plugin_url . 'assets/vendor/prism/plugins/line-numbers/prism-line-numbers.css';
-				}
-				break;
-		}
+				case 'jsdelivr':
+					$style_url[] = 'https://cdn.jsdelivr.net/npm/prismjs@' . $this->prism_version . '/themes/' . $theme . '.css';
+					if ( 'yes' === $prism_line_number ) {
+						$style_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/prism/' . $this->prism_version . '/plugins/line-numbers/prism-line-numbers.css';
+					}
+					break;
 
-		foreach ( $style_url as $key => $url ) {
-			wp_enqueue_style( 'prism-css-' . $key, $url, array(), $this->prism_version, 'all' );
+				default:
+					$style_url[] = $this->githuber_plugin_url . 'assets/vendor/prism/themes/' . $theme . '.min.css';
+					if ( 'yes' === $prism_line_number ) {
+						$style_url[] = $this->githuber_plugin_url . 'assets/vendor/prism/plugins/line-numbers/prism-line-numbers.css';
+					}
+					break;
+			}
+
+			foreach ( $style_url as $key => $url ) {
+				wp_enqueue_style( 'prism-css-' . $key, $url, array(), $this->prism_version, 'all' );
+			}
 		}
 	}
 
@@ -99,61 +102,63 @@ class Prism extends ModuleAbstract {
 	 * @return void
 	 */
 	public function front_enqueue_scripts() {
-		$prism_src = githuber_get_option( 'prism_src', 'githuber_modules' );
-		$prism_line_number = githuber_get_option( 'prism_line_number', 'githuber_modules' );
-		$post_id           = githuber_get_current_post_id();
-		$prism_meta_string = get_metadata( 'post', $post_id, self::MD_POST_META_PRISM );
-		$prism_meta_array  = explode( ',', $prism_meta_string[0] );
+		if ( $this->is_module_should_be_loaded( self::MD_POST_META_PRISM ) ) {
+			$prism_src         = githuber_get_option( 'prism_src', 'githuber_modules' );
+			$prism_line_number = githuber_get_option( 'prism_line_number', 'githuber_modules' );
+			$post_id           = githuber_get_current_post_id();
+			$prism_meta_string = get_metadata( 'post', $post_id, self::MD_POST_META_PRISM );
+			$prism_meta_array  = explode( ',', $prism_meta_string[0] );
 
-		switch ( $prism_src ) {
-			case 'cloudflare':
-				$script_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/prism/' . $this->prism_version . '/components/prism-core.min.js';
-				$script_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/prism/' . $this->prism_version . '/prism.min.js';
+			switch ( $prism_src ) {
+				case 'cloudflare':
+					$script_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/prism/' . $this->prism_version . '/components/prism-core.min.js';
+					$script_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/prism/' . $this->prism_version . '/prism.min.js';
 
-				if ( ! empty( $prism_meta_array ) ) {
-					foreach (  array_reverse( $prism_meta_array ) as $component_name ) {
+					if ( ! empty( $prism_meta_array ) ) {
+						foreach (  array_reverse( $prism_meta_array ) as $component_name ) {
 
-						// Those componets are already included in code.js
-						if ( ! $this->is_component_already_loaded ( $component_name ) ) {
-							$script_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/prism/' . $this->prism_version . '/components/prism-' . $component_name . '.min.js';
+							// Those componets are already included in code.js
+							if ( ! $this->is_component_already_loaded ( $component_name ) ) {
+								$script_url[] = 'https://cdnjs.cloudflare.com/ajax/libs/prism/' . $this->prism_version . '/components/prism-' . $component_name . '.min.js';
+							}
 						}
 					}
-				}
-				break;
+					break;
 
-			case 'jsdelivr':
-				$script_url[] = 'https://cdn.jsdelivr.net/npm/prismjs@' . $this->prism_version . '/components/prism-core.min.js';
-				$script_url[] = 'https://cdn.jsdelivr.net/npm/prismjs@' . $this->prism_version . '/prism.min.js';
+				case 'jsdelivr':
+					$script_url[] = 'https://cdn.jsdelivr.net/npm/prismjs@' . $this->prism_version . '/components/prism-core.min.js';
+					$script_url[] = 'https://cdn.jsdelivr.net/npm/prismjs@' . $this->prism_version . '/prism.min.js';
 
-				if ( ! empty( $prism_meta_array ) ) {
-					foreach ( array_reverse( $prism_meta_array ) as $component_name ) {
+					if ( ! empty( $prism_meta_array ) ) {
+						foreach ( array_reverse( $prism_meta_array ) as $component_name ) {
 
-						// Those componets are already included in code.js
-						if ( ! $this->is_component_already_loaded ( $component_name ) ) {
-							$script_url[] = 'https://cdn.jsdelivr.net/npm/prismjs@' . $this->prism_version . '/components/prism-' . $component_name . '.min.js';
+							// Those componets are already included in code.js
+							if ( ! $this->is_component_already_loaded ( $component_name ) ) {
+								$script_url[] = 'https://cdn.jsdelivr.net/npm/prismjs@' . $this->prism_version . '/components/prism-' . $component_name . '.min.js';
+							}
 						}
 					}
-				}
 
-				break;
+					break;
 
-			default: 
-				$script_url[] = $this->githuber_plugin_url . 'assets/vendor/prism/components/prism-core.min.js';
-				$script_url[] = $this->githuber_plugin_url . 'assets/vendor/prism/prism.min.js';
+				default: 
+					$script_url[] = $this->githuber_plugin_url . 'assets/vendor/prism/components/prism-core.min.js';
+					$script_url[] = $this->githuber_plugin_url . 'assets/vendor/prism/prism.min.js';
 
-				if ( ! empty( $prism_meta_array ) ) {
-					foreach ( array_reverse( $prism_meta_array ) as $component_name ) {
+					if ( ! empty( $prism_meta_array ) ) {
+						foreach ( array_reverse( $prism_meta_array ) as $component_name ) {
 
-						// Those componets are already included in code.js
-						if ( ! $this->is_component_already_loaded ( $component_name ) ) {
-							$script_url[] = $this->githuber_plugin_url . 'assets/vendor/prism/components/prism-' . $component_name . '.min.js';
+							// Those componets are already included in code.js
+							if ( ! $this->is_component_already_loaded ( $component_name ) ) {
+								$script_url[] = $this->githuber_plugin_url . 'assets/vendor/prism/components/prism-' . $component_name . '.min.js';
+							}
 						}
 					}
-				}
-				break;
-		}
-		foreach ( $script_url as $key => $url ) {
-			wp_enqueue_script( 'prism-js-' . $key, $url, array(), $this->prism_version, true );
+					break;
+			}
+			foreach ( $script_url as $key => $url ) {
+				wp_enqueue_script( 'prism-js-' . $key, $url, array(), $this->prism_version, true );
+			}
 		}
 	}
 

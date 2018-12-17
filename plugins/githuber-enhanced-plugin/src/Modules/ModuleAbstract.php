@@ -2,6 +2,8 @@
 
 /**
  * Class ModuleAbstract
+ * 
+ * Modules are specifically used for frontend.
  *
  * @author Terry Lin
  * @link https://terryl.in/
@@ -21,6 +23,13 @@ abstract class ModuleAbstract {
 	 * @var string
 	 */
 	public $githuber_plugin_url;
+
+	/**
+	 * Post Id.
+	 *
+	 * @var integer
+	 */
+	public static $front_post_id = 0;
 
 	/**
 	 * Constructer.
@@ -61,4 +70,23 @@ abstract class ModuleAbstract {
 	 * @return void
 	 */
 	abstract public function front_print_footer_scripts();
+
+	/**
+	 * Check if this module should be loaded.
+	 */
+	public function is_module_should_be_loaded( $meta_name ) {
+		if ( empty( self::$front_post_id ) ) {
+			// Get current post ID if an user is viewing a post.
+			self::$front_post_id = githuber_get_current_post_id();
+		} 
+		
+		if ( ! empty( self::$front_post_id ) ) {
+			$post_meta = get_metadata( 'post', self::$front_post_id, $meta_name );
+			if ( empty( $post_meta[0] ) ) {
+				return false;
+			}
+			return (bool) $post_meta[0];
+		}
+		return false;
+	}
 }

@@ -59,6 +59,13 @@ class Githuber {
 			$module_prism->init();
 		}
 
+		// Module Name: Sequence Diagram
+		if ( 'yes' === githuber_get_option( 'support_sequence_diagram', 'githuber_markdown' ) ) {
+			$module_sequence = new Module\SequenceDiagram();
+			$module_sequence->init();
+		}
+		
+
 	}
 
 	/**

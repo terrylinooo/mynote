@@ -1,4 +1,4 @@
-=== Githuber Enhanced Plugin ===
+=== Githuber MD ===
 Contributors: terrylin
 Tags: githuber
 Requires at least: 4.7
@@ -10,14 +10,27 @@ License URI: https://www.gnu.org/licenses/gpl.html
 
 == Description ==
 
-A WordPress plugin that improves [Githuber theme](https://github.com/terrylinooo/githuber) functionality.
+An all-in-on Markdown WordPress plugin and also improves [Githuber theme](https://github.com/terrylinooo/githuber) functionality.
+
+Features For Markdown
+
+* Markdown editor.
+* Live preivew.
+* Syntax highlight.
+* Flow chart.
+* KaTex.
+* Sequence diagram.
+* Github flavored Markdown task list.
+* Markdown extra.
+
+Features For Githuber Theme:
 
 * Widget: Table of Content.
 * Post type: GitHub Repository.
 
 == Copyright ==
 
-Githuber WordPress Theme, Copyright 2018 TerryL.in
+Githuber MD, Copyright 2018 TerryL.in
 Githuber is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
@@ -30,17 +43,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
-Githuber bundles the following third-party resources:
-
-Bootstrap-toc, Copyright Aidan Feldman
-License: The MIT License (MIT)
-Source: https://github.com/afeld/bootstrap-toc
-
 == Changelog ==
-
-= 1.0.1
-
-*  Move Bootstrap-toc files from Githuber theme folder to Githuber Enhanced Plugin folder.
 
 = 1.0.0
 

@@ -2,6 +2,8 @@
 
 /**
  * Class ControllerAbstract
+ * 
+ * Controllers are specifically used for admin (backend) use.
  *
  * @author Terry Lin
  * @link https://terryl.in/

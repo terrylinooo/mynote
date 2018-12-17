@@ -1,7 +1,7 @@
 <?php
 /**
  * Module Name: Flow Chart
- * Module Description: Use KaTex markup for complex equations and other geekery.
+ * Module Description: Draws simple SVG flow chart diagrams from textual representation of the diagram.
  *
  * @author Terry Lin
  * @link https://terryl.in/
@@ -27,7 +27,12 @@ class FlowChart extends ModuleAbstract {
 	 *
 	 * @var string
 	 */
-    public $raphael_version = '2.2.27';
+	public $raphael_version = '2.2.27';
+	
+	/**
+	 * Constants.
+	 */
+	const MD_POST_META_FLOW = '_is_githuber_flow_chart';
 
 	/**
 	 * Constructer.
@@ -61,29 +66,30 @@ class FlowChart extends ModuleAbstract {
 	 * @return void
 	 */
 	public function front_enqueue_scripts() {
-		$option = githuber_get_option( 'flowchart_src', 'githuber_modules' );
 
-		switch ( $option ) {
-            case 'cloudflare':
-                $script_url[0] = 'https://cdnjs.cloudflare.com/ajax/libs/raphael/' . $this->raphael_version . '/raphael.min.js';
-                $script_url[1] = 'https://cdnjs.cloudflare.com/ajax/libs/flowchart/' . $this->flowchart_version . '/flowchart.min.js';
-				break;
+		if ( $this->is_module_should_be_loaded( self::MD_POST_META_FLOW ) ) {
 
-            case 'jsdelivr':
-                $script_url[0] = 'https://cdn.jsdelivr.net/npm/raphael@' . $this->raphael_version . '/raphael.min.js';
-                $script_url[1] = 'https://cdn.jsdelivr.net/npm/flowchart.js@' . $this->flowchart_version . '/release/flowchart.min.js';
-				break;
+			$option  = githuber_get_option( 'flowchart_src', 'githuber_modules' );
 
-            default:
-                $script_url[0] = $this->githuber_plugin_url . 'assets/vendor/raphael/raphael.min.js';
-				$script_url[1] = $this->githuber_plugin_url . 'assets/vendor/flowchart/flowchart.min.js';
-				break;
-		} 
-  
-        
-        wp_enqueue_script( 'raphael', $script_url[0], array(), $this->raphael_version, true );
-        wp_enqueue_script( 'flowchart', $script_url[1], array(), $this->flowchart_version, true );
-		
+			switch ( $option ) {
+				case 'cloudflare':
+					$script_url[0] = 'https://cdnjs.cloudflare.com/ajax/libs/raphael/' . $this->raphael_version . '/raphael.min.js';
+					$script_url[1] = 'https://cdnjs.cloudflare.com/ajax/libs/flowchart/' . $this->flowchart_version . '/flowchart.min.js';
+					break;
+
+				case 'jsdelivr':
+					$script_url[0] = 'https://cdn.jsdelivr.net/npm/raphael@' . $this->raphael_version . '/raphael.min.js';
+					$script_url[1] = 'https://cdn.jsdelivr.net/npm/flowchart.js@' . $this->flowchart_version . '/release/flowchart.min.js';
+					break;
+
+				default:
+					$script_url[0] = $this->githuber_plugin_url . 'assets/vendor/raphael/raphael.min.js';
+					$script_url[1] = $this->githuber_plugin_url . 'assets/vendor/flowchart/flowchart.min.js';
+					break;
+			} 
+			wp_enqueue_script( 'raphael', $script_url[0], array(), $this->raphael_version, true );
+			wp_enqueue_script( 'flowchart', $script_url[1], array(), $this->flowchart_version, true );
+		}
 	}
 
 	/**
@@ -93,11 +99,13 @@ class FlowChart extends ModuleAbstract {
 		$script = '
 			<script>
 				(function($) {
-                    $(".language-flow").addClass("flowchart").removeClass("language-flow");
 					$(function() {
-						$(".flowchart").flowChart();
+						if ($(".language-flow").length > 0) {
+							$(".language-flow").addClass("flowchart").removeClass("language-flow");
+							$(".flowchart").flowChart();
+						}
 					});
-                })(jQuery);
+				})(jQuery);
 			</script>
 		';
 		echo $script;
