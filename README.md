@@ -5,7 +5,7 @@
 Githuber is a github-style WordPress theme with preferred features for developers and programmers.
 
 This theme will be uploaded to WordPress theme dictionary and keep it update to date.
-It is in under review currently: https://themes.trac.wordpress.org/ticket/62054
+It is in under review currently: https://themes.trac.wordpress.org/ticket/62323
 
 ## Online Demo
 - [Author's blog](https://terryl.in/) 
