@@ -1,0 +1,207 @@
+/* > 1200px */
+@include media-breakpoint-up(xl) {
+
+    .section-intro {
+        background-image: url("./assets/images/bg_circuit.png");
+    }
+}
+
+/* < 1200px */
+@include media-breakpoint-down(lg) {
+    .px-responsive {
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+}
+
+/* > 992px */
+@include media-breakpoint-up(lg) {
+    .navbar-expand-lg .navbar-nav .menu-item a {
+        padding-right: .5rem;
+        padding-left: .5rem;
+    }
+}
+
+/* 992px - 1199.98px */
+@include media-breakpoint-between(lg, lg) {
+    .section-intro {
+        background-image: url("./assets/images/bg_circuit_xl.png");
+
+        h1 {
+            font-size: 4.2rem;
+        }
+    
+        .desc-text {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+/* < 992px */
+@include media-breakpoint-down(md) {
+    .px-responsive {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    .container {
+        width: calc(100% - 20px);
+        max-width: calc(100% - 20px);
+    }
+
+    nav.breadcrumb {
+        padding-left: 0;
+        padding-right: 0;
+
+        ul {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .header {
+        .container {
+            min-height: 60px;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .navbar-brand {
+            position: absolute;
+            top: 14px;
+            left: 0;
+        }
+
+        .search-bar {
+            width: calc(100% - 86px);
+            position: absolute;
+            top: 15px;
+            right: 76px;
+        }
+
+        .navbar-toggler {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .navbar-collapse {
+            margin-top: 50px;
+            overflow: hidden;
+        }
+
+        @include clearfix();
+    }
+
+    .has-site-icon {
+        .search-bar {
+            width: calc(100% - 135px) !important;
+            position: absolute;
+            top: 15px;
+            right: 76px;
+        }
+    }
+}
+
+/* 768px - 991.98px */
+@include media-breakpoint-between(md, md) {
+    .section-intro {
+        background-image: url("./assets/images/bg_circuit_lg.png");
+
+        h1 {
+            font-size: 4.0rem;
+        }
+    
+        .desc-text {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+/* < 768px */
+@include media-breakpoint-down(sm) {
+    .px-responsive {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .widget {
+        margin: 15px 0;
+    }
+
+    .navbar-nav {
+        .dropdown-menu {
+            &::after {
+                display: none !important;
+            }
+            &::before {
+                display: none !important;
+            }
+        }
+    }
+    .column-control {
+        display: none;
+    }
+}
+
+/* 576px - 767.98px */
+@include media-breakpoint-between(sm, sm) {
+    .section-intro {
+        background-image: url("./assets/images/bg_circuit_md.png");
+
+        h1 {
+            font-size: 3.2rem;
+        }
+    
+        .desc-text {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+/* < 576px */
+@include media-breakpoint-down(mx) {
+    .px-responsive {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    .author-card {
+        display: block !important;
+        .author-avatar {
+            text-align: center;
+        }
+        .author-info {
+            padding-top: 0;
+        }
+    }
+}
+
+/* 360px - 575.98px */
+@include media-breakpoint-between(mx, mx) {
+    .section-intro {
+        background-image: url("./assets/images/bg_circuit_sm.png");
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.8rem;
+        }
+    
+        .desc-text {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+/* < 360px */
+@include media-breakpoint-down(xs) {
+    .section-intro {
+        background-image: url("./assets/images/bg_circuit_mx.png");
+
+        h1 {
+            margin-top: 30px;
+            font-size: 2rem;
+        }
+    
+        .desc-text {
+            font-size: 0.95rem;
+        }
+    }
+}

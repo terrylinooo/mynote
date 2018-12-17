@@ -1,0 +1,131 @@
+.btn-counter {
+    display: inline-block;
+
+    .btn {
+        float: left;
+        color: #24292e;
+        position: relative;
+        display: inline-block;
+        padding: 3px 10px;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 20px;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: 1px solid rgba(27,31,35,0.2);
+        border-radius: 0.25em;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        background-color: #eff3f6;
+        background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+        background-repeat: repeat-x;
+        background-position: -1px -1px;
+        background-size: 110% 110%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    &.active {
+        .btn {
+            background-image: linear-gradient(-180deg, #dddddd 0%, #ffffff 90%);
+        }
+    }
+
+    &.text-only .btn {
+        border-top-right-radius: 0.25em;
+        border-bottom-right-radius: 0.25em;
+    }
+
+    .count-box {
+        float: left;
+        padding: 3px 10px;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 20px;
+        color: #24292e;
+        vertical-align: middle;
+        background-color: #fff;
+        border: 1px solid rgba(27,31,35,0.2);
+        border-left: 0;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+}
+
+.btn-group {
+    display: inline-block;
+    font-size: 0;
+    
+    .btn-counter {
+
+        .btn {
+            border-radius: 0;
+        }
+
+        &:first-child .btn {
+            border-top-left-radius: 0.25em;
+            border-bottom-left-radius: 0.25em;
+        }
+
+        &:last-child .btn {
+            border-left-width: 0 !important;
+            border-top-right-radius: 0.25em;
+            border-bottom-right-radius: 0.25em;
+        }
+    }
+}
+
+.post-githuber-buttons {
+    overflow: hidden;
+    font-size: 0;
+    display: flex;
+
+    
+
+    a, a:hover {
+        text-decoration: none !important;
+    }
+
+    > div, > a {
+        margin-left: 5px !important;
+    }
+
+    .github-button-container {
+        display: inline-block;
+        margin-left: 5px;
+
+        a {
+            display: none;
+        }
+    }
+}
+
+.btn-green {
+    background-color: #28a745;
+    background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+    border-color: rgba(27,31,35,0.5);
+    color: #ffffff;
+}
+
+a {
+    &.btn, &.button-like-link {
+        text-decoration: none !important;
+    }
+    &.btn-xs {
+        padding: .125rem .25rem;
+        font-size: .675rem;
+        line-height: 1.2;
+        border-radius: .2rem;
+    }
+    &.btn-info {
+        color: #17a2b8;
+    }
+}
+
+

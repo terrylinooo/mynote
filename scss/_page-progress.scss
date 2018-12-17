@@ -1,0 +1,56 @@
+
+$progress-bar-height: 4px;
+$progress-bar-color: rgba(214, 168, 168, 0.1);
+$progress-bar-value-color: dodgerblue;
+
+progress {
+    appearance: none;
+    position: absolute;
+    width: 100%;
+    height: $progress-bar-height;
+    background-color: $progress-bar-color;
+    border: none;
+    
+    &::-moz-progress-bar {
+        background-color: $progress-bar-value-color;
+    }
+    
+    &::-webkit-progress-bar {
+        background-color: $progress-bar-color;
+    }
+    
+    &::-webkit-progress-value {
+        background-color: $progress-bar-value-color;
+    }
+    
+    &::-ms-fill {
+        background-color: $progress-bar-value-color;
+    }
+}
+
+#progress-title {
+    width: 100%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: keep-all !important;
+    overflow: hidden;
+    line-height: 40px;
+}
+
+.has-site-icon {
+    #progress-title {
+        width: calc(100% - 50px);
+    }
+}
+
+.progress-wrapper {
+    position: relative;
+}
+
+.progress-label {
+    position: absolute;
+    right: 0; bottom: 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}

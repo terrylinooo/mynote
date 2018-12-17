@@ -1,0 +1,42 @@
+
+
+.footer {
+    margin: 40px 0 20px 0;
+
+    .site-info {
+        font-weight: 400;
+        font-size: 12px;
+        text-align: center;
+
+        a, strong {
+            font-weight: normal;
+            color: #333333;
+        }
+    }
+
+    .footer-nav {
+        text-align: center;
+        font-size: 14px;
+
+        ul.footer-menu {
+            padding: 0;
+            margin: 0;
+            display: inline-flex;
+            list-style-type: none;
+    
+            li {
+                margin: 5px 15px;
+            }
+
+            a {
+                color: #333333;
+            }
+        }
+    }
+}
+
+.home {
+    .footer {
+        border-top: 0;
+    }
+}

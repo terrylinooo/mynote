@@ -1,0 +1,243 @@
+/* Single - Post */
+
+.single-post-header {
+    background-color: #fafbfc;
+    background: none;
+    padding: 20px 0px;
+    margin-bottom: 20px;
+    border-bottom: 0px solid #e1e4e8;
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 0;
+        font-weight: 400;
+        line-height: 1.125;
+        word-wrap: break-word;
+    }
+
+    .post-githuber-buttons {
+        float: right;
+        margin-top: 5px;
+    }
+
+    .author-link {
+        font-weight: bold;
+        color: #586069 !important;
+    }
+
+    .post-meta {
+        padding: 5px;
+        font-size: 14px;
+
+        .poster-avatar {
+            margin-right: 5px;
+        }
+    }
+}
+
+.page {
+    /* Hide post meta in Page */
+    .post-meta {
+        visibility: hidden;
+    }
+}
+
+article {
+    figcaption {
+        color: gray("600");
+        margin: 0.25rem 0 1rem;
+        text-align: center;
+        font-style: italic;
+    }
+}
+
+/* Category page. */
+
+.category-header {
+    background-color: #fafbfc;
+    padding: 20px 0px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e1e4e8;
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 0;
+        font-weight: 400;
+        line-height: 48px;
+        word-wrap: break-word;
+
+        &:before {
+            font-family: 'Font Awesome 5 Free';
+            border: 0px #dddddd solid;
+            border-radius: 5px;
+            width: 48px;
+            height: 48px;
+            padding-left: 6px;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            top: -3px;
+            overflow: hidden;
+            text-align: center;
+            margin-right: 10px;
+            line-height: 48px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            padding-right: 5px;
+            @include metal();
+        }
+
+        &.category:before {
+            content: '\f0c6';
+        }
+
+        &.archive:before {
+            content: '\f1c6';
+        }
+
+        &.tag:before {
+            content: '\f02c';
+        }
+
+        &.git:before {
+            content: '\f1d3';
+        }
+
+        &.search:before {
+            content: '\f002';
+        }
+
+        &.user:before {
+            content: '\f007';
+        }
+
+        &.error-404:before {
+            content: '\f071';
+        }
+
+        .badge {
+            font-size: 0.81rem;
+        }
+    }
+
+    .term-desctiotion {
+        font-size: 0.81rem !important;
+    }
+}
+
+/* Single - Post - A part of page title progress bar */
+
+.single-post-title-bar {
+	background-color: #24292e;
+	color: #c8c9ca;
+    font-weight: 600;
+    display: none;
+    transform: translateY(-60px);
+    -webkit-transform: translateY(-60px);
+    transform-origin: top;
+    transition: .5s ease;
+
+    .container {
+        justify-content: flex-start;
+    }
+
+    @include media-breakpoint-down(md) {
+        .container {
+            padding: 0;
+        }
+    }
+
+    
+    &.slide-down {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+    
+	.logo-img {
+		height: 32px;
+	}
+
+	.navbar-brand {
+		padding: 0;
+	}
+
+	.navbar {
+        min-height: 60px;
+		padding: 10px !important;
+	}
+}
+
+/* Tags */
+
+.tags {
+    margin: 15px 0;
+    text-align: right;
+
+    a {
+        padding: 2px 5px;
+        margin: 5px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        color: #24292e;
+        border-radius: 3px;
+
+        &:hover {
+            background-image: linear-gradient(-180deg, #dddddd 0%, #ffffff 90%);
+        }
+
+        &:before {
+            font-family: 'Font Awesome 5 Free';
+            content: "\f02b";
+            font-size: 13px;
+            font-weight: 900;
+            padding-right: 5px;
+            color: #aaaaaa;
+        }
+    }
+}
+
+.modified-date {
+    margin: 40px !important;
+    text-align: center;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* Pagination */
+
+.pagination-container {
+    margin: 20px auto !important;
+}
+
+/* Read more fade out effect */
+
+.card-text-fade-out {
+    height: 180px;
+    max-height: 180px;
+    position: relative !important;
+    overflow: hidden;
+
+    .effect-layer { 
+        position: absolute;
+        content: ' ';
+        bottom: 0; 
+        left: 0;
+        width: 100%;
+        height: 80px;
+        overflow: hidden;
+        display: block;
+        text-align: center;
+        z-index: 2;
+        margin: 0; 
+        padding: 0 0 20px 0; 
+        background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, .5), rgba(255, 255, 255, .9), white);
+    }
+}
+
+/* Background image fit the center */
+
+.bg-cover {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
