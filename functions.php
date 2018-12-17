@@ -943,7 +943,7 @@ function githuber_comment_button( $show_label = false ) {
 	}
 
 	echo '
-		<a href="#comments" class="button-like-link">
+		<a href="' . esc_url( get_the_permalink() ) . '#comments" class="button-like-link">
 			<div class="btn-counter">
 				<div class="btn">
 					' . ( ( $show_label ) ? '<i class="fas fa-comment-dots"></i> ' . esc_html__( 'Comment', 'githuber' ) : '<i class="fas fa-comment-dots"></i>' ) . '

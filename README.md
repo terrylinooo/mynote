@@ -47,7 +47,10 @@ It is in under review currently: https://themes.trac.wordpress.org/ticket/62323
 `#1` CJK: Chinese, Japanese, Koreanese.
 `#2`, `#3` Featured image will be displayed as header cover.
 
-#### [Githuber MD plugin](https://github.com/terrylinooo/githuber-md)
+
+## Plugin
+
+### [Githuber MD](https://github.com/terrylinooo/githuber-md)
 
 Githuber MD is an all-in-one Markdown plugin.
 
@@ -55,6 +58,10 @@ To get additional features of Githuber theme below by install Githuber MD plugin
 - Bootstrap 4 navigation menu. (2-layer dropdown menu)
 - Widget: Table of Content.
 - Post type - Repository.
+
+![Screenshot](https://i.imgur.com/3O854Jm.png)
+
+If you're looking for a useful Markdown editor in WordPress, Githuber MD may be good for you. Please give it a try!
 
 ## License
 
