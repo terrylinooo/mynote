@@ -1,6 +1,6 @@
 # Githuber
 
-![Screenshot](./themes/githuber/assets/images/logo_githuber_banner.png)
+![Screenshot](./assets/images/logo_githuber_banner.png)
 
 Githuber is a github-style WordPress theme with preferred features for developers and programmers.
 
@@ -12,7 +12,7 @@ It is in under review currently: https://themes.trac.wordpress.org/ticket/62323
 - [Githuber demo](https://terryl.in/githuber/) 
 - [Proviscript](https://proviscript.sh/) 
 
-![Screenshot](./themes/githuber/screenshot.png)
+![Screenshot](./screenshot.png)
 
 ## Dependencies
 
@@ -45,14 +45,16 @@ It is in under review currently: https://themes.trac.wordpress.org/ticket/62323
 *Note:*
 
 `#1` CJK: Chinese, Japanese, Koreanese.
-
 `#2`, `#3` Featured image will be displayed as header cover.
 
-#### Githuber Enhanced Plugin
+#### [Githuber MD plugin](https://github.com/terrylinooo/githuber-md)
+
+Githuber MD is an all-in-one Markdown plugin.
+
+To get additional features of Githuber theme below by install Githuber MD plugin.
 - Bootstrap 4 navigation menu. (2-layer dropdown menu)
 - Widget: Table of Content.
 - Post type - Repository.
-
 
 ## License
 
