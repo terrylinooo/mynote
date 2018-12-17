@@ -54,14 +54,14 @@ It is in under review currently: https://themes.trac.wordpress.org/ticket/62323
 
 Githuber MD is an all-in-one Markdown plugin.
 
-To get additional features of Githuber theme below by install Githuber MD plugin.
+To get the additional features of Githuber theme below by install Githuber MD plugin.
 - Bootstrap 4 navigation menu. (2-layer dropdown menu)
 - Widget: Table of Content.
 - Post type - Repository.
 
 ![Screenshot](https://i.imgur.com/3O854Jm.png)
 
-If you're looking for a useful Markdown editor in WordPress, Githuber MD may be good for you. Please give it a try!
+If you're looking for an useful Markdown editor in WordPress, Githuber MD may be good for you. Please give it a try!
 
 ## License
 
