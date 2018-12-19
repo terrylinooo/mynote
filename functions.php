@@ -7,7 +7,7 @@
  *
  * @package WordPress
  * @subpackage Githuber
- * @since 1.0.0
+ * @since 1.0.0.0
  */
 
 if ( ! function_exists( 'githuber_setup_theme' ) ) {

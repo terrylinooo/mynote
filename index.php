@@ -3,12 +3,12 @@
  * The main template file
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package WordPress
  * @subpackage Githuber
- * @since 1.0
- * @version 1.0
+ * @since 1.0.0
+ * @version 1.0.7
  */
 $custom_header_image = '';
 if ( has_header_image() ) {

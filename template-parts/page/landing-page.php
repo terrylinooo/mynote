@@ -7,8 +7,8 @@
  *
  * @package WordPress
  * @subpackage Githuber
- * @since 1.0.7
- * @version 1.0.7
+ * @since 1.0.0.7
+ * @version 1.0.7.7
  */
 
 if ( is_active_sidebar( 'sidebar-5' ) ) {

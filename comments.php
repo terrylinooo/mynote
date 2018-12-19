@@ -6,12 +6,12 @@
  * and the comment form.
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package WordPress
  * @subpackage Githuber
- * @since 1.0
- * @version 1.0
+ * @since 1.0.0
+ * @version 1.0.7
  */
 
 /*

@@ -3,12 +3,12 @@
  * Template for displaying search forms in Githuber
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package WordPress
  * @subpackage Githuber
- * @since 1.0
- * @version 1.0
+ * @since 1.0.0
+ * @version 1.0.7
  */
 
 $unique_id = uniqid( 'search-form-' );

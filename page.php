@@ -3,12 +3,12 @@
  * Used in Search Results and for Recent Posts in Front Page panels.
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package WordPress
- * @subpackage DevNote
- * @since 1.0
- * @version 1.0
+ * @subpackage Githuber
+ * @since 1.0.0
+ * @version 1.0.7
  */
 
 get_header();
