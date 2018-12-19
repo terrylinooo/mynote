@@ -2,7 +2,7 @@
 Contributors: Terry Lin
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.0-trunk
-Version: 1.0.6
+Version: 1.0.7
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, threaded-comments
@@ -50,6 +50,12 @@ License: CC0 Creative Commons (Public Domain)
 Source: https://pixabay.com/en/board-chip-circuit-electric-158973/
 
 == Changelog ==
+
+= 1.0.7 =
+
+- Fix issue #1.
+- Fix typo.
+- Rename method name `githuber_setup` to `githuber_setup_theme`
 
 = 1.0.6 =
 
