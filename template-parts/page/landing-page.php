@@ -1,14 +1,14 @@
 <?php
 /**
- * Template Name: Homepage - simple
+ * Template Name: Landing page
  *
  * @author Terry Lin
- * @link https://terryl.in/githuber
+ * @link https://terryl.in/
  *
  * @package WordPress
  * @subpackage Githuber
- * @since 1.0
- * @version 1.0
+ * @since 1.0.7
+ * @version 1.0.7
  */
 
 if ( is_active_sidebar( 'sidebar-5' ) ) {
@@ -23,7 +23,7 @@ if ( has_post_thumbnail() ) {
 } else {
     $intro_style = '';
 }
-get_header(); ?>
+?>
 
 <div class="data-schema">
 	<main role="main">
@@ -57,9 +57,6 @@ get_header(); ?>
 					<?php while ( have_posts() ) : ?>
 					<?php the_post(); ?>
 					<article id="post-<?php the_ID(); ?>" <?php post_class( 'markdown-body' ); ?>>
-						<?php if ( has_post_thumbnail() ) : ?>
-							<?php githuber_post_figure(); ?>
-						<?php endif; ?>
 						<div itemprop="articleBody">
 							<?php the_content(); ?>
 							<?php
@@ -81,6 +78,18 @@ get_header(); ?>
 				</section>
 			</div><!-- .row -->
 		</div><!-- .container -->
+		<div class="container">
+			<section>
+                <?php
+                    $args = array( 'post_type' => 'post', 'posts_per_page' => 10 );
+                    $wp_query = new WP_Query( $args );
+                ?>
+				<?php get_template_part( 'loop' ); ?>
+				<?php get_template_part( 'pagination' ); ?>
+			</section>
+		</div>
 	</main>
-	<br class="clearfix" />
-<?php get_footer(); ?>
+
+    <br class="clearfix" />
+
+</div><!-- .data-schema -->
