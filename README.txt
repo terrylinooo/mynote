@@ -56,6 +56,10 @@ Source: https://pixabay.com/en/board-chip-circuit-electric-158973/
 - Fix issue #1.
 - Fix typo.
 - Rename method name `githuber_setup` to `githuber_setup_theme`
+- Add theme support: custom-background
+- Add theme support: custom-header
+- Add editor style.
+- Add language packs: zh_TW, zh-CN.
 
 = 1.0.6 =
 
