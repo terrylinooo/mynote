@@ -5,7 +5,7 @@
 Githuber is a github-style WordPress theme with preferred features for developers and programmers.
 
 This theme will be uploaded to WordPress theme dictionary and keep it update to date.
-It is in under review currently: https://themes.trac.wordpress.org/ticket/62323
+It is in under review currently: https://themes.trac.wordpress.org/query?keywords=~theme-githuber
 
 ## Online Demo
 - [Author's blog](https://terryl.in/) 
@@ -37,8 +37,8 @@ It is in under review currently: https://themes.trac.wordpress.org/ticket/62323
 - Page reading progress bar.
 - Search engine optimization.
 - Page templates:
-  - Homepage full (with post content) *(#2)*
-  - Homepage simple (without post content) *(#3)*
+  - Landing page (full) (with post content) *(#2)*
+  - Landing page (simple) (without post content) *(#3)*
 - SCSS supported - Easy to modify this theme for your needs.
 - WordPress Coding Standards - 99% passed by PHP_CodeSniffer ([WDCS](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards))
 
@@ -67,7 +67,7 @@ If you're looking for an useful Markdown editor in WordPress, Githuber MD may be
 
 GPLv3 (or later)
 
-Current verison: v1.0.5
+Current verison: v1.0.7
 
 Author: Terry L. [[EN](https://terryl.in/)|[ZH](https://terryl.in/zh/)]
 
