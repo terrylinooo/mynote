@@ -1,0 +1,374 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Githuber\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-14 09:08+0000\n"
+"PO-Revision-Date: 2018-11-18 04:17+0800\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"Last-Translator: Terry Lin <contact@terryl.in>\n"
+"Language: zh_TW\n"
+
+#: functions.php:1024
+#, php-format
+msgctxt "%1$s @ %2$s"
+msgid "%1$s @ %2$s"
+msgstr "%1$s @ %2$s"
+
+#: functions.php:1031
+#, php-format
+msgctxt "在 %s 以前編寫"
+msgid "written %s ago"
+msgstr "在 %s 以前編寫"
+
+#: search.php:24
+#, php-format
+msgctxt "%s 筆搜尋 %s 的結果"
+msgid "%s Search Results for %s"
+msgstr "%s 筆搜尋 %s 的結果"
+
+#: functions.php:564
+msgctxt "(編輯)"
+msgid "(Edit)"
+msgstr "(編輯)"
+
+#: functions.php:298
+msgctxt "加入顯示在您的底部的小工具。"
+msgid "Add widgets here to appear in your footer."
+msgstr "加入顯示在您的底部的小工具。"
+
+#: functions.php:328
+msgctxt "加入顯示在您的首頁介紹區塊的小工具。"
+msgid "Add widgets here to appear in your homepage intro section."
+msgstr "加入顯示在您的首頁介紹區塊的小工具。"
+
+#: functions.php:318
+msgctxt "加入顯示在您的首頁中段區塊的小工具。"
+msgid "Add widgets here to appear in your homepage middle section."
+msgstr "加入顯示在您的首頁中段區塊的小工具。"
+
+#: functions.php:288 functions.php:308
+msgctxt "加入顯示在您的文章及列表頁面側邊欄區塊的小工具。"
+msgid "Add widgets here to appear in your sidebar on blog posts and archive pages."
+msgstr "加入顯示在您的文章及列表頁面側邊欄區塊的小工具。"
+
+#: functions.php:1159
+msgctxt "版權所有"
+msgid "All rights reserved."
+msgstr "版權所有。"
+
+#: functions.php:605 functions.php:1061
+msgctxt "作者"
+msgid "Author"
+msgstr "作者"
+
+#: functions.php:949
+msgctxt "迴響"
+msgid "Comment"
+msgstr "迴響"
+
+#. %s: days
+#: functions.php:629
+#, php-format
+msgctxt "在 %s 之前迴響"
+msgid "commented %s ago"
+msgstr "在 %s 之前迴響"
+
+#: comments.php:44
+msgctxt "迴響"
+msgid "Comments"
+msgstr "迴響"
+
+#: comments.php:58
+msgctxt "迴響功能已經關閉"
+msgid "Comments are closed."
+msgstr "迴響功能已經關閉。"
+
+#: functions.php:1159
+msgctxt "版權"
+msgid "Copyright"
+msgstr "版權"
+
+#: functions.php:413
+msgctxt "目前頁面"
+msgid "Current Page"
+msgstr "目前頁面"
+
+#: functions.php:1002
+msgctxt "日期"
+msgid "Date"
+msgstr "日期"
+
+#: functions.php:910
+msgctxt "編輯"
+msgid "Edit"
+msgstr "編輯"
+
+#: functions.php:708
+msgctxt "電郵"
+msgid "Email"
+msgstr "電郵"
+
+#: functions.php:395
+msgctxt "第一"
+msgid "First"
+msgstr "第一"
+
+#: functions.php:394
+msgctxt "第一頁"
+msgid "First Page"
+msgstr "第一頁"
+
+#: functions.php:296
+msgctxt "底部"
+msgid "Footer"
+msgstr "底部"
+
+#: functions.php:200
+msgctxt "底部選單"
+msgid "Footer Menu"
+msgstr "底部選單"
+
+#. Name of the theme
+#: functions.php:1164
+msgid "Githuber"
+msgstr "Githuber"
+
+#. Description of the theme
+msgctxt "Githuber 是一款 github 設計風格， 根據開發人員和程式設計師偏好特色而生的 WordPress 版型。"
+msgid "Githuber is a github-style WordPress theme with preferred features for developers and programmers."
+msgstr "Githuber 是一款 github 設計風格， 根據開發人員和程式設計師偏好特色而生的 WordPress 版型。"
+
+#: functions.php:198
+msgctxt "頭部選單"
+msgid "Header Menu"
+msgstr "頭部選單"
+
+#: functions.php:124 functions.php:1202 header.php:34
+msgctxt "首頁"
+msgid "Home"
+msgstr "首頁"
+
+#. Name of the template
+msgctxt "首頁頁面 - 完整"
+msgid "Homepage - full"
+msgstr "首頁頁面 - 完整"
+
+#. Name of the template
+msgctxt "首頁頁面 - 簡易"
+msgid "Homepage - simple"
+msgstr "首頁頁面 - 簡易"
+
+#: functions.php:326
+msgctxt "首頁頁面介紹區塊"
+msgid "Homepage Intro"
+msgstr "首頁頁面介紹區塊"
+
+#: functions.php:316
+msgctxt "首頁頁面中部區塊"
+msgid "Homepage Middle"
+msgstr "首頁頁面中部區塊"
+
+#. URI of the theme
+msgid "https://github.com/terrylinooo/githuber"
+msgstr "https://github.com/terrylinooo/githuber"
+
+#. Author URI of the theme
+msgid "https://terryl.in"
+msgstr "https://terryl.in"
+
+#: searchform.php:20
+msgctxt "搜尋: "
+msgid "Search for:"
+msgstr "搜尋："
+
+#: functions.php:439
+msgctxt "最後"
+msgid "Last"
+msgstr "最後"
+
+#: page.php:63 single.php:65
+msgctxt "最後修改:"
+msgid "Last modified: "
+msgstr "最後修改: "
+
+#: functions.php:438
+msgctxt "最後一頁"
+msgid "Last Page"
+msgstr "最後一頁"
+
+#: header.php:31
+msgctxt "標誌"
+msgid "Logo"
+msgstr "標誌"
+
+#: functions.php:697
+msgctxt "名字"
+msgid "Name"
+msgstr "名字"
+
+#: comments.php:53 functions.php:431
+msgctxt "下一個"
+msgid "Next"
+msgstr "下一個"
+
+#: functions.php:430
+msgctxt "下一頁"
+msgid "Next Page"
+msgstr "下一頁"
+
+#: pagination.php:25
+msgctxt "下一頁"
+msgid "Next page"
+msgstr "下一頁"
+
+#: single.php:87
+msgctxt "下一篇文章"
+msgid "Next Post"
+msgstr "下一篇文章"
+
+#: functions.php:420 pagination.php:26
+msgctxt "頁面"
+msgid "Page"
+msgstr "頁面"
+
+#: functions.php:384
+msgctxt "頁面導覽列"
+msgid "Page navigation"
+msgstr "頁面導覽列"
+
+#: 404.php:20
+msgctxt "找不到網頁"
+msgid "Page not found"
+msgstr "找不到網頁"
+
+#: page.php:55 page_homepage_full.php:65 page_homepage_simple.php:68
+#: single.php:57
+msgctxt "頁面:"
+msgid "Pages:"
+msgstr "頁面:"
+
+#: functions.php:564
+msgctxt "自动引用通知:"
+msgid "Pingback:"
+msgstr "自动引用通知:"
+
+#: searchform.php:24
+msgctxt "搜尋 &hellip;"
+msgid "Search &hellip;"
+msgstr "搜尋 &hellip;"
+
+#: comments.php:52 functions.php:403
+msgctxt "前一個"
+msgid "Previous"
+msgstr "前一個"
+
+#: functions.php:402
+msgctxt "前一頁"
+msgid "Previous Page"
+msgstr "前一頁"
+
+#: pagination.php:24
+msgctxt "前一頁"
+msgid "Previous page"
+msgstr "前一頁"
+
+#: single.php:86
+msgctxt "前一篇文章"
+msgid "Previous Post"
+msgstr "前一篇文章"
+
+#: functions.php:966
+msgctxt "閱讀"
+msgid "Read"
+msgstr "閱讀"
+
+#: functions.php:481
+msgctxt "閱讀更多"
+msgid "read more"
+msgstr "閱讀更多"
+
+#: 404.php:30
+msgctxt "返回首頁?"
+msgid "Return home?"
+msgstr "返回首頁?"
+
+#: functions.php:671
+msgctxt "傳送"
+msgid "Send"
+msgstr "傳送"
+
+#: functions.php:286
+msgctxt "側邊欄"
+msgid "Sidebar"
+msgstr "側邊欄"
+
+#: functions.php:199
+msgctxt "側邊欄選單"
+msgid "Sidebar Menu"
+msgstr "側邊欄選單"
+
+#: loop.php:69 page.php:72 page_homepage_full.php:75
+#: page_homepage_simple.php:78 single.php:75
+msgctxt "抱歉，沒有可以顯示的東西。"
+msgid "Sorry, nothing to display."
+msgstr "抱歉，沒有可以顯示的東西。"
+
+#: functions.php:306
+msgctxt "可置頂側邊欄"
+msgid "Sticky Sidebar"
+msgstr "可置頂側邊欄"
+
+#: searchform.php:26
+msgctxt "搜尋"
+msgid "Search"
+msgstr "搜尋"
+
+#. Author of the theme
+msgctxt "Terry Lin"
+msgid "Terry Lin"
+msgstr "Terry Lin"
+
+#: 404.php:28
+msgctxt "您正觀看的網頁不存在或者已被移除。"
+msgid "The page you are looking for does not exist or it may have been moved."
+msgstr "您正觀看的網頁不存在或者已被移除。"
+
+#: functions.php:1164
+msgctxt "版型"
+msgid "Theme by"
+msgstr "版型"
+
+#: header.php:44
+msgctxt "搜尋，輸入文字，然後點下 enter 鍵"
+msgid "To search, type and hit enter."
+msgstr "搜尋，輸入文字，然後點下 enter 鍵。"
+
+#: header.php:48
+msgctxt "切換導覽"
+msgid "Toggle navigation"
+msgstr "切換導覽"
+
+#: functions.php:719
+msgctxt "網站"
+msgid "Website"
+msgstr "網站"
+
+#: functions.php:672
+msgctxt "編寫一則回應或者迴響"
+msgid "Write a Reply or Comment"
+msgstr "編寫一則回應或者迴響"
+
+#: functions.php:639
+msgctxt "您的迴響正在等待審核。"
+msgid "Your comment is awaiting moderation."
+msgstr "您的迴響正在等待審核。"
+
+#: functions.php:678
+msgctxt "您的電子郵件不會被顯示在頁面上。"
+msgid "Your email address will not be published."
+msgstr "您的電子郵件不會被顯示在頁面上。"
