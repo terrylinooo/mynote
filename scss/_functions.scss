@@ -1,4 +1,4 @@
-/* Base functions to get safe web font */
+// Base functions to get safe web font
 
 @function get-base-font($key: "en") {
 	@return map-get($font-family-base, $key);
@@ -12,7 +12,7 @@
 	@return map-get($font-family-heading, $key);
 }
 
-/* Metal */
+// Metal
 
 // Designer: Simurai 
 // Credit:   http://simurai.com 

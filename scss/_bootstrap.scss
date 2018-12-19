@@ -20,18 +20,18 @@
 //    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
 //    md
 
-/*
+// 
+// 
+// $grid-breakpoints: (
+// 	xs: 0,
+// 	mx: 360px,
+// 	sm: 576px,
+// 	md: 768px,
+// 	lg: 992px,
+// 	xl: 1200px
+// ) !default;
+// 
 
-$grid-breakpoints: (
-	xs: 0,
-	mx: 360px,
-	sm: 576px,
-	md: 768px,
-	lg: 992px,
-	xl: 1200px
-) !default;
-
-*/
 @function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
 		$n: index($breakpoint-names, $name);
 		@return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);

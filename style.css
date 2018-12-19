@@ -10,30 +10,9 @@
 	License: GNU General Public License v3 or later
     License URI: http://www.gnu.org/licenses/gpl-3.0.html
 	Text Domain: githuber
-
 */
-/* Font settings */
-/* Font settings - for Mandarin Chinese */
-/* Font settings - for Japenese */
-/* Font settings - for Korean */
-/* Home- Intro box */
-/* Header - Navbar */
-/* Table of Content */
-/* Brand Color */
 /* Base functions to get safe web font */
 /* Metal */
-/*
-
-$grid-breakpoints: (
-	xs: 0,
-	mx: 360px,
-	sm: 576px,
-	md: 768px,
-	lg: 992px,
-	xl: 1200px
-) !default;
-
-*/
 ::selection {
   background: #04A4CC;
   color: #FFF;
