@@ -10,12 +10,16 @@
  * @since 1.0
  * @version 1.0
  */
+$custom_header_image = '';
+if ( has_header_image() ) {
+	$custom_header_image = 'background-image: url(' . get_header_image() . ');';
+}
 
 get_header(); ?>
 
 <div class="data-schema">
 	<main role="main">
-		<div class="section-intro d-flex align-items-center">
+		<div class="section-intro d-flex align-items-center" style="<?php echo $custom_header_image; ?>">
 			<div class="container px-responsive">
 				<div class="d-md-flex align-items-center">
 					<div class="col-12 col-md-7 text-center text-md-left" style="min-height: 100%; overflow: hidden" >

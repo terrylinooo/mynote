@@ -10,9 +10,9 @@
  * @since 1.0.0
  */
 
-if ( ! function_exists( 'githuber_setup' ) ) {
+if ( ! function_exists( 'githuber_setup_theme' ) ) {
 
-	function githuber_setup() {
+	function githuber_setup_theme() {
 		// Add Menu Support.
 		add_theme_support( 'title-tag' );
 
@@ -33,10 +33,46 @@ if ( ! function_exists( 'githuber_setup' ) ) {
 
 		// Add excerpt to page.
 		add_post_type_support( 'page', 'excerpt' );
+
+		// Add custom background support.
+		$background_args = array(
+			'default-color'          => '',
+			'default-image'          => '',
+			'default-repeat'         => 'repeat',
+			'default-position-x'     => 'left',
+			'default-position-y'     => 'top',
+			'default-size'           => 'auto',
+			'default-attachment'     => 'scroll',
+			'wp-head-callback'       => '_custom_background_cb',
+			'admin-head-callback'    => '',
+			'admin-preview-callback' => ''
+		);
+		add_theme_support( 'custom-background', $background_args );
+
+		// Add theme support for Custom Header
+		$header_args = array(
+			'default-image'          => '',
+			'width'                  => 1920,
+			'height'                 => 640,
+			'flex-width'             => false,
+			'flex-height'            => false,
+			'uploads'                => true,
+			'random-default'         => false,
+			'header-text'            => true,
+			'default-text-color'     => 'ffffff',
+			'wp-head-callback'       => '',
+			'admin-head-callback'    => '',
+			'admin-preview-callback' => '',
+			'video'                  => false,
+			'video-active-callback'  => '',
+		);
+		add_theme_support( 'custom-header', $header_args );
 	}
+
+	add_editor_style( 'editor-style.css' );
 }
 
-add_action( 'after_setup_theme', 'githuber_setup' );
+add_action( 'after_setup_theme', 'githuber_setup_theme' );
 
 /**
  * Get article schemal.
@@ -68,6 +104,9 @@ function githuber_article_schemal( $schema = 'Article' ) {
  */
 function githuber_nav( $position = 'header' ) {
 	if ( 'header' === $position ) {
+
+		// This class will be loaded if an user installed Githuber MD plugin.
+		// https://github.com/terrylinooo/githuber-md
 		if ( class_exists('Githuber_Walker') ) {
 			wp_nav_menu(
 				array(
@@ -155,7 +194,7 @@ add_action( 'init', 'githuber_header_scripts' );
  * Add styles
  */
 function githuber_styles() {
-	wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css', array(), '4.1.o', 'all' );
+	wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css', array(), '4.1.0', 'all' );
 	wp_enqueue_style( 'bootstrap' );
 
 	wp_register_style( 'fontawesome', get_template_directory_uri() . '/assets/vendor/fontawesome/css/fontawesome-all.min.css', array(), '5.1.0', 'all' );
@@ -166,9 +205,6 @@ function githuber_styles() {
 
 	wp_register_style( 'githuber', get_template_directory_uri() . '/style.css', array(), '1.0', 'all' );
 	wp_enqueue_style( 'githuber' );
-
-	wp_register_style( 'markdown', get_template_directory_uri() . '/markdown-theme-github.css', array(), '1.0', 'all' );
-	wp_enqueue_style( 'markdown' );
 }
 
 add_action( 'wp_enqueue_scripts', 'githuber_styles' );
