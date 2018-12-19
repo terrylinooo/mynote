@@ -6,13 +6,11 @@
 	Version: 1.0.7
 	Author: Terry Lin
 	Author URI: https://terryl.in
-	Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, threaded-comments
+	Tags: two-columns, right-sidebar, custom-menu, custom-logo, custom-header, featured-images, footer-widgets, threaded-comments, translation-ready
 	License: GNU General Public License v3 or later
     License URI: http://www.gnu.org/licenses/gpl-3.0.html
 	Text Domain: githuber
 */
-/* Base functions to get safe web font */
-/* Metal */
 ::selection {
   background: #04A4CC;
   color: #FFF;
