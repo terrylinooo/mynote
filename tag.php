@@ -10,7 +10,7 @@
  * @since 1.0.0
  * @version 1.0.7.0
  */
-
+$cat_description = category_description();
 get_header();
 ?>
 
@@ -19,8 +19,8 @@ get_header();
 		<h1 id="post-title" class="tag" itemprop="headline">
 			<?php single_cat_title(); ?>
 		</h1>
-		<?php if ( ! empty( category_description() ) ) : ?>
-			<div class="term-desctiotion"><?php echo category_description(); ?></div>
+		<?php if ( ! empty( $cat_description ) ) : ?>
+			<div class="term-desctiotion"><?php echo $cat_description; ?></div>
 		<?php endif; ?>
 	</div>
 </div>
