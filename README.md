@@ -1,5 +1,9 @@
 # Githuber
 
+---
+Githuber theme is renamed to Mynote becasue of trademark issues. So please temporarily stop to download this theme, the new theme will be launched on WordPress Theme directory soon. README will be updated when it is done.
+---
+
 ![Screenshot](./assets/images/logo_githuber_banner.png)
 
 Githuber is a github-style WordPress theme with preferred features for developers and programmers.
