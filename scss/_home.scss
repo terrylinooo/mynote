@@ -15,9 +15,22 @@
     .desc-text {
         color: gray("500");
     }
-
 }
 
+.has-custom-header {
+    position: relative;
+    top: -60px;
+    .section-intro {
+        .desc-text {
+            color: gray("300");
+            padding: 15px 45px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-top-left-radius: 1.5em;
+            border-bottom-right-radius: 3em;
+            font-style: italic;
+        }
+    }
+}
 .article-list {
     color: #666666;
     min-height: 250px;

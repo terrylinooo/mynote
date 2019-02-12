@@ -1,12 +1,12 @@
 <?php
 /**
- * The footer for Githuber theme
+ * The footer for Mynote theme
  *
  * @author Terry Lin
  * @link https://terryl.in/
  *
  * @package WordPress
- * @subpackage Githuber
+ * @subpackage Mynote
  * @since 1.0.0
  * @version 1.0.7
  */
@@ -24,10 +24,10 @@
 				</section>
 				<?php endif; ?>
 
-				<?php githuber_nav( 'footer' ); ?>
+				<?php mynote_nav( 'footer' ); ?>
 
 				<div class="container site-info">
-					<?php githuber_site_info(); ?>
+					<?php mynote_site_info(); ?>
 				</div>
 			</footer>
 		</div><!-- .wrapper -->

@@ -3,6 +3,8 @@
 .header {
 	background-color: $header_navbar_bg;
 	color: #c8c9ca;
+	position: relative;
+	z-index: 2;
 
     .container {
         min-height: 60px;
@@ -58,7 +60,7 @@
             box-shadow: none;
 
             &:focus { 
-                background-color: #404448;
+                background-color: rgba(255,255,255,0.06);
                 color: #f1f1f1;
                 outline: none;
             }

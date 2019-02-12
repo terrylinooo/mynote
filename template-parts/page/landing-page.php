@@ -6,7 +6,7 @@
  * @link https://terryl.in/
  *
  * @package WordPress
- * @subpackage Githuber
+ * @subpackage Mynote
  * @since 1.0.0.7
  * @version 1.0.7.7
  */
@@ -62,7 +62,7 @@ if ( has_post_thumbnail() ) {
 							<?php
 								wp_link_pages(
 									array(
-										'before' => '<div class="page-links">' . __( 'Pages:', 'githuber' ),
+										'before' => '<div class="page-links">' . __( 'Pages:', 'mynote' ),
 										'after'  => '</div>',
 									)
 								);
@@ -72,7 +72,7 @@ if ( has_post_thumbnail() ) {
 					<?php endwhile; ?>
 				<?php else : ?>
 					<article>
-						<h1><?php esc_html_e( 'Sorry, nothing to display.', 'githuber' ); ?></h1>
+						<h1><?php esc_html_e( 'Sorry, nothing to display.', 'mynote' ); ?></h1>
 					</article>
 				<?php endif; ?>
 				</section>

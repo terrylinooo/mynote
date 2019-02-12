@@ -6,7 +6,7 @@
  * @link https://terryl.in/
  *
  * @package WordPress
- * @subpackage Githuber
+ * @subpackage Mynote
  * @since 1.0.0
  * @version 1.0.7.0
  */
@@ -17,7 +17,7 @@ get_header();
 <div class="category-header">
 	<div class="container">
 		<h1 id="post-title" class="error-404" itemprop="headline">
-			<?php esc_html_e( 'Page not found', 'githuber' ); ?>
+			<?php esc_html_e( 'Page not found', 'mynote' ); ?>
 		</h1>
 	</div>
 </div>
@@ -25,9 +25,9 @@ get_header();
 	<div class="container">
 		<article id="post-404">
 			<p>
-				<?php esc_html_e( 'The page you are looking for does not exist or it may have been moved.', 'githuber' ); ?>
+				<?php esc_html_e( 'The page you are looking for does not exist or it may have been moved.', 'mynote' ); ?>
 				<ul>
-					<li><a href="<?php echo esc_url( home_url() ); ?>"><?php esc_html_e( 'Return home?', 'githuber' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url() ); ?>"><?php esc_html_e( 'Return home?', 'mynote' ); ?></a></li>
 				</ul>
 			</p>
 		</article>

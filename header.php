@@ -1,12 +1,12 @@
 <?php
 /**
- * The header part of Githuber theme.
+ * The header part of Mynote theme.
  *
  * @author Terry Lin
  * @link https://terryl.in/
  *
  * @package WordPress
- * @subpackage Githuber
+ * @subpackage Mynote
  * @since 1.0.0
  * @version 1.0.7.0
  */
@@ -14,7 +14,7 @@
 $is_site_icon = false;
 $addon_body_class = '';
 
-if ( '' !== githuber_site_icon() ) {
+if ( '' !== mynote_site_icon() ) {
 	$is_site_icon = true;
 	$addon_body_class = 'has-site-icon';
 }
@@ -36,22 +36,22 @@ if ( '' !== githuber_site_icon() ) {
 				<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
 					<?php if ( $is_site_icon ) : ?>
 					<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>">
-						<img src="<?php echo githuber_site_icon(); ?>" alt="<?php esc_attr_e( 'Logo', 'githuber' ); ?>" class="logo-img">
+						<img src="<?php echo mynote_site_icon(); ?>" alt="<?php esc_attr_e( 'Logo', 'mynote' ); ?>" class="logo-img">
 					</a>
 					<?php endif; ?>
 
 					<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-						<?php githuber_nav(); ?>
+						<?php mynote_nav(); ?>
 					<?php else : ?>
-						<?php githuber_default_nav(); ?>
+						<?php mynote_default_nav(); ?>
 					<?php endif; ?>
 					<div class="search-bar">
 						<form id="search-form" class="search" method="get" action="<?php echo esc_url( home_url() ); ?>" role="search" autocomplete="off">
-							<input type="text" name="s" class="search-input" placeholder="<?php esc_attr_e( 'To search, type and hit enter.', 'githuber' ); ?>">
+							<input type="text" name="s" class="search-input" placeholder="<?php esc_attr_e( 'To search, type and hit enter.', 'mynote' ); ?>">
 							<span class="search-icon" onclick="document.getElementById('search-form').submit();"><i class="fas fa-search"></i></span>
 						</form>
 					</div><!-- .search-bar -->
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#githuber-nav-bar" aria-controls="githuber-nav-bar" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'githuber' ); ?>">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynote-nav-bar" aria-controls="mynote-nav-bar" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'mynote' ); ?>">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 				</nav>

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Githuber\n"
+"Project-Id-Version: Mynote\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-14 09:08+0000\n"
 "PO-Revision-Date: 2018-11-18 04:13+0800\n"
@@ -135,13 +135,13 @@ msgstr "底部选单"
 
 #. Name of the theme
 #: functions.php:1164
-msgid "Githuber"
-msgstr "Githuber"
+msgid "Mynote"
+msgstr "Mynote"
 
 #. Description of the theme
-msgctxt "Githuber 是一款 github 設計風格， 根據開發者和編程員偏好特色而生的 WordPress 模版。"
-msgid "Githuber is a github-style WordPress theme with preferred features for developers and programmers."
-msgstr "Githuber 是一款 github 設計風格， 根據開發者和編程員偏好特色而生的 WordPress 模版。"
+msgctxt "Mynote 是一款 github 設計風格， 根據開發者和編程員偏好特色而生的 WordPress 模版。"
+msgid "Mynote is a github-style WordPress theme with preferred features for developers and programmers."
+msgstr "Mynote 是一款 github 設計風格， 根據開發者和編程員偏好特色而生的 WordPress 模版。"
 
 #: functions.php:198
 msgctxt "頭部選單"
@@ -174,8 +174,8 @@ msgid "Homepage Middle"
 msgstr "首页页面中部区块"
 
 #. URI of the theme
-msgid "https://github.com/terrylinooo/githuber"
-msgstr "https://github.com/terrylinooo/githuber"
+msgid "https://github.com/terrylinooo/mynote"
+msgstr "https://github.com/terrylinooo/mynote"
 
 #. Author URI of the theme
 msgid "https://terryl.in"

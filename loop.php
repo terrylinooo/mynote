@@ -1,12 +1,12 @@
 <?php
 /**
- * The Loop section of Githuber theme.
+ * The Loop section of Mynote theme.
  *
  * @author Terry Lin
  * @link https://terryl.in/
  *
  * @package WordPress
- * @subpackage Githuber
+ * @subpackage Mynote
  * @since 1.0.0
  * @version 1.0.7.0
  */
@@ -24,34 +24,34 @@
 			<article id="post-<?php the_ID(); ?>" class="article-list">
 				<div class="card my-2">
 					<?php if ( has_post_thumbnail() ) : ?>
-						<?php githuber_post_thumbnail(); ?>
+						<?php mynote_post_thumbnail(); ?>
 					<?php endif; ?>
 
 					<div class="card-body">
-						<?php if ( githuber_is_text_fade_out() ) : ?>
+						<?php if ( mynote_is_text_fade_out() ) : ?>
 
 						<div class="card-text-fade-out">
 							<h5 class="card-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
-							<p class="card-text"><?php githuber_excerpt(); ?></p>
+							<p class="card-text"><?php mynote_excerpt(); ?></p>
 							<div class="effect-layer"></div>
 						</div>
 
 						<?php else : ?>
 
 						<h5 class="card-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
-						<p class="card-text"><?php githuber_excerpt(); ?></p>
+						<p class="card-text"><?php mynote_excerpt(); ?></p>
 
 						<?php endif; ?>
 
 						<div class="card-body-footer">
-							<?php // githuber_posted_date_button(); Uncomment this line if needed. ?>
-							<?php githuber_comment_button(); ?>
-							<?php githuber_read_button(); ?>
-							<?php githuber_edit_button(); ?>
+							<?php // mynote_posted_date_button(); Uncomment this line if needed. ?>
+							<?php mynote_comment_button(); ?>
+							<?php mynote_read_button(); ?>
+							<?php mynote_edit_button(); ?>
 						</div>
 					</div>
 					<div class="card-footer text-muted text-center">
-						<?php githuber_author_posted_date(); ?>
+						<?php mynote_author_posted_date(); ?>
 					</div>
 				</div>
 			</article>
@@ -65,7 +65,7 @@
 
 	<article>
 
-		<h2><?php esc_html_e( 'Sorry, nothing to display.', 'githuber' ); ?></h2>
+		<h2><?php esc_html_e( 'Sorry, nothing to display.', 'mynote' ); ?></h2>
 
 	</article>
 

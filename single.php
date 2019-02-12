@@ -1,12 +1,12 @@
 <?php
 /**
- * The Single page of Githuber theme.
+ * The Single page of Mynote theme.
  *
  * @author Terry Lin
  * @link https://terryl.in/
  *
  * @package WordPress
- * @subpackage Githuber
+ * @subpackage Mynote
  * @since 1.0.0
  * @version 1.0.7.0
  */
@@ -14,24 +14,24 @@
 get_header();
 ?>
 
-<?php githuber_title_progress_bar(); ?>
+<?php mynote_title_progress_bar(); ?>
 
-<div class="data-schema" itemscope itemtype="<?php githuber_article_schemal( 'tech' ); ?>">
+<div class="data-schema" itemscope itemtype="<?php mynote_article_schemal( 'tech' ); ?>">
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>
-			<?php githuber_post_breadcrumb(); ?>
+			<?php mynote_post_breadcrumb(); ?>
 
 			<div class="single-post-header">
 				<div class="container">
 					<h1 id="post-title" itemprop="headline"><?php the_title(); ?></h1>
-					<div class="post-githuber-buttons">
-						<?php githuber_column_control_button(); ?>
-						<?php githuber_edit_button(); ?>
-						<?php githuber_comment_button(); ?>
-					</div><!-- .post-githuber-buttons -->
+					<div class="post-mynote-buttons">
+						<?php mynote_column_control_button(); ?>
+						<?php mynote_edit_button(); ?>
+						<?php mynote_comment_button(); ?>
+					</div><!-- .post-mynote-buttons -->
 					<div class="post-meta">
-						<?php githuber_author_posted_date( true ); ?>
+						<?php mynote_author_posted_date( true ); ?>
 					</div>
 				</div><!-- .container -->
 			</div><!-- .single-post-header -->
@@ -47,14 +47,14 @@ get_header();
 				<?php the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class( 'markdown-body' ); ?>>
 					<?php if ( has_post_thumbnail() ) : ?>
-						<?php githuber_post_figure(); ?>
+						<?php mynote_post_figure(); ?>
 					<?php endif; ?>
 					<div itemprop="articleBody">
 						<?php the_content(); ?>
 						<?php
 							wp_link_pages(
 								array(
-									'before' => '<div class="page-links">' . __( 'Pages:', 'githuber' ),
+									'before' => '<div class="page-links">' . __( 'Pages:', 'mynote' ),
 									'after'  => '</div>',
 								)
 							);
@@ -62,17 +62,17 @@ get_header();
 					</div>
 				</article>
 				<section class="modified-date" itemprop="dateModified" content="<?php the_modified_date( 'c' ); ?>">
-					<?php esc_html_e( 'Last modified: ', 'githuber' ); ?><?php the_modified_date(); ?>
+					<?php esc_html_e( 'Last modified: ', 'mynote' ); ?><?php the_modified_date(); ?>
 				</section>
 				<section class="tags">
 					<?php the_tags( '', '' ); ?>
 				</section>
-				<?php githuber_author_card(); ?>
+				<?php mynote_author_card(); ?>
 				<?php comments_template(); ?>
 				<?php endwhile; ?>
 			<?php else : ?>
 				<article>
-					<h1><?php esc_html_e( 'Sorry, nothing to display.', 'githuber' ); ?></h1>
+					<h1><?php esc_html_e( 'Sorry, nothing to display.', 'mynote' ); ?></h1>
 				</article>
 			<?php endif; ?>
 			</main>
@@ -83,8 +83,8 @@ get_header();
 		<?php
 			the_post_navigation(
 				array(
-					'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous Post', 'githuber' ) . '</span> %title',
-					'next_text' => '<i class="fas fa-angle-right"></i> <span class="screen-reader-text">' . __( 'Next Post', 'githuber' ) . '</span> %title',
+					'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous Post', 'mynote' ) . '</span> %title',
+					'next_text' => '<i class="fas fa-angle-right"></i> <span class="screen-reader-text">' . __( 'Next Post', 'mynote' ) . '</span> %title',
 				)
 			);
 		?>

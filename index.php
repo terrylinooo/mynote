@@ -6,25 +6,27 @@
  * @link https://terryl.in/
  *
  * @package WordPress
- * @subpackage Githuber
+ * @subpackage Mynote
  * @since 1.0.0
  * @version 1.0.7
  */
 $custom_header_image = '';
+$custom_header_css = '';
 if ( has_header_image() ) {
 	$custom_header_image = 'background-image: url(' . get_header_image() . ');';
+	$custom_header_css = 'has-custom-header';
 }
 
 get_header(); ?>
 
 <div class="data-schema">
-	<main role="main">
+	<main role="main" class="<?php echo $custom_header_css; ?>">
 		<div class="section-intro d-flex align-items-center" style="<?php echo $custom_header_image; ?>">
 			<div class="container px-responsive">
 				<div class="d-md-flex align-items-center">
 					<div class="col-12 col-md-7 text-center text-md-left" style="min-height: 100%; overflow: hidden" >
 						<h1 class="mb-3"><?php echo get_bloginfo( 'name' ); ?></h1>
-						<p class="mb4 desc-text"><?php echo html_entity_decode( get_bloginfo( 'description' ) ); ?></p>
+						<p class="mb4 desc-text" id="header-desc-text"><?php echo html_entity_decode( get_bloginfo( 'description' ) ); ?></p>
 					</div>
 					<div class="col-12 col-md-5">
 						<?php if ( is_active_sidebar( 'sidebar-5' ) ) : ?>
@@ -36,7 +38,7 @@ get_header(); ?>
 							</div>
 						</aside>
 						<?php else : ?>
-						<p class="p-5"><?php githuber_category_labels(); ?></p>
+						<p class="p-5"><?php mynote_category_labels(); ?></p>
 						<?php endif; ?>
 					</div>
 				</div>

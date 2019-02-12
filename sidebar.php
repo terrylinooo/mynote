@@ -1,12 +1,12 @@
 <?php
 /**
- * The sidebar part of Githuber theme.
+ * The sidebar part of Mynote theme.
  *
  * @author Terry Lin
  * @link https://terryl.in/
  *
  * @package WordPress
- * @subpackage Githuber
+ * @subpackage Mynote
  * @since 1.0.0
  * @version 1.0.7.0
  */

@@ -1,12 +1,12 @@
 <?php
 /**
- * The Category page of Githuber theme.
+ * The Category page of Mynote theme.
  *
  * @author Terry Lin
  * @link https://terryl.in/
  *
  * @package WordPress
- * @subpackage Githuber
+ * @subpackage Mynote
  * @since 1.0.0
  * @version 1.0.7.0
  */

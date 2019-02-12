@@ -9,7 +9,7 @@
  * @link https://terryl.in/
  *
  * @package WordPress
- * @subpackage Githuber
+ * @subpackage Mynote
  * @since 1.0.0
  * @version 1.0.7
  */
@@ -41,21 +41,21 @@ if ( ! comments_open() && 0 === (int) get_comments_number() ) {
 ?>
 
 <div id="comments" class="discussion-wrapper">
-	<h3 class="section-title"><?php esc_html_e( 'Comments', 'githuber' ); ?></h3>
+	<h3 class="section-title"><?php esc_html_e( 'Comments', 'mynote' ); ?></h3>
 	<div class="discussion-timeline">
 		<?php if ( have_comments() ) : ?>
-			<?php wp_list_comments( 'type=comment&callback=githuber_comment' ); ?>
+			<?php wp_list_comments( 'type=comment&callback=mynote_comment' ); ?>
 		<?php endif; ?>
 		<?php
 			the_comments_pagination(
 				array(
-					'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous', 'githuber' ) . '</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'githuber' ) . '</span> <i class="fas fa-angle-right"></i>',
+					'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous', 'mynote' ) . '</span>',
+					'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'mynote' ) . '</span> <i class="fas fa-angle-right"></i>',
 				)
 			);
 		?>
 		<?php if ( ! comments_open() && get_comments_number() ) : ?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'githuber' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'mynote' ); ?></p>
 		<?php endif; ?>
 		<?php comment_form(); ?>
 	</div>

@@ -1,15 +1,15 @@
-# Githuber
+# Mynote
 
-![Screenshot](./assets/images/logo_githuber_banner.png)
+![Screenshot](./assets/images/logo_mynote_banner.png)
 
-Githuber is a github-style WordPress theme with preferred features for developers and programmers.
+Mynote is a github-style WordPress theme with preferred features for developers and programmers.
 
 This theme will be uploaded to WordPress theme dictionary and keep it update to date.
-It is in under review currently: https://themes.trac.wordpress.org/query?keywords=~theme-githuber
+It is in under review currently: https://themes.trac.wordpress.org/query?keywords=~theme-mynote
 
 ## Online Demo
 - [Author's blog](https://terryl.in/) 
-- [Githuber demo](https://terryl.in/githuber/) 
+- [Mynote demo](https://terryl.in/mynote/) 
 - [Proviscript](https://proviscript.sh/) 
 
 ![Screenshot](./screenshot.png)
@@ -50,18 +50,18 @@ It is in under review currently: https://themes.trac.wordpress.org/query?keyword
 
 ## Plugin
 
-### [Githuber MD](https://github.com/terrylinooo/githuber-md)
+### [Mynote MD](https://github.com/terrylinooo/mynote-md)
 
-Githuber MD is an all-in-one Markdown plugin.
+Mynote MD is an all-in-one Markdown plugin.
 
-To get the additional features of Githuber theme below by install Githuber MD plugin.
+To get the additional features of Mynote theme below by install Mynote MD plugin.
 - Bootstrap 4 navigation menu. (2-layer dropdown menu)
 - Widget: Table of Content.
 - Post type - Repository.
 
 ![Screenshot](https://i.imgur.com/3O854Jm.png)
 
-If you're looking for an useful Markdown editor in WordPress, Githuber MD may be good for you. Please give it a try!
+If you're looking for an useful Markdown editor in WordPress, Mynote MD may be good for you. Please give it a try!
 
 ## License
 

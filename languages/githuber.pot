@@ -1,7 +1,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Githuber\n"
+"Project-Id-Version: Mynote\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-14 09:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -115,12 +115,12 @@ msgstr ""
 
 #. Name of the theme
 #: functions.php:1164
-msgid "Githuber"
+msgid "Mynote"
 msgstr ""
 
 #. Description of the theme
 msgid ""
-"Githuber is a github-style WordPress theme with preferred features for "
+"Mynote is a github-style WordPress theme with preferred features for "
 "developers and programmers."
 msgstr ""
 
@@ -149,7 +149,7 @@ msgid "Homepage Middle"
 msgstr ""
 
 #. URI of the theme
-msgid "https://github.com/terrylinooo/githuber"
+msgid "https://github.com/terrylinooo/mynote"
 msgstr ""
 
 #. Author URI of the theme

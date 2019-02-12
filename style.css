@@ -1,15 +1,15 @@
 @charset "UTF-8";
 /*
-	Theme Name: Githuber
-	Theme URI: https://github.com/terrylinooo/githuber
-	Description: Githuber is a github-style WordPress theme with preferred features for developers and programmers.
+	Theme Name: Mynote
+	Theme URI: https://github.com/terrylinooo/mynote
+	Description: Mynote is a github-style WordPress theme with preferred features for developers and programmers.
 	Version: 1.0.7
 	Author: Terry Lin
 	Author URI: https://terryl.in
 	Tags: two-columns, right-sidebar, custom-menu, custom-logo, custom-header, featured-images, footer-widgets, threaded-comments, translation-ready
 	License: GNU General Public License v3 or later
     License URI: http://www.gnu.org/licenses/gpl-3.0.html
-	Text Domain: githuber
+	Text Domain: mynote
 */
 ::selection {
   background: #04A4CC;
@@ -44,7 +44,7 @@
   line-height: 1.125;
   word-wrap: break-word;
 }
-.single-post-header .post-githuber-buttons {
+.single-post-header .post-mynote-buttons {
   float: right;
   margin-top: 5px;
 }
@@ -256,6 +256,19 @@ article figcaption {
   color: #adb5bd;
 }
 
+.has-custom-header {
+  position: relative;
+  top: -60px;
+}
+.has-custom-header .section-intro .desc-text {
+  color: #dee2e6;
+  padding: 15px 45px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 1.5em;
+  border-bottom-right-radius: 3em;
+  font-style: italic;
+}
+
 .article-list {
   color: #666666;
   min-height: 250px;
@@ -272,8 +285,10 @@ article figcaption {
 }
 
 .header {
-  background-color: #24292e;
+  background-color: rgba(20, 25, 29, 0.95);
   color: #c8c9ca;
+  position: relative;
+  z-index: 2;
   /* Default wordpress menu */
 }
 .header .container {
@@ -321,7 +336,7 @@ article figcaption {
   box-shadow: none;
 }
 .header .search-bar .search-input:focus {
-  background-color: #404448;
+  background-color: rgba(255, 255, 255, 0.06);
   color: #f1f1f1;
   outline: none;
 }
@@ -822,22 +837,22 @@ article figcaption {
   border-bottom-right-radius: 0.25em;
 }
 
-.post-githuber-buttons {
+.post-mynote-buttons {
   overflow: hidden;
   font-size: 0;
   display: flex;
 }
-.post-githuber-buttons a, .post-githuber-buttons a:hover {
+.post-mynote-buttons a, .post-mynote-buttons a:hover {
   text-decoration: none !important;
 }
-.post-githuber-buttons > div, .post-githuber-buttons > a {
+.post-mynote-buttons > div, .post-mynote-buttons > a {
   margin-left: 5px !important;
 }
-.post-githuber-buttons .github-button-container {
+.post-mynote-buttons .github-button-container {
   display: inline-block;
   margin-left: 5px;
 }
-.post-githuber-buttons .github-button-container a {
+.post-mynote-buttons .github-button-container a {
   display: none;
 }
 
@@ -1029,7 +1044,10 @@ a.btn-info {
   color: #ffffff;
 }
 
-progress {
+.progress-wrapper {
+  position: relative;
+}
+.progress-wrapper progress {
   appearance: none;
   position: absolute;
   width: 100%;
@@ -1037,17 +1055,24 @@ progress {
   background-color: rgba(214, 168, 168, 0.1);
   border: none;
 }
-progress::-moz-progress-bar {
-  background-color: dodgerblue;
-}
-progress::-webkit-progress-bar {
+.progress-wrapper progress::-moz-progress-bar {
   background-color: rgba(214, 168, 168, 0.1);
 }
-progress::-webkit-progress-value {
+.progress-wrapper progress::-webkit-progress-bar {
+  background-color: rgba(214, 168, 168, 0.1);
+}
+.progress-wrapper progress::-webkit-progress-value {
   background-color: dodgerblue;
 }
-progress::-ms-fill {
+.progress-wrapper progress::-ms-fill {
   background-color: dodgerblue;
+}
+.progress-wrapper .progress-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 #progress-title {
@@ -1062,18 +1087,6 @@ progress::-ms-fill {
 
 .has-site-icon #progress-title {
   width: calc(100% - 50px);
-}
-
-.progress-wrapper {
-  position: relative;
-}
-
-.progress-label {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
 }
 
 nav[data-toggle='toc'] .nav > li > a {

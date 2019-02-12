@@ -1,12 +1,12 @@
 <?php
 /**
- * The Search page of Githuber theme.
+ * The Search page of Mynote theme.
  *
  * @author Terry Lin
  * @link https://terryl.in/
  *
  * @package WordPress
- * @subpackage Githuber
+ * @subpackage Mynote
  * @since 1.0.0
  * @version 1.0.7.0
  */
@@ -21,7 +21,7 @@ get_header();
 			<?php echo get_search_query(); ?>
 			<span class="badge badge-secondary"><?php echo $wp_query->found_posts; ?></span>	
 		</h1>
-		<div class="term-desctiotion"><?php echo sprintf( __( '%s Search Results for %s', 'githuber' ), $wp_query->found_posts, get_search_query() ); ?></div>
+		<div class="term-desctiotion"><?php echo sprintf( __( '%s Search Results for %s', 'mynote' ), $wp_query->found_posts, get_search_query() ); ?></div>
 	</div>
 </div>
 <main role="main">
