@@ -2,7 +2,7 @@
 
 ![Screenshot](./assets/images/logo_mynote_banner.png)
 
-Mynote is a github-style WordPress theme with preferred features for developers and programmers.
+Mynote is a WordPress theme with preferred features for developers and programmers.
 
 This theme will be uploaded to WordPress theme dictionary and keep it update to date.
 It is in under review currently: https://themes.trac.wordpress.org/query?keywords=~theme-mynote
