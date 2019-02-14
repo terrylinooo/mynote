@@ -1,6 +1,13 @@
 <?php
 /**
- * Main Customizer File
+ * Main Customizer in Mynote theme.
+ *
+ * @author Terry Lin
+ * @link https://terryl.in/
+ *
+ * @package WordPress
+ * @subpackage Mynote
+ * @since 1.0.7
  */
 
 add_action( 'customize_register', 'mynote_customize_register' );
@@ -48,11 +55,6 @@ function mynote_customize_register( $wp_customize ) {
 		'priority'    => 10,
 	));
 
-	$wp_customize->add_panel( 'panel_mynote_social_icon_links', array(
-		'title'       => __( 'Mynote: Social Icon Links', 'mynote' ),
-		'priority'    => 10,
-	));
-
 	$wp_customize->add_panel( 'panel_mynote_progress_bar', array(
 		'title'       => __( 'Mynote: Progress Bar', 'mynote' ),
 		'priority'    => 10,
@@ -82,26 +84,6 @@ function mynote_customize_register( $wp_customize ) {
 			'priority'   => 20,
 			'capability' => 'edit_theme_options',
 			'panel'      => 'panel_mynote_navbar',
-		)
-	);
-
-	$wp_customize->add_section( 'section_social_links_links', 
-		array(
-			'title'      => __( 'Links', 'mynote' ),
-			'description' => __( 'Display small graphics linked to your social media accounts. This feature supports over 40 social networks.', 'mynote' ),
-			'priority'   => 20,
-			'capability' => 'edit_theme_options',
-			'panel'      => 'panel_mynote_social_icon_links',
-		)
-	);
-
-	$wp_customize->add_section( 'section_social_links_locations', 
-		array(
-			'title'      => __( 'locations', 'mynote' ),
-			'description' => __( 'Display social icon links on multiple locations if you what.', 'mynote' ),
-			'priority'   => 20,
-			'capability' => 'edit_theme_options',
-			'panel'      => 'panel_mynote_social_icon_links',
 		)
 	);
 
@@ -135,15 +117,6 @@ function mynote_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'navbar_is_display_search_bar', array( 'default' => 'yes' ) );
 	$wp_customize->add_setting( 'navbar_searchbar_placeholder_color', $default_searchbar_placeholder_color );
-
-	for ( $i = 1; $i <= 5; $i++ ) {
-		$wp_customize->add_setting( 'social_link_url_' . $i, 
-			array(
-				'default'           => '',
-				'sanitize_callback' => 'sanitize_text_field',
-			) 
-		);
-	}
 
 	$wp_customize->add_control(
 		new Customize_Alpha_Color_Control( $wp_customize, 'home_menu_bg_color_control', 
@@ -235,58 +208,6 @@ function mynote_customize_register( $wp_customize ) {
 				'settings' => 'navbar_searchbar_placeholder_color',
 			)
 		) 
-	);
-
-	for ( $i = 1; $i <= 5; $i++ ) {
-		$wp_customize->add_control(
-			new WP_Customize_Control( $wp_customize, 'social_link_url_' . $i,
-				array(
-					'label'    => __( 'Link', 'mynote' ) . ' (' . $i . ')',
-					'type' => 'text',
-					'section'  => 'section_social_links_links',
-				)
-			)
-		);
-	}
-
-	$wp_customize->add_setting('social_link_location_footer', array( 'default' => true ) );
-	$wp_customize->add_setting('social_link_location_author', array( 'default' => false ) );
-	$wp_customize->add_setting('social_link_location_navbar', array( 'default' => false ) );
-	
-	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'social_link_location_footer',
-			array(
-				'label'     => __( 'Location: Footer', 'mynote' ),
-				'section'   => 'section_social_links_locations',
-				'settings'  => 'social_link_location_footer',
-				'description' => __( 'Display social links on the page footer.', 'mynote' ),
-				'type'      => 'checkbox',
-			)
-		)
-	);
-
-	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'social_link_location_author',
-			array(
-				'label'     => __( 'Location: Author', 'mynote' ),
-				'section'   => 'section_social_links_locations',
-				'settings'  => 'social_link_location_author',
-				'description' => __( 'Display social links on the author area. This option is preferred for personal blog.', 'mynote' ),
-				'type'      => 'checkbox',
-			)
-		)
-	);
-
-	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'social_link_location_navbar',
-			array(
-				'label'     => __( 'Location: Navbar', 'mynote' ),
-				'section'   => 'section_social_links_locations',
-				'settings'  => 'social_link_location_navbar',
-				'description' => __( 'Display social links on the navbar.', 'mynote' ),
-				'type'      => 'checkbox',
-			)
-		)
 	);
 
 	$wp_customize->add_setting( 'progressbar_is_display_bar', array( 'default' => 'yes' ) );

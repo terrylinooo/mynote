@@ -7,7 +7,7 @@
  *
  * @package WordPress
  * @subpackage Mynote
- * @since 1.0.0
+ * @since 1.0.7
  */
 
 function mynote_customize_css() {

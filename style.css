@@ -451,6 +451,18 @@ article figcaption {
 .footer .footer-nav ul.footer-menu a {
   color: #333333;
 }
+.footer .footer-nav ul.social-icon-links {
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  list-style-type: none;
+}
+.footer .footer-nav ul.social-icon-links li {
+  margin: 5px 15px;
+}
+.footer .footer-nav ul.social-icon-links a {
+  color: #333333;
+}
 
 .home .footer {
   border-top: 0;

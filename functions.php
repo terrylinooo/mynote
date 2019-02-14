@@ -1,13 +1,13 @@
 <?php
 /**
- * Mynote theme functions and definitions
+ * Basic initialization for Mynote theme
  *
  * @author Terry Lin
  * @link https://terryl.in/
  *
  * @package WordPress
  * @subpackage Mynote
- * @since 1.0.0.0
+ * @since 1.0.7
  */
 
 if ( ! function_exists( 'mynote_setup_theme' ) ) {
@@ -23,7 +23,9 @@ if ( ! function_exists( 'mynote_setup_theme' ) ) {
 		add_theme_support( 'automatic-feed-links' );
 
 		// Move admin bar to page bottom, because that while reading posts, there is a page reading progress bar on page top.
-		add_theme_support( 'admin-bar', array( 'callback' => 'githuner_admin_bar' ) );
+		if ( 'no' !== get_theme_mod( 'progressbar_is_display_bar' ) ) {
+			add_theme_support( 'admin-bar', array( 'callback' => 'mynote_admin_bar' ) );
+		}
 
 		// Custom Thumbnail Size call using the_post_thumbnail( '360x240' ); .
 		add_image_size( '360x240', 360, 240, true );
@@ -129,7 +131,8 @@ function mynote_register_mynote_menu() {
 		array(
 			'header-menu'  => __( 'Header Menu', 'mynote' ),
 			'sidebar-menu' => __( 'Sidebar Menu', 'mynote' ),
-			'footer-menu' => __( 'Footer Menu', 'mynote' ),
+			'footer-menu'  => __( 'Footer Menu', 'mynote' ),
+			'social'       => __( 'Social Links Menu', 'mynote' ),
 		)
 	);
 }
@@ -210,6 +213,11 @@ if ( function_exists( 'is_customize_preview' ) && is_customize_preview() ) {
  * Implement the Custom Header feature.
  */
 require get_parent_theme_file_path( '/inc/customize-css.php' );
+
+/**
+ * Custom Walker_Nav_Menu for Mynote theme.
+ */
+require get_parent_theme_file_path( '/inc/classes/class-mynote-walker.php' );
 
 /**
  * Custom template tags for this theme.

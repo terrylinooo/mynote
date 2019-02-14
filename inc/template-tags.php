@@ -1,28 +1,14 @@
 <?php
-
-
 /**
- * Get article schemal.
+ * Custom template tags for Mynote theme.
  *
- * @param string $schema Article type.
- * @return void
+ * @author Terry Lin
+ * @link https://terryl.in/
+ *
+ * @package WordPress
+ * @subpackage Mynote
+ * @since 1.0.7
  */
-function mynote_article_schemal( $schema = 'Article' ) {
-	switch ( $schema ) {
-		case 'tech':
-			$schema = 'TechArticle';
-			break;
-		case 'news':
-			$schema = 'NewsArticle';
-			break;
-		case 'scholarly':
-			$schema = 'ScholarlyArticles';
-			break;
-		default:
-			$schema = 'Article';
-	}
-	echo 'http://schema.org/' . $schema;
-}
 
 /**
  * Mynote navigation.
@@ -32,9 +18,7 @@ function mynote_article_schemal( $schema = 'Article' ) {
 function mynote_nav( $position = 'header' ) {
 	if ( 'header' === $position ) {
 
-		// This class will be loaded if an user installed Mynote MD plugin.
-		// https://github.com/terrylinooo/mynote-md
-		if ( class_exists( 'Githuber_Walker' ) ) {
+		if ( class_exists( 'Mynote_Walker' ) ) {
 			wp_nav_menu(
 				array(
 					'theme_location'  => 'header-menu',
@@ -44,8 +28,8 @@ function mynote_nav( $position = 'header' ) {
 					'menu_class'      => 'navbar-nav mr-auto',
 					'menu_id'         => false,
 					'depth'           => 2,
-					'fallback_cb'     => 'Githuber_Walker::fallback',
-					'walker'          => new Githuber_Walker(),
+					'fallback_cb'     => 'Mynote_Walker::fallback',
+					'walker'          => new Mynote_Walker(),
 				)
 			);
 		} else {
@@ -74,6 +58,22 @@ function mynote_nav( $position = 'header' ) {
 					'menu_class'      => 'footer-menu',
 					'menu_id'         => false,
 					'depth'           => 1,
+				)
+			);
+		}
+	}
+
+	if ( 'social' === $position ) {
+		if ( has_nav_menu( 'social' ) ) {
+			wp_nav_menu(
+				array(
+					'theme_location'  => 'social',
+					'container'       => 'nav',
+					'container_class' => 'footer-nav',
+					'menu_class'      => 'social-icon-links',
+					'depth'           => 1,
+					'link_before'     => '<span class="screen-reader-text">',
+					'link_after'      => '</span>',
 				)
 			);
 		}
@@ -446,10 +446,12 @@ function mynote_category() {
 /**
  * Replace the default admin bar callback.
  * Move it to page bottom, because I would like to stick the page title progress bar on page top.
+ * 
+ * This function will not be fired if user disable the progress bar.
  */
-function githuner_admin_bar() {
+function mynote_admin_bar() {
 ?>
-	<style type="text/css" media="screen" id="githuner-admin-bar">
+	<style type="text/css" media="screen" id="mynote_admin_bar">
 		html { margin-top: 0px !important; margin-bottom: 32px !important; }
 		* html body { margin-top: 0px !important; margin-bottom: 32px !important; }
 		#wpadminbar { position: fixed !important; top: auto !important; bottom: 0 !important; display: block !important; }
