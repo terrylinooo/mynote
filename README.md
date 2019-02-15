@@ -1,44 +1,47 @@
 # Mynote
 
-![Screenshot](./assets/images/logo_mynote_banner.png)
-
 Mynote is a WordPress theme with preferred features for developers and programmers.
+
+![Screenshot](./screenshot.png)
 
 This theme will be uploaded to WordPress theme dictionary and keep it update to date.
 It is in under review currently: https://themes.trac.wordpress.org/query?keywords=~theme-mynote
 
-## Online Demo
-- [Author's blog](https://terryl.in/) 
-- [Mynote demo](https://terryl.in/mynote/) 
-- [Proviscript](https://proviscript.sh/) 
+## Demo
 
-![Screenshot](./screenshot.png)
+Those are websites that use Mynote theme.
 
-## Dependencies
-
-- Bootstrap 4
-- Fontawesome 5
+- [Proviscript](https://proviscript.sh)
 
 ## Features
 
-- Markdown friendly.
-- Fully reponsive web design.
+- Markdown friendly
+- Fully reponsive web design
+- Search engine optimization
+- Highly customizable
 - Structured data supported:
   - Breadcrumb
-  - Tech Article
-- Widget area:
-  - Sidebar. 
-  - Sticky sidebar.
-  - Footer.
-  - Homepage intro section.
-  - Homepage middle section.
-- Cross-platform safe webfont font-family for CJK languages. *(#1)*
-- Bootstrap 4 style pagination.
-- Page reading progress bar.
-- Search engine optimization.
+  - Article
+  - Author
+  - Date
+- Widget areas
+  - Sidebar
+  - Sticky sidebar
+  - Footer
+  - Homepage intro
+  - Homepage middle
+- Menu areas:
+  - Header
+  - Sidebar
+  - Footer
+  - Footer social icon links
+- Bootstrap 4 pagination
+- Bootstrap 4 navigation menu (2-layer)
+- Page reading progress bar
 - Page templates:
   - Landing page (full) (with post content) *(#2)*
   - Landing page (simple) (without post content) *(#3)*
+- Cross-platform safe webfont for CJK languages. *(#1)*
 - SCSS supported - Easy to modify this theme for your needs.
 - WordPress Coding Standards - 99% passed by PHP_CodeSniffer ([WDCS](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards))
 
@@ -47,29 +50,25 @@ It is in under review currently: https://themes.trac.wordpress.org/query?keyword
 `#1` CJK: Chinese, Japanese, Koreanese.
 `#2`, `#3` Featured image will be displayed as header cover.
 
+## Dependencies
 
-## Plugin
+- Bootstrap 4
+- Fontawesome 5
 
-### [Mynote MD](https://github.com/terrylinooo/mynote-md)
+## Author
 
-Mynote MD is an all-in-one Markdown plugin.
+Terry L.
+- [Blog - English](https://terryl.in/) 
+- [Blog - Tranditional Chinese](https://terryl.in/zh/)
 
-To get the additional features of Mynote theme below by install Mynote MD plugin.
-- Bootstrap 4 navigation menu. (2-layer dropdown menu)
-- Widget: Table of Content.
-- Post type - Repository.
-
-![Screenshot](https://i.imgur.com/3O854Jm.png)
-
-If you're looking for an useful Markdown editor in WordPress, Mynote MD may be good for you. Please give it a try!
+## Plugins 
+- [Githuber MD](https://github.com/terrylinooo/githuber-md) is an all-in-one [WordPress Markdown plugin](https://wordpress.org/plugins/wp-githuber-md/). You are able to download it from WordPress plugin directory. To get the additional features of Mynote theme below by install Githuber MD plugin. If you're looking for an useful Markdown editor in WordPress, Githuber MD may be good for you. It is worth to give it a try!
 
 ## License
 
 GPLv3 (or later)
 
-Current verison: v1.0.7
 
-Author: Terry L. [[EN](https://terryl.in/)|[ZH](https://terryl.in/zh/)]
 
 
 
