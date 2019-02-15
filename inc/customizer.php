@@ -14,14 +14,13 @@ add_action( 'customize_register', 'mynote_customize_register' );
 
 function mynote_customize_register( $wp_customize ) {
 
-	// Inlcude the Alpha Color Picker control file.
-	require_once( dirname( __FILE__ ) . '/classes/class-customize-alpha-color.php' );
+	// Default settings.
 
-	$default_navbar = array(
-		'default'    => 'rgba(36, 41, 46, 1)',
-		'type'       => 'theme_mod',
-		'capability' => 'edit_theme_options',
-	);
+	$default_navbar_color                = 'rgba(36, 41, 46, 1)';
+	$default_navbar_link_color           = '#c8c9ca';
+	$default_navbar_link_hover_color     = '#ffffff';
+	$default_progress_bar_border_color   = '#1e90ff';
+	$default_searchbar_placeholder_color = '#cccccc';
 
 	$default_color_palette = array(
 		'rgb(36, 41, 46)',
@@ -30,25 +29,7 @@ function mynote_customize_register( $wp_customize ) {
 		'rgba(168, 19, 62)',
 	);
 
-	$default_link_color = array(
-		'default'           => '#c8c9ca',
-		'sanitize_callback' => 'sanitize_text_field',
-	);
-
-	$default_link_hover_color = array(
-		'default'           => '#ffffff',
-		'sanitize_callback' => 'sanitize_text_field',
-	);
-
-	$default_progress_bar_border_color = array(
-		'default'           => '#1e90ff',
-		'sanitize_callback' => 'sanitize_text_field',
-	);
-
-	$default_searchbar_placeholder_color = array(
-		'default'           => '#cccccc',
-		'sanitize_callback' => 'sanitize_text_field',
-	);
+	// Panels.
 
 	$wp_customize->add_panel( 'panel_mynote_navbar', array(
 		'title'       => __( 'Mynote: Navbar', 'mynote' ),
@@ -68,6 +49,8 @@ function mynote_customize_register( $wp_customize ) {
 			'panel'      => 'panel_mynote_navbar',
 		)
 	);
+
+	// Sections.
 
 	$wp_customize->add_section( 'section_header_navbar', 
 		array(
@@ -107,16 +90,101 @@ function mynote_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'navbar_homepage_bg_color', $default_navbar );
-	$wp_customize->add_setting( 'navbar_homepage_link_color', $default_link_color );
-	$wp_customize->add_setting( 'navbar_homepage_link_hover_color', $default_link_hover_color );
+	// Settings.
 
-	$wp_customize->add_setting( 'navbar_website_bg_color', $default_navbar );
-	$wp_customize->add_setting( 'navbar_website_link_color', $default_link_color );
-	$wp_customize->add_setting( 'navbar_website_link_hover_color', $default_link_hover_color );
+	$wp_customize->add_setting( 'navbar_homepage_bg_color', array(
+		'default'           => $default_navbar_color,
+		'type'              => 'theme_mod',
+		'capability'        => 'edit_theme_options',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
 
-	$wp_customize->add_setting( 'navbar_is_display_search_bar', array( 'default' => 'yes' ) );
-	$wp_customize->add_setting( 'navbar_searchbar_placeholder_color', $default_searchbar_placeholder_color );
+	$wp_customize->add_setting( 'navbar_homepage_link_color', array(
+		'default'           => $default_navbar_link_color,
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	$wp_customize->add_setting( 'navbar_homepage_link_hover_color', array(
+		'default'           => $default_navbar_link_hover_color,
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	$wp_customize->add_setting( 'navbar_website_bg_color', array(
+		'default'           => $default_navbar_color,
+		'type'              => 'theme_mod',
+		'capability'        => 'edit_theme_options',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'navbar_website_link_color', array(
+		'default'           => $default_navbar_link_color,
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	$wp_customize->add_setting( 'navbar_website_link_hover_color', array(
+		'default'           => $default_navbar_link_hover_color,
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	$wp_customize->add_setting( 'navbar_is_display_search_bar', array( 
+		'default'           => 'yes', 
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'navbar_searchbar_placeholder_color', array(
+		'default'           => $default_searchbar_placeholder_color,
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	$wp_customize->add_setting( 'progressbar_is_display_bar', array( 
+		'default'           => 'yes', 
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'progressbar_bg_color', array(
+		'default'           => $default_navbar_color,
+		'type'              => 'theme_mod',
+		'capability'        => 'edit_theme_options',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'progressbar_text_color', array(
+		'default'           => $default_navbar_link_color,
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+	$wp_customize->add_setting( 'progressbar_percentage_bg_color', array(
+		'default'           => $default_navbar_link_color,
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	$wp_customize->add_setting( 'progressbar_is_display_percentage', array( 
+		'default'           => 'yes',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'progressbar_preferred_color', array( 
+		'default'           => 'default', 
+		'sanitize_callback' => 'esc_attr' 
+	) );
+
+	$wp_customize->add_setting( 'progressbar_custom_bg_color', array(
+		'default'           => $default_navbar_color,
+		'type'              => 'theme_mod',
+		'capability'        => 'edit_theme_options',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'progressbar_custom_text_color', array(
+		'default'           => $default_navbar_link_color,
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	$wp_customize->add_setting( 'progressbar_custom_border_color', array(
+		'default'           => $default_progress_bar_border_color,
+		'sanitize_callback' => 'esc_attr',
+	) );
+
+	// Controls.
 
 	$wp_customize->add_control(
 		new Customize_Alpha_Color_Control( $wp_customize, 'home_menu_bg_color_control', 
@@ -186,10 +254,11 @@ function mynote_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'navbar_is_display_search_bar',
+		new WP_Customize_Control( $wp_customize, 'navbar_is_display_search_bar_control',
 			array(
 				'label'       => __( 'Display a Search Bar', 'mynote' ),
 				'section'     => 'section_header_searchbar',
+				'settings'    => 'navbar_is_display_search_bar',
 				'type'        => 'radio',
 				'description' => __( 'Would you like to display a search bar in header navbar area?', 'mynote' ),
 				'choices'     => array(
@@ -210,23 +279,12 @@ function mynote_customize_register( $wp_customize ) {
 		) 
 	);
 
-	$wp_customize->add_setting( 'progressbar_is_display_bar', array( 'default' => 'yes' ) );
-	$wp_customize->add_setting( 'progressbar_bg_color', $default_navbar );
-	$wp_customize->add_setting( 'progressbar_text_color', $default_link_color );
-	$wp_customize->add_setting( 'progressbar_percentage_bg_color', $default_link_color );
-	$wp_customize->add_setting( 'progressbar_is_display_percentage', array( 'default' => 'yes' ) );
-	$wp_customize->add_setting( 'progressbar_preferred_color', array( 'default' => 'default' ) );
-
-	$wp_customize->add_setting( 'progressbar_custom_bg_color', $default_navbar );
-	$wp_customize->add_setting( 'progressbar_custom_text_color', $default_link_color );
-	$wp_customize->add_setting( 'progressbar_custom_border_color', $default_progress_bar_border_color );
-
-
 	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'progressbar_is_display_bar',
+		new WP_Customize_Control( $wp_customize, 'progressbar_is_display_bar_control',
 			array(
 				'label'       => __( 'Display a Progress Bar', 'mynote' ),
 				'section'     => 'section_progress_bar_basic',
+				'settings'    => 'progressbar_is_display_bar',
 				'type'        => 'radio',
 				'description' => __( 'Would you like to display a progress bar while reading?', 'mynote' ),
 				'choices'     => array(
@@ -238,10 +296,11 @@ function mynote_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'progressbar_is_display_percentage',
+		new WP_Customize_Control( $wp_customize, 'progressbar_is_display_percentage_control',
 			array(
 				'label'       => __( 'Display a Percentage Number', 'mynote' ),
 				'section'     => 'section_progress_bar_basic',
+				'settings'    => 'progressbar_is_display_percentage',
 				'type'        => 'radio',
 				'description' => __( 'Would you like to display a percentage number on the progress bar?', 'mynote' ),
 				'choices'     => array(
@@ -253,10 +312,11 @@ function mynote_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'progressbar_preferred_color',
+		new WP_Customize_Control( $wp_customize, 'progressbar_preferred_color_control',
 			array(
 				'label'       => __( 'Color Pattern', 'mynote' ),
 				'section'     => 'section_progress_bar_basic',
+				'settings'    => 'progressbar_preferred_color',
 				'type'        => 'radio',
 				'description' => __( 'Choose a preferred color pattern and apply it to the progress bar.', 'mynote' ),
 				'choices'     => array(
