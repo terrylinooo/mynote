@@ -51,6 +51,6 @@ Source: https://pixabay.com/en/board-chip-circuit-electric-158973/
 
 = 1.0.9 =
 
-- Change its name from Githuber to Mynote because possible trademark issue.
+- Change its name from Githuber to Mynote because of possible trademark issue.
 - Reorganize theme files - refer to the official theme file structure.
 - Strengthen theme customizer.
