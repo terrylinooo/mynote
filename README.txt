@@ -2,7 +2,7 @@
 Contributors: Terry Lin
 Requires at least: WordPress 4.7
 Tested up to: WordPress 5.0-trunk
-Version: 1.0.0
+Version: 1.0.9
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, threaded-comments
@@ -49,6 +49,8 @@ Source: https://pixabay.com/en/board-chip-circuit-electric-158973/
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0.9 =
 
-First release.
+- Change its name from Githuber to Mynote because possible trademark issue.
+- Reorganize theme files - refer to the official theme file structure.
+- Strengthen theme customizer.
