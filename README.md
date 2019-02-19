@@ -7,6 +7,14 @@ Mynote is a WordPress theme with preferred features for developers and programme
 This theme will be uploaded to WordPress theme dictionary and keep it update to date.
 It is in under review currently: https://themes.trac.wordpress.org/query?keywords=~theme-mynote
 
+## Download
+
+| source | download | 
+| --- | --- | 
+| WordPress | Not yet ready. |
+| GitHub repository | https://github.com/terrylinooo/mynote/releases | 
+| PHP Composer | `composer create-project terrylinooo/mynote mynote` |
+
 ## Demo
 
 Those are websites that use Mynote theme.
