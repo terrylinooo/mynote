@@ -1,0 +1,17 @@
+{
+    "name": "terrylinooo/mynote",
+    "description": "A WordPress theme for developers and programmers.",
+    "keywords": ["wordpress-theme", "wordpress", "bootstrap-theme"],
+    "homepage": "https://github.com/terrylinooo/githuber-md",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Terry Lin",
+            "email": "contact@terryl.in",
+            "homepage": "https://terryl.in"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    }
+}
