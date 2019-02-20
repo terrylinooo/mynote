@@ -2,12 +2,12 @@
 Contributors: Terry Lin
 Requires at least: WordPress 3.6
 Tested up to: WordPress 5.0.3
-Version: 1.0.12
+Version: 1.0.11
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, threaded-comments
 Requires PHP: 5.2.4
-Stable tag: 1.0.12
+Stable tag: 1.0.11
 
 == Description ==
 
