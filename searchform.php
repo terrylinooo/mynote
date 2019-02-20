@@ -15,17 +15,8 @@ $unique_id = uniqid( 'search-form-' );
 
 ?>
 
-<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" autocomplete="off">
-	<label for="<?php echo esc_attr( $unique_id ); ?>">
-		<span class="screen-reader-text"><?php echo esc_html_x( 'Search for:', 'label', 'mynote' ); ?></span>
-	</label>
-	<div class="search-field-wrapper">
-		<div class="input-group">
-			<input type="search" id="<?php echo esc_attr( $unique_id ); ?>" class="search-field form-control" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'mynote' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
-			<div class="input-group-prepend">
-				<button type="submit" class="search-submit btn btn-primary"><i class="fas fa-search"></i><span class="screen-reader-text"><?php echo esc_html_x( 'Search', 'submit button', 'mynote' ); ?></span></button>
-			</div>
-		</div>
-	</div>
+<form id="search-form" class="search" method="get" action="<?php echo esc_url( home_url() ); ?>" role="search" autocomplete="off">
+	<input type="text" name="s" class="search-input" placeholder="<?php esc_attr_e( 'To search, type and hit enter.', 'mynote' ); ?>">
+	<span class="search-icon" onclick="document.getElementById('search-form').submit();"><i class="fas fa-search"></i></span>
 </form>
 

@@ -73,22 +73,10 @@ add_action( 'widgets_init', 'mynote_remove_recent_comments_style' );
  */
 function mynote_read_more( $more ) {
 	global $post;
-	return '... &raquo; <a class="read-more-link" href="' . get_permalink( $post->ID ) . '">' . __( 'read more', 'mynote' ) . '</a>';
+	return '... &raquo; <a class="read-more-link" href="' . esc_url( get_permalink( $post->ID ) ) . '">' . __( 'read more', 'mynote' ) . '</a>';
 }
 
 add_filter( 'excerpt_more', 'mynote_read_more' );
-
-/**
- * Remove 'text/css' from enqueued stylesheet
- *
- * @param string $html HTML string.
- * @return string
- */
-function mynote_remove_style_type( $html ) {
-	return preg_replace( '~\s+type=["\'][^"\']++["\']~', '', $html );
-}
-
-add_filter( 'style_loader_tag', 'mynote_remove_style_type' );
 
 /**
  * Remove width and height dynamic attributes to thumbnails that prevent fluid images in the_thumbnail.
@@ -350,11 +338,11 @@ add_filter( 'comment_form_fields', 'mynote_move_comment_field_to_bottom' );
  *
  * @return string
  */
-function replace_language_attributes() {
+function mynote_replace_language_attributes() {
 	return 'lang=' . substr( get_bloginfo( 'language' ), 0, 2 );
 }
 
-add_filter( 'language_attributes', 'replace_language_attributes' );
+add_filter( 'language_attributes', 'mynote_replace_language_attributes' );
 
 /**
  * Article reading progress bar.

@@ -19,7 +19,7 @@ if ( is_active_sidebar( 'sidebar-5' ) ) {
 
 if ( has_post_thumbnail() ) {
     $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-    $intro_style = ' bg-cover" style="background-image: url(' . $backgroundImg[0] . ')"';
+    $intro_style = ' bg-cover" style="background-image: url(' . esc_url( $backgroundImg[0] ) . ')"';
 } else {
     $intro_style = '';
 }

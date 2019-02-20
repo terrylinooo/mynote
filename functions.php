@@ -22,11 +22,6 @@ if ( ! function_exists( 'mynote_setup_theme' ) ) {
 		// Enables post and comment RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
-		// Move admin bar to page bottom, because that while reading posts, there is a page reading progress bar on page top.
-		if ( 'no' !== get_theme_mod( 'progressbar_is_display_bar' ) ) {
-			add_theme_support( 'admin-bar', array( 'callback' => 'mynote_admin_bar' ) );
-		}
-
 		// Custom Thumbnail Size call using the_post_thumbnail( '360x240' ); .
 		add_image_size( '360x240', 360, 240, true );
 
@@ -98,8 +93,8 @@ function mynote_styles() {
 	wp_register_style( 'fontawesome', get_template_directory_uri() . '/assets/vendor/fontawesome/css/fontawesome-all.min.css', array(), '5.1.0', 'all' );
 	wp_enqueue_style( 'fontawesome' );
 
-	wp_register_style( 'google-font-roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400', array(), '1.0', 'all' );
-	wp_enqueue_style( 'google-font-roboto' );
+	wp_register_style( 'mynote-font-roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400', array(), '1.0', 'all' );
+	wp_enqueue_style( 'mynote-font-roboto' );
 
 	wp_register_style( 'mynote', get_template_directory_uri() . '/style.css', array(), '1.0.8', 'all' );
 	wp_enqueue_style( 'mynote' );

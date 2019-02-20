@@ -87,7 +87,7 @@ function mynote_default_nav() {
 	?>
 	<div id="mynote-nav-bar" class="collapse navbar-collapse">
 		<ul id="menu-primary-menu" class="navbar-nav mr-auto">
-			<li class="nav-item"><a href="<?php get_home_url(); ?>" class="nav-link"><?php esc_html_e( 'Home', 'mynote' ); ?></a></li>
+			<li class="nav-item"><a href="<?php echo esc_url( home_url() ); ?>" class="nav-link"><?php esc_html_e( 'Home', 'mynote' ); ?></a></li>
 		</ul>
 	</div>
 	<?php
@@ -441,26 +441,6 @@ function mynote_category() {
 	foreach ( $categories as $category ) {
 		echo '<a class="btn btn-xs btn-green" href="' . esc_url( get_category_link( $category->term_id ) ) . '"><i class="fas fa-star"></i>' . esc_html( $category->cat_name ) . '</a>';
 	}
-}
-
-/**
- * Replace the default admin bar callback.
- * Move it to page bottom, because I would like to stick the page title progress bar on page top.
- * 
- * This function will not be fired if user disable the progress bar.
- */
-function mynote_admin_bar() {
-?>
-	<style type="text/css" media="screen" id="mynote_admin_bar">
-		html { margin-top: 0px !important; margin-bottom: 32px !important; }
-		* html body { margin-top: 0px !important; margin-bottom: 32px !important; }
-		#wpadminbar { position: fixed !important; top: auto !important; bottom: 0 !important; display: block !important; }
-		@media screen and ( max-width: 782px ) {
-			html { margin-top: 0px !important; margin-bottom: 46px !important; }
-			* html body { margin-top: 0px !important; margin-bottom: 46px !important; }
-		}
-	</style>
-<?php
 }
 
 /**

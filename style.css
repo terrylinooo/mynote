@@ -1445,11 +1445,6 @@ p > object:only-child {
   z-index: 100000;
 }
 
-body.admin_bar {
-  padding-top: 0px !important;
-  padding-bottom: 32px !important;
-}
-
 .error404 .site-info {
   position: fixed;
   bottom: 10px;

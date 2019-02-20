@@ -1,11 +1,13 @@
 === Mynote ===
 Contributors: Terry Lin
-Requires at least: WordPress 4.7
-Tested up to: WordPress 5.0-trunk
-Version: 1.0.10
+Requires at least: WordPress 3.6
+Tested up to: WordPress 5.0.3
+Version: 1.0.11
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, threaded-comments
+Requires PHP: 5.2.4
+Stable tag: 1.0.11
 
 == Description ==
 
@@ -54,3 +56,7 @@ Source: https://pixabay.com/en/board-chip-circuit-electric-158973/
 - Change its name from Githuber to Mynote because of possible trademark issue.
 - Reorganize theme files - refer to the official theme file structure.
 - Strengthen theme customizer.
+
+= 1.0.11 =
+
+- Fix issues to pass the theme review.
