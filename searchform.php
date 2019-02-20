@@ -20,3 +20,4 @@ $unique_id = uniqid( 'search-form-' );
 	<span class="search-icon" onclick="document.getElementById('search-form').submit();"><i class="fas fa-search"></i></span>
 </form>
 
+

@@ -45,8 +45,10 @@ if ( '' !== mynote_site_icon() ) {
 					<?php else : ?>
 						<?php mynote_default_nav(); ?>
 					<?php endif; ?>
-				
-					<?php get_search_form() ?>
+
+					<div class="search-bar">
+						<?php get_search_form() ?>
+					</div>
 					
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynote-nav-bar" aria-controls="mynote-nav-bar" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'mynote' ); ?>">
 						<span class="navbar-toggler-icon"></span>

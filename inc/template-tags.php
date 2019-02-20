@@ -97,7 +97,7 @@ function mynote_default_nav() {
  * The mynote Post thumbnail.
  */
 function mynote_post_thumbnail() {
-	the_post_thumbnail( '360x240',
+	the_post_thumbnail( 'mynote-thumbnail',
 		array(
 			'class' => 'card-img-top',
 			'alt'   => get_the_title(),

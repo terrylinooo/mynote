@@ -22,8 +22,8 @@ if ( ! function_exists( 'mynote_setup_theme' ) ) {
 		// Enables post and comment RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
-		// Custom Thumbnail Size call using the_post_thumbnail( '360x240' ); .
-		add_image_size( '360x240', 360, 240, true );
+		// Custom Thumbnail Size call using the_post_thumbnail( 'mynote-thumbnail' ); .
+		add_image_size( 'mynote-thumbnail', 360, 240, true );
 
 		// Localisation Support.
 		load_theme_textdomain( 'mynote', get_template_directory() . '/languages' );
