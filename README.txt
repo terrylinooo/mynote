@@ -49,6 +49,10 @@ CSS Button Effect, Copyright Simurai
 License: The MIT License (MIT)
 Source: https://codepen.io/simurai/pen/DwJdq
 
+Default header background, Copyright kuba
+License: Creative Commons CC0 license.
+Source: https://openclipart.org/detail/99217/electronic-circuit
+
 Image: Screenshot
 License: Creative Commons CC0 license.
 Source: http://pickupimage.com/free-photos/Aurora-Borealis-Northern-Lights-above-coastal-sea/
