@@ -4,14 +4,13 @@ Mynote is a WordPress theme with preferred features for developers and programme
 
 ![Screenshot](./screenshot.png)
 
-This theme will be uploaded to WordPress theme dictionary and keep it update to date.
-It is in under review currently: https://themes.trac.wordpress.org/query?keywords=~theme-mynote
+A responsive, clean, Markdown friendly WordPress blog theme. It is based on Bootstrap 4 and Fontawesome 5. It is suitable for programming, business, technical, professional, niche and any kind of blogging sites. Mynote has landing-page templates so that can your highly customize your homepage, make your website unique and professional.
 
 ## Download
 
 | source | download | 
 | --- | --- | 
-| WordPress | Not yet ready. |
+| WordPress | https://wordpress.org/themes/mynote/ |
 | GitHub repository | https://github.com/terrylinooo/mynote/releases | 
 | PHP Composer | `composer create-project terrylinooo/mynote mynote` |
 
