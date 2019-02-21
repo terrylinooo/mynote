@@ -2,12 +2,12 @@
 Contributors: Terry Lin
 Requires at least: WordPress 3.6
 Tested up to: WordPress 5.0.3
-Version: 1.0.11
+Version: 1.0.12
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, threaded-comments
 Requires PHP: 5.2.4
-Stable tag: 1.0.11
+Stable tag: 1.0.12
 
 == Description ==
 
@@ -45,6 +45,11 @@ Bootstrap, Copyright 2011-2018 Twitter, Inc.
 License: The MIT License (MIT)
 Source: https://github.com/twbs/bootstrap
 
+
+Customize_Alpha_Color_Control, copyright BraadMartin
+License: GPL
+Source: https://github.com/BraadMartin/components/tree/master/customizer/alpha-color-picker
+
 CSS Button Effect, Copyright Simurai 
 License: The MIT License (MIT)
 Source: https://codepen.io/simurai/pen/DwJdq
@@ -68,6 +73,6 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 - Reorganize theme files - refer to the official theme file structure.
 - Strengthen theme customizer.
 
-= 1.0.11 =
+= 1.0.12 =
 
 - Fix issues to pass the theme review.
