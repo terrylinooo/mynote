@@ -455,7 +455,9 @@ function mynote_single_post_script() {
 add_action( 'wp_footer', 'mynote_single_post_script', 1, 1 );
 
 /**
- * An "Go to Top" floated button will be showed on the footer when user scrolling down.
+ * 1. An "Auto scroll down" floated button.
+ * 2. An "Go to Top" floated button will be showed on the footer when user scrolling down.
+ * 3. Bootstrap 4 collapse event.
  *
  * @return void
  */
@@ -493,6 +495,16 @@ function mynote_scrolling_script() {
 				$( 'a.go-top' ).fadeOut( 300 );
 			}
 		});
+
+		$( '#mynote-nav-bar' ).on( 'show.bs.collapse' , function () {
+			$( 'body' ).addClass( 'menu-is-collapsed' );
+		});
+
+		$( '#mynote-nav-bar' ).on( 'hidden.bs.collapse' , function () {
+			$( 'body' ).removeClass( 'menu-is-collapsed' );
+			
+		});
+
 	});
 
 	</script>

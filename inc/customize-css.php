@@ -82,6 +82,7 @@ function mynote_customize_css() {
     }
 
     if ( ! empty( $css ) ) {
+        $css .= "body.menu-is-collapsed .header { background: rgba(20, 25, 29, 0.95) !important; }\n";
         echo '<style id="mynote-customizer">' . "\n" . $css . "\n" . '</style>';
     }
 }

@@ -283,9 +283,16 @@ article figcaption {
   color: #adb5bd;
 }
 
+body.menu-is-collapsed .main-header {
+  top: 0px !important;
+}
+
 .main-header {
   position: relative;
   top: -60px;
+  -webkit-transition: all ease-in-out .5s;
+  -o-transition: all ease-in-out .5s;
+  transition: all ease-in-out .5s;
 }
 .main-header .section-intro {
   position: relative;

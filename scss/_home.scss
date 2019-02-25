@@ -1,5 +1,4 @@
 
-
 .section-intro {
     width: 100%;
     min-height: $home_intro_box_height;
@@ -17,9 +16,18 @@
     }
 }
 
+body.menu-is-collapsed {
+    .main-header {
+        top: 0px !important;
+    }
+}
+
 .main-header {
     position: relative;
     top: -60px;
+    -webkit-transition: all ease-in-out .5s;
+    -o-transition: all ease-in-out .5s;
+    transition: all ease-in-out .5s;
 
     .section-intro {
         position: relative;
@@ -69,8 +77,6 @@
         }
     }
 }
-
-
 
 @include media-breakpoint-down(sm) {
     .admin-bar {
