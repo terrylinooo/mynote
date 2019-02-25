@@ -11,7 +11,7 @@ Stable tag: 1.0.12
 
 == Description ==
 
-Mynote is a responsive, clean, Markdown friendly WordPress blog theme. It is based on Bootstrap 4 and Fontawesome 5. It is suitable for programming, business, technical, professional, niche and any kind of blogging sites. Mynote has landing-page templates so that can your highly customize your homepage, make your website unique and professional. You can also install `WP Mynote MD` plugin to enable more features that are specially designed for Mynote theme.
+Mynote is a responsive, clean, Markdown friendly WordPress blog theme. It is based on Bootstrap 4 and Fontawesome 5. It is suitable for programming, business, technical, professional, niche and any kind of blogging sites. Mynote has landing-page templates so that can your highly customize your homepage, make your website unique and professional.
 
 == Installation ==
 
@@ -76,3 +76,8 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 = 1.0.12 =
 
 - Fix issues to pass the theme review.
+
+= 1.0.13 =
+
+- Add an `Go to Top` floated button. It will be showed when user scrolling down.
+- Layout will become one column when user doesn't have sidebar.
