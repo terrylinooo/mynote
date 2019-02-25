@@ -483,7 +483,7 @@ function mynote_go_top_script() {
 	<?php
 }
 
-add_action( 'wp_footer', 'mynote_go_top__script', 1, 1 );
+add_action( 'wp_footer', 'mynote_go_top_script', 1, 1 );
 
 /**
  * Get article schemal.

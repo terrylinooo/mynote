@@ -12,6 +12,13 @@
  */
 
 get_header();
+
+$has_slider = false;
+$main_container_css = 'col-lg-12 col-md-12 col-sm-12';
+if ( is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'sidebar-3' ) ) {
+	$has_slider = true;
+	$main_container_css = 'col-lg-8 col-md-8 col-sm-12';
+}
 ?>
 
 <?php mynote_title_progress_bar(); ?>
@@ -26,7 +33,9 @@ get_header();
 				<div class="container">
 					<h1 id="post-title" itemprop="headline"><?php the_title(); ?></h1>
 					<div class="post-mynote-buttons">
-						<?php mynote_column_control_button(); ?>
+						<?php if ( $has_slider ) : ?>
+							<?php mynote_column_control_button(); ?>
+						<?php endif; ?>
 						<?php mynote_edit_button(); ?>
 						<?php mynote_comment_button(); ?>
 					</div><!-- .post-mynote-buttons -->
@@ -41,7 +50,7 @@ get_header();
 
 	<div class="container">
 		<div class="row">
-			<main id="main-container" class="col-lg-8 col-md-8 col-sm-12" role="main">
+			<main id="main-container" class="<?php echo $main_container_css; ?>" role="main">
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
@@ -76,9 +85,13 @@ get_header();
 				</article>
 			<?php endif; ?>
 			</main>
+
+			<?php if ( $has_slider ) : ?>
 			<aside id="aside-container" class="col-lg-4 col-md-4 col-sm-12" role="complementary">
 				<?php get_sidebar(); ?>
 			</aside>
+			<?php endif; ?>
+
 		</div><!-- .row -->
 		<?php
 			the_post_navigation(
