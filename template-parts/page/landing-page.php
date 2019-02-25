@@ -11,29 +11,25 @@
  * @version 1.0.7.7
  */
 
-if ( is_active_sidebar( 'sidebar-5' ) ) {
-	$css_left = 'col-12 col-md-7 text-center text-md-left';
-} else {
-	$css_left = 'col-12 col-md-12 text-center text-md-left';
-}
-
+$custom_header_css = '';
+$intro_style = '';
 if ( has_post_thumbnail() ) {
     $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-    $intro_style = ' bg-cover" style="background-image: url(' . esc_url( $backgroundImg[0] ) . ')"';
-} else {
-    $intro_style = '';
+	$intro_style = ' bg-cover" style="background-image: url(' . esc_url( $backgroundImg[0] ) . ')"';
+	$custom_header_css = 'has-custom-header';
 }
+
 ?>
 
 <div class="data-schema">
-	<main role="main">
+	<main role="main" class="main-header <?php echo $custom_header_css; ?>">
 		<div class="section-intro d-flex align-items-center<?php echo $intro_style; ?>">
 			<div class="container px-responsive">
 				<div class="d-md-flex align-items-center">
-					<div class="<?php echo esc_attr( $css_left ); ?>" style="min-height: 100%; overflow: hidden" >
+					<div class="col-12 col-md-7 text-center text-md-left" style="min-height: 100%; overflow: hidden" >
 						<h1 class="mb-3"><?php the_title(); ?></h1>
                         <?php if ( has_excerpt() ) : ?> 
-						<p class="mb4 desc-text"><?php echo get_the_excerpt(); ?></p>
+						<p class="mb4 desc-text" id="header-desc-text"><?php echo get_the_excerpt(); ?></p>
                         <?php endif; ?>
 					</div>
 					<?php if ( is_active_sidebar( 'sidebar-5' ) ) : ?>
@@ -46,8 +42,13 @@ if ( has_post_thumbnail() ) {
 							</div>
 						</aside>
 					</div>
+					<?php else : ?>
+						<p class="p-5"><?php mynote_category_labels(); ?></p>
 					<?php endif; ?>
 				</div>
+			</div>
+			<div class="scroll-area">
+				<a href="#main-container"><i class="fas fa-arrow-down"></i></a>
 			</div>
 		</div>
 		<div class="container my-4">

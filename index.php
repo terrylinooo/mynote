@@ -20,7 +20,7 @@ if ( has_header_image() ) {
 get_header(); ?>
 
 <div class="data-schema">
-	<main role="main" class="<?php echo $custom_header_css; ?>">
+	<main role="main" class="main-header <?php echo $custom_header_css; ?>">
 		<div class="section-intro d-flex align-items-center" style="<?php echo $custom_header_image; ?>">
 			<div class="container px-responsive">
 				<div class="d-md-flex align-items-center">
@@ -43,9 +43,12 @@ get_header(); ?>
 					</div>
 				</div>
 			</div>
+			<div class="scroll-area">
+				<a href="#main-container"><i class="fas fa-arrow-down"></i></a>
+			</div>
 		</div>
 		<div class="container">
-			<section>
+			<section id="main-container">
 				<?php get_template_part( 'loop' ); ?>
 				<?php get_template_part( 'pagination' ); ?>
 			</section>

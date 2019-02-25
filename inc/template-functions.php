@@ -459,13 +459,29 @@ add_action( 'wp_footer', 'mynote_single_post_script', 1, 1 );
  *
  * @return void
  */
-function mynote_go_top_script() {
+function mynote_scrolling_script() {
 	?>
 	<script>
 
 	jQuery( document ).ready(function( $ ) {
 
-		$( 'a.go-top' ).on( 'click' ,function() {
+		$( '.scroll-area a' ).on( 'click', function(e) {
+			e.preventDefault();
+			var movingPosition = 0;
+
+			if ( $( this.hash ).offset().top > $( document ).height() - $( window ).height() ) {
+				movingPosition = $( document ).height() - $( window ).height();
+			} else {
+				movingPosition = $( this.hash ).offset().top;
+			}
+
+			$( 'html, body' ).animate({
+				scrollTop: movingPosition
+			}, 500, 'swing' );
+		});
+
+		$( 'a.go-top' ).on( 'click' ,function(e) {
+			e.preventDefault();
 			$( 'html, body' ).animate( { scrollTop: 0 }, 1000 );
 		});
 
@@ -483,7 +499,7 @@ function mynote_go_top_script() {
 	<?php
 }
 
-add_action( 'wp_footer', 'mynote_go_top_script', 1, 1 );
+add_action( 'wp_footer', 'mynote_scrolling_script', 1, 1 );
 
 /**
  * Get article schemal.
