@@ -35,5 +35,9 @@
 			</footer>
 		</div><!-- .wrapper -->
 		<?php wp_footer(); ?>
+
+		<a href="javascript:void(0);" class="go-top" style="display: none">
+			<i class="fas fa-arrow-up"></i>
+		</a>
 	</body>
 </html>

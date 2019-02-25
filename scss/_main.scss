@@ -137,6 +137,10 @@ article {
     transform-origin: top;
     transition: .5s ease;
 
+    &.fixed-top {
+        z-index: 100001;
+    }
+
     .container {
         justify-content: flex-start;
     }
@@ -165,6 +169,33 @@ article {
         min-height: 60px;
 		padding: 10px !important;
 	}
+}
+
+/* Button - go to top. */
+
+.go-top {
+    display: inline-block;
+    font-size: 16px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    margin: 0px;
+    z-index: 1000;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 5px;
+    text-align: center;
+
+    &:hover {
+        color: #ffffff;
+    }
+
+    i {
+        position: relative;
+    }
 }
 
 /* Tags */

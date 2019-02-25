@@ -62,11 +62,15 @@ function mynote_customize_css() {
     if ( 'menu' === $progress_preferred_color ) {
         $css .= '.single-post-title-bar { background-color: ' . esc_attr( get_theme_mod( 'navbar_website_bg_color' ) ) . " !important; }\n";
         $css .= '#progress-title { color: ' . esc_attr( get_theme_mod( 'navbar_website_link_color' ) ) . " !important; }\n";
+        $css .= 'a.go-top { background-color: ' . esc_attr( get_theme_mod( 'navbar_website_bg_color' ) ) . " !important; }\n";
+        $css .= 'a.go-top i { color: ' . esc_attr( get_theme_mod( 'navbar_website_link_color' ) ) . " !important; }\n";
     } elseif ( 'custom' === $progress_preferred_color ) {
         $css .= '.single-post-title-bar { background-color: ' . esc_attr( get_theme_mod( 'progressbar_custom_bg_color' ) ) . " !important; }\n";
         $css .= '#progress-title { color: ' . esc_attr(  get_theme_mod( 'progressbar_custom_text_color' ) ) . " !important; }\n";
         $css .= '.progress-wrapper progress::-webkit-progress-value { background-color: ' . esc_attr( get_theme_mod( 'progressbar_custom_border_color' ) ) . " !important; }\n";
         $css .= '.progress-wrapper progress::-ms-fill { background-color: ' . esc_attr( get_theme_mod( 'progressbar_custom_border_color' ) ) . " !important; }\n";
+        $css .= 'a.go-top { background-color: ' . esc_attr( get_theme_mod( 'progressbar_custom_bg_color' ) ) . " !important; }\n";
+        $css .= 'a.go-top i { color: ' . esc_attr( get_theme_mod( 'progressbar_custom_text_color' ) ) . " !important; }\n";
     }
 
     if ( 'no' === get_theme_mod( 'progressbar_is_display_bar' ) ) {

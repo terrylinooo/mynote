@@ -455,6 +455,37 @@ function mynote_single_post_script() {
 add_action( 'wp_footer', 'mynote_single_post_script', 1, 1 );
 
 /**
+ * An "Go to Top" floated button will be showed on the footer when user scrolling down.
+ *
+ * @return void
+ */
+function mynote_go_top_script() {
+	?>
+	<script>
+
+	jQuery( document ).ready(function( $ ) {
+
+		$( 'a.go-top' ).on( 'click' ,function() {
+			$( 'html, body' ).animate( { scrollTop: 0 }, 1000 );
+		});
+
+		$( window ).scroll( function() {      
+			var windowTop =  $( window ).scrollTop();
+			if ( windowTop > 100 ) {
+				$( 'a.go-top' ).fadeIn( 300 );
+			} else {
+				$( 'a.go-top' ).fadeOut( 300 );
+			}
+		});
+	});
+
+	</script>
+	<?php
+}
+
+add_action( 'wp_footer', 'mynote_go_top__script', 1, 1 );
+
+/**
  * Get article schemal.
  *
  * @param string $schema Article type.
