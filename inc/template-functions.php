@@ -498,13 +498,16 @@ function mynote_scrolling_script() {
 
 		$( '#mynote-nav-bar' ).on( 'show.bs.collapse' , function () {
 			$( 'body' ).addClass( 'menu-is-collapsed' );
+			$( '.main-header' ).css( { 'top': '-60px' } ).animate( { 'top': '0px' }, 500 );
 		});
 
 		$( '#mynote-nav-bar' ).on( 'hidden.bs.collapse' , function () {
-			$( 'body' ).removeClass( 'menu-is-collapsed' );
+			$( '.main-header' ).css( { 'top': '0px' } ).animate( { 'top': '-60px' }, 500 );
+			setTimeout(function() {
+				$( 'body' ).removeClass( 'menu-is-collapsed' );
+			}, 500);
 			
 		});
-
 	});
 
 	</script>
