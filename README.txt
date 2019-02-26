@@ -2,12 +2,12 @@
 Contributors: Terry Lin
 Requires at least: WordPress 3.6
 Tested up to: WordPress 5.0.3
-Version: 1.0.12
+Version: 1.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, threaded-comments
 Requires PHP: 5.2.4
-Stable tag: 1.0.12
+Stable tag: 1.1.0
 
 == Description ==
 
@@ -77,7 +77,9 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 
 - Fix issues to pass the theme review.
 
-= 1.0.13 =
+= 1.1.0 =
 
-- Add an `Go to Top` floated button. It will be showed when user scrolling down.
-- Layout will become one column when user doesn't have sidebar.
+- Add a `Go to Top` floated button. It will be displayed when user scrolling down.
+- Add a `Go to next screen` floated button. It will be displayed while browsing in RWD mode. (Homepage)
+- The layout of post page will become one column when user doesn't use widgets in sidebar area.
+- Fix navbar transparent background issue while browsing in RWD mode.
