@@ -8,7 +8,7 @@
  * @package WordPress
  * @subpackage Mynote
  * @since 1.0.0
- * @version 1.0.7.0
+ * @version 1.0.7
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) && ! is_active_sidebar( 'sidebar-3' ) ) {

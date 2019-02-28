@@ -141,7 +141,7 @@ function mynote_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'mynote' ),
 		'id'            => 'sidebar-1',
-		'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'mynote' ),
+		'description'   => __( 'Add widgets here to appear in your sidebar on blog posts.', 'mynote' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -183,6 +183,26 @@ function mynote_widgets_init() {
 		'id'            => 'sidebar-5',
 		'description'   => __( 'Add widgets here to appear in your homepage intro section.', 'mynote' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s my-2 col-lg-12">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Homepage Sidebar', 'mynote' ),
+		'id'            => 'sidebar-6',
+		'description'   => __( 'Add widgets here to appear in your sidebar on homepage.', 'mynote' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Archive Sidebar', 'mynote' ),
+		'id'            => 'sidebar-7',
+		'description'   => __( 'Add widgets here to appear in your sidebar on archive pages.', 'mynote' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',

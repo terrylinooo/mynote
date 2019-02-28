@@ -17,6 +17,13 @@ if ( has_header_image() ) {
 	$custom_header_css = 'has-custom-header';
 }
 
+$has_slider = false;
+$main_container_css = 'col-lg-12 col-md-12 col-sm-12';
+if ( is_active_sidebar( 'sidebar-6' ) ) {
+	$has_slider = true;
+	$main_container_css = 'col-lg-8 col-md-8 col-sm-12';
+}
+
 get_header(); ?>
 
 <div class="data-schema">
@@ -48,10 +55,18 @@ get_header(); ?>
 			</div>
 		</div>
 		<div class="container">
-			<section id="main-container">
-				<?php get_template_part( 'loop' ); ?>
-				<?php get_template_part( 'pagination' ); ?>
-			</section>
+			<div class="row row-layout-choice">
+				<section id="main-container" class="<?php echo $main_container_css; ?>">
+					<?php get_template_part( 'loop' ); ?>
+					<?php get_template_part( 'pagination' ); ?>
+				</section>
+
+				<?php if ( $has_slider ) : ?>
+				<aside id="aside-container" class="col-lg-4 col-md-4 col-sm-12" role="complementary">
+					<?php get_sidebar( 'home' ); ?>
+				</aside>
+				<?php endif; ?>
+			</div>
 		</div>
 	</main>
 
