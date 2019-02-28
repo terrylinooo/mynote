@@ -81,6 +81,10 @@ function mynote_customize_css() {
         $css .= ".progress-wrapper .progress-label { display: none !important; }\n";
     }
 
+    if ( 'left' === get_theme_mod( 'layout_post_sidebar_location') ) {
+        $css .= ".row-layout-choice { flex-direction:row-reverse !important; }\n";
+    }
+
     if ( ! empty( $css ) ) {
         $css .= "body.menu-is-collapsed .header { background: rgba(20, 25, 29, 1) !important; }\n";
         echo '<style id="mynote-customizer">' . "\n" . $css . "\n" . '</style>';

@@ -96,7 +96,7 @@ function mynote_styles() {
 	wp_register_style( 'mynote-font-roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400', array(), '1.0', 'all' );
 	wp_enqueue_style( 'mynote-font-roboto' );
 
-	wp_register_style( 'mynote', get_template_directory_uri() . '/style.css', array(), '1.0.8', 'all' );
+	wp_register_style( 'mynote', get_template_directory_uri() . '/style.css', array(), '1.2.0', 'all' );
 	wp_enqueue_style( 'mynote' );
 }
 
@@ -202,6 +202,7 @@ if ( ! isset( $content_width ) ) {
  */
 if ( function_exists( 'is_customize_preview' ) && is_customize_preview() ) {
 	require get_parent_theme_file_path( '/inc/classes/class-customize-alpha-color.php' );
+	require get_parent_theme_file_path( '/inc/classes/class-customize-image-radio.php' );
 	require get_parent_theme_file_path( '/inc/customizer.php' );
 }
 

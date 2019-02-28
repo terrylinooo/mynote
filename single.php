@@ -49,7 +49,7 @@ if ( is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'sidebar-3' ) ) {
 	<?php endif; ?>
 
 	<div class="container">
-		<div class="row">
+		<div class="row row-layout-choice">
 			<main id="main-container" class="<?php echo $main_container_css; ?>" role="main">
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : ?>

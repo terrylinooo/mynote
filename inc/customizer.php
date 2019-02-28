@@ -41,6 +41,14 @@ function mynote_customize_register( $wp_customize ) {
 		'priority'    => 10,
 	));
 
+	$wp_customize->add_section( 'section_mynote_layout', 
+		array(
+			'title'      => __( 'Mynote: Layout', 'mynote' ),
+			'priority'   => 10,
+			'capability' => 'edit_theme_options',
+		)
+	);
+
 	$wp_customize->add_section( 'section_homepahe_header_navbar', 
 		array(
 			'title'      => __( 'Homepage', 'mynote' ),
@@ -184,6 +192,11 @@ function mynote_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'esc_attr',
 	) );
 
+	$wp_customize->add_setting( 'layout_post_sidebar_location', array( 
+		'default'           => 'right', 
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
 	// Controls.
 
 	$wp_customize->add_control(
@@ -321,7 +334,7 @@ function mynote_customize_register( $wp_customize ) {
 				'description' => __( 'Choose a preferred color pattern and apply it to the progress bar.', 'mynote' ),
 				'choices'     => array(
 					'default' => __( 'Default', 'mynote' ),
-					'menu'  => __( 'As same as website menu', 'mynote' ),
+					'menu'    => __( 'As same as website menu', 'mynote' ),
 					'custom'  => __( 'Custom', 'mynote' ),
 				),
 			)
@@ -354,11 +367,27 @@ function mynote_customize_register( $wp_customize ) {
 		new Customize_Alpha_Color_Control( $wp_customize, 'progressbar_custom_border_color_control', 
 			array(
 				'label'        => __( 'Border Color', 'mynote' ),
-				'section'  => 'section_progress_bar_color',
-				'settings' => 'progressbar_custom_border_color',
+				'section'      => 'section_progress_bar_color',
+				'settings'     => 'progressbar_custom_border_color',
 				'show_opacity' => true,
 				'palette'	   => $default_color_palette,
 			) 
 		) 
+	);
+
+	$wp_customize->add_control(
+		new Customize_Image_Radio_Control( $wp_customize, 'layout_sidebar_location_control',
+			array(
+				'label'       => __( 'Sidebar Location', 'mynote' ),
+				'section'     => 'section_mynote_layout',
+				'settings'    => 'layout_post_sidebar_location',
+				'type'        => 'radio',
+				'description' => __( 'Choose a preferred layout for desktop version.', 'mynote' ),
+				'choices'     => array(
+					'right' => get_template_directory_uri() . '/assets/images/layout_sidebar_right.png',
+					'left'  => get_template_directory_uri() . '/assets/images/layout_sidebar_left.png',
+				),
+			)
+		)
 	);
 }

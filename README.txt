@@ -2,12 +2,12 @@
 Contributors: Terry Lin
 Requires at least: WordPress 3.6
 Tested up to: WordPress 5.0.3
-Version: 1.1.0
+Version: 1.2.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, threaded-comments
 Requires PHP: 5.2.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 
 == Description ==
 
@@ -83,3 +83,7 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 - Add a `Go to next screen` floated button. It will be displayed while browsing in RWD mode. (Homepage)
 - The layout of post page will become one column when user doesn't use widgets in sidebar area.
 - Fix navbar transparent background issue while browsing in RWD mode.
+
+= 1.2.0 =
+
+- User is now able to choose preferred layout in Customizer.
