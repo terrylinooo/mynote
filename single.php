@@ -44,7 +44,7 @@ get_header();
 
 	<div class="container">
 		<div class="row row-layout-choice-post">
-			<main id="main-container" class="<?php echo esc_attr( mynote_main_container_css() ); ?>"> role="main">
+			<main id="main-container" class="<?php echo esc_attr( mynote_main_container_css() ); ?>" role="main">
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>

@@ -517,29 +517,6 @@ function mynote_scrolling_script() {
 add_action( 'wp_footer', 'mynote_scrolling_script', 1, 1 );
 
 /**
- * Get article schemal.
- *
- * @param string $schema Article type.
- * @return void
- */
-function mynote_article_schemal( $schema = 'Article' ) {
-	switch ( $schema ) {
-		case 'tech':
-			$schema = 'TechArticle';
-			break;
-		case 'news':
-			$schema = 'NewsArticle';
-			break;
-		case 'scholarly':
-			$schema = 'ScholarlyArticles';
-			break;
-		default:
-			$schema = 'Article';
-	}
-	echo 'http://schema.org/' . $schema;
-}
-
-/**
  * Add responsive container to embeds
  *
  * @param string $html Original embed HTML code.

@@ -46,6 +46,15 @@ function mynote_customize_register( $wp_customize ) {
 		'priority'    => 10,
 	));
 
+	$wp_customize->add_section( 'section_post_card', 
+		array(
+			'title'      => __( 'Mynote: Post Card', 'mynote' ),
+			'priority'   => 10,
+			'capability' => 'edit_theme_options',
+		)
+	);
+
+	// Sections.
 	$wp_customize->add_section( 'section_homepahe_header_navbar', 
 		array(
 			'title'      => __( 'Homepage', 'mynote' ),
@@ -54,8 +63,6 @@ function mynote_customize_register( $wp_customize ) {
 			'panel'      => 'panel_mynote_navbar',
 		)
 	);
-
-	// Sections.
 
 	$wp_customize->add_section( 'section_header_navbar', 
 		array(
@@ -238,6 +245,21 @@ function mynote_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'layout_cols_per_row_archive', array( 
 		'default'           => '3', 
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'progressbar_is_display_percentage', array( 
+		'default'           => 'yes',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'post_card_show_footer', array( 
+		'default'           => 'yes',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'post_card_show_header', array( 
+		'default'           => 'yes',
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 
@@ -496,6 +518,38 @@ function mynote_customize_register( $wp_customize ) {
 				'choices'     => array(
 					'right' => get_template_directory_uri() . '/assets/images/layout_sidebar_right.png',
 					'left'  => get_template_directory_uri() . '/assets/images/layout_sidebar_left.png',
+				),
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Control( $wp_customize, 'post_card_header_control',
+			array(
+				'label'       => __( 'Header', 'mynote' ),
+				'section'     => 'section_post_card',
+				'settings'    => 'post_card_show_header',
+				'type'        => 'radio',
+				'description' => __( 'Would you like to display the header of the post card? (Post thumbnail is located on this section. Choosing `No` will hide it.)', 'mynote' ),
+				'choices'     => array(
+					'yes' => __( 'Yes', 'mynote' ),
+					'no'  => __( 'No', 'mynote' ),
+				),
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Control( $wp_customize, 'post_card_footer_control',
+			array(
+				'label'       => __( 'Footer', 'mynote' ),
+				'section'     => 'section_post_card',
+				'settings'    => 'post_card_show_footer',
+				'type'        => 'radio',
+				'description' => __( 'Would you like to display the footer of the post card?', 'mynote' ),
+				'choices'     => array(
+					'yes' => __( 'Yes', 'mynote' ),
+					'no'  => __( 'No', 'mynote' ),
 				),
 			)
 		)

@@ -23,7 +23,7 @@
 		<div class="<?php mynote_layout_columns(); ?>">
 			<article id="post-<?php the_ID(); ?>" class="article-list">
 				<div class="card my-2">
-					<?php if ( has_post_thumbnail() ) : ?>
+					<?php if ( mynote_is_post_card_header() && has_post_thumbnail() ) : ?>
 						<?php mynote_post_thumbnail(); ?>
 					<?php endif; ?>
 
@@ -50,9 +50,11 @@
 							<?php mynote_edit_button(); ?>
 						</div>
 					</div>
-					<div class="card-footer text-muted text-center">
-						<?php mynote_author_posted_date(); ?>
-					</div>
+					<?php if ( mynote_is_post_card_footer() ) : ?>
+						<div class="card-footer text-muted text-center">
+							<?php mynote_author_posted_date(); ?>
+						</div>
+					<?php endif; ?>
 				</div>
 			</article>
 		</div>

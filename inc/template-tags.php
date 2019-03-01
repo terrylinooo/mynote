@@ -266,6 +266,29 @@ function mynote_title_progress_bar() {
 }
 
 /**
+ * Get article schemal.
+ *
+ * @param string $schema Article type.
+ * @return void
+ */
+function mynote_article_schemal( $schema = 'Article' ) {
+	switch ( $schema ) {
+		case 'tech':
+			$schema = 'TechArticle';
+			break;
+		case 'news':
+			$schema = 'NewsArticle';
+			break;
+		case 'scholarly':
+			$schema = 'ScholarlyArticles';
+			break;
+		default:
+			$schema = 'Article';
+	}
+	echo 'http://schema.org/' . $schema;
+}
+
+/**
  * Custom edit button with GitHub style.
  *
  * @return void
@@ -392,6 +415,7 @@ function mynote_author_posted_date( $show_avatar = false, $avatar_size = 40 ) {
 	if ( $show_avatar ) {
 		echo '<img src="' . esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => $avatar_size ) ) ) . '" class="rounded-circle poster-avatar" align="middle"> ';
 	}
+
 	printf( '<a href="%1$s" title="written %2$s" class="author-link">%3$s</a> <time itemprop="datePublished" datetime="%4$s">%5$s</time>',
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 		sprintf( esc_html__( '%1$s @ %2$s', 'mynote' ),
@@ -637,4 +661,29 @@ function mynote_layout_columns() {
 		}
 	}
 	echo $css_class_string;
+}
+
+/**
+ * Show post card footer?
+ *
+ * @return bool
+ */
+function mynote_is_post_card_footer() {
+	if ( 'no' === get_theme_mod( 'post_card_show_footer') ) {
+		return false;
+	}
+	return true;
+}
+
+/**
+ * Show post card header?
+ * Post thumbnail is in this section.
+ *
+ * @return bool
+ */
+function mynote_is_post_card_header() {
+	if ( 'no' === get_theme_mod( 'post_card_show_header') ) {
+		return false;
+	}
+	return true;
 }
