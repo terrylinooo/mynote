@@ -82,15 +82,19 @@ function mynote_customize_css() {
     }
 
     if ( 'left' === get_theme_mod( 'layout_post_sidebar_location_home') ) {
-        $css .= ".row-layout-choice-home { flex-direction:row-reverse !important; }\n";
+        $css .= ".row-layout-choice-home { flex-direction: row-reverse !important; }\n";
     }
 
     if ( 'left' === get_theme_mod( 'layout_post_sidebar_location_archive') ) {
-        $css .= ".row-layout-choice-archive { flex-direction:row-reverse !important; }\n";
+        $css .= ".row-layout-choice-archive { flex-direction: row-reverse !important; }\n";
     }
 
     if ( 'left' === get_theme_mod( 'layout_post_sidebar_location_post') ) {
-        $css .= ".row-layout-choice-post { flex-direction:row-reverse !important; }\n";
+        $css .= ".row-layout-choice-post { flex-direction: row-reverse !important; }\n";
+    }
+
+    if ( 'yes' === get_theme_mod( 'is_scroll_down_button' ) ) {
+        $css .= ".scroll-area { display: block !important; }\n";
     }
 
     if ( ! empty( $css ) ) {

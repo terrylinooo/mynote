@@ -562,7 +562,7 @@ function mynote_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'post_card_footer_control',
+		new WP_Customize_Control( $wp_customize, 'scroll_down_button_control',
 			array(
 				'label'       => __( 'Mynote: Scrolling down button', 'mynote' ),
 				'section'     => 'static_front_page',
