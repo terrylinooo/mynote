@@ -11,12 +11,23 @@
  * @version 1.0.7.0
  */
 
-$is_site_icon = false;
+$is_brand_url = false;
 $addon_body_class = '';
+$site_brand_url = '';
 
 if ( '' !== mynote_site_icon() ) {
-	$is_site_icon = true;
-	$addon_body_class = 'has-site-icon';
+	$is_brand_url = true;
+	$addon_body_class .= 'has-site-icon';
+	$site_brand_url = mynote_site_icon();
+}
+
+if ( '' !== mynote_site_logo() ) {
+	$is_brand_url = true;
+	if ( ! empty( $addon_body_class ) ) {
+		$addon_body_class .= ' ';
+	}
+	$addon_body_class .= 'has-site-logo';
+	$site_brand_url = mynote_site_logo();
 }
 
 ?><!doctype html>
@@ -34,9 +45,9 @@ if ( '' !== mynote_site_icon() ) {
 		<header class="header clear" role="banner">
 			<div class="container">
 				<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
-					<?php if ( $is_site_icon ) : ?>
+					<?php if ( $is_brand_url ) : ?>
 					<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>">
-						<img src="<?php echo mynote_site_icon(); ?>" alt="<?php esc_attr_e( 'Logo', 'mynote' ); ?>" class="logo-img">
+						<img src="<?php echo esc_url( $site_brand_url ); ?>" alt="<?php esc_attr_e( 'Logo', 'mynote' ); ?>" class="logo-img">
 					</a>
 					<?php endif; ?>
 

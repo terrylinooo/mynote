@@ -13,7 +13,8 @@
 if ( ! function_exists( 'mynote_setup_theme' ) ) {
 
 	function mynote_setup_theme() {
-		// Add Menu Support.
+
+		// Let WordPress manage the document title.
 		add_theme_support( 'title-tag' );
 
 		// Add Thumbnail Theme Support.
@@ -65,6 +66,14 @@ if ( ! function_exists( 'mynote_setup_theme' ) ) {
 			'video-active-callback'  => '',
 		);
 		add_theme_support( 'custom-header', $header_args );
+
+		// Add theme support for Custom Logo.
+		$logo_args = array(
+			'height'      => 60,
+			'width'       => 180,
+			'flex-width'  => true,
+		);
+		add_theme_support( 'custom-logo', $logo_args );
 	}
 
 	add_editor_style( 'editor-style.css' );

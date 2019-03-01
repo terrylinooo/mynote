@@ -164,3 +164,14 @@
 	}
 }
 
+.has-site-logo {
+	.navbar-brand {
+		margin-bottom: -10px;
+		margin-top: -10px;
+	}
+	.header {
+		.logo-img {
+			height: 60px;
+		}
+	}
+}

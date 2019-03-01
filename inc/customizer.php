@@ -263,6 +263,12 @@ function mynote_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 
+	// Add custom setting to bulti-in `static_front_page` section.
+	$wp_customize->add_setting( 'is_scroll_down_button', array( 
+		'default'           => 'no',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
 	// Controls.
 
 	$wp_customize->add_control(
@@ -554,4 +560,21 @@ function mynote_customize_register( $wp_customize ) {
 			)
 		)
 	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Control( $wp_customize, 'post_card_footer_control',
+			array(
+				'label'       => __( 'Mynote: Scrolling down button', 'mynote' ),
+				'section'     => 'static_front_page',
+				'settings'    => 'is_scroll_down_button',
+				'type'        => 'radio',
+				'description' => __( 'Would you like to display the scrolling down button? (desktop version)', 'mynote' ),
+				'choices'     => array(
+					'yes' => __( 'Yes', 'mynote' ),
+					'no'  => __( 'No', 'mynote' ),
+				),
+			)
+		)
+	);
+	
 }

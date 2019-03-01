@@ -100,6 +100,24 @@
             right: 76px;
         }
     }
+
+    .has-site-logo {
+
+        .navbar-brand {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+
+        .search-bar {
+            width: calc(100% - 280px) !important;
+            position: absolute !important;
+            top: 15px;
+            right: 76px;
+        }
+    }
 }
 
 /* 768px - 991.98px */
@@ -171,6 +189,21 @@
         .author-info {
             padding-top: 0;
         }
+    }
+
+    .has-site-logo {
+        .header {
+            .search-bar {
+                width: 100% !important;
+                position: absolute;
+                margin: 0 !important;
+                top: 60px;
+                right: 0;
+            }
+        }
+    }
+    .p-5 {
+        padding: 0 !important;
     }
 }
 

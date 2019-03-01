@@ -440,7 +440,29 @@ function mynote_author_posted_date( $show_avatar = false, $avatar_size = 40 ) {
  */
 function mynote_site_icon() {
 	$fallback_url = '';
-	return esc_url( get_site_icon_url( '32', $fallback_url ) );
+
+	if ( version_compare( $GLOBALS['wp_version'], '4.3', '>' ) ) {
+		return esc_url( get_site_icon_url( '32', $fallback_url ) );
+	}
+	return '';
+}
+
+/**
+ * Site logo.
+ *
+ * Mynote dosn't use the_custom_logo(), the reason is because it supports 4.5 or up.
+ * I hope even lower version of WordPress is able to use this theme as well.
+ *
+ * @return string Logo Url
+ */
+function mynote_site_logo() {
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+	$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+	
+	if ( ! empty( $logo ) ) {
+		return esc_url( $logo[0] );
+	}
+	return '';
 }
 
 if ( ! function_exists( 'mynote_author_card' ) ) {
