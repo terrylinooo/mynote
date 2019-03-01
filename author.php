@@ -11,13 +11,6 @@
  * @version 1.2.0
  */
 
-$has_slider = false;
-$main_container_css = 'col-lg-12 col-md-12 col-sm-12';
-if ( is_active_sidebar( 'sidebar-7' ) ) {
-	$has_slider = true;
-	$main_container_css = 'col-lg-8 col-md-8 col-sm-12';
-}
-
 get_header();
 
 ?>
@@ -27,13 +20,13 @@ get_header();
 		<?php mynote_author_card( 150, 'lg' ); ?>
 	</div>
 	<div class="container">
-		<div class="row row-layout-choice">
-			<section id="main-container" class="<?php echo $main_container_css; ?>">
+		<div class="row row-layout-choice-archive">
+			<section id="main-container" class="<?php echo esc_attr( mynote_main_container_css() ); ?>">
 				<?php get_template_part( 'loop' ); ?>
 				<?php get_template_part( 'pagination' ); ?>
 			</section>
 
-			<?php if ( $has_slider ) : ?>
+			<?php if ( mynote_is_sidebar() ) : ?>
 			<aside id="aside-container" class="col-lg-4 col-md-4 col-sm-12" role="complementary">
 				<?php get_sidebar( 'archive' ); ?>
 			</aside>

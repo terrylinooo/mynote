@@ -97,7 +97,25 @@ function mynote_default_nav() {
  * The mynote Post thumbnail.
  */
 function mynote_post_thumbnail() {
-	the_post_thumbnail( 'mynote-thumbnail',
+	$size = 'mynote-thumbnail';
+
+	if ( is_home() || is_front_page() ) {
+		if ( '2' === get_theme_mod( 'layout_cols_per_row_home') ) {
+			$size = 'mynote-medium';
+		}
+		if ( '1' === get_theme_mod( 'layout_cols_per_row_home') ) {
+			$size = 'post-large';
+		}
+	} else {
+		if ( '2' === get_theme_mod( 'layout_cols_per_row_archive') ) {
+			$size = 'mynote-medium';
+		}
+		if ( '1' === get_theme_mod( 'layout_cols_per_row_archive') ) {
+			$size = 'post-large';
+		}
+	}
+
+	the_post_thumbnail( $size,
 		array(
 			'class' => 'card-img-top',
 			'alt'   => get_the_title(),
@@ -490,7 +508,7 @@ function mynote_post_breadcrumb() {
 	global $post;
 
 	if ( is_singular() ) {
-		$categories   = get_the_category( $post->ID );
+		$categories = get_the_category( $post->ID );
 
 		$is_first_cat = false;
 		foreach ( $categories as $cat ) {
@@ -547,3 +565,76 @@ function mynote_post_breadcrumb() {
 	}
 }
 
+/**
+ * Return CSS class string for main container section.
+ *
+ * @return string
+ */
+function mynote_main_container_css() {
+	$css_class_string = 'col-lg-12 col-md-12 col-sm-12';
+
+	if ( is_home() || is_front_page() ) {
+		if ( is_active_sidebar( 'sidebar-6' ) ) {
+			$css_class_string = 'col-lg-8 col-md-8 col-sm-12';
+		}
+	} elseif ( is_single() ) {
+		if ( is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'sidebar-3' ) ) {
+			$css_class_string = 'col-lg-8 col-md-8 col-sm-12';
+		}
+	} else {
+		if ( is_active_sidebar( 'sidebar-7' ) ) {
+			$css_class_string = 'col-lg-8 col-md-8 col-sm-12';
+		}
+	}
+	echo $css_class_string;
+}
+
+/**
+ * Check if sidebar exists on current page.
+ *
+ * @return bool
+ */
+function mynote_is_sidebar() {
+	$is_sidebar = false;
+
+	if ( is_home() || is_front_page() ) {
+		if ( is_active_sidebar( 'sidebar-6' ) ) {
+			$is_sidebar = true;
+		}
+	} elseif ( is_single() ) {
+		if ( is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'sidebar-3' ) ) {
+			$is_sidebar = true;
+		}
+	} else {
+		if ( is_active_sidebar( 'sidebar-7' ) ) {
+			$is_sidebar = true;
+		}
+	}
+	return $is_sidebar;
+}
+
+/**
+ * Output CSS class string.
+ *
+ * @return string
+ */
+function mynote_layout_columns() {
+	$css_class_string = 'col-sm-4';
+
+	if ( is_home() || is_front_page() ) {
+		if ( '2' === get_theme_mod( 'layout_cols_per_row_home') ) {
+			$css_class_string = 'col-sm-6';
+		}
+		if ( '1' === get_theme_mod( 'layout_cols_per_row_home') ) {
+			$css_class_string = 'col-sm-12';
+		}
+	} else {
+		if ( '2' === get_theme_mod( 'layout_cols_per_row_archive') ) {
+			$css_class_string = 'col-sm-6';
+		}
+		if ( '1' === get_theme_mod( 'layout_cols_per_row_archive') ) {
+			$css_class_string = 'col-sm-12';
+		}
+	}
+	echo $css_class_string;
+}

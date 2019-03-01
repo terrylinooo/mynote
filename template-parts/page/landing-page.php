@@ -79,15 +79,24 @@ if ( has_post_thumbnail() ) {
 				</section>
 			</div><!-- .row -->
 		</div><!-- .container -->
+
 		<div class="container">
-			<section>
-                <?php
-                    $args = array( 'post_type' => 'post', 'posts_per_page' => 10 );
-                    $wp_query = new WP_Query( $args );
-                ?>
-				<?php get_template_part( 'loop' ); ?>
-				<?php get_template_part( 'pagination' ); ?>
-			</section>
+			<div class="row row-layout-choice-home">
+				<section id="main-container" class="<?php echo esc_attr( mynote_main_container_css() ); ?>">
+					<?php
+						$args = array( 'post_type' => 'post', 'posts_per_page' => 10 );
+						$wp_query = new WP_Query( $args );
+					?>
+					<?php get_template_part( 'loop' ); ?>
+					<?php get_template_part( 'pagination' ); ?>
+				</section>
+
+				<?php if ( mynote_is_sidebar() ) : ?>
+				<aside id="aside-container" class="col-lg-4 col-md-4 col-sm-12" role="complementary">
+					<?php get_sidebar( 'archive' ); ?>
+				</aside>
+				<?php endif; ?>
+			</div>
 		</div>
 	</main>
 

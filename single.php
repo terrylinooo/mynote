@@ -13,12 +13,6 @@
 
 get_header();
 
-$has_slider = false;
-$main_container_css = 'col-lg-12 col-md-12 col-sm-12';
-if ( is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'sidebar-3' ) ) {
-	$has_slider = true;
-	$main_container_css = 'col-lg-8 col-md-8 col-sm-12';
-}
 ?>
 
 <?php mynote_title_progress_bar(); ?>
@@ -49,8 +43,8 @@ if ( is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'sidebar-3' ) ) {
 	<?php endif; ?>
 
 	<div class="container">
-		<div class="row row-layout-choice">
-			<main id="main-container" class="<?php echo $main_container_css; ?>" role="main">
+		<div class="row row-layout-choice-post">
+			<main id="main-container" class="<?php echo esc_attr( mynote_main_container_css() ); ?>"> role="main">
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
@@ -86,7 +80,7 @@ if ( is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'sidebar-3' ) ) {
 			<?php endif; ?>
 			</main>
 
-			<?php if ( $has_slider ) : ?>
+			<?php if ( mynote_is_sidebar() ) : ?>
 			<aside id="aside-container" class="col-lg-4 col-md-4 col-sm-12" role="complementary">
 				<?php get_sidebar(); ?>
 			</aside>

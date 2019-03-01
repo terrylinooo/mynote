@@ -550,3 +550,4 @@ function mynote_alx_embed_html( $html ) {
 }
 add_filter( 'embed_oembed_html', 'mynote_alx_embed_html', 10, 3 );
 add_filter( 'video_embed_html', 'mynote_alx_embed_html' );
+

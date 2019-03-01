@@ -24,6 +24,7 @@ if ( ! function_exists( 'mynote_setup_theme' ) ) {
 
 		// Custom Thumbnail Size call using the_post_thumbnail( 'mynote-thumbnail' ); .
 		add_image_size( 'mynote-thumbnail', 360, 240, true );
+		add_image_size( 'mynote-medium', 600, 400, true );
 
 		// Localisation Support.
 		load_theme_textdomain( 'mynote', get_template_directory() . '/languages' );

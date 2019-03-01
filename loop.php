@@ -20,7 +20,7 @@
 
 		<?php the_post(); ?>
 
-		<div class="col-sm-4">
+		<div class="<?php mynote_layout_columns(); ?>">
 			<article id="post-<?php the_ID(); ?>" class="article-list">
 				<div class="card my-2">
 					<?php if ( has_post_thumbnail() ) : ?>

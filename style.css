@@ -729,6 +729,11 @@ article figcaption {
   color: #586069 !important;
 }
 
+/* Post list */
+.author-posted-date {
+  font-size: 13px;
+}
+
 /* Use the best fit font for different languages */
 :lang(en) body {
   font-family: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;

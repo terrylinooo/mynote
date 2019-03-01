@@ -96,6 +96,11 @@ article {
     color: #586069 !important;
 }
 
+/* Post list */
+.author-posted-date {
+    font-size: 13px;
+}
+
 /* Use the best fit font for different languages */
 
 @each $lang-code in $supported-languages {
