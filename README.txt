@@ -87,4 +87,5 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 = 1.2.0 =
 
 - User is now able to choose preferred layout in Customizer.
+- Add customizer settings: post card.
 - Add 2 widget areas: homepage sidebar and archive sidebar.
