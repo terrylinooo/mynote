@@ -2,12 +2,12 @@
 Contributors: Terry Lin
 Requires at least: WordPress 3.6
 Tested up to: WordPress 5.0.3
-Version: 1.2.0
+Version: 1.2.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, threaded-comments
 Requires PHP: 5.2.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 
 == Description ==
 
@@ -90,3 +90,7 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 - Add customizer settings: post card.
 - Add 2 widget areas: homepage sidebar and archive sidebar.
 - Add theme suport: site logo (180x60). It will be displayed on navbar.
+
+= 1.2.1 =
+
+- Fix wrong setting name in customizer.
