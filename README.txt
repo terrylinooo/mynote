@@ -89,3 +89,4 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 - User is now able to choose preferred layout in Customizer.
 - Add customizer settings: post card.
 - Add 2 widget areas: homepage sidebar and archive sidebar.
+- Add theme suport: site logo (180x60). It will be displayed on navbar.
