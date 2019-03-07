@@ -1,13 +1,13 @@
 === Mynote ===
 Contributors: Terry Lin
 Requires at least: WordPress 3.6
-Tested up to: WordPress 5.0.3
-Version: 1.2.1
+Tested up to: WordPress 5.1.0
+Version: 1.2.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, threaded-comments
 Requires PHP: 5.2.4
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 
 == Description ==
 
@@ -94,3 +94,7 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 = 1.2.1 =
 
 - Fix wrong setting name in customizer.
+
+= 1.2.2 =
+
+- Add new customizer setting section: Post page.

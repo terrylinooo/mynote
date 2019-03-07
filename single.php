@@ -8,7 +8,7 @@
  * @package WordPress
  * @subpackage Mynote
  * @since 1.0.0
- * @version 1.0.7.0
+ * @version 1.2.2
  */
 
 get_header();
