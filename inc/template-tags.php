@@ -553,7 +553,7 @@ function mynote_site_info() {
 function mynote_post_breadcrumb() {
 	global $post;
 
-	if ( is_singular() ) {
+	if ( mynote_is_post_breadcrumb() && is_singular() ) {
 		$categories = get_the_category( $post->ID );
 
 		$is_first_cat = false;
@@ -668,17 +668,17 @@ function mynote_layout_columns() {
 	$css_class_string = 'col-sm-4';
 
 	if ( is_home() || is_front_page() ) {
-		if ( '2' === get_theme_mod( 'layout_cols_per_row_home') ) {
+		if ( '2' === get_theme_mod( 'layout_cols_per_row_home' ) ) {
 			$css_class_string = 'col-sm-6';
 		}
-		if ( '1' === get_theme_mod( 'layout_cols_per_row_home') ) {
+		if ( '1' === get_theme_mod( 'layout_cols_per_row_home' ) ) {
 			$css_class_string = 'col-sm-12';
 		}
 	} else {
-		if ( '2' === get_theme_mod( 'layout_cols_per_row_archive') ) {
+		if ( '2' === get_theme_mod( 'layout_cols_per_row_archive' ) ) {
 			$css_class_string = 'col-sm-6';
 		}
-		if ( '1' === get_theme_mod( 'layout_cols_per_row_archive') ) {
+		if ( '1' === get_theme_mod( 'layout_cols_per_row_archive' ) ) {
 			$css_class_string = 'col-sm-12';
 		}
 	}
@@ -691,7 +691,7 @@ function mynote_layout_columns() {
  * @return bool
  */
 function mynote_is_post_card_footer() {
-	if ( 'no' === get_theme_mod( 'post_card_show_footer') ) {
+	if ( 'no' === get_theme_mod( 'post_card_show_footer' ) ) {
 		return false;
 	}
 	return true;
@@ -704,7 +704,67 @@ function mynote_is_post_card_footer() {
  * @return bool
  */
 function mynote_is_post_card_header() {
-	if ( 'no' === get_theme_mod( 'post_card_show_header') ) {
+	if ( 'no' === get_theme_mod( 'post_card_show_header' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/**
+ * Show breadcrumb in post page?
+ *
+ * @return bool
+ */
+function mynote_is_post_breadcrumb() {
+	if ( 'no' === get_theme_mod( 'post_page_show_breadcrumb' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/**
+ * Show post author and post date in post page?
+ *
+ * @return bool
+ */
+function mynote_is_post_author_date() {
+	if ( 'no' === get_theme_mod( 'post_page_show_author_date' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/**
+ * Show featured image in post page?
+ *
+ * @return bool
+ */
+function mynote_is_post_featured_image() {
+	if ( 'no' === get_theme_mod( 'post_page_show_feature_image' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/**
+ * Show author card in post page?
+ *
+ * @return bool
+ */
+function mynote_is_post_author_card() {
+	if ( 'no' === get_theme_mod( 'post_page_show_author_card' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/**
+ * Show comment section in post page?
+ *
+ * @return bool
+ */
+function mynote_is_post_comment_section() {
+	if ( 'no' === get_theme_mod( 'post_page_show_author_card' ) ) {
 		return false;
 	}
 	return true;

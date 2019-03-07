@@ -54,6 +54,14 @@ function mynote_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_section( 'section_post_page', 
+		array(
+			'title'      => __( 'Mynote: Post Page', 'mynote' ),
+			'priority'   => 10,
+			'capability' => 'edit_theme_options',
+		)
+	);
+
 	// Sections.
 	$wp_customize->add_section( 'section_homepahe_header_navbar', 
 		array(
@@ -266,6 +274,31 @@ function mynote_customize_register( $wp_customize ) {
 	// Add custom setting to bulti-in `static_front_page` section.
 	$wp_customize->add_setting( 'is_scroll_down_button', array( 
 		'default'           => 'no',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'post_page_show_breadcrumb', array( 
+		'default'           => 'yes',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'post_page_show_author_date', array( 
+		'default'           => 'yes',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'post_page_show_feature_image', array( 
+		'default'           => 'yes',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'post_page_show_author_card', array( 
+		'default'           => 'yes',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_setting( 'post_page_show_comments', array( 
+		'default'           => 'yes',
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 
@@ -553,6 +586,87 @@ function mynote_customize_register( $wp_customize ) {
 				'settings'    => 'post_card_show_footer',
 				'type'        => 'radio',
 				'description' => __( 'Would you like to display the footer of the post card?', 'mynote' ),
+				'choices'     => array(
+					'yes' => __( 'Yes', 'mynote' ),
+					'no'  => __( 'No', 'mynote' ),
+				),
+			)
+		)
+	);
+
+
+	$wp_customize->add_control(
+		new WP_Customize_Control( $wp_customize, 'post_page_show_breadcrumb_control',
+			array(
+				'label'       => __( 'Breadcrumb', 'mynote' ),
+				'section'     => 'section_post_page',
+				'settings'    => 'post_page_show_breadcrumb',
+				'type'        => 'radio',
+				'description' => __( 'Would you like to display breadcrumb?', 'mynote' ),
+				'choices'     => array(
+					'yes' => __( 'Yes', 'mynote' ),
+					'no'  => __( 'No', 'mynote' ),
+				),
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Control( $wp_customize, 'post_page_show_author_date_control',
+			array(
+				'label'       => __( 'Post Author and Date', 'mynote' ),
+				'section'     => 'section_post_page',
+				'settings'    => 'post_page_show_author_date',
+				'type'        => 'radio',
+				'description' => __( 'Would you like to display post author and post date?', 'mynote' ),
+				'choices'     => array(
+					'yes' => __( 'Yes', 'mynote' ),
+					'no'  => __( 'No', 'mynote' ),
+				),
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Control( $wp_customize, 'post_page_show_feature_image_control',
+			array(
+				'label'       => __( 'Featured Image', 'mynote' ),
+				'section'     => 'section_post_page',
+				'settings'    => 'post_page_show_feature_image',
+				'type'        => 'radio',
+				'description' => __( 'Would you like to display featured image?', 'mynote' ),
+				'choices'     => array(
+					'yes' => __( 'Yes', 'mynote' ),
+					'no'  => __( 'No', 'mynote' ),
+				),
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Control( $wp_customize, 'post_page_show_author_card_control',
+			array(
+				'label'       => __( 'Author Card', 'mynote' ),
+				'section'     => 'section_post_page',
+				'settings'    => 'post_page_show_author_card',
+				'type'        => 'radio',
+				'description' => __( 'Would you like to display author card?', 'mynote' ),
+				'choices'     => array(
+					'yes' => __( 'Yes', 'mynote' ),
+					'no'  => __( 'No', 'mynote' ),
+				),
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Control( $wp_customize, 'post_page_show_comments_control',
+			array(
+				'label'       => __( 'Comment Section', 'mynote' ),
+				'section'     => 'section_post_page',
+				'settings'    => 'post_page_show_comments',
+				'type'        => 'radio',
+				'description' => __( 'Would you like to display comment section?', 'mynote' ),
 				'choices'     => array(
 					'yes' => __( 'Yes', 'mynote' ),
 					'no'  => __( 'No', 'mynote' ),

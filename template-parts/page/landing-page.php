@@ -93,7 +93,7 @@ if ( has_post_thumbnail() ) {
 
 				<?php if ( mynote_is_sidebar() ) : ?>
 				<aside id="aside-container" class="col-lg-4 col-md-4 col-sm-12" role="complementary">
-					<?php get_sidebar( 'archive' ); ?>
+					<?php get_sidebar( 'home' ); ?>
 				</aside>
 				<?php endif; ?>
 			</div>
