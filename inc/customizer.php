@@ -14,6 +14,15 @@ add_action( 'customize_register', 'mynote_customize_register' );
 
 function mynote_customize_register( $wp_customize ) {
 
+	// About Mynote theme
+	$wp_customize->add_section( 'section_about_mynote_theme', 
+		array(
+			'title'      => __( 'About Mynote Theme', 'mynote' ),
+			'priority'   => 1,
+			'capability' => 'edit_theme_options',
+		)
+	);
+
 	// Default settings.
 
 	$default_navbar_color                = 'rgba(36, 41, 46, 1)';
@@ -30,7 +39,6 @@ function mynote_customize_register( $wp_customize ) {
 	);
 
 	// Panels.
-
 	$wp_customize->add_panel( 'panel_mynote_navbar', array(
 		'title'       => __( 'Mynote: Navbar', 'mynote' ),
 		'priority'    => 10,
@@ -690,5 +698,21 @@ function mynote_customize_register( $wp_customize ) {
 			)
 		)
 	);
-	
+
+	// About
+	$about  =  __( 'Mynote is an open source project on GitHub, any suggestions to improve this theme are welcome. Please visit:', 'mynote' );
+	$about .= '<br /><br /><a href="https://github.com/terrylinooo/mynote">https://github.com/terrylinooo/mynote</a>';
+
+	$wp_customize->add_setting( 'setting_about_mynote_theme', array() );
+
+	$wp_customize->add_control(
+		new Customize_Content_Control( $wp_customize, 'control_about_mynote_theme',
+			array(
+				'label'       => __( 'About', 'mynote' ),
+				'section'     => 'section_about_mynote_theme',
+				'settings'    => 'setting_about_mynote_theme',
+				'description' => $about,
+			)
+		)
+	);
 }

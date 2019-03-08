@@ -233,6 +233,7 @@ if ( ! isset( $content_width ) ) {
 if ( function_exists( 'is_customize_preview' ) && is_customize_preview() ) {
 	require get_parent_theme_file_path( '/inc/classes/class-customize-alpha-color.php' );
 	require get_parent_theme_file_path( '/inc/classes/class-customize-image-radio.php' );
+	require get_parent_theme_file_path( '/inc/classes/class-customize-content.php' );
 	require get_parent_theme_file_path( '/inc/customizer.php' );
 }
 
