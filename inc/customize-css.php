@@ -11,96 +11,122 @@
  */
 
 function mynote_customize_css() {
+
     $css = '';
 
-    if ( get_theme_mod( 'header_textcolor' ) ) {
-        $css .= '#header-desc-text { color: ' . esc_attr( get_theme_mod( 'header_textcolor' ) ) . " !important; }\n";
+    $settings = array(
+        'header_textcolor',
+        'navbar_website_bg_color',
+        'navbar_website_link_color',
+        'navbar_website_link_hover_color',
+        'navbar_is_display_search_bar',
+        'navbar_homepage_bg_color',
+        'navbar_homepage_link_color',
+        'navbar_homepage_link_hover_color',
+        'navbar_homepage_link_hover_color',
+        'progressbar_preferred_color',
+        'navbar_website_bg_color',
+        'navbar_website_link_color',
+        'progressbar_custom_bg_color',
+        'progressbar_custom_text_color',
+        'progressbar_custom_border_color',
+        'progressbar_is_display_bar',
+        'progressbar_is_display_percentage',
+        'layout_post_sidebar_location_home',
+        'layout_post_sidebar_location_archive',
+        'layout_post_sidebar_location_post',
+        'is_scroll_down_button',
+    );
+
+    foreach ( $settings as $setting_name ) {
+        $v[ $setting_name ] = get_theme_mod( $setting_name );
     }
 
-    if ( get_theme_mod( 'navbar_website_bg_color' ) ) {
-        $css .= 'body:not(.home) .header { background-color: ' . esc_attr( get_theme_mod( 'navbar_website_bg_color' ) ) . " !important; }\n";
+    if ( ! empty( $v['header_textcolor'] ) ) {
+        $css .= '#header-desc-text { color: ' . esc_attr( $v['header_textcolor'] ) . " !important; }\n";
     }
 
-    if ( get_theme_mod( 'navbar_website_link_color' ) ) {
-        $css .= 'body:not(.home) .header .navbar li > a { color: ' . esc_attr( get_theme_mod( 'navbar_website_link_color' ) ) . " !important; }\n";
+    if ( ! empty( $v['navbar_website_bg_color'] ) ) {
+        $css .= 'body:not(.home) .header { background-color: ' . esc_attr( $v['navbar_website_bg_color'] ) . " !important; }\n";
     }
 
-    if ( get_theme_mod( 'navbar_website_link_hover_color' ) ) {
-        $css .= 'body:not(.home) .header .navbar li > a:hover { color: ' . esc_attr( get_theme_mod( 'navbar_website_link_hover_color' ) ) . " !important; }\n";
+    if ( ! empty( $v['navbar_website_link_color'] ) ) {
+        $css .= 'body:not(.home) .header .navbar li > a { color: ' . esc_attr( $v['navbar_website_link_color'] ) . " !important; }\n";
     }
 
-    if ( get_theme_mod( 'navbar_is_display_search_bar' ) && 'no' === get_theme_mod( 'navbar_is_display_search_bar' ) ) {
+    if ( ! empty( $v['navbar_website_link_hover_color'] ) ) {
+        $css .= 'body:not(.home) .header .navbar li > a:hover { color: ' . esc_attr( $v['navbar_website_link_hover_color'] ) . " !important; }\n";
+    }
+
+    if ( empty( $v['navbar_is_display_search_bar'] ) ) {
         $css .= ".header .search-bar { display: none !important; }\n";
-    }
-
-    if ( get_theme_mod( 'navbar_homepage_bg_color' ) ) {
-        $css .= 'body.home .header { background-color: ' . esc_attr( get_theme_mod( 'navbar_homepage_bg_color' ) ) . " !important; }\n";
-    }
-
-    if ( get_theme_mod( 'navbar_homepage_link_color' ) ) {
-        $css .= 'body.home .header .navbar li > a { color: ' . esc_attr( get_theme_mod( 'navbar_homepage_link_color' ) ) . " !important; }\n";
-    }
-
-    if ( get_theme_mod( 'navbar_homepage_link_hover_color' ) ) {
-        $css .= 'body.home .header .navbar li > a:hover { color: ' . esc_attr( get_theme_mod( 'navbar_homepage_link_hover_color' ) ) . " !important; }\n";
-    }
-
-    if ( get_theme_mod( 'navbar_is_display_search_bar' ) && 'no' === get_theme_mod( 'navbar_is_display_search_bar' ) ) {
         $css .= "body.home .header .search-bar { display: none !important; }\n";
     }
 
-    if ( get_theme_mod( 'navbar_searchbar_placeholder_color' ) ) {
-        $css .= '.header .search-bar input::-webkit-input-placeholder { color: ' . esc_attr( get_theme_mod( 'navbar_searchbar_placeholder_color' ) ) . " !important; }\n";
-        $css .= '.header .search-bar input::placeholder { color: ' . esc_attr( get_theme_mod( 'navbar_searchbar_placeholder_color' ) ) . " !important; }\n";
-        $css .= '.header .search-bar input:-ms-input-placeholder { color: ' . esc_attr( get_theme_mod( 'navbar_searchbar_placeholder_color' ) ) . " !important; }\n";
-        $css .= '.header .search-bar input::-ms-input-placeholder { color: ' . esc_attr( get_theme_mod( 'navbar_searchbar_placeholder_color' ) ) . " !important; }\n";
+    if ( ! empty( $v['navbar_homepage_bg_color'] ) ) {
+        $css .= 'body.home .header { background-color: ' . esc_attr( $v['navbar_homepage_bg_color'] ) . " !important; }\n";
+    }
+
+    if ( ! empty( $v['navbar_homepage_link_color'] ) ) {
+        $css .= 'body.home .header .navbar li > a { color: ' . esc_attr( $v['navbar_homepage_link_color'] ) . " !important; }\n";
+    }
+
+    if ( ! empty( $v['navbar_homepage_link_hover_color'] ) ) {
+        $css .= 'body.home .header .navbar li > a:hover { color: ' . esc_attr( $v['navbar_homepage_link_hover_color'] ) . " !important; }\n";
+    }
+
+    if ( ! empty( $v['navbar_homepage_link_hover_color'] ) ) {
+        $css .= '.header .search-bar input::-webkit-input-placeholder { color: ' . esc_attr( $v['navbar_homepage_link_hover_color'] ) . " !important; }\n";
+        $css .= '.header .search-bar input::placeholder { color: ' . esc_attr( $v['navbar_homepage_link_hover_color'] ) . " !important; }\n";
+        $css .= '.header .search-bar input:-ms-input-placeholder { color: ' . esc_attr( $v['navbar_homepage_link_hover_color'] ) . " !important; }\n";
+        $css .= '.header .search-bar input::-ms-input-placeholder { color: ' . esc_attr( $v['navbar_homepage_link_hover_color'] ) . " !important; }\n";
     }
 
     // Apply the custon color pattern to the progress bar.
-    $progress_preferred_color = get_theme_mod( 'progressbar_preferred_color' );
-
-    if ( 'menu' === $progress_preferred_color ) {
-        $css .= '.single-post-title-bar { background-color: ' . esc_attr( get_theme_mod( 'navbar_website_bg_color' ) ) . " !important; }\n";
-        $css .= '#progress-title { color: ' . esc_attr( get_theme_mod( 'navbar_website_link_color' ) ) . " !important; }\n";
-        $css .= 'a.go-top { background-color: ' . esc_attr( get_theme_mod( 'navbar_website_bg_color' ) ) . " !important; }\n";
-        $css .= 'a.go-top i { color: ' . esc_attr( get_theme_mod( 'navbar_website_link_color' ) ) . " !important; }\n";
-    } elseif ( 'custom' === $progress_preferred_color ) {
-        $css .= '.single-post-title-bar { background-color: ' . esc_attr( get_theme_mod( 'progressbar_custom_bg_color' ) ) . " !important; }\n";
-        $css .= '#progress-title { color: ' . esc_attr(  get_theme_mod( 'progressbar_custom_text_color' ) ) . " !important; }\n";
-        $css .= '.progress-wrapper progress::-webkit-progress-value { background-color: ' . esc_attr( get_theme_mod( 'progressbar_custom_border_color' ) ) . " !important; }\n";
-        $css .= '.progress-wrapper progress::-ms-fill { background-color: ' . esc_attr( get_theme_mod( 'progressbar_custom_border_color' ) ) . " !important; }\n";
-        $css .= 'a.go-top { background-color: ' . esc_attr( get_theme_mod( 'progressbar_custom_bg_color' ) ) . " !important; }\n";
-        $css .= 'a.go-top i { color: ' . esc_attr( get_theme_mod( 'progressbar_custom_text_color' ) ) . " !important; }\n";
+    if ( 'menu' === $v['progressbar_preferred_color'] ) {
+        $css .= '.single-post-title-bar { background-color: ' . esc_attr( $v['navbar_website_bg_color'] ) . " !important; }\n";
+        $css .= '#progress-title { color: ' . esc_attr( $v['navbar_website_link_color'] ) . " !important; }\n";
+        $css .= 'a.go-top { background-color: ' . esc_attr( $v['navbar_website_bg_color'] ) . " !important; }\n";
+        $css .= 'a.go-top i { color: ' . esc_attr( $v['navbar_website_link_color'] ) . " !important; }\n";
+    } elseif ( 'custom' === $v['progressbar_preferred_color'] ) {
+        $css .= '.single-post-title-bar { background-color: ' . esc_attr( $v['progressbar_custom_bg_color'] ) . " !important; }\n";
+        $css .= '#progress-title { color: ' . esc_attr(  $v['progressbar_custom_text_color'] ) . " !important; }\n";
+        $css .= '.progress-wrapper progress::-webkit-progress-value { background-color: ' . esc_attr( $v['progressbar_custom_border_color'] ) . " !important; }\n";
+        $css .= '.progress-wrapper progress::-ms-fill { background-color: ' . esc_attr( $v['progressbar_custom_border_color'] ) . " !important; }\n";
+        $css .= 'a.go-top { background-color: ' . esc_attr( $v['progressbar_custom_bg_color'] ) . " !important; }\n";
+        $css .= 'a.go-top i { color: ' . esc_attr( $v['progressbar_custom_text_color'] ) . " !important; }\n";
     }
 
-    if ( 'no' === get_theme_mod( 'progressbar_is_display_bar' ) ) {
+
+    if ( empty( $v['progressbar_is_display_bar'] ) ) {
         $css .= ".single-post-title-bar { display: none !important; }\n";
     }
 
-    if ( 'no' === get_theme_mod( 'progressbar_is_display_percentage' ) ) {
+    if ( empty( $v['progressbar_is_display_percentage'] ) ) {
         $css .= ".progress-wrapper .progress-label { display: none !important; }\n";
     }
 
-    if ( 'left' === get_theme_mod( 'layout_post_sidebar_location_home') ) {
+    if ( 'left' === $v['layout_post_sidebar_location_home'] ) {
         $css .= ".row-layout-choice-home { flex-direction: row-reverse !important; }\n";
     }
 
-    if ( 'left' === get_theme_mod( 'layout_post_sidebar_location_archive') ) {
+    if ( 'left' === $v['layout_post_sidebar_location_archive'] ) {
         $css .= ".row-layout-choice-archive { flex-direction: row-reverse !important; }\n";
     }
 
-    if ( 'left' === get_theme_mod( 'layout_post_sidebar_location_post') ) {
+    if ( 'left' ===  $v['layout_post_sidebar_location_post'] ) {
         $css .= ".row-layout-choice-post { flex-direction: row-reverse !important; }\n";
     }
 
-    if ( 'yes' === get_theme_mod( 'is_scroll_down_button' ) ) {
+    if ( ! empty( $v['is_scroll_down_button'] ) ) {
         $css .= ".scroll-area { display: block !important; }\n";
     }
 
     if ( ! empty( $css ) ) {
         $css .= "body.menu-is-collapsed .header { background: rgba(20, 25, 29, 1) !important; }\n";
-        echo '<style id="mynote-customizer">' . "\n" . $css . "\n" . '</style>';
     }
+
+    echo '<style id="mynote-customizer">' . "\n" . $css . "\n" . '</style>';
 }
 
 add_action( 'wp_head', 'mynote_customize_css' );

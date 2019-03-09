@@ -691,7 +691,8 @@ function mynote_layout_columns() {
  * @return bool
  */
 function mynote_is_post_card_footer() {
-	if ( 'no' === get_theme_mod( 'post_card_show_footer' ) ) {
+	$setting = get_theme_mod( 'post_card_show_footer' );
+	if ( empty( $setting ) ) {
 		return false;
 	}
 	return true;
@@ -704,7 +705,8 @@ function mynote_is_post_card_footer() {
  * @return bool
  */
 function mynote_is_post_card_header() {
-	if ( 'no' === get_theme_mod( 'post_card_show_header' ) ) {
+	$setting = get_theme_mod( 'post_card_show_header' );
+	if ( empty( $setting ) ) {
 		return false;
 	}
 	return true;
@@ -716,7 +718,8 @@ function mynote_is_post_card_header() {
  * @return bool
  */
 function mynote_is_post_breadcrumb() {
-	if ( 'no' === get_theme_mod( 'post_page_show_breadcrumb' ) ) {
+	$setting = get_theme_mod( 'post_page_show_breadcrumb' );
+	if ( empty( $setting ) ) {
 		return false;
 	}
 	return true;
@@ -728,7 +731,8 @@ function mynote_is_post_breadcrumb() {
  * @return bool
  */
 function mynote_is_post_author_date() {
-	if ( 'no' === get_theme_mod( 'post_page_show_author_date' ) ) {
+	$setting = get_theme_mod( 'post_page_show_author_date' );
+	if ( empty( $setting ) ) {
 		return false;
 	}
 	return true;
@@ -740,7 +744,8 @@ function mynote_is_post_author_date() {
  * @return bool
  */
 function mynote_is_post_featured_image() {
-	if ( 'no' === get_theme_mod( 'post_page_show_feature_image' ) ) {
+	$setting = get_theme_mod( 'post_page_show_feature_image' );
+	if ( empty( $setting ) ) {
 		return false;
 	}
 	return true;
@@ -752,7 +757,8 @@ function mynote_is_post_featured_image() {
  * @return bool
  */
 function mynote_is_post_author_card() {
-	if ( 'no' === get_theme_mod( 'post_page_show_author_card' ) ) {
+	$setting = get_theme_mod( 'post_page_show_author_card' );
+	if ( empty( $setting ) ) {
 		return false;
 	}
 	return true;
@@ -764,7 +770,8 @@ function mynote_is_post_author_card() {
  * @return bool
  */
 function mynote_is_post_comment_section() {
-	if ( 'no' === get_theme_mod( 'post_page_show_author_card' ) ) {
+	$setting = get_theme_mod( 'post_page_show_comments' );
+	if ( empty( $setting ) ) {
 		return false;
 	}
 	return true;

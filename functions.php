@@ -259,7 +259,7 @@ require get_parent_theme_file_path( '/inc/template-functions.php' );
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
-$x = get_theme_mod( 'setting_test');
+$x = get_theme_mod( 'setting_test3');
 
 //die(var_dump($x));
 

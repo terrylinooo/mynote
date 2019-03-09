@@ -18,7 +18,7 @@ function mynote_customize_homepage( $wp_customize ) {
      * Add custom setting to bulti-in `static_front_page` section.
      */
 	$wp_customize->add_setting( 'is_scroll_down_button', array( 
-		'default'           => 'no',
+		'default'           => false,
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 
@@ -26,18 +26,13 @@ function mynote_customize_homepage( $wp_customize ) {
      * Control
      */
 	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'scroll_down_button_control',
+		new Customize_Toggle_Control( $wp_customize, 'scroll_down_button_control',
 			array(
 				'label'       => __( 'Scrolling down button', 'mynote' ),
 				'section'     => 'static_front_page',
 				'settings'    => 'is_scroll_down_button',
-				'type'        => 'radio',
 				'description' => __( 'Would you like to display the scrolling down button? (desktop version)', 'mynote' ),
-				'choices'     => array(
-					'yes' => __( 'Yes', 'mynote' ),
-					'no'  => __( 'No', 'mynote' ),
-				),
 			)
 		)
-	);
+    );
 }

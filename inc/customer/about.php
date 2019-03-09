@@ -42,9 +42,9 @@ function mynote_customize_about( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'setting_test',
+	$wp_customize->add_setting( 'setting_test3',
 		array( 
-			'default'           => 'no',
+			'default'           => false,
 			'sanitize_callback' => 'sanitize_text_field',
 		) 
 	);
@@ -52,10 +52,10 @@ function mynote_customize_about( $wp_customize ) {
 	$wp_customize->add_control(
 		new Customize_Toggle_Control( $wp_customize, 'my_control',
 			array(
-				'label'	      => __( 'Toggle me on or off', 'my-lang' ),
-				'section'     => 'section_about_mynote_theme',
-				'settings'    => 'setting_test',
-				'type'        => 'light',
+				'label'	   => __( 'Toggle me on or off', 'my-lang' ),
+				'section'  => 'section_about_mynote_theme',
+				'settings' => 'setting_test3',
+				'description' => 'fsdffffffffffffffffffffffff'
 			) 
 		) 
 	);

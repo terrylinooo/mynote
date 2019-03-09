@@ -61,7 +61,7 @@ function mynote_customize_progress_bar( $wp_customize ) {
      */
     $wp_customize->add_setting( 'progressbar_is_display_bar',
         array( 
-            'default'           => 'yes', 
+            'default'           => true, 
             'sanitize_callback' => 'sanitize_text_field',
         )
     );
@@ -90,7 +90,7 @@ function mynote_customize_progress_bar( $wp_customize ) {
 
     $wp_customize->add_setting( 'progressbar_is_display_percentage',
         array( 
-            'default'           => 'yes',
+            'default'           => true,
             'sanitize_callback' => 'sanitize_text_field',
         )
     );
@@ -124,45 +124,28 @@ function mynote_customize_progress_bar( $wp_customize ) {
             'sanitize_callback' => 'esc_attr',
         )
 	);
-	
-	$wp_customize->add_setting( 'progressbar_is_display_percentage', 
-		array( 
-			'default'           => 'yes',
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
     
     /**
      * Control
      */
 	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'progressbar_is_display_bar_control',
+		new Customize_Toggle_Control( $wp_customize, 'progressbar_is_display_bar_control',
 			array(
-				'label'       => __( 'Display a Progress Bar', 'mynote' ),
+				'label'       => __( 'Display Progress Bar', 'mynote' ),
 				'section'     => 'section_progress_bar_basic',
 				'settings'    => 'progressbar_is_display_bar',
-				'type'        => 'radio',
 				'description' => __( 'Would you like to display a progress bar while reading?', 'mynote' ),
-				'choices'     => array(
-					'yes' => __( 'Yes', 'mynote' ),
-					'no'  => __( 'No', 'mynote' ),
-				),
 			)
 		)
 	);
 
 	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'progressbar_is_display_percentage_control',
+		new Customize_Toggle_Control( $wp_customize, 'progressbar_is_display_percentage_control',
 			array(
-				'label'       => __( 'Display a Percentage Number', 'mynote' ),
+				'label'       => __( 'Display Percentage Number', 'mynote' ),
 				'section'     => 'section_progress_bar_basic',
 				'settings'    => 'progressbar_is_display_percentage',
-				'type'        => 'radio',
 				'description' => __( 'Would you like to display a percentage number on the progress bar?', 'mynote' ),
-				'choices'     => array(
-					'yes' => __( 'Yes', 'mynote' ),
-					'no'  => __( 'No', 'mynote' ),
-				),
 			)
 		)
 	);

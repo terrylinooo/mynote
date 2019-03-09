@@ -34,14 +34,14 @@ function mynote_customize_post_card( $wp_customize ) {
      */
     $wp_customize->add_setting( 'post_card_show_footer',
         array( 
-            'default'           => 'yes',
+            'default'           => true,
             'sanitize_callback' => 'sanitize_text_field',
         )
     );
 
     $wp_customize->add_setting( 'post_card_show_header',
         array( 
-            'default'           => 'yes',
+            'default'           => true,
             'sanitize_callback' => 'sanitize_text_field',
         )
     );
@@ -50,33 +50,23 @@ function mynote_customize_post_card( $wp_customize ) {
      * Control
      */
     $wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'post_card_header_control',
+		new Customize_Toggle_Control( $wp_customize, 'post_card_header_control',
 			array(
 				'label'       => __( 'Header', 'mynote' ),
 				'section'     => 'section_post_card',
 				'settings'    => 'post_card_show_header',
-				'type'        => 'radio',
 				'description' => __( 'Would you like to display the header of the post card? (Post thumbnail is located on this section. Choosing `No` will hide it.)', 'mynote' ),
-				'choices'     => array(
-					'yes' => __( 'Yes', 'mynote' ),
-					'no'  => __( 'No', 'mynote' ),
-				),
 			)
 		)
 	);
 
 	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'post_card_footer_control',
+		new Customize_Toggle_Control( $wp_customize, 'post_card_footer_control',
 			array(
 				'label'       => __( 'Footer', 'mynote' ),
 				'section'     => 'section_post_card',
 				'settings'    => 'post_card_show_footer',
-				'type'        => 'radio',
 				'description' => __( 'Would you like to display the footer of the post card?', 'mynote' ),
-				'choices'     => array(
-					'yes' => __( 'Yes', 'mynote' ),
-					'no'  => __( 'No', 'mynote' ),
-				),
 			)
 		)
 	);

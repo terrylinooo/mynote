@@ -197,17 +197,12 @@ function mynote_customize_navbar( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'navbar_is_display_search_bar_control',
+		new Customize_Toggle_Control( $wp_customize, 'navbar_is_display_search_bar_control',
 			array(
 				'label'       => __( 'Display a Search Bar', 'mynote' ),
 				'section'     => 'section_header_searchbar',
 				'settings'    => 'navbar_is_display_search_bar',
-				'type'        => 'radio',
 				'description' => __( 'Would you like to display a search bar in header navbar area?', 'mynote' ),
-				'choices'     => array(
-					'yes' => __( 'Yes', 'mynote' ),
-					'no'  => __( 'No', 'mynote' ),
-				),
 			)
 		)
 	);
