@@ -445,6 +445,9 @@ function mynote_single_post_script() {
 			}
 
 		});
+
+		// For responsive.
+		$( '.markdown-body img' ).attr('height', '');
 	});
 
 	</script>

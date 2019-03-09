@@ -36,6 +36,7 @@ function mynote_customize_css() {
         'layout_post_sidebar_location_archive',
         'layout_post_sidebar_location_post',
         'is_scroll_down_button',
+        'is_responsive_website',
     );
 
     foreach ( $settings as $setting_name ) {
@@ -124,6 +125,10 @@ function mynote_customize_css() {
 
     if ( ! empty( $css ) ) {
         $css .= "body.menu-is-collapsed .header { background: rgba(20, 25, 29, 1) !important; }\n";
+    }
+
+    if ( empty( $v['is_responsive_website'] ) ) {
+        $css .= ".navbar-expand .navbar-collapse { margin: 0 !important; }\n";
     }
 
     echo '<style id="mynote-customizer">' . "\n" . $css . "\n" . '</style>';

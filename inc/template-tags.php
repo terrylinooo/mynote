@@ -776,3 +776,16 @@ function mynote_is_post_comment_section() {
 	}
 	return true;
 }
+
+/**
+ * Is responsive website?
+ *
+ * @return bool
+ */
+function mynote_is_responsive() {
+	$setting = get_theme_mod( 'is_responsive_website' );
+	if ( empty( $setting ) ) {
+		return false;
+	}
+	return true;
+}

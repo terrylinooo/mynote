@@ -30,12 +30,20 @@ if ( '' !== mynote_site_logo() ) {
 	$site_brand_url = mynote_site_logo();
 }
 
+$addon_navbar_class = '';
+if ( ! mynote_is_responsive() ) {
+	$addon_navbar_class = 'navbar-expand';
+}
+
 ?><!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<?php if ( mynote_is_responsive() ) : ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php endif; ?>
 
 <?php wp_head(); ?>
 
@@ -44,7 +52,7 @@ if ( '' !== mynote_site_logo() ) {
 	<div class="wrapper">
 		<header class="header clear" role="banner">
 			<div class="container">
-				<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
+				<nav class="navbar navbar-expand-lg navbar-dark <?php echo $addon_navbar_class; ?>" role="navigation">
 					<?php if ( $is_brand_url ) : ?>
 					<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>">
 						<img src="<?php echo esc_url( $site_brand_url ); ?>" alt="<?php esc_attr_e( 'Logo', 'mynote' ); ?>" class="logo-img">
