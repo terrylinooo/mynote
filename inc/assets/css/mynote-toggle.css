@@ -1,0 +1,94 @@
+.toggle-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.disabled-control-title {
+  color: #a0a5aa;
+}
+
+input[type=checkbox].mn-toggle {
+  display: none;
+  box-sizing: border-box;
+}
+input[type=checkbox].mn-toggle:after, input[type=checkbox].mn-toggle:before {
+  box-sizing: border-box;
+}
+input[type=checkbox].mn-toggle * {
+  box-sizing: border-box;
+}
+input[type=checkbox].mn-toggle *:after, input[type=checkbox].mn-toggle *:before {
+  box-sizing: border-box;
+}
+input[type=checkbox].mn-toggle + .mn-toggle-btn {
+  box-sizing: border-box;
+}
+input[type=checkbox].mn-toggle::-moz-selection, input[type=checkbox].mn-toggle:after::-moz-selection, input[type=checkbox].mn-toggle:before::-moz-selection {
+  background: none;
+}
+input[type=checkbox].mn-toggle *::-moz-selection, input[type=checkbox].mn-toggle *:after::-moz-selection, input[type=checkbox].mn-toggle *:before::-moz-selection {
+  background: none;
+}
+input[type=checkbox].mn-toggle + .mn-toggle-btn::-moz-selection, input[type=checkbox].mn-toggle::selection, input[type=checkbox].mn-toggle:after::selection, input[type=checkbox].mn-toggle:before::selection {
+  background: none;
+}
+input[type=checkbox].mn-toggle *::selection, input[type=checkbox].mn-toggle *:after::selection, input[type=checkbox].mn-toggle *:before::selection {
+  background: none;
+}
+input[type=checkbox].mn-toggle + .mn-toggle-btn {
+  width: 4em;
+  height: 2em;
+  position: relative;
+  display: block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  outline: 0;
+}
+input[type=checkbox].mn-toggle + .mn-toggle-btn::selection {
+  background: none;
+}
+input[type=checkbox].mn-toggle + .mn-toggle-btn:after, input[type=checkbox].mn-toggle + .mn-toggle-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+input[type=checkbox].mn-toggle + .mn-toggle-btn:after {
+  left: 0;
+}
+input[type=checkbox].mn-toggle + .mn-toggle-btn:before {
+  display: none;
+}
+input[type=checkbox].mn-toggle:checked + .mn-toggle-btn:after {
+  left: 50%;
+}
+input[type=checkbox].mn-toggle-blue + .mn-toggle-btn {
+  background: #f0f0f0;
+  border-radius: 2em;
+  padding: 2px;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+input[type=checkbox].mn-toggle-blue + .mn-toggle-btn:after {
+  border-radius: 50%;
+  background: #fff;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+input[type=checkbox].mn-toggle-blue:checked + .mn-toggle-btn {
+  background: #9fd5af;
+}
+input[type=checkbox].mn-toggle-blue:checked + .mn-toggle-btn {
+  background: #0085ba;
+}
+input[type=checkbox].mn-toggle-blue + .mn-toggle-btn {
+  background: #a0aaaa;
+}
+input[type=checkbox].mn-toggle-blue + .mn-toggle-btn:after {
+  background: #f7f7f7;
+}

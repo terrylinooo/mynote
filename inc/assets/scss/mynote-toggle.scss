@@ -1,0 +1,107 @@
+.toggle-controls {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.disabled-control-title {
+	color: #a0a5aa;
+}
+
+input[type=checkbox] {
+	&.mn-toggle {
+		display: none;
+		box-sizing: border-box;
+		&:after, &:before {
+			box-sizing: border-box;
+		}
+		* {
+			box-sizing: border-box;
+			&:after, &:before {
+				box-sizing: border-box;
+			}
+		}
+		+ .mn-toggle-btn {
+			box-sizing: border-box;
+		}
+		&::-moz-selection, &:after::-moz-selection, &:before::-moz-selection {
+			background: none;
+		}
+		* {
+			&::-moz-selection, &:after::-moz-selection, &:before::-moz-selection {
+				background: none;
+			}
+		}
+		+ .mn-toggle-btn::-moz-selection, &::selection, &:after::selection, &:before::selection {
+			background: none;
+		}
+		* {
+			&::selection, &:after::selection, &:before::selection {
+				background: none;
+			}
+		}
+		+ .mn-toggle-btn {
+			&::selection {
+				background: none;
+            }
+            
+            width: 4em;
+            height: 2em;
+            position: relative;
+            display: block;
+            -webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+            user-select: none;
+            cursor: pointer;
+			outline: 0;
+
+			&:after, &:before {
+				position: relative;
+				display: block;
+				content: "";
+				width: 50%;
+				height: 100%;
+			}
+			&:after {
+				left: 0;
+			}
+			&:before {
+				display: none;
+			}
+		}
+		&:checked + .mn-toggle-btn:after {
+			left: 50%;
+		}
+	}
+	&.mn-toggle-blue {
+		+ .mn-toggle-btn {
+			background: #f0f0f0;
+			border-radius: 2em;
+			padding: 2px;
+			-webkit-transition: all .5s ease;
+			transition: all .5s ease;
+			&:after {
+				border-radius: 50%;
+				background: #fff;
+				-webkit-transition: all .2s ease;
+				transition: all .2s ease;
+			}
+		}
+		&:checked + .mn-toggle-btn {
+			background: #9fd5af;
+		}
+	}
+	
+    &.mn-toggle-blue {
+		&:checked + .mn-toggle-btn {
+			background: #0085ba;
+		}
+		+ .mn-toggle-btn {
+			background: #a0aaaa;
+			&:after {
+				background: #f7f7f7;
+			}
+		}
+	}
+}

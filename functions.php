@@ -231,9 +231,6 @@ if ( ! isset( $content_width ) ) {
  * Customizer additions.
  */
 if ( function_exists( 'is_customize_preview' ) && is_customize_preview() ) {
-	require get_parent_theme_file_path( '/inc/classes/class-customize-alpha-color.php' );
-	require get_parent_theme_file_path( '/inc/classes/class-customize-image-radio.php' );
-	require get_parent_theme_file_path( '/inc/classes/class-customize-content.php' );
 	require get_parent_theme_file_path( '/inc/customizer.php' );
 }
 
@@ -245,7 +242,7 @@ require get_parent_theme_file_path( '/inc/customize-css.php' );
 /**
  * Custom Walker_Nav_Menu for Mynote theme header menu.
  */
-require get_parent_theme_file_path( '/inc/classes/class-mynote-walker.php' );
+require get_parent_theme_file_path( '/inc/classes/navbar/class-mynote-walker.php' );
 
 /**
  * Custom template tags for this theme.
@@ -261,6 +258,10 @@ require get_parent_theme_file_path( '/inc/template-functions.php' );
  * Social icon functions.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
+
+$x = get_theme_mod( 'setting_test');
+
+//die(var_dump($x));
 
 
 
