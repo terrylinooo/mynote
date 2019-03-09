@@ -22,7 +22,7 @@ function mynote_customize_about( $wp_customize ) {
 	);
 
 	$about  =  __( 'Mynote is an open source project on GitHub, any suggestions to improve this theme are welcome. Please visit:', 'mynote' );
-	$about .= '<br /><br /><a href="' . esc_url( 'https://github.com/terrylinooo/mynote">https://github.com/terrylinooo/mynote' ) . '</a>';
+	$about .= '<br /><br /><a href="' . esc_url( 'https://github.com/terrylinooo/mynote ') . '">https://github.com/terrylinooo/mynote</a>';
 
 	$wp_customize->add_setting( 'setting_about_mynote_theme',
 		array( 
@@ -40,23 +40,5 @@ function mynote_customize_about( $wp_customize ) {
 				'description' => $about,
 			)
 		)
-	);
-
-	$wp_customize->add_setting( 'setting_test3',
-		array( 
-			'default'           => false,
-			'sanitize_callback' => 'sanitize_text_field',
-		) 
-	);
-
-	$wp_customize->add_control(
-		new Customize_Toggle_Control( $wp_customize, 'my_control',
-			array(
-				'label'	   => __( 'Toggle me on or off', 'my-lang' ),
-				'section'  => 'section_about_mynote_theme',
-				'settings' => 'setting_test3',
-				'description' => 'fsdffffffffffffffffffffffff'
-			) 
-		) 
 	);
 }
