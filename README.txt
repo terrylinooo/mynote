@@ -98,3 +98,12 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 = 1.2.2 =
 
 - Add new customizer setting section: Post page.
+
+= 1.3.0 =
+
+- Improve customizer: change radio to toggle.
+- Fix an overflow issue in homepage intro section (RWD).
+- Reorganize cusomizer files structure.
+- Reorganize static asset files structure.
+- Add new settings in cusomizer: RWD switcher.
+- Fix other little CSS issues.
