@@ -541,12 +541,9 @@ function mynote_category_labels() {
 function mynote_site_info() {
 	echo esc_html__( 'Copyright', 'mynote' ) . ' &copy; ' . date( 'Y' ) . ' <strong><a href="' . esc_url( get_site_url() ) . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' . esc_html__( 'All rights reserved.', 'mynote' ) . ' ';
 
-	// Only homepage shows the theme credit link on the footer.
-	// Keeping the theme credit link (just one link in your homepage) encourages me to improve this theme better. Thank you.
-	if ( is_home() || is_front_page() ) {
-		$theme_link = 'https://terryl.in/';
-		echo esc_html__( 'Theme by', 'mynote' ) . ' <a href="' . esc_url( $theme_link ) . '">' . esc_html__( 'Mynote', 'mynote' ) . '</a>. ';
-	}
+	// Keeping the theme credit link encourages me to improve this theme better. Thank you.
+	$theme_link = 'https://terryl.in/';
+	echo esc_html__( 'Theme by', 'mynote' ) . ' <a href="' . esc_url( $theme_link ) . '" target="_blank">' . esc_html__( 'Mynote', 'mynote' ) . '</a>. ';
 }
 
 /**
