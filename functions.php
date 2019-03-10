@@ -7,7 +7,8 @@
  *
  * @package WordPress
  * @subpackage Mynote
- * @since 1.0.9
+ * @since 1.0.0
+ * @version 1.3.0
  */
 
 if ( ! function_exists( 'mynote_setup_theme' ) ) {
@@ -259,9 +260,6 @@ require get_parent_theme_file_path( '/inc/template-functions.php' );
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
-$x = get_theme_mod( 'setting_test3');
-
-//die(var_dump($x));
 
 
 

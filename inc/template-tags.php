@@ -696,7 +696,7 @@ function mynote_layout_columns() {
  */
 function mynote_is_post_card_footer() {
 	$setting = get_theme_mod( 'post_card_show_footer' );
-	if ( empty( $setting ) ) {
+	if ( ! mynote_toggle_check( $setting ) ) {
 		return false;
 	}
 	return true;
@@ -710,7 +710,7 @@ function mynote_is_post_card_footer() {
  */
 function mynote_is_post_card_header() {
 	$setting = get_theme_mod( 'post_card_show_header' );
-	if ( empty( $setting ) ) {
+	if ( ! mynote_toggle_check( $setting ) ) {
 		return false;
 	}
 	return true;
@@ -723,7 +723,7 @@ function mynote_is_post_card_header() {
  */
 function mynote_is_post_breadcrumb() {
 	$setting = get_theme_mod( 'post_page_show_breadcrumb' );
-	if ( empty( $setting ) ) {
+	if ( ! mynote_toggle_check( $setting ) ) {
 		return false;
 	}
 	return true;
@@ -736,7 +736,7 @@ function mynote_is_post_breadcrumb() {
  */
 function mynote_is_post_author_date() {
 	$setting = get_theme_mod( 'post_page_show_author_date' );
-	if ( empty( $setting ) ) {
+	if ( ! mynote_toggle_check( $setting ) ) {
 		return false;
 	}
 	return true;
@@ -749,7 +749,7 @@ function mynote_is_post_author_date() {
  */
 function mynote_is_post_featured_image() {
 	$setting = get_theme_mod( 'post_page_show_feature_image' );
-	if ( empty( $setting ) ) {
+	if ( ! mynote_toggle_check( $setting ) ) {
 		return false;
 	}
 	return true;
@@ -762,7 +762,7 @@ function mynote_is_post_featured_image() {
  */
 function mynote_is_post_author_card() {
 	$setting = get_theme_mod( 'post_page_show_author_card' );
-	if ( empty( $setting ) ) {
+	if ( ! mynote_toggle_check( $setting ) ) {
 		return false;
 	}
 	return true;
@@ -775,7 +775,7 @@ function mynote_is_post_author_card() {
  */
 function mynote_is_post_comment_section() {
 	$setting = get_theme_mod( 'post_page_show_comments' );
-	if ( empty( $setting ) ) {
+	if ( ! mynote_toggle_check( $setting ) ) {
 		return false;
 	}
 	return true;
@@ -788,7 +788,7 @@ function mynote_is_post_comment_section() {
  */
 function mynote_is_responsive() {
 	$setting = get_theme_mod( 'is_responsive_website' );
-	if ( empty( $setting ) ) {
+	if ( ! mynote_toggle_check( $setting ) ) {
 		return false;
 	}
 	return true;

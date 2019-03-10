@@ -56,7 +56,7 @@ class Customize_Image_Radio_Control extends WP_Customize_Control {
                         <input style="display:none" type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>" 
                         <?php checked( $this->value(), $value ); ?> 
                         <?php $this->link(); ?> />
-                        <img src='<?php echo esc_url( $label ); ?>' class='<?php echo esc_attr( $class ); ?>' />
+                        <img src="<?php echo esc_url( $label ); ?>" class="<?php echo esc_attr( $class ); ?>" />
                     </label>
                 </li><?php
             } ?>

@@ -10,6 +10,8 @@
  * @since 1.0.7
  */
 
+ 
+
 function mynote_customize_css() {
 
     $css = '';
@@ -59,7 +61,7 @@ function mynote_customize_css() {
         $css .= 'body:not(.home) .header .navbar li > a:hover { color: ' . esc_attr( $v['navbar_website_link_hover_color'] ) . " !important; }\n";
     }
 
-    if ( empty( $v['navbar_is_display_search_bar'] ) ) {
+    if ( ! mynote_toggle_check( $v['navbar_is_display_search_bar'] ) ) {
         $css .= ".header .search-bar { display: none !important; }\n";
         $css .= "body.home .header .search-bar { display: none !important; }\n";
     }
@@ -99,11 +101,11 @@ function mynote_customize_css() {
     }
 
 
-    if ( empty( $v['progressbar_is_display_bar'] ) ) {
+    if ( ! mynote_toggle_check( $v['progressbar_is_display_bar'] ) ) {
         $css .= ".single-post-title-bar { display: none !important; }\n";
     }
 
-    if ( empty( $v['progressbar_is_display_percentage'] ) ) {
+    if ( ! mynote_toggle_check( $v['progressbar_is_display_percentage'] ) ) {
         $css .= ".progress-wrapper .progress-label { display: none !important; }\n";
     }
 
@@ -119,19 +121,36 @@ function mynote_customize_css() {
         $css .= ".row-layout-choice-post { flex-direction: row-reverse !important; }\n";
     }
 
-    if ( ! empty( $v['is_scroll_down_button'] ) ) {
+    if ( ! mynote_toggle_check( $v['is_scroll_down_button'] ) ) {
         $css .= ".scroll-area { display: block !important; }\n";
+    }
+
+    if ( ! mynote_toggle_check( $v['is_responsive_website'] ) ) {
+        $css .= ".navbar-expand .navbar-collapse { margin: 0 !important; }\n";
     }
 
     if ( ! empty( $css ) ) {
         $css .= "body.menu-is-collapsed .header { background: rgba(20, 25, 29, 1) !important; }\n";
     }
 
-    if ( empty( $v['is_responsive_website'] ) ) {
-        $css .= ".navbar-expand .navbar-collapse { margin: 0 !important; }\n";
-    }
-
     echo '<style id="mynote-customizer">' . "\n" . $css . "\n" . '</style>';
 }
 
 add_action( 'wp_head', 'mynote_customize_css' );
+
+
+/**
+ * Check Customizer settings controlled by toggle.
+ *
+ * @param string $var
+ * @return bool
+ */
+function mynote_toggle_check( $var ) {
+	if ( ! isset( $var ) || '0' === $var || 'no' === $var ) {
+		return false;
+	}
+	if ( false === $var || '1' === $var || 'yes' === $var ) {
+		return true;
+	}
+	return false;
+}
