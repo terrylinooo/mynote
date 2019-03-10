@@ -271,7 +271,8 @@ function mynote_title_progress_bar() {
  * @param string $schema Article type.
  * @return void
  */
-function mynote_article_schemal( $schema = 'Article' ) {
+function mynote_article_schema( $schema = '' ) {
+
 	switch ( $schema ) {
 		case 'tech':
 			$schema = 'TechArticle';
@@ -282,10 +283,13 @@ function mynote_article_schemal( $schema = 'Article' ) {
 		case 'scholarly':
 			$schema = 'ScholarlyArticles';
 			break;
+		case 'product':
+			$schema = 'Product';
+			break;
 		default:
 			$schema = 'Article';
 	}
-	echo 'http://schema.org/' . $schema;
+	echo esc_url( 'http://schema.org/' . $schema);
 }
 
 /**
