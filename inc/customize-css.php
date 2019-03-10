@@ -121,7 +121,8 @@ function mynote_customize_css() {
         $css .= ".row-layout-choice-post { flex-direction: row-reverse !important; }\n";
     }
 
-    if ( ! mynote_toggle_check( $v['is_scroll_down_button'] ) ) {
+    
+    if ( mynote_toggle_check( $v['is_scroll_down_button'] ) ) {
         $css .= ".scroll-area { display: block !important; }\n";
     }
 
@@ -146,10 +147,10 @@ add_action( 'wp_head', 'mynote_customize_css' );
  * @return bool
  */
 function mynote_toggle_check( $var ) {
-	if ( ! isset( $var ) || '0' === $var || 'no' === $var ) {
+	if ( ! isset( $var ) || '' === $var || '0' === $var || 'no' === $var ) {
 		return false;
 	}
-	if ( false === $var || '1' === $var || 'yes' === $var ) {
+	if ( ( false === $var || true === $var ) || '1' === $var || 'yes' === $var ) {
 		return true;
 	}
 	return false;

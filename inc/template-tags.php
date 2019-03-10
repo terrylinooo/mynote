@@ -710,6 +710,7 @@ function mynote_is_post_card_footer() {
  */
 function mynote_is_post_card_header() {
 	$setting = get_theme_mod( 'post_card_show_header' );
+
 	if ( ! mynote_toggle_check( $setting ) ) {
 		return false;
 	}
