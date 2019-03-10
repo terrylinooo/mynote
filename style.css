@@ -303,8 +303,8 @@ article figcaption {
 @media (max-width: 767.98px) {
   .main-header .section-intro {
     width: 100%;
-    min-height: 640px;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 60px 0;
     background-position: 40% center;
     background-size: cover;
   }
@@ -343,7 +343,8 @@ article figcaption {
 
 @media (max-width: 767.98px) {
   .admin-bar .main-header .section-intro {
-    height: calc(100vh - 46px);
+    min-height: calc(100vh - 46px);
+    padding: 60px 0;
   }
 
   .scroll-area {

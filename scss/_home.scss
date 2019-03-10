@@ -35,8 +35,8 @@
 
         @include media-breakpoint-down(sm) {
             width: 100%;
-            min-height: 640px;
-            height: 100vh;
+            min-height: 100vh;
+            padding: 60px 0;
             background-position: 40% center;
             background-size: cover;
         }
@@ -83,7 +83,8 @@
     .admin-bar {
         .main-header {
             .section-intro {
-                height: calc(100vh - 46px);
+                min-height: calc(100vh - 46px);
+                padding: 60px 0;
             }
         }
     }
