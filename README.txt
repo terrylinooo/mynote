@@ -1,13 +1,13 @@
 === Mynote ===
 Contributors: Terry Lin
 Requires at least: WordPress 3.6
-Tested up to: WordPress 5.1.0
-Version: 1.2.2
+Tested up to: WordPress 5.1.1
+Version: 1.3.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
-Tags: two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, threaded-comments
+Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, , theme-options, footer-widgets, threaded-comments, translation-ready, e-commerce, blog, entertainment
 Requires PHP: 5.2.4
-Stable tag: 1.2.2
+Stable tag: 1.3.1
 
 == Description ==
 
@@ -107,3 +107,9 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 - Reorganize static asset files structure.
 - Add new settings in cusomizer: RWD switcher.
 - Fix other little CSS issues.
+
+= 1.3.1 =
+
+- Fix issue #5 - pagination not working in static front page.
+- Adjust CSS for homepage in RWD.
+- Add support for WooCommerce.
