@@ -121,7 +121,6 @@ function mynote_customize_css() {
         $css .= ".row-layout-choice-post { flex-direction: row-reverse !important; }\n";
     }
 
-    
     if ( mynote_toggle_check( $v['is_scroll_down_button'] ) ) {
         $css .= ".scroll-area { display: block !important; }\n";
     }

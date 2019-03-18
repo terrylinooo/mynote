@@ -130,12 +130,21 @@ function mynote_post_thumbnail() {
  * @return void
  */
 function mynote_pagination( $range = 1 ) {
-	global $paged, $wp_query;
+	global $wp_query, $paged;
 
-	$current    = $paged;
-	$pages      = $wp_query->max_num_pages;
+	if ( get_query_var( 'paged' ) ) {
+		$paged = get_query_var( 'paged' );
+	} elseif ( get_query_var( 'page' ) ) {
+		$paged = get_query_var( 'page' );
+	} else {
+		$paged = 1;
+	}
+
+	$current = (int) $paged;
+	$pages   = (int) $wp_query->max_num_pages;
+
 	// $pagi_items = ( $range * 2 ) + 1;
-	$pagi_items = $range;
+	$pagi_items = (int) $range;
 
 	if ( empty( $pages ) ) {
 		$pages = $wp_query->max_num_pages;
@@ -773,6 +782,7 @@ function mynote_is_post_author_card() {
  */
 function mynote_is_post_comment_section() {
 	$setting = get_theme_mod( 'post_page_show_comments' );
+
 	if ( ! mynote_toggle_check( $setting ) ) {
 		return false;
 	}
