@@ -18,7 +18,7 @@ function mynote_customize_homepage( $wp_customize ) {
      * Add custom setting to bulti-in `static_front_page` section.
      */
 	$wp_customize->add_setting( 'is_scroll_down_button', array( 
-		'default'           => false,
+		'default'           => true,
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 

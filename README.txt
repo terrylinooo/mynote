@@ -5,7 +5,7 @@ Tested up to: WordPress 5.1.1
 Version: 1.3.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
-Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, , theme-options, footer-widgets, threaded-comments, translation-ready, e-commerce, blog, entertainment
+Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, e-commerce, blog, entertainment
 Requires PHP: 5.2.4
 Stable tag: 1.3.1
 
