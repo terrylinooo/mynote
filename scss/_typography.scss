@@ -43,7 +43,11 @@
 
     h1 {
         font-size: 4.5rem;
-        font-weight: 300; 
+        font-weight: 300;
+
+        @include media-breakpoint-down(sm) {
+            font-size: 3.5rem;
+        }
     }
 
     .desc-text {
