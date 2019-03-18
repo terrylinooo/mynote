@@ -12,11 +12,12 @@
  */
 
 get_header();
+
 ?>
 
 <?php mynote_title_progress_bar(); ?>
 
-<div class="data-schema" itemscope itemtype="<?php mynote_article_schema(); ?>">
+<div class="data-schema is-page" itemscope itemtype="<?php mynote_article_schema(); ?>">
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>

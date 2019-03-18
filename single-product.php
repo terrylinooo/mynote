@@ -15,33 +15,19 @@ get_header();
 
 ?>
 
-<?php mynote_title_progress_bar(); ?>
-
 <div class="data-schema is-single" itemscope itemtype="<?php mynote_article_schema(); ?>">
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>
-			<?php mynote_post_breadcrumb(); ?>
 
 			<div class="single-post-header">
 				<div class="container">
 
 					<h1 id="post-title" itemprop="headline"><?php the_title(); ?></h1>
 					<div class="post-mynote-buttons">
-
-						<?php if ( $has_slider ) : ?>
-							<?php mynote_column_control_button(); ?>
-						<?php endif; ?>
-
 						<?php mynote_edit_button(); ?>
 						<?php mynote_comment_button(); ?>
 					</div><!-- .post-mynote-buttons -->
-
-					<?php if ( mynote_is_post_author_date() ) : ?>
-						<div class="post-meta">
-							<?php mynote_author_posted_date( true ); ?>
-						</div>
-					<?php endif; ?>
 
 				</div><!-- .container -->
 			</div><!-- .single-post-header -->
@@ -51,7 +37,7 @@ get_header();
 
 	<div class="container">
 		<div class="row row-layout-choice-post">
-			<main id="main-container" class="<?php echo esc_attr( mynote_main_container_css() ); ?>" role="main">
+			<main id="main-container" class="col-lg-12 col-md-12 col-sm-12" role="main">
 
 				<?php if ( have_posts() ) : ?>
 
@@ -88,9 +74,6 @@ get_header();
 							<?php the_tags( '', '' ); ?>
 						</section>
 
-						<?php if ( mynote_is_post_author_card() ) : ?>
-							<?php mynote_author_card(); ?>
-						<?php endif; ?>
 
 						<?php if ( mynote_is_post_comment_section() ) : ?>
 							<?php comments_template(); ?>
@@ -106,12 +89,6 @@ get_header();
 
 				<?php endif; ?>
 			</main>
-
-			<?php if ( mynote_is_sidebar() ) : ?>
-				<aside id="aside-container" class="col-lg-4 col-md-4 col-sm-12" role="complementary">
-					<?php get_sidebar(); ?>
-				</aside>
-			<?php endif; ?>
 
 		</div><!-- .row -->
 		<?php
