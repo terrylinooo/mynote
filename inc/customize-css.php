@@ -39,6 +39,7 @@ function mynote_customize_css() {
         'layout_post_sidebar_location_post',
         'is_scroll_down_button',
         'is_responsive_website',
+        'post_card_show_border',
     );
 
     foreach ( $settings as $setting_name ) {
@@ -128,6 +129,11 @@ function mynote_customize_css() {
 
     if ( ! mynote_toggle_check( $v['is_responsive_website'] ) ) {
         $css .= ".navbar-expand .navbar-collapse { margin: 0 !important; }\n";
+    }
+
+    if ( ! mynote_toggle_check( $v['post_card_show_border'] ) ) {
+        $css .= ".container .card { border: 0px !important; }\n";
+        $css .= ".container .card-footer { border: 0 !important; background: none !important; padding-top: 0 !important; }\n";
     }
 
     if ( ! empty( $css ) ) {

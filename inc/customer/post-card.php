@@ -44,6 +44,13 @@ function mynote_customize_post_card( $wp_customize ) {
             'default'           => true,
             'sanitize_callback' => 'sanitize_text_field',
         )
+	);
+	
+    $wp_customize->add_setting( 'post_card_show_border',
+        array( 
+            'default'           => true,
+            'sanitize_callback' => 'sanitize_text_field',
+        )
     );
     
     /**
@@ -67,6 +74,17 @@ function mynote_customize_post_card( $wp_customize ) {
 				'section'     => 'section_post_card',
 				'settings'    => 'post_card_show_footer',
 				'description' => __( 'Would you like to display the footer of the post card?', 'mynote' ),
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new Customize_Toggle_Control( $wp_customize, 'post_card_border_control',
+			array(
+				'label'       => __( 'Border', 'mynote' ),
+				'section'     => 'section_post_card',
+				'settings'    => 'post_card_show_border',
+				'description' => __( 'Would you like to display the border of the post card?', 'mynote' ),
 			)
 		)
 	);
