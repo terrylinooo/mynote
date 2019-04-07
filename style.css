@@ -1168,7 +1168,7 @@ a.btn-info {
   border: none;
 }
 .progress-wrapper progress::-moz-progress-bar {
-  background-color: rgba(214, 168, 168, 0.1);
+  background-color: dodgerblue;
 }
 .progress-wrapper progress::-webkit-progress-bar {
   background-color: rgba(214, 168, 168, 0.1);

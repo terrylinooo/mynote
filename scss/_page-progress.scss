@@ -15,7 +15,7 @@ $progress-bar-value-color: dodgerblue;
         border: none;
         
         &::-moz-progress-bar {
-            background-color: $progress-bar-color;
+            background-color: $progress-bar-value-color;
         }
         
         &::-webkit-progress-bar {
@@ -25,7 +25,7 @@ $progress-bar-value-color: dodgerblue;
         &::-webkit-progress-value {
             background-color: $progress-bar-value-color;
         }
-        
+
         &::-ms-fill {
             background-color: $progress-bar-value-color;
         }

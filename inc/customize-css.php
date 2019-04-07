@@ -96,6 +96,7 @@ function mynote_customize_css() {
         $css .= '#progress-title { color: ' . esc_attr(  $v['progressbar_custom_text_color'] ) . " !important; }\n";
         $css .= '.progress-wrapper progress::-webkit-progress-value { background-color: ' . esc_attr( $v['progressbar_custom_border_color'] ) . " !important; }\n";
         $css .= '.progress-wrapper progress::-ms-fill { background-color: ' . esc_attr( $v['progressbar_custom_border_color'] ) . " !important; }\n";
+        $css .= '.progress-wrapper progress::-moz-progress-bar { background-color: ' . esc_attr( $v['progressbar_custom_border_color'] ) . " !important; }\n";
         $css .= 'a.go-top { background-color: ' . esc_attr( $v['progressbar_custom_bg_color'] ) . " !important; }\n";
         $css .= 'a.go-top i { color: ' . esc_attr( $v['progressbar_custom_text_color'] ) . " !important; }\n";
     }
