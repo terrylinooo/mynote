@@ -22,8 +22,8 @@ class Customize_Image_Radio_Control extends WP_Customize_Control {
 	 * Enqueue scripts and styles.
 	 */
 	public function enqueue() {
-		wp_enqueue_script( $this->type, get_stylesheet_directory_uri() . '/inc/assets/js/mynote-image-radio.js', array( 'jquery' ), '1.0.0', true );
-		wp_enqueue_style( $this->type, get_stylesheet_directory_uri() . '/inc/assets/css/mynote-image-radio.css', array(), '1.0.0' );
+		wp_enqueue_script( $this->type, get_template_directory_uri() . '/inc/assets/js/mynote-image-radio.js', array( 'jquery' ), '1.0.0', true );
+		wp_enqueue_style( $this->type, get_template_directory_uri() . '/inc/assets/css/mynote-image-radio.css', array(), '1.0.0' );
 	}
 
 	/**

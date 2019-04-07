@@ -46,8 +46,8 @@ class Customize_Alpha_Color_Control extends WP_Customize_Control {
 	 * stand alone class we'll register and enqueue them here.
 	 */
 	public function enqueue() {
-		wp_enqueue_script( $this->type, get_stylesheet_directory_uri() . '/inc/assets/js/mynote-alpha-color-picker.js', array( 'jquery' ), '1.0.0', true );
-		wp_enqueue_style( $this->type, get_stylesheet_directory_uri() . '/inc/assets/css/mynote-alpha-color-picker.css', array(), '1.0.0' );
+		wp_enqueue_script( $this->type, get_template_directory_uri() . '/inc/assets/js/mynote-alpha-color-picker.js', array( 'jquery' ), '1.0.0', true );
+		wp_enqueue_style( $this->type, get_template_directory_uri() . '/inc/assets/css/mynote-alpha-color-picker.css', array(), '1.0.0' );
 	}
 
 	/**

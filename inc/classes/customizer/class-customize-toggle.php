@@ -22,7 +22,7 @@ class Customize_Toggle_Control extends WP_Customize_Control {
 	 * Enqueue scripts and styles.
 	 */
 	public function enqueue() {
-		wp_enqueue_style( $this->type, get_stylesheet_directory_uri() . '/inc/assets/css/mynote-toggle.css', array(), '1.0.0' );
+		wp_enqueue_style( $this->type, get_template_directory_uri() . '/inc/assets/css/mynote-toggle.css', array(), '1.0.0' );
 	}
 
 	/**
