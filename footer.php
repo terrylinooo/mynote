@@ -24,14 +24,16 @@
 				</section>
 				<?php endif; ?>
 
-				<?php mynote_nav( 'social' ); ?>
-
-				<div class="container site-info">
-					<?php mynote_site_info(); ?>
+				<div class="container footer-columns">
+					<div class="footer-column-left">
+						<?php mynote_site_info(); ?><br />
+						<?php mynote_nav( 'footer' ); ?>
+					</div>
+					<div class="footer-column-right">
+						<?php mynote_nav( 'social' ); ?>
+					</div>
 				</div>
 
-				<?php mynote_nav( 'footer' ); ?>
-				
 			</footer>
 		</div><!-- .wrapper -->
 		<?php wp_footer(); ?>

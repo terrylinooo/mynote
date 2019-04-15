@@ -519,18 +519,21 @@ article figcaption {
 .footer {
   margin: 40px 0 20px 0;
 }
-.footer .site-info {
+.footer .footer-columns {
   font-weight: 400;
-  font-size: 12px;
-  text-align: center;
+  font-size: 13px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
 }
-.footer .site-info a, .footer .site-info strong {
+.footer .footer-columns a, .footer .footer-columns strong {
   font-weight: normal;
   color: #333333;
 }
 .footer .footer-nav {
   text-align: center;
   font-size: 14px;
+  display: inline-block;
 }
 .footer .footer-nav ul.footer-menu {
   padding: 0;
@@ -539,10 +542,20 @@ article figcaption {
   list-style-type: none;
 }
 .footer .footer-nav ul.footer-menu li {
-  margin: 5px 15px;
+  margin: 0;
+  height: 15px;
+}
+.footer .footer-nav ul.footer-menu li:after {
+  content: "|";
+  color: #aaaaaa;
+  margin: 0 10px;
+  font-size: 13px;
+}
+.footer .footer-nav ul.footer-menu li:last-child:after {
+  display: none;
 }
 .footer .footer-nav ul.footer-menu a {
-  color: #333333;
+  font-size: 13px;
 }
 .footer .footer-nav ul.social-icon-links {
   padding: 0;
@@ -551,7 +564,7 @@ article figcaption {
   list-style-type: none;
 }
 .footer .footer-nav ul.social-icon-links li {
-  margin: 5px 15px;
+  margin: 5px 10px;
 }
 .footer .footer-nav ul.social-icon-links a {
   color: #333333;

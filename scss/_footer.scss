@@ -3,10 +3,12 @@
 .footer {
     margin: 40px 0 20px 0;
 
-    .site-info {
+    .footer-columns {
         font-weight: 400;
-        font-size: 12px;
-        text-align: center;
+        font-size: 13px;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
 
         a, strong {
             font-weight: normal;
@@ -17,6 +19,7 @@
     .footer-nav {
         text-align: center;
         font-size: 14px;
+        display: inline-block;
 
         ul.footer-menu {
             padding: 0;
@@ -25,11 +28,25 @@
             list-style-type: none;
     
             li {
-                margin: 5px 15px;
+                margin: 0;
+                height: 15px;
+
+                &:after {
+                    content: "|";
+                    color: #aaaaaa;
+                    margin: 0 10px;
+                    font-size: 13px;
+                }
+
+                &:last-child {
+                    &:after {
+                        display: none;
+                    }
+                }
             }
 
             a {
-                color: #333333;
+                font-size: 13px;
             }
         }
 
@@ -40,7 +57,7 @@
             list-style-type: none;
     
             li {
-                margin: 5px 15px;
+                margin: 5px 10px;
             }
 
             a {

@@ -22,7 +22,7 @@ function mynote_customize_about( $wp_customize ) {
 	);
 
 	$about  =  __( 'Mynote is an open source project on GitHub, any suggestions to improve this theme are welcome. Please visit:', 'mynote' );
-	$about .= '<br /><br /><a href="' . esc_url( 'https://github.com/terrylinooo/mynote ') . '">https://github.com/terrylinooo/mynote</a>';
+	$about .= '<br /><br /><a href="' . esc_url( 'https://github.com/terrylinooo/mynote' ) . '">https://github.com/terrylinooo/mynote</a>';
 
 	/**
      * Setting
