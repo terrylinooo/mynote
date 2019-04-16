@@ -26,8 +26,8 @@
 
 				<div class="container footer-columns">
 					<div class="footer-column-left">
-						<?php mynote_site_info(); ?><br />
-						<?php mynote_nav( 'footer' ); ?>
+						<div><?php mynote_site_info(); ?></div>
+						<div><?php mynote_nav( 'footer' ); ?></div>
 					</div>
 					<div class="footer-column-right">
 						<?php mynote_nav( 'social' ); ?>

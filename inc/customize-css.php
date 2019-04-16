@@ -37,6 +37,7 @@ function mynote_customize_css() {
         'layout_post_sidebar_location_home',
         'layout_post_sidebar_location_archive',
         'layout_post_sidebar_location_post',
+        'layout_cols_footer_location',
         'is_scroll_down_button',
         'is_responsive_website',
         'post_card_show_border',
@@ -122,6 +123,46 @@ function mynote_customize_css() {
     if ( 'left' ===  $v['layout_post_sidebar_location_post'] ) {
         $css .= ".row-layout-choice-post { flex-direction: row-reverse !important; }\n";
     }
+
+    /* BEGIN - Footer elements locations don't apply to width < 768px */
+
+    
+
+    if ( '2' ===  $v['layout_cols_footer_location'] ) {
+        $css .= ".footer-columns { flex-direction: row-reverse !important; }\n";
+        $css .= ".footer-columns .footer-column-left { text-align: right !important; }\n";
+    }
+
+    if ( '3' ===  $v['layout_cols_footer_location'] ) {
+        $css .= ".footer-columns .footer-column-left { display: flex !important; flex-direction: column-reverse !important; }\n";
+    }
+
+    if ( '4' ===  $v['layout_cols_footer_location'] ) {
+        $css .= ".footer-columns { flex-direction: row-reverse !important; }\n";
+        $css .= ".footer-columns .footer-column-left { text-align: right !important; display: flex !important; flex-direction: column-reverse !important; }\n";
+    }
+
+    if ( '5' ===  $v['layout_cols_footer_location'] ) {
+        $css .= ".footer-columns { display: block !important; text-align: center !important; }\n";
+        $css .= ".footer-columns .footer-column-left { display: flex !important; flex-direction: column-reverse !important; }\n";
+    }
+
+    if ( '6' ===  $v['layout_cols_footer_location'] ) {
+        $css .= ".footer-columns { display: flex !important; text-align: center !important; flex-direction: column-reverse !important; }\n";
+        $css .= ".footer-columns .footer-column-left { display: flex !important; flex-direction: column !important; }\n";
+    }
+
+    if ( '7' ===  $v['layout_cols_footer_location'] ) {
+        $css .= ".footer-columns { display: flex !important; text-align: center !important; flex-direction: column-reverse !important; }\n";
+        $css .= ".footer-columns .footer-column-left { display: flex !important; flex-direction: column-reverse !important; }\n";
+    }
+
+    $css .= "@media (max-width: 768px) {\n";
+    $css .= ".footer-columns { text-align: center !important; }\n";
+    $css .= ".footer-columns .footer-column-left { text-align: center !important; }\n";
+    $css .= "}\n";
+
+    /* END - Footer elements locations don't apply to width < 768px */
 
     if ( mynote_toggle_check( $v['is_scroll_down_button'] ) ) {
         $css .= ".scroll-area { display: block !important; }\n";

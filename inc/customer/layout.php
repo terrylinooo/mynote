@@ -53,6 +53,15 @@ function mynote_customize_layout( $wp_customize ) {
 			'panel'      => 'panel_mynote_layout',
 		)
 	);
+
+	$wp_customize->add_section( 'section_mynote_layout_footer',
+		array(
+			'title'      => __( 'Footer', 'mynote' ),
+			'priority'   => 10,
+			'capability' => 'edit_theme_options',
+			'panel'      => 'panel_mynote_layout',
+		)
+	);
     
     /**
      * Setting
@@ -90,6 +99,13 @@ function mynote_customize_layout( $wp_customize ) {
             'default'           => '3', 
             'sanitize_callback' => 'sanitize_text_field',
         )
+	);
+	
+    $wp_customize->add_setting( 'layout_cols_footer_location',
+        array( 
+            'default'           => '1', 
+            'sanitize_callback' => 'sanitize_text_field',
+        )
     );
     
     /**
@@ -104,8 +120,8 @@ function mynote_customize_layout( $wp_customize ) {
 				'type'        => 'radio',
 				'description' => __( 'Choose a preferred layout for desktop version.', 'mynote' ),
 				'choices'     => array(
-					'right' => get_template_directory_uri() . '/assets/images/layout_sidebar_right.png',
-					'left'  => get_template_directory_uri() . '/assets/images/layout_sidebar_left.png',
+					'right' => get_template_directory_uri() . '/inc/assets/images/layout_sidebar_right.png',
+					'left'  => get_template_directory_uri() . '/inc/assets/images/layout_sidebar_left.png',
 				),
 			)
 		)
@@ -120,8 +136,8 @@ function mynote_customize_layout( $wp_customize ) {
 				'type'        => 'radio',
 				'description' => __( 'Choose a preferred layout for desktop version.', 'mynote' ),
 				'choices'     => array(
-					'right' => get_template_directory_uri() . '/assets/images/layout_sidebar_right.png',
-					'left'  => get_template_directory_uri() . '/assets/images/layout_sidebar_left.png',
+					'right' => get_template_directory_uri() . '/inc/assets/images/layout_sidebar_right.png',
+					'left'  => get_template_directory_uri() . '/inc/assets/images/layout_sidebar_left.png',
 				),
 			)
 		)
@@ -136,9 +152,9 @@ function mynote_customize_layout( $wp_customize ) {
 				'type'        => 'radio',
 				'description' => __( 'Adjust the number of columns per row.', 'mynote' ),
 				'choices'     => array(
-					'3'  => get_template_directory_uri() . '/assets/images/layout_3cols.png',
-					'2'  => get_template_directory_uri() . '/assets/images/layout_2cols.png',
-					'1'  => get_template_directory_uri() . '/assets/images/layout_1cols.png',
+					'3'  => get_template_directory_uri() . '/inc/assets/images/layout_3cols.png',
+					'2'  => get_template_directory_uri() . '/inc/assets/images/layout_2cols.png',
+					'1'  => get_template_directory_uri() . '/inc/assets/images/layout_1cols.png',
 				),
 			)
 		)
@@ -153,9 +169,9 @@ function mynote_customize_layout( $wp_customize ) {
 				'type'        => 'radio',
 				'description' => __( 'Adjust the number of columns per row.', 'mynote' ),
 				'choices'     => array(
-					'3'  => get_template_directory_uri() . '/assets/images/layout_3cols.png',
-					'2'  => get_template_directory_uri() . '/assets/images/layout_2cols.png',
-					'1'  => get_template_directory_uri() . '/assets/images/layout_1cols.png',
+					'3'  => get_template_directory_uri() . '/inc/assets/images/layout_3cols.png',
+					'2'  => get_template_directory_uri() . '/inc/assets/images/layout_2cols.png',
+					'1'  => get_template_directory_uri() . '/inc/assets/images/layout_1cols.png',
 				),
 			)
 		)
@@ -170,8 +186,29 @@ function mynote_customize_layout( $wp_customize ) {
 				'type'        => 'radio',
 				'description' => __( 'Choose a preferred layout for desktop version.', 'mynote' ),
 				'choices'     => array(
-					'right' => get_template_directory_uri() . '/assets/images/layout_sidebar_right.png',
-					'left'  => get_template_directory_uri() . '/assets/images/layout_sidebar_left.png',
+					'right' => get_template_directory_uri() . '/inc/assets/images/layout_sidebar_right.png',
+					'left'  => get_template_directory_uri() . '/inc/assets/images/layout_sidebar_left.png',
+				),
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new Customize_Image_Radio_Control( $wp_customize, 'layout_footer_location_post_control',
+			array(
+				'label'       => __( 'Footer Location', 'mynote' ),
+				'section'     => 'section_mynote_layout_footer',
+				'settings'    => 'layout_cols_footer_location',
+				'type'        => 'radio',
+				'description' => __( 'Choose a preferred layout for footer section.', 'mynote' ),
+				'choices'     => array(
+					'1' => get_template_directory_uri() . '/inc/assets/images/layout_footer_1.png',
+					'2' => get_template_directory_uri() . '/inc/assets/images/layout_footer_2.png',
+					'3' => get_template_directory_uri() . '/inc/assets/images/layout_footer_3.png',
+					'4' => get_template_directory_uri() . '/inc/assets/images/layout_footer_4.png',
+					'5' => get_template_directory_uri() . '/inc/assets/images/layout_footer_5.png',
+					'6' => get_template_directory_uri() . '/inc/assets/images/layout_footer_6.png',
+					'7' => get_template_directory_uri() . '/inc/assets/images/layout_footer_7.png',
 				),
 			)
 		)
