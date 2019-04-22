@@ -29,7 +29,7 @@ get_header();
 					<h1 id="post-title" itemprop="headline"><?php the_title(); ?></h1>
 					<div class="post-mynote-buttons">
 
-						<?php if ( $has_slider ) : ?>
+						<?php if ( mynote_is_sidebar() ) : ?>
 							<?php mynote_column_control_button(); ?>
 						<?php endif; ?>
 
