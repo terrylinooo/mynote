@@ -543,7 +543,6 @@ article figcaption {
 }
 .footer .footer-nav ul.footer-menu li {
   margin: 0;
-  height: 15px;
 }
 .footer .footer-nav ul.footer-menu li:after {
   content: "|";
@@ -573,6 +572,41 @@ article figcaption {
   .footer .footer-columns {
     display: block;
   }
+  .footer .footer-nav {
+    display: block;
+  }
+  .footer .footer-nav ul.footer-menu {
+    display: block;
+    margin: 15px 0;
+  }
+  .footer .footer-nav ul.footer-menu li a {
+    border: 1px #dddddd solid;
+    display: block;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  .footer .footer-nav ul.footer-menu li a:hover {
+    border: 1px #222222 solid;
+    background-color: #333333;
+    color: #ffffff;
+  }
+  .footer .footer-nav ul.footer-menu li:after {
+    content: "";
+    display: none;
+  }
+  .footer .footer-nav ul.social-icon-links {
+    display: block;
+    list-style-type: none;
+  }
+  .footer .footer-nav ul.social-icon-links li {
+    display: inline-block;
+  }
+}
+.footer .brand-link:hover {
+  background-color: #f1f1f1;
+  color: #111111;
 }
 
 .home .footer {
@@ -1352,17 +1386,17 @@ nav[data-toggle='toc'] .nav-link.active + ul {
 }
 
 .brand-sm .brand-link {
-  width: 25px;
-  height: 25px;
-  font-size: 0.85rem;
-  line-height: 25px;
-}
-
-.brand-md .brand-link {
   width: 32px;
   height: 32px;
   font-size: 1rem;
   line-height: 32px;
+}
+
+.brand-md .brand-link {
+  width: 40px;
+  height: 40px;
+  font-size: 1.25rem;
+  line-height: 40px;
 }
 
 .brand-lg .brand-link {

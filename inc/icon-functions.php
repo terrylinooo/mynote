@@ -70,8 +70,20 @@ function mynote_social_links_icons() {
  * @return string  $item_output The menu item output with social icon.
  */
 function mynote_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
+
 	// Get supported social icons.
 	$social_icons = mynote_social_links_icons();
+	$size_type    = get_theme_mod( 'layout_cols_footer_icon_size' );
+
+	if ( 'md' === $size_type ) {
+		$size_css = 'brand-md';
+	} elseif ( 'lg' === $size_type ) {
+		$size_css = 'brand-lg';
+	} elseif ( 'xl' === $size_type ) {
+		$size_css = 'brand-xl';
+	} else {
+		$size_css = 'brand-sm';
+	}
 
 	// Replace title with font icon inside social links menu.
 	if ( 'social' === $args->theme_location ) {
@@ -79,7 +91,7 @@ function mynote_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 		foreach ( $social_icons as $attr => $value ) {
 			if ( false !== strpos( $item_output, $attr ) ) {
 				$is_icon_found = true;
-				$item_output = preg_replace( '#' . $args->link_before . '(.+)' . $args->link_after . '#i', '<span class="brand-md"><i class="' . esc_attr( $value ) . ' brand-link"></i></span>', $item_output );
+				$item_output = preg_replace( '#' . $args->link_before . '(.+)' . $args->link_after . '#i', '<span class="' . $size_css . '"><i class="' . esc_attr( $value ) . ' brand-link"></i></span>', $item_output );
 			}
 		}
 		if ( !$is_icon_found ) {

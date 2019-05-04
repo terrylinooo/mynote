@@ -29,7 +29,6 @@
     
             li {
                 margin: 0;
-                height: 15px;
 
                 &:after {
                     content: "|";
@@ -69,6 +68,55 @@
     @include media-breakpoint-down(sm) {
         .footer-columns {
             display: block;
+        }
+
+        .footer-nav {
+            display: block;
+    
+            ul.footer-menu {
+                display: block;
+                margin: 15px 0;
+
+                li {
+
+                    a {
+                        border: 1px #dddddd solid;
+                        display: block;
+                        padding: 5px 10px;
+                        margin: 5px 0;
+                        border-radius: 4px;
+                        text-decoration: none;
+
+                        &:hover {
+                            border: 1px #222222 solid;
+                            background-color: #333333;
+                            color: #ffffff;
+                        }
+
+                    }
+
+                    &:after {
+                        content: "";
+                        display: none;
+                    }
+                }
+            }
+    
+            ul.social-icon-links {
+                display: block;
+                list-style-type: none;
+
+                li {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    .brand-link {
+        &:hover {
+            background-color: #f1f1f1;
+            color: #111111;
         }
     }
 }
