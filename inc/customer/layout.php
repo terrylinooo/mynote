@@ -100,6 +100,13 @@ function mynote_customize_layout( $wp_customize ) {
             'sanitize_callback' => 'sanitize_text_field',
         )
 	);
+
+	$wp_customize->add_setting( 'layout_cols_footer_icon_size',
+		array( 
+			'default'           => 'sm', 
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
 	
     $wp_customize->add_setting( 'layout_cols_footer_location',
         array( 
@@ -107,14 +114,7 @@ function mynote_customize_layout( $wp_customize ) {
             'sanitize_callback' => 'sanitize_text_field',
         )
 	);
-	
-    $wp_customize->add_setting( 'layout_cols_footer_icon_size',
-        array( 
-            'default'           => 'sm', 
-            'sanitize_callback' => 'sanitize_text_field',
-        )
-    );
-    
+
     /**
      * Control
      */
@@ -201,6 +201,24 @@ function mynote_customize_layout( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
+		new WP_Customize_Control( $wp_customize, 'layout_cols_footer_icon_size_control',
+			array(
+				'label'       => __( 'Social Icon Size', 'mynote' ),
+				'section'     => 'section_mynote_layout_footer',
+				'settings'    => 'layout_cols_footer_icon_size',
+				'type'        => 'radio',
+				'description' => __( 'Choose a preferred icon size.', 'mynote' ),
+				'choices'     => array(
+					'sm' => __( 'Small - 32 x 32', 'mynote' ),
+					'md' => __( 'Medium - 40 x 40', 'mynote' ),
+					'lg' => __( 'Large - 48 x 48', 'mynote' ),
+					'xl' => __( 'Extra large - 64 x 64', 'mynote' ),
+				),
+			)
+		)
+	);
+
+	$wp_customize->add_control(
 		new Customize_Image_Radio_Control( $wp_customize, 'layout_footer_location_post_control',
 			array(
 				'label'       => __( 'Footer Location', 'mynote' ),
@@ -216,24 +234,6 @@ function mynote_customize_layout( $wp_customize ) {
 					'5' => get_template_directory_uri() . '/inc/assets/images/layout_footer_5.png',
 					'6' => get_template_directory_uri() . '/inc/assets/images/layout_footer_6.png',
 					'7' => get_template_directory_uri() . '/inc/assets/images/layout_footer_7.png',
-				),
-			)
-		)
-	);
-
-	$wp_customize->add_control(
-		new WP_Customize_Control( $wp_customize, 'layout_cols_footer_icon_size_control',
-			array(
-				'label'       => __( 'Social Icon Size', 'mynote' ),
-				'section'     => 'section_mynote_layout_footer',
-				'settings'    => 'layout_cols_footer_icon_size',
-				'type'        => 'radio',
-				'description' => __( 'Choose a preferred icon size.', 'mynote' ),
-				'choices'     => array(
-					'sm' => __( 'Small - 32 x 32', 'mynote' ),
-					'md' => __( 'Medium - 40 x 40', 'mynote' ),
-					'lg' => __( 'Large - 48 x 48', 'mynote' ),
-					'xl' => __( 'Extra large - 64 x 64', 'mynote' ),
 				),
 			)
 		)
