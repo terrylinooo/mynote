@@ -2,12 +2,12 @@
 Contributors: Terry Lin
 Requires at least: WordPress 3.6
 Tested up to: WordPress 5.1.1
-Version: 1.3.5
+Version: 1.3.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, e-commerce, blog, entertainment
 Requires PHP: 5.2.4
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 
 == Description ==
 
@@ -134,3 +134,7 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 
 - Improve footer menu in RWD.
 - Add new customizer setting for social icon sizes.
+
+= 1.3.6 =
+
+- Feedback #14: Add Portuguese translation - thanks for @mauromascarenhas
