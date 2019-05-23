@@ -62,6 +62,10 @@ Those are websites that use Mynote theme.
 - Bootstrap 4
 - Fontawesome 5
 
+## Translations
+
+- Portuguese (pt_BR) by @mauromascarenhas
+
 ## Author
 
 Terry L.
