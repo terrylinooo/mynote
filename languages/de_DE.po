@@ -1,0 +1,591 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mynote\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-04 16:02+0000\n"
+"PO-Revision-Date: 2019-07-13 17:32+0200\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Loco-Version: 2.2.0; wp-5.1.1\n"
+"Last-Translator: \n"
+"Language: de_DE\n"
+
+#: inc/template-tags.php:434
+#, php-format
+msgid "%1$s @ %2$s"
+msgstr "%1$s @ %2$s"
+
+#: inc/template-tags.php:441
+#, php-format
+msgctxt "%s"
+msgid "written %s ago"
+msgstr "erstellte vor %s"
+
+#: search.php:24
+#, php-format
+msgid "%s Search Results for %s"
+msgstr "%s Suchergebnisse für %s"
+
+#: inc/template-functions.php:148
+msgid "(Edit)"
+msgstr "(Bearbeiten)"
+
+#: inc/customer/about.php:50
+msgid "About"
+msgstr "Über"
+
+#: inc/customer/about.php:18
+msgid "About Mynote Theme"
+msgstr "Über Mynote Theme"
+
+#: functions.php:165
+msgid "Add widgets here to appear in your footer."
+msgstr "Füge Widgets zur Anzeige in der Fußleiste hier hinzu."
+
+#: functions.php:195
+msgid "Add widgets here to appear in your homepage intro section."
+msgstr "Füge Widgets zur Anzeige in der Introsektion hinzu."
+
+#: functions.php:185
+msgid "Add widgets here to appear in your homepage middle section."
+msgstr "Füge Widgets zur Anzeige in der Mittelsektion hinzu."
+
+#: functions.php:215
+msgid "Add widgets here to appear in your sidebar on archive pages."
+msgstr "Füge Widgets zur Anzeige in der Seitenleiste der Archivseiten hinzu."
+
+#: functions.php:175
+msgid ""
+"Add widgets here to appear in your sidebar on blog posts and archive pages."
+msgstr ""
+"Füge Widgets zur Anzeige in der Seitenleiste der Artikel- und Archivseiten "
+"hinzu."
+
+#: functions.php:155
+msgid "Add widgets here to appear in your sidebar on blog posts."
+msgstr "Füge Widgets zur Anzeige in der Seitenleiste der Artikelseiten hinzu."
+
+#: functions.php:205
+msgid "Add widgets here to appear in your sidebar on homepage."
+msgstr "Füge Widgets zur Anzeige in der Seitenleiste der Webseite hinzu."
+
+#: inc/customer/layout.php:160 inc/customer/layout.php:177
+msgid "Adjust the number of columns per row."
+msgstr "Anzahl der Spalten pro Zeile anpassen."
+
+#: inc/template-tags.php:551
+msgid "All rights reserved."
+msgstr "Alle Rechte vorbehalten."
+
+#: inc/customer/layout.php:41
+msgid "Archive"
+msgstr "Archiv"
+
+#: functions.php:213
+msgid "Archive Sidebar"
+msgstr "Archiv Seitenleiste"
+
+#: inc/customer/progress-bar.php:163
+msgid "As same as website menu"
+msgstr "Wie das Webseiten-Menü"
+
+#: inc/template-functions.php:189 inc/template-tags.php:493
+msgid "Author"
+msgstr "Autor"
+
+#: inc/customer/post-page.php:107
+msgid "Author Card"
+msgstr "Autor Card"
+
+#: inc/customer/navbar.php:135 inc/customer/navbar.php:170
+#: inc/customer/progress-bar.php:173
+msgid "Background Color"
+msgstr "Hintergrundfarbe"
+
+#: inc/customer/progress-bar.php:41
+msgid "Basic Settings"
+msgstr "Grundeinstellungen"
+
+#: inc/customer/post-card.php:84
+msgid "Border"
+msgstr "Rahmen"
+
+#: inc/customer/progress-bar.php:195
+msgid "Border Color"
+msgstr "Rahmenfarbe"
+
+#: inc/customer/post-page.php:77
+msgid "Breadcrumb"
+msgstr "Breadcrumb"
+
+#: inc/customer/progress-bar.php:160
+msgid "Choose a preferred color pattern and apply it to the progress bar."
+msgstr "Wähle ein bevorzugtes Farbschema für den Fortschrittsbalken."
+
+#: inc/customer/layout.php:210
+msgid "Choose a preferred icon size."
+msgstr "Wähle eine bevorzugte Icon-Größe."
+
+#: inc/customer/layout.php:128 inc/customer/layout.php:144
+#: inc/customer/layout.php:194
+msgid "Choose a preferred layout for desktop version."
+msgstr "Wähle ein bevorzugtes Layout für die Desktop-Version."
+
+#: inc/customer/layout.php:228
+msgid "Choose a preferred layout for footer section."
+msgstr "Wähle ein bevorzugtes Layout für die Fußzeile."
+
+#: inc/customer/progress-bar.php:51
+msgid "Color"
+msgstr "Farbe"
+
+#: inc/customer/progress-bar.php:156
+msgid "Color Pattern"
+msgstr "Farbschema"
+
+#: inc/customer/layout.php:156 inc/customer/layout.php:173
+msgid "Columns"
+msgstr "Spalten"
+
+#: inc/template-tags.php:358
+msgid "Comment"
+msgstr "Kommentar"
+
+#: inc/customer/post-page.php:117
+msgid "Comment Section"
+msgstr "Kommentarsektion"
+
+#. %s: days
+#: inc/template-functions.php:213
+#, php-format
+msgid "commented %s ago"
+msgstr "kommentierte vor %s"
+
+#: comments.php:44
+msgid "Comments"
+msgstr "Kommentare"
+
+#: comments.php:58
+msgid "Comments are closed."
+msgstr "Kommentarfunktion deaktiviert."
+
+#: inc/template-tags.php:551
+msgid "Copyright"
+msgstr "Copyright"
+
+#: inc/template-tags.php:194
+msgid "Current Page"
+msgstr "Aktuelle Seite"
+
+#: inc/customer/progress-bar.php:164
+msgid "Custom"
+msgstr "Angepasst"
+
+#: inc/customer/progress-bar.php:52
+msgid "Customize the color pattern of the page progress bar."
+msgstr "Passe das Farbschema des Fortschrittsbalkens an."
+
+#: inc/template-tags.php:411
+msgid "Date"
+msgstr "Datum"
+
+#: inc/customer/progress-bar.php:162
+msgid "Default"
+msgstr "Standard"
+
+#: inc/customer/navbar.php:202
+msgid "Display a Search Bar"
+msgstr "Zeige Suchfunktion an"
+
+#: inc/customer/progress-bar.php:145
+msgid "Display Percentage Number"
+msgstr "Prozentzahl anzeigen"
+
+#: inc/customer/progress-bar.php:134
+msgid "Display Progress Bar"
+msgstr "Fortschrittsbalken anzeigen"
+
+#: inc/template-tags.php:319
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: inc/template-functions.php:292
+msgid "Email"
+msgstr "EMail"
+
+#: inc/customer/layout.php:215
+msgid "Extra large - 64 x 64"
+msgstr "Extra groß - 64 x 64"
+
+#: inc/customer/post-page.php:97
+msgid "Featured Image"
+msgstr "Vorgeschlagenes Bild"
+
+#: inc/template-tags.php:176
+msgid "First"
+msgstr "Erste"
+
+#: inc/template-tags.php:175
+msgid "First Page"
+msgstr "Erste Seite"
+
+#: functions.php:163 inc/customer/layout.php:59 inc/customer/post-card.php:73
+msgid "Footer"
+msgstr "Fußleiste"
+
+#: inc/customer/layout.php:224
+msgid "Footer Location"
+msgstr "Position der Fußleiste"
+
+#: functions.php:140
+msgid "Footer Menu"
+msgstr "Menü der Fußleiste"
+
+#: inc/customer/post-card.php:62
+msgid "Header"
+msgstr "Kopfleiste"
+
+#: functions.php:138
+msgid "Header Menu"
+msgstr "Menü der Kopfleiste"
+
+#: inc/template-tags.php:90 inc/template-tags.php:592
+msgid "Home"
+msgstr "Startseite"
+
+#: inc/customer/layout.php:32 inc/customer/navbar.php:41
+msgid "Homepage"
+msgstr "Webseite"
+
+#: functions.php:193
+msgid "Homepage Intro"
+msgstr "Intro der Webseite"
+
+#: functions.php:183
+msgid "Homepage Middle"
+msgstr "Mitte der Webseite"
+
+#: functions.php:203
+msgid "Homepage Sidebar"
+msgstr "Seitenbereich der Webseite"
+
+#. Author URI of the theme
+msgid "https://terryl.in"
+msgstr "https://terryl.in"
+
+#. URI of the theme
+msgid "https://terryl.in/en/repository/mynote/"
+msgstr "https://terryl.in/en/repository/mynote/"
+
+#. Name of the template
+msgid "Landing page"
+msgstr "Zielseite"
+
+#. Name of the template
+msgid "Landing Page (full)"
+msgstr "Zielseite (komplett)"
+
+#. Name of the template
+msgid "Landing Page (simple)"
+msgstr "Zielseite (vereinfacht)"
+
+#: inc/customer/layout.php:214
+msgid "Large - 48 x 48"
+msgstr "Groß - 48 x 48"
+
+#: inc/template-tags.php:220
+msgid "Last"
+msgstr "Letzte"
+
+#: page.php:64 single-product.php:70 single.php:84
+msgid "Last modified: "
+msgstr "Zuletzt bearbeitet: "
+
+#: inc/template-tags.php:219
+msgid "Last Page"
+msgstr "Letzte Seite"
+
+#: inc/customer/layout.php:22
+msgid "Layout"
+msgstr "Layout"
+
+#: inc/customer/navbar.php:148 inc/customer/navbar.php:182
+msgid "Link Color"
+msgstr "Farbe der Links"
+
+#: inc/customer/navbar.php:159 inc/customer/navbar.php:192
+msgid "Link Hover Color"
+msgstr "Farbe der Links beim Überfahren"
+
+#: header.php:58
+msgid "Logo"
+msgstr "Logo"
+
+#: inc/customer/layout.php:213
+msgid "Medium - 40 x 40"
+msgstr "Mittel - 40 x 40"
+
+#. Name of the theme
+#: inc/template-tags.php:555
+msgid "Mynote"
+msgstr "Mynote"
+
+#: inc/customer/about.php:64
+msgid ""
+"Mynote is a responsive theme (RWD, responsive web design). However, if you "
+"would like to disable RWD, here it is."
+msgstr ""
+"Mynote ist eine responsive Vorlage (RWD responsive web design). Auf Wunsch "
+"kann diese Komponente aber auch deaktiviert werden."
+
+#. Description of the theme
+msgid ""
+"Mynote is a responsive, clean, Markdown friendly WordPress blog theme. It is "
+"based on Bootstrap 4 and Fontawesome 5. It is suitable for programming, "
+"business, technical, professional, niche and any kind of blogging sites. "
+"Mynote has landing-page templates so that can your highly customize your "
+"homepage, make your website unique and professional."
+msgstr ""
+"Mynote ist ein responsives, leichtes und Markdown-freundliches WordPress-"
+"Theme. Es basiert auf Bootstrap 4 und Fontawesome 5. Es eignet sich für "
+"Blogs über Programmierung, Business, Technik, professionelle Gestaltung und "
+"viele weitere Bereiche. Mynote hat eigene Zielseiten-Vorlagen, sodass du "
+"deine Webseite nach deinen Wünschen gestalten kannst."
+
+#: inc/customer/about.php:24
+msgid ""
+"Mynote is an open source project on GitHub, any suggestions to improve this "
+"theme are welcome. Please visit:"
+msgstr ""
+"Mynote ist ein OpenSource-Projekt auf Github, Vorschläge zur Verbesserung "
+"des Themse sind willkommen. Bitte besuche:"
+
+#: inc/template-functions.php:281
+msgid "Name"
+msgstr "Name"
+
+#: inc/customer/navbar.php:31
+msgid "Navbar"
+msgstr "Navigationsleiste"
+
+#: comments.php:53 inc/template-tags.php:212
+msgid "Next"
+msgstr "Nächste"
+
+#: inc/template-tags.php:211
+msgid "Next Page"
+msgstr "Nächste Seite"
+
+#: pagination.php:25
+msgid "Next page"
+msgstr "Nächste Seite"
+
+#: single-product.php:98 single.php:121
+msgid "Next Post"
+msgstr "Nächster Artikel"
+
+#: pagination.php:26 inc/template-tags.php:201
+msgid "Page"
+msgstr "Seite"
+
+#: inc/template-tags.php:165
+msgid "Page navigation"
+msgstr "Seitennavigation"
+
+#: 404.php:20
+msgid "Page not found"
+msgstr "Seite nicht gefunden"
+
+#: page.php:56 single-product.php:60 single.php:74
+#: template-parts/page/landing-page.php:66
+msgid "Pages:"
+msgstr "Seiten:"
+
+#: inc/template-functions.php:148
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: inc/customer/navbar.php:213
+msgid "Placeholder Color"
+msgstr "Farbe der Platzhalter"
+
+#: inc/customer/layout.php:50
+msgid "Post"
+msgstr "Artikel"
+
+#: inc/customer/post-page.php:87
+msgid "Post Author and Date"
+msgstr "Artikelautor und Datum"
+
+#: inc/customer/post-card.php:26
+msgid "Post Card"
+msgstr "Artikelvorschau"
+
+#: inc/customer/post-page.php:27
+msgid "Post Page"
+msgstr "Artikelseite"
+
+#: comments.php:52 inc/template-tags.php:184
+msgid "Previous"
+msgstr "Vorherige"
+
+#: inc/template-tags.php:183
+msgid "Previous Page"
+msgstr "Vorherige Seite"
+
+#: pagination.php:24
+msgid "Previous page"
+msgstr "Vorherige Seite"
+
+#: single-product.php:97 single.php:120
+msgid "Previous Post"
+msgstr "Vorheriger Artikel"
+
+#: inc/customer/progress-bar.php:32
+msgid "Progress Bar"
+msgstr "Fortschrittsbalken"
+
+#: inc/template-tags.php:375
+msgid "Read"
+msgstr "Lesen"
+
+#: inc/template-functions.php:76
+msgid "read more"
+msgstr "weiterlesen"
+
+#: 404.php:30
+msgid "Return home?"
+msgstr "Zurück zur Startseite?"
+
+#: inc/customer/about.php:61
+msgid "RWD"
+msgstr "RWD"
+
+#: inc/customer/homepage.php:31
+msgid "Scrolling down button"
+msgstr "Herunterscrollen-Button"
+
+#: inc/customer/navbar.php:59
+msgid "Search Bar"
+msgstr "Suchleiste"
+
+#: inc/template-functions.php:255
+msgid "Send"
+msgstr "Senden"
+
+#: functions.php:153
+msgid "Sidebar"
+msgstr "Seitenleiste"
+
+#: inc/customer/layout.php:124 inc/customer/layout.php:140
+#: inc/customer/layout.php:190
+msgid "Sidebar Location"
+msgstr "Position der Seitenleiste"
+
+#: functions.php:139
+msgid "Sidebar Menu"
+msgstr "Menü der Seitenleiste"
+
+#: inc/customer/layout.php:212
+msgid "Small - 32 x 32"
+msgstr "Klein - 32 x 32"
+
+#: inc/customer/layout.php:206
+msgid "Social Icon Size"
+msgstr "Social Icon-Größe"
+
+#: functions.php:141
+msgid "Social Links Menu"
+msgstr "Social Links Menü"
+
+#: loop.php:70 page.php:73 single-product.php:87 single.php:104
+#: template-parts/page/landing-page.php:76
+msgid "Sorry, nothing to display."
+msgstr "Entschuldigung, es wurde nichts gefunden."
+
+#: functions.php:173
+msgid "Sticky Sidebar"
+msgstr "Angepinnte Seitenleiste"
+
+#. Author of the theme
+msgid "Terry Lin"
+msgstr "Terry Lin"
+
+#: inc/customer/progress-bar.php:185
+msgid "Text Color"
+msgstr "Textfarbe"
+
+#: inc/customer/progress-bar.php:42
+msgid "The basic settings of the page progress bar."
+msgstr "Die Grundeinstellungen des Fortschrittsbalkens."
+
+#: 404.php:28
+msgid "The page you are looking for does not exist or it may have been moved."
+msgstr "Die Seite nach der du suchst existiert nicht oder wurde entfernt."
+
+#: inc/template-tags.php:555
+msgid "Theme by"
+msgstr "Theme von"
+
+#: inc/customer/navbar.php:136 inc/customer/navbar.php:149
+#: inc/customer/navbar.php:160
+msgid "This option is for homepage only."
+msgstr "Diese Einstellung ist nur für die Webseite."
+
+#: searchform.php:19
+msgid "To search, type and hit enter."
+msgstr "Suche ..."
+
+#: header.php:72
+msgid "Toggle navigation"
+msgstr "Navigation öffnen"
+
+#: inc/template-functions.php:303 inc/customer/navbar.php:50
+msgid "Website"
+msgstr "Webseite"
+
+#: inc/customer/progress-bar.php:148
+msgid "Would you like to display a percentage number on the progress bar?"
+msgstr "Soll der Fortschrittsbalken den Fortschritt in Prozent anzeigen?"
+
+#: inc/customer/progress-bar.php:137
+msgid "Would you like to display a progress bar while reading?"
+msgstr "Möchtest du einen Fortschrittsbalken während des Lesens anzeigen?"
+
+#: inc/customer/navbar.php:205
+msgid "Would you like to display a search bar in header navbar area?"
+msgstr "Möchtest du eine Suchleiste im Kopfbereich der Seite anzeigen?"
+
+#: inc/customer/post-card.php:87
+msgid "Would you like to display the border of the post card?"
+msgstr "Möchtest du einen Rahmen um die Autor Card anzeigen?"
+
+#: inc/customer/post-card.php:76
+msgid "Would you like to display the footer of the post card?"
+msgstr "Möchtest du eine Fußleiste bei der Autor Card anzeigen?"
+
+#: inc/customer/post-card.php:65
+msgid ""
+"Would you like to display the header of the post card? (Post thumbnail is "
+"located on this section. Choosing `No` will hide it.)"
+msgstr "Möchtest du eine Kopfleiste bei der Autor Card anzeigen?"
+
+#: inc/customer/homepage.php:34
+msgid "Would you like to display the scrolling down button? (desktop version)"
+msgstr "Möchtest du den Herunterscrollen-Button anzeigen? (Desktop-Version)"
+
+#: inc/template-functions.php:256
+msgid "Write a Reply or Comment"
+msgstr "Schreibe eine Antwort oder einen Kommentar"
+
+#: inc/template-functions.php:223
+msgid "Your comment is awaiting moderation."
+msgstr "Dein Kommentar wartet auf Freigabe."
+
+#: inc/template-functions.php:262
+msgid "Your email address will not be published."
+msgstr "Deine EMail-Adresse wird nicht veröffentlicht."
