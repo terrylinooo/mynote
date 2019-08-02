@@ -10,6 +10,17 @@
  * @since 1.0.7
  */
 
+ /**
+  * The follwing methods could be defined in child theme:
+  *
+  * - mynote_read_button
+  * - mynote_edit_button
+  * - mynote_comment_button
+  * - mynote_author_posted_date
+  * - mynote_author_card
+  * - mynote_site_info
+  */
+
 /**
  * Mynote navigation.
  *
@@ -306,20 +317,22 @@ function mynote_article_schema( $schema = '' ) {
  *
  * @return void
  */
-function mynote_edit_button() {
-	global $post;
+if ( ! function_exists( 'mynote_edit_button' ) ) {
+	function mynote_edit_button() {
+		global $post;
 
-	if ( ! current_user_can( 'edit_post', $post->ID ) ) {
-		return;
+		if ( ! current_user_can( 'edit_post', $post->ID ) ) {
+			return;
+		}
+
+		echo '
+			<a href="' . esc_url( get_edit_post_link() ) . '" class="button-like-link">
+				<div class="btn-counter text-only">		
+					<div class="btn">' . esc_html__( 'Edit', 'mynote' ) . '</div>
+				</div>
+			</a>
+		';
 	}
-
-	echo '
-		<a href="' . esc_url( get_edit_post_link() ) . '" class="button-like-link">
-			<div class="btn-counter text-only">		
-				<div class="btn">' . esc_html__( 'Edit', 'mynote' ) . '</div>
-			</div>
-		</a>
-	';
 }
 
 /**
@@ -346,36 +359,41 @@ function mynote_column_control_button() {
  * @param bool $show_label Display label.
  * @return void
  */
-function mynote_comment_button( $show_label = false ) {
-	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
-		return;
-	}
-
-	echo '
-		<a href="' . esc_url( get_the_permalink() ) . '#comments" class="button-like-link">
-			<div class="btn-counter">
-				<div class="btn">
-					' . ( ( $show_label ) ? '<i class="fas fa-comment-dots"></i> ' . esc_html__( 'Comment', 'mynote' ) : '<i class="fas fa-comment-dots"></i>' ) . '
+if ( ! function_exists( 'mynote_comment_button' ) ) {
+	function mynote_comment_button( $show_label = false ) {
+		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
+			return;
+		}
+	
+		echo '
+			<a href="' . esc_url( get_the_permalink() ) . '#comments" class="button-like-link">
+				<div class="btn-counter">
+					<div class="btn">
+						' . ( ( $show_label ) ? '<i class="fas fa-comment-dots"></i> ' . esc_html__( 'Comment', 'mynote' ) : '<i class="fas fa-comment-dots"></i>' ) . '
+					</div>
+					<div class="count-box">' . esc_html( get_comments_number() ) . '</div>
 				</div>
-				<div class="count-box">' . esc_html( get_comments_number() ) . '</div>
-			</div>
-		</a>
-	';
+			</a>
+		';
+	}
 }
+
 
 /**
  * The Mynote button.
  *
  * @return void
  */
-function mynote_read_button() {
-	echo '
-		<a href="' . esc_url( get_the_permalink() ) . '" class="button-like-link">
-			<div class="btn-counter text-only">		
-				<div class="btn">' . esc_html__( 'Read', 'mynote' ) . '</div>
-			</div>
-		</a>
-	';
+if ( ! function_exists( 'mynote_read_button' ) ) {
+	function mynote_read_button() {
+		echo '
+			<a href="' . esc_url( get_the_permalink() ) . '" class="button-like-link">
+				<div class="btn-counter text-only">		
+					<div class="btn">' . esc_html__( 'Read', 'mynote' ) . '</div>
+				</div>
+			</a>
+		';
+	}
 }
 
 /**
@@ -422,28 +440,30 @@ function mynote_posted_date_button( $show_label = false ) {
  * @param int  $avatar_size Avatar size.
  * @return void
  */
-function mynote_author_posted_date( $show_avatar = false, $avatar_size = 40 ) {
-	echo '<div class="author-posted-date">';
+if ( ! function_exists( 'mynote_author_posted_date' ) ) {
+	function mynote_author_posted_date( $show_avatar = false, $avatar_size = 40 ) {
+		echo '<div class="author-posted-date">';
 
-	if ( $show_avatar ) {
-		echo '<img src="' . esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => $avatar_size ) ) ) . '" class="rounded-circle poster-avatar" align="middle"> ';
+		if ( $show_avatar ) {
+			echo '<img src="' . esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => $avatar_size ) ) ) . '" class="rounded-circle poster-avatar" align="middle"> ';
+		}
+
+		printf( '<a href="%1$s" title="written %2$s" class="author-link">%3$s</a> <time itemprop="datePublished" datetime="%4$s">%5$s</time>',
+			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			sprintf( esc_html__( '%1$s @ %2$s', 'mynote' ),
+				esc_html( get_the_date() ), 
+				esc_attr( get_the_time() )
+			),
+			get_the_author(),
+			get_the_time( 'c' ),
+			sprintf( 
+				_x( 'written %s ago', '%s', 'mynote' ),
+				human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
+			)
+		);
+
+		echo '</div>';
 	}
-
-	printf( '<a href="%1$s" title="written %2$s" class="author-link">%3$s</a> <time itemprop="datePublished" datetime="%4$s">%5$s</time>',
-		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		sprintf( esc_html__( '%1$s @ %2$s', 'mynote' ),
-			esc_html( get_the_date() ), 
-			esc_attr( get_the_time() )
-		),
-		get_the_author(),
-		get_the_time( 'c' ),
-		sprintf( 
-			_x( 'written %s ago', '%s', 'mynote' ),
-			human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
-		)
-	);
-
-	echo '</div>';
 }
 
 /**
@@ -547,12 +567,14 @@ function mynote_category_labels() {
  *
  * @return void
  */
-function mynote_site_info() {
-	echo esc_html__( 'Copyright', 'mynote' ) . ' &copy; ' . date( 'Y' ) . ' <strong><a href="' . esc_url( get_site_url() ) . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' . esc_html__( 'All rights reserved.', 'mynote' ) . ' ';
+if ( ! function_exists( 'mynote_site_info' ) ) {
+	function mynote_site_info() {
+		echo esc_html__( 'Copyright', 'mynote' ) . ' &copy; ' . date( 'Y' ) . ' <strong><a href="' . esc_url( get_site_url() ) . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' . esc_html__( 'All rights reserved.', 'mynote' ) . ' ';
 
-	// Keeping the theme credit link encourages me to improve this theme better. Thank you.
-	$theme_link = 'https://terryl.in/';
-	echo esc_html__( 'Theme by', 'mynote' ) . ' <a href="' . esc_url( $theme_link ) . '" target="_blank">' . esc_html__( 'Mynote', 'mynote' ) . '</a>. ';
+		// Keeping the theme credit link encourages me to improve this theme better. Thank you.
+		$theme_link = 'https://terryl.in/';
+		echo esc_html__( 'Theme by', 'mynote' ) . ' <a href="' . esc_url( $theme_link ) . '" target="_blank">' . esc_html__( 'Mynote', 'mynote' ) . '</a>. ';
+	}
 }
 
 /**
