@@ -2,7 +2,7 @@
 Contributors: Terry Lin
 Requires at least: WordPress 3.6
 Tested up to: WordPress 5.1.1
-Version: 1.3.7
+Version: 1.4.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, e-commerce, blog, entertainment
@@ -142,3 +142,8 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 = 1.3.7 =
 
 - Feedback #17: Add German translation - thanks for @Pandiora
+
+= 1.4.0 =
+
+- Feature request #18: Wrap template functions for child theme.
+- Add Basic form element styles.
