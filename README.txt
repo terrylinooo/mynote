@@ -7,7 +7,7 @@ License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, e-commerce, blog, entertainment
 Requires PHP: 5.2.4
-Stable tag: 1.3.7
+Stable tag: 1.4.0
 
 == Description ==
 
@@ -146,4 +146,3 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 = 1.4.0 =
 
 - Feature request #18: Wrap template functions for child theme.
-- Add Basic form element styles.
