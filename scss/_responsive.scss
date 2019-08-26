@@ -6,6 +6,17 @@
     }
 }
 
+/* > 1200px */
+@include media-breakpoint-up(xxl) {
+
+    .section-intro {
+        &[style] {
+            background-size: cover;
+            background-position: center center;
+        }
+    }
+}
+
 /* < 1200px */
 @include media-breakpoint-down(lg) {
     .px-responsive {

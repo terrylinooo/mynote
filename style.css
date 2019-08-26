@@ -1614,6 +1614,13 @@ p > object:only-child {
     background-image: url("./assets/images/bg_circuit.png");
   }
 }
+/* > 1200px */
+@media (min-width: 1920px) {
+  .section-intro[style] {
+    background-size: cover;
+    background-position: center center;
+  }
+}
 /* < 1200px */
 @media (max-width: 1199.98px) {
   .px-responsive {
