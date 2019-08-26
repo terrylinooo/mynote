@@ -2,12 +2,12 @@
 Contributors: Terry Lin
 Requires at least: WordPress 3.6
 Tested up to: WordPress 5.1.1
-Version: 1.4.0
+Version: 1.4.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, e-commerce, blog, entertainment
 Requires PHP: 5.2.4
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 
 == Description ==
 
@@ -146,3 +146,7 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 = 1.4.0 =
 
 - Feature request #18: Wrap template functions for child theme.
+
+= 1.4.1 =
+
+- Issue #20 - Fix background image position when resolution > 1920.
