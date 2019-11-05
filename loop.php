@@ -24,7 +24,9 @@
 			<article id="post-<?php the_ID(); ?>" class="article-list">
 				<div class="card my-2">
 					<?php if ( mynote_is_post_card_header() && has_post_thumbnail() ) : ?>
-						<?php mynote_post_thumbnail(); ?>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+							<?php mynote_post_thumbnail(); ?>
+						</a>
 					<?php endif; ?>
 
 					<div class="card-body">
