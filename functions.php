@@ -8,7 +8,7 @@
  * @package WordPress
  * @subpackage Mynote
  * @since 1.0.0
- * @version 1.3.0
+ * @version 1.5.0
  */
 
 if ( ! function_exists( 'mynote_setup_theme' ) ) {
@@ -107,7 +107,7 @@ function mynote_styles() {
 	wp_register_style( 'mynote-font-roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400', array(), '1.0', 'all' );
 	wp_enqueue_style( 'mynote-font-roboto' );
 
-	wp_register_style( 'mynote', get_template_directory_uri() . '/style.css', array(), '1.4.3', 'all' );
+	wp_register_style( 'mynote', get_template_directory_uri() . '/style.css', array(), '1.5.0', 'all' );
 	wp_enqueue_style( 'mynote' );
 }
 
@@ -226,6 +226,17 @@ add_action( 'widgets_init', 'mynote_widgets_init' );
 // I still don't know why should I put this line to ignore them-check warning.
 if ( ! isset( $content_width ) ) {
 	$content_width = 900;
+}
+
+if ( ! function_exists( 'wp_body_open' ) ) {
+	/**
+	 * Added for backwards compatibility to support WordPress versions prior to 5.2.0.
+	 *
+	 * @since WP 5.2.0
+	 */
+    function wp_body_open() {
+        do_action( 'wp_body_open' );
+    }
 }
 
 /**

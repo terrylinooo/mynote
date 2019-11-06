@@ -159,3 +159,7 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 
 - Feedback #24: Make thumbnail in homepage clickable.
 - Feedback #25: Update French translation - thanks for @quentin7b
+
+= 1.5.0 = 
+
+- Add support for the new theme hook `wp_body_open` since WordPress 5.2

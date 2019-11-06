@@ -49,6 +49,7 @@ if ( ! mynote_is_responsive() ) {
 
 </head>
 <body <?php body_class( $addon_body_class ); ?>>
+	<?php wp_body_open(); ?>
 	<div class="wrapper">
 		<header class="header clear" role="banner">
 			<div class="container">
