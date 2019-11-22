@@ -140,7 +140,6 @@
 	}
 	code, kbd, pre {
 		font-family: monospace, monospace;
-		font-size: 1em;
 	}
 	hr {
 		box-sizing: content-box;
@@ -262,16 +261,7 @@
 	dd {
 		margin-left: 0;
 	}
-	code {
-		font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-		font-size: 12px;
-	}
-	pre {
-		margin-top: 0;
-		margin-bottom: 0;
-		font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-		font-size: 12px;
-	}
+
 	.octicon {
 		vertical-align: text-bottom;
 	}
@@ -473,57 +463,7 @@
 			padding-right: 20px;
 		}
 	}
-	code {
-		padding: 0.2em 0.4em;
-		font-size: 85%;
-		background-color: rgba(27, 31, 35, 0.05);
-		border-radius: 3px;
-		color: #333;
-	}
-	pre {
-		word-wrap: normal;
-		> code {
-			padding: 0;
-			margin: 0;
-			font-size: 100%;
-			word-break: normal;
-			white-space: pre;
-			background: transparent;
-			border: 0;
-		}
-	}
-	.highlight {
-		margin-bottom: 16px;
-		pre {
-			margin-bottom: 0;
-			word-break: normal;
-			padding: 16px;
-			overflow: auto;
-			font-size: 85%;
-			line-height: 1.45;
-			background-color: #f6f8fa;
-			border-radius: 3px;
-		}
-	}
-	pre {
-		padding: 16px;
-		overflow: auto;
-		font-size: 85%;
-		line-height: 1.45;
-		background-color: #f6f8fa;
-		border-radius: 3px;
-		code {
-			display: inline;
-			max-width: auto;
-			padding: 0;
-			margin: 0;
-			overflow: visible;
-			line-height: inherit;
-			word-wrap: normal;
-			background-color: transparent;
-			border: 0;
-		}
-	}
+	
 	.full-commit .btn-outline:not(:disabled):hover {
 		color: #005cc5;
 		border-color: #005cc5;
@@ -558,5 +498,59 @@
 	}
 	hr {
 		border-bottom-color: #eee;
+	}
+}
+
+code {
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+pre {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+
+code {
+	padding: 0.2em 0.4em;
+	font-size: 85%;
+	background-color: rgba(27, 31, 35, 0.05);
+	border-radius: 3px;
+	color: #333;
+}
+
+pre {
+	word-wrap: normal;
+
+	> code {
+		padding: 0;
+		margin: 0;
+		font-size: 100%;
+		word-break: normal;
+		white-space: pre;
+		border: 0;
+		background: transparent;
+	}
+}
+
+pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f6f8fa;
+	border-radius: 3px;
+
+	code {
+		display: inline;
+		max-width: auto;
+		padding: 0;
+		margin: 0;
+		overflow: visible;
+		line-height: inherit;
+		word-wrap: normal;
+		border: 0;
 	}
 }
