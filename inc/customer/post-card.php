@@ -25,7 +25,6 @@ function mynote_customize_post_card( $wp_customize ) {
 		array(
 			'title'      => __( 'Post Card', 'mynote' ),
 			'priority'   => 10,
-			'capability' => 'edit_theme_options',
 		)
 	);
     
@@ -51,8 +50,22 @@ function mynote_customize_post_card( $wp_customize ) {
             'default'           => true,
             'sanitize_callback' => 'sanitize_text_field',
         )
-    );
-    
+	);
+	
+	$wp_customize->add_setting( 'post_card_show_gradient_mask',
+		array( 
+			'default'           => true,
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_setting( 'post_card_show_body_footer',
+		array( 
+			'default'           => true,
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
     /**
      * Control
      */
@@ -85,6 +98,28 @@ function mynote_customize_post_card( $wp_customize ) {
 				'section'     => 'section_post_card',
 				'settings'    => 'post_card_show_border',
 				'description' => __( 'Would you like to display the border of the post card?', 'mynote' ),
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new Customize_Toggle_Control( $wp_customize, 'post_card_gradient_mask_control',
+			array(
+				'label'       => __( 'Gradient Mask', 'mynote' ),
+				'section'     => 'section_post_card',
+				'settings'    => 'post_card_show_gradient_mask',
+				'description' => __( 'Would you like to display the gradient mask on the text?', 'mynote' ),
+			)
+		)
+	);
+
+	$wp_customize->add_control(
+		new Customize_Toggle_Control( $wp_customize, 'post_card_body_footer_control',
+			array(
+				'label'       => __( 'Buttons', 'mynote' ),
+				'section'     => 'section_post_card',
+				'settings'    => 'post_card_show_body_footer',
+				'description' => __( 'Would you like to display the buttons in the post body?', 'mynote' ),
 			)
 		)
 	);

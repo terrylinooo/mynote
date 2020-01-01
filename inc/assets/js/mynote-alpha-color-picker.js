@@ -17,7 +17,7 @@ Color.prototype.toString = function( flag ) {
 	}
 
 	// If we have a proper opacity value, output RGBa.
-	if ( 1 > this._alpha ) {
+	if ( 1 >= this._alpha ) {
 		return this.toCSS( 'rgba', this._alpha ).replace( /\s+/g, '' );
 	}
 

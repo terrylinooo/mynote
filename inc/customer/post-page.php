@@ -26,7 +26,6 @@ function mynote_customize_post_page( $wp_customize ) {
 		array(
 			'title'      => __( 'Post Page', 'mynote' ),
 			'priority'   => 10,
-			'capability' => 'edit_theme_options',
 		)
 	);
     

@@ -41,7 +41,6 @@ function mynote_customize_progress_bar( $wp_customize ) {
 			'title'       => __( 'Basic Settings', 'mynote' ),
 			'description' => __( 'The basic settings of the page progress bar.', 'mynote' ),
 			'priority'    => 10,
-			'capability'  => 'edit_theme_options',
 			'panel'       => 'panel_mynote_progress_bar',
 		)
 	);
@@ -51,7 +50,6 @@ function mynote_customize_progress_bar( $wp_customize ) {
 			'title'       => __( 'Color', 'mynote' ),
 			'description' => __( 'Customize the color pattern of the page progress bar.', 'mynote' ),
 			'priority'    => 10,
-			'capability'  => 'edit_theme_options',
 			'panel'       => 'panel_mynote_progress_bar',
 		)
 	);
@@ -69,8 +67,6 @@ function mynote_customize_progress_bar( $wp_customize ) {
     $wp_customize->add_setting( 'progressbar_bg_color',
         array(
             'default'           => $default_navbar_color,
-            'type'              => 'theme_mod',
-            'capability'        => 'edit_theme_options',
             'sanitize_callback' => 'sanitize_text_field',
         )
     );
@@ -78,13 +74,13 @@ function mynote_customize_progress_bar( $wp_customize ) {
     $wp_customize->add_setting( 'progressbar_text_color',
         array(
             'default'           => $default_navbar_link_color,
-            'sanitize_callback' => 'sanitize_hex_color',
+            'sanitize_callback' => 'sanitize_text_field',
         )
     );
     $wp_customize->add_setting( 'progressbar_percentage_bg_color',
         array(
             'default'           => $default_navbar_link_color,
-            'sanitize_callback' => 'sanitize_hex_color',
+            'sanitize_callback' => 'sanitize_text_field',
         )
     );
 
@@ -105,8 +101,6 @@ function mynote_customize_progress_bar( $wp_customize ) {
     $wp_customize->add_setting( 'progressbar_custom_bg_color',
         array(
             'default'           => $default_navbar_color,
-            'type'              => 'theme_mod',
-            'capability'        => 'edit_theme_options',
             'sanitize_callback' => 'sanitize_text_field',
         )
     );
@@ -114,7 +108,7 @@ function mynote_customize_progress_bar( $wp_customize ) {
     $wp_customize->add_setting( 'progressbar_custom_text_color',
         array(
             'default'           => $default_navbar_link_color,
-            'sanitize_callback' => 'sanitize_hex_color',
+            'sanitize_callback' => 'sanitize_text_field',
         )
     );
 

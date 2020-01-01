@@ -1,13 +1,13 @@
 === Mynote ===
 Contributors: Terry Lin
 Requires at least: WordPress 3.6
-Tested up to: WordPress 5.2.4
-Version: 1.5.1
+Tested up to: WordPress 5.3.2
+Version: 1.5.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, e-commerce, blog, entertainment
 Requires PHP: 5.2.4
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 
 == Description ==
 
@@ -167,3 +167,9 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 = 1.5.1 = 
 
 - Fix CSS conflics with highlight.js JavaScript library.
+
+= 1.6.0 = 
+
+- Add some settings about adjusting the color of menu toggler in responsive view.
+- Add some settings about search bar on navigation bar, including input text color, background color and size.
+- Add a setting about gradient mask on post card.

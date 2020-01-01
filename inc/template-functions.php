@@ -499,6 +499,8 @@ function mynote_scrolling_script() {
 			}
 		});
 
+		/*
+
 		$( '#mynote-nav-bar' ).on( 'show.bs.collapse' , function () {
 			$( 'body' ).addClass( 'menu-is-collapsed' );
 			$( '.main-header' ).css( { 'top': '-60px' } ).animate( { 'top': '0px' }, 500 );
@@ -512,7 +514,7 @@ function mynote_scrolling_script() {
 				$( 'body' ).removeClass( 'menu-is-collapsed' );
 			}, 500);
 			
-		});
+		}); */
 	});
 
 	</script>

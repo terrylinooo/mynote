@@ -30,27 +30,23 @@
 					<?php endif; ?>
 
 					<div class="card-body">
-						<?php if ( mynote_is_text_fade_out() ) : ?>
 
 						<div class="card-text-fade-out">
 							<h5 class="card-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h5>
 							<p class="card-text"><?php mynote_excerpt(); ?></p>
+							<?php if ( mynote_is_text_fade_out() ) : ?>
 							<div class="effect-layer"></div>
+							<?php endif; ?>
 						</div>
-
-						<?php else : ?>
-
-						<h5 class="card-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h5>
-						<p class="card-text"><?php mynote_excerpt(); ?></p>
-
+						
+						<?php if ( mynote_is_post_card_body_footer() ) : ?>
+							<div class="card-body-footer">
+								<?php // mynote_posted_date_button(); Uncomment this line if needed. ?>
+								<?php mynote_comment_button(); ?>
+								<?php mynote_read_button(); ?>
+								<?php mynote_edit_button(); ?>
+							</div>
 						<?php endif; ?>
-
-						<div class="card-body-footer">
-							<?php // mynote_posted_date_button(); Uncomment this line if needed. ?>
-							<?php mynote_comment_button(); ?>
-							<?php mynote_read_button(); ?>
-							<?php mynote_edit_button(); ?>
-						</div>
 					</div>
 					<?php if ( mynote_is_post_card_footer() ) : ?>
 						<div class="card-footer text-muted text-center">

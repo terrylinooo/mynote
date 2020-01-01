@@ -259,9 +259,12 @@ function mynote_excerpt() {
  * @return bool
  */
 function mynote_is_text_fade_out() {
+	$setting = get_theme_mod( 'post_card_show_gradient_mask' );
+	if ( ! mynote_toggle_check( $setting ) ) {
+		return false;
+	}
 	return true;
 }
-
 
 /**
  * Show title progress bar.
@@ -724,6 +727,19 @@ function mynote_layout_columns() {
  */
 function mynote_is_post_card_footer() {
 	$setting = get_theme_mod( 'post_card_show_footer' );
+	if ( ! mynote_toggle_check( $setting ) ) {
+		return false;
+	}
+	return true;
+}
+
+/**
+ * Show post card body footer?
+ *
+ * @return bool
+ */
+function mynote_is_post_card_body_footer() {
+	$setting = get_theme_mod( 'post_card_show_body_footer' );
 	if ( ! mynote_toggle_check( $setting ) ) {
 		return false;
 	}

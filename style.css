@@ -264,6 +264,10 @@ article figcaption {
   background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9), white);
 }
 
+.card-body-footer {
+  margin-top: 15px;
+}
+
 /* Background image fit the center */
 .bg-cover {
   background-size: cover;

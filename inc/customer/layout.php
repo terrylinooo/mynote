@@ -31,7 +31,6 @@ function mynote_customize_layout( $wp_customize ) {
 		array(
 			'title'      => __( 'Homepage', 'mynote' ),
 			'priority'   => 10,
-			'capability' => 'edit_theme_options',
 			'panel'      => 'panel_mynote_layout',
 		)
 	);
@@ -40,7 +39,6 @@ function mynote_customize_layout( $wp_customize ) {
 		array(
 			'title'      => __( 'Archive', 'mynote' ),
 			'priority'   => 10,
-			'capability' => 'edit_theme_options',
 			'panel'      => 'panel_mynote_layout',
 		)
 	);
@@ -49,7 +47,6 @@ function mynote_customize_layout( $wp_customize ) {
 		array(
 			'title'      => __( 'Post', 'mynote' ),
 			'priority'   => 10,
-			'capability' => 'edit_theme_options',
 			'panel'      => 'panel_mynote_layout',
 		)
 	);
@@ -58,7 +55,6 @@ function mynote_customize_layout( $wp_customize ) {
 		array(
 			'title'      => __( 'Footer', 'mynote' ),
 			'priority'   => 10,
-			'capability' => 'edit_theme_options',
 			'panel'      => 'panel_mynote_layout',
 		)
 	);
