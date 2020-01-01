@@ -10,8 +10,6 @@
  * @since 1.0.7
  */
 
- 
-
 function mynote_customize_css() {
 
     $css = '';
