@@ -499,6 +499,14 @@ function mynote_scrolling_script() {
 			}
 		});
 
+		$( '#mynote-nav-bar' ).on( 'show.bs.collapse' , function () {
+			$( 'body' ).addClass( 'menu-is-collapsed' );
+		});
+
+		$( '#mynote-nav-bar' ).on( 'hidden.bs.collapse' , function () {
+			$( 'body' ).removeClass( 'menu-is-collapsed' );
+		});
+
 		/*
 
 		$( '#mynote-nav-bar' ).on( 'show.bs.collapse' , function () {

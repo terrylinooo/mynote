@@ -520,6 +520,20 @@ article figcaption {
   height: 60px;
 }
 
+.wrapper {
+  position: relative;
+}
+
+.menu-is-collapsed header.header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+}
+.menu-is-collapsed .wrapper {
+  padding-top: 60px;
+}
+
 .footer {
   margin: 40px 0 20px 0;
 }

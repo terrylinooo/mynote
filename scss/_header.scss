@@ -175,3 +175,20 @@
 		}
 	}
 }
+
+.wrapper {
+	position: relative;
+}
+
+.menu-is-collapsed {
+	header.header {
+		width: 100%;
+		position: absolute;
+		top: 0;
+		z-index: 9999;
+	}
+	.wrapper {
+		padding-top: 60px;
+	}
+}
+
