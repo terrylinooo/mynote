@@ -19,6 +19,7 @@ A responsive, clean, Markdown friendly WordPress blog theme. It is based on Boot
 Those are websites that use Mynote theme.
 
 - [Proviscript](https://proviscript.sh)
+- [thiagoreis.dev](https://thiagoreis.dev)
 
 ## Features
 
