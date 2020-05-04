@@ -14,12 +14,6 @@ A responsive, clean, Markdown friendly WordPress blog theme. It is based on Boot
 | GitHub repository | https://github.com/terrylinooo/mynote/releases | 
 | PHP Composer | `composer create-project terrylinooo/mynote mynote` |
 
-## Demo
-
-Those are websites that use Mynote theme.
-
-- [Proviscript](https://proviscript.sh)
-
 ## Features
 
 - Markdown friendly
