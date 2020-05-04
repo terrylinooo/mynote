@@ -8,7 +8,7 @@
  * @package WordPress
  * @subpackage Mynote
  * @since 1.0.0
- * @version 1.5.0
+ * @version 1.6.1
  */
 
 if ( ! function_exists( 'mynote_setup_theme' ) ) {
