@@ -213,7 +213,7 @@ function mynote_customize_navbar( $wp_customize ) {
 	$wp_customize->add_control( 
 		new Customize_Alpha_Color_Control( $wp_customize, 'home_menu_toggler_border_color_control',
 			array(
-				'label'        => __( 'Menu Toggler’s Border Color', 'mynote' ),
+				'label'        => __( "Menu Toggler's Border Color", 'mynote' ),
 				'section'      => 'section_homepage_header_navbar',
 				'settings'     => 'navbar_homepage_menu_toggler_border_color',
 				'description'  => __( 'It is visible only when the screen width is less than 768px.', 'mynote' ) . ' ' . __( 'This option is for homepage only.', 'mynote' ),
@@ -226,7 +226,7 @@ function mynote_customize_navbar( $wp_customize ) {
 	$wp_customize->add_control( 
 		new Customize_Alpha_Color_Control( $wp_customize, 'home_menu_toggler_bg_color_control',
 			array(
-				'label'        => __( 'Menu Toggler’s Background Color', 'mynote' ),
+				'label'        => __( "Menu Toggler's Background Color", 'mynote' ),
 				'section'      => 'section_homepage_header_navbar',
 				'settings'     => 'navbar_homepage_menu_toggler_bg_color',
 				'description'  => __( 'It is visible only when the screen width is less than 768px.', 'mynote' ) . ' ' . __( 'This option is for homepage only.', 'mynote' ),
@@ -271,7 +271,7 @@ function mynote_customize_navbar( $wp_customize ) {
 	$wp_customize->add_control( 
 		new Customize_Alpha_Color_Control( $wp_customize, 'menu_toggler_border_color_control',
 			array(
-				'label'        => __( 'Menu Toggler’s Border Color', 'mynote' ),
+				'label'        => __( "Menu Toggler's Border Color", 'mynote' ),
 				'section'      => 'section_header_navbar',
 				'settings'     => 'navbar_website_menu_toggler_border_color',
 				'show_opacity' => true,
@@ -284,7 +284,7 @@ function mynote_customize_navbar( $wp_customize ) {
 	$wp_customize->add_control( 
 		new Customize_Alpha_Color_Control( $wp_customize, 'menu_toggler_bg_color_control',
 			array(
-				'label'        => __( 'Menu Toggler’s Background Color', 'mynote' ),
+				'label'        => __( "Menu Toggler's Background Color", 'mynote' ),
 				'section'      => 'section_header_navbar',
 				'settings'     => 'navbar_website_menu_toggler_bg_color',
 				'show_opacity' => true,

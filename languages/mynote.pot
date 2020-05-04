@@ -431,7 +431,7 @@ msgid "Link Hover Color"
 msgstr ""
 
 #: inc/customer/navbar.php:216 inc/customer/navbar.php:274
-msgid "Menu Toggler’s Border Color"
+msgid "Menu Toggler's Border Color"
 msgstr ""
 
 #: inc/customer/navbar.php:219 inc/customer/navbar.php:232
@@ -440,7 +440,7 @@ msgid "It is visible only when the screen width is less than 768px."
 msgstr ""
 
 #: inc/customer/navbar.php:229 inc/customer/navbar.php:287
-msgid "Menu Toggler’s Background Color"
+msgid "Menu Toggler's Background Color"
 msgstr ""
 
 #: inc/customer/navbar.php:300
