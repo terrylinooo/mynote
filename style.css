@@ -1793,6 +1793,7 @@ p > object:only-child {
 
   .author-card {
     display: block !important;
+    word-wrap:break-word;
   }
   .author-card .author-avatar {
     text-align: center;
