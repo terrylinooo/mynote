@@ -1,7 +1,7 @@
 === Mynote ===
 Contributors: Terry Lin
-Requires at least: WordPress 3.6
-Tested up to: WordPress 5.5.1
+Requires at least: 3.6
+Tested up to: 5.5.1
 Version: 1.6.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
