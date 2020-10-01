@@ -37,7 +37,7 @@ function mynote_nav( $position = 'header' ) {
 					'container_class' => 'collapse navbar-collapse',
 					'container_id'    => 'mynote-nav-bar',
 					'menu_class'      => 'navbar-nav mr-auto',
-					'menu_id'         => false,
+					'menu_id'         => '',
 					'depth'           => 2,
 					'fallback_cb'     => 'Mynote_Walker::fallback',
 					'walker'          => new Mynote_Walker(),
@@ -51,7 +51,7 @@ function mynote_nav( $position = 'header' ) {
 					'container_class' => 'collapse navbar-collapse',
 					'container_id'    => 'mynote-nav-bar',
 					'menu_class'      => 'navbar-nav mr-auto',
-					'menu_id'         => false,
+					'menu_id'         => '',
 					'depth'           => 1
 				)
 			);
@@ -67,7 +67,7 @@ function mynote_nav( $position = 'header' ) {
 					'container_class' => 'footer-nav',
 					'container_id'    => 'mynote-footer-nav',
 					'menu_class'      => 'footer-menu',
-					'menu_id'         => false,
+					'menu_id'         => '',
 					'depth'           => 1,
 				)
 			);

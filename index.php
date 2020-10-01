@@ -76,5 +76,5 @@ get_header(); ?>
 	<?php endif; ?>
 
 	<br class="clearfix" />
-
+</div>
 <?php get_footer(); ?>

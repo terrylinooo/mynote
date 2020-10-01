@@ -177,3 +177,7 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 = 1.6.1 =
 
 - Fix <code> CSS font setting.
+
+= 1.6.2 =
+
+- Fix HTML unclosed tag in homepage.

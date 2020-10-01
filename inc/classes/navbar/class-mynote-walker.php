@@ -82,7 +82,7 @@ class Mynote_Walker extends Walker_Nav_Menu {
 		$id          = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
 		if ( 0 === $depth ) {
-			$output .= '<li ' . $id . $class_names . '>';
+			$output .= '<li ' . $id . ' ' . $class_names . '>';
 		}
 
 		$atts = array();
