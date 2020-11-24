@@ -1,13 +1,13 @@
 === Mynote ===
 Contributors: Terry Lin
 Requires at least: 3.6
-Tested up to: 5.5.1
-Version: 1.6.2
+Tested up to: 5.5.3
+Version: 1.6.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
-Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, e-commerce, blog, entertainment
+Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, blog, entertainment
 Requires PHP: 5.2.4
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 
 == Description ==
 
@@ -181,3 +181,7 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 = 1.6.2 =
 
 - Fix HTML unclosed tag in homepage.
+
+= 1.6.3 =
+
+- Fix missing of WooCommerce support.

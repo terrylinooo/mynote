@@ -1,16 +1,17 @@
 @charset "UTF-8";
 /*
 	Theme Name: Mynote
-  Theme URI: https://terryl.in/en/repository/mynote/
-  Requires at least: 3.6
-  Tested up to: 5.5.1
+	Theme URI: https://terryl.in/en/repository/mynote/
+	Requires at least: 3.6
+	Tested up to: 5.5.3
+	Requires PHP: 5.2.4
 	Description: Mynote is a responsive, clean, Markdown friendly WordPress blog theme. It is based on Bootstrap 4 and Fontawesome 5. It is suitable for programming, business, technical, professional, niche and any kind of blogging sites. Mynote has landing-page templates so that can your highly customize your homepage, make your website unique and professional.
-	Version: 1.6.2
+	Version: 1.6.3
 	Author: Terry Lin
 	Author URI: https://terryl.in
-	Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, e-commerce, blog, entertainment
+	Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, blog, entertainment
 	License: GNU General Public License v3 or later
-    License URI: http://www.gnu.org/licenses/gpl-3.0.html
+	License URI: http://www.gnu.org/licenses/gpl-3.0.html
 	Text Domain: mynote
 */
 ::selection {
