@@ -294,6 +294,16 @@ require get_parent_theme_file_path( '/inc/template-functions.php' );
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
+/**
+ * ynote template functions for hooks.
+ */
+require get_parent_theme_file_path( '/inc/template-hook-functions.php' );
+
+/**
+ * Hooks for Mynote theme.
+ */
+require get_parent_theme_file_path( '/inc/template-hooks.php' );
+
 
 
 

@@ -51,6 +51,33 @@ A responsive, clean, Markdown friendly WordPress blog theme. It is based on Boot
 `#1` CJK: Chinese, Japanese, Koreanese.
 `#2`, `#3` Featured image will be displayed as header cover.
 
+## built-in Hooks
+
+- mynote_head
+- mynote_header_before
+- mynote_header
+- mynote_header_after
+- mynote_site_wrapper_before
+- mynote_site_wrapper_after
+- mynote_footer_before
+- mynote_footer
+- mynote_footer_after
+- mynote_homepage_promotion
+- mynote_homepage_middle_sidebar
+- mynote_loop_before
+- mynote_loop_after
+- mynote_pagination_before
+- mynote_pagination
+- mynote_pagination_after
+- mynote_post_before
+- mynote_post_content_before
+- mynote_post_content_after
+- mynote_post_after
+- mynote_page_before
+- mynote_page_content_before
+- mynote_page_content_after
+- mynote_page_after
+
 ## Dependencies
 
 - Bootstrap 4
@@ -72,8 +99,3 @@ Terry L.
 ## License
 
 GPLv3 (or later)
-
-
-
-
-

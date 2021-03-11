@@ -8,25 +8,24 @@
  * @package WordPress
  * @subpackage Mynote
  * @since 1.0.0
- * @version 1.0.7.0
+ * @version 2.0.0
  */
+
+do_action( 'mynote_pagination_before' );
 
 ?>
 
 <div class="pagination-container">
 	<?php
-
-	if ( function_exists( 'mynote_pagination' ) ) {
-		mynote_pagination();
-	} else {
-		the_posts_pagination(
-			array(
-				'prev_text'          => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous page', 'mynote' ) . '</span>',
-				'next_text'          => '<span class="screen-reader-text">' . __( 'Next page', 'mynote' ) . '</span> <i class="fas fa-angle-right"></i>',
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'mynote' ) . ' </span>',
-			)
-		);
-	}
-
+		/**
+		 * Functions hooked in to mynote_pagination action
+		 *
+		 * @hooked mynote_pagination - 10
+		 */
+		do_action( 'mynote_pagination' ); 
 	?>
 </div>
+
+<?php
+
+do_action( 'mynote_pagination_after' );

@@ -11,7 +11,7 @@
  * @version 1.0.7
  */
 
-$unique_id = uniqid( 'search-form-' );
+$unique_id = uniqid( 'search-form' );
 
 ?>
 

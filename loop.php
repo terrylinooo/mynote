@@ -8,10 +8,13 @@
  * @package WordPress
  * @subpackage Mynote
  * @since 1.0.0
- * @version 1.0.7.0
+ * @version 2.0.0
  */
 
+do_action( 'mynote_loop_before' );
+
 ?>
+
 <?php if ( have_posts() ) : ?>
 
 	<div class="row my-4">
@@ -70,3 +73,7 @@
 	</article>
 
 <?php endif; ?>
+
+<?php 
+
+do_action( 'mynote_loop_before' );

@@ -18,36 +18,15 @@ get_header();
 <?php mynote_title_progress_bar(); ?>
 
 <div class="data-schema is-single" itemscope itemtype="<?php mynote_article_schema(); ?>">
-	<?php if ( have_posts() ) : ?>
-		<?php while ( have_posts() ) : ?>
-			<?php the_post(); ?>
-			<?php mynote_post_breadcrumb(); ?>
-
-			<div class="single-post-header">
-				<div class="container">
-
-					<h1 id="post-title" itemprop="headline"><?php the_title(); ?></h1>
-					<div class="post-mynote-buttons">
-
-						<?php if ( mynote_is_sidebar() ) : ?>
-							<?php mynote_column_control_button(); ?>
-						<?php endif; ?>
-
-						<?php mynote_edit_button(); ?>
-						<?php mynote_comment_button(); ?>
-					</div><!-- .post-mynote-buttons -->
-
-					<?php if ( mynote_is_post_author_date() ) : ?>
-						<div class="post-meta">
-							<?php mynote_author_posted_date( true ); ?>
-						</div>
-					<?php endif; ?>
-
-				</div><!-- .container -->
-			</div><!-- .single-post-header -->
-
-		<?php endwhile; ?>
-	<?php endif; ?>
+	
+	<?php
+		/**
+		 * Functions hooked in to mynote_post_before
+		 *
+		 * @hooked mynote_post_metadata - 10
+		 */
+		do_action( 'mynote_post_before' ); 
+	?>
 
 	<div class="container">
 		<div class="row row-layout-choice-post">
@@ -66,7 +45,12 @@ get_header();
 							<?php endif; ?>
 
 							<div itemprop="articleBody">
+
+								<?php do_action( 'mynote_post_content_before' ); ?>
+
 								<?php the_content(); ?>
+
+								<?php do_action( 'mynote_post_content_after' ); ?>
 
 								<?php
 									wp_link_pages(
@@ -81,7 +65,8 @@ get_header();
 						</article>
 
 						<section class="modified-date" itemprop="dateModified" content="<?php the_modified_date( 'c' ); ?>">
-							<?php esc_html_e( 'Last modified: ', 'mynote' ); ?><?php the_modified_date(); ?>
+							<?php esc_html_e( 'Last modified: ', 'mynote' ); ?>
+							<?php the_modified_date(); ?>
 						</section>
 
 						<section class="tags">
@@ -114,6 +99,7 @@ get_header();
 			<?php endif; ?>
 
 		</div><!-- .row -->
+
 		<?php
 			the_post_navigation(
 				array(
@@ -123,7 +109,11 @@ get_header();
 			);
 		?>
 	</div><!-- .container -->
+
+	<?php do_action( 'mynote_post_after' ); ?>
+
 </div><!-- .data-schema -->
 
 <?php
+
 get_footer();
