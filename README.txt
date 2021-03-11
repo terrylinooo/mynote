@@ -1,13 +1,13 @@
 === Mynote ===
 Contributors: Terry Lin
 Requires at least: 3.6
-Tested up to: 5.5.3
-Version: 1.6.3
+Tested up to: 5.7.0
+Version: 2.0.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, blog, entertainment
 Requires PHP: 5.2.4
-Stable tag: 1.6.3
+Stable tag: 2.0.0
 
 == Description ==
 
@@ -185,3 +185,7 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 = 1.6.3 =
 
 - Fix missing of WooCommerce support.
+
+= 2.0.0 =
+
+- Add 24 built-in hooks.

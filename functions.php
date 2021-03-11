@@ -8,7 +8,7 @@
  * @package WordPress
  * @subpackage Mynote
  * @since 1.0.0
- * @version 1.6.1
+ * @version 2.0.0
  */
 
 if ( ! function_exists( 'mynote_setup_theme' ) ) {
@@ -130,7 +130,7 @@ function mynote_styles() {
 	wp_register_style( 'mynote-font-roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400', array(), '1.0', 'all' );
 	wp_enqueue_style( 'mynote-font-roboto' );
 
-	wp_register_style( 'mynote', get_template_directory_uri() . '/style.css', array(), '1.6.2', 'all' );
+	wp_register_style( 'mynote', get_template_directory_uri() . '/style.css', array(), '2.0.0', 'all' );
 	wp_enqueue_style( 'mynote' );
 }
 
