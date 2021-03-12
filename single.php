@@ -18,21 +18,20 @@ get_header();
 <?php mynote_title_progress_bar(); ?>
 
 <div class="data-schema is-single" itemscope itemtype="<?php mynote_article_schema(); ?>">
-	
 	<?php
 		/**
-		 * Functions hooked in to mynote_post_before
+		 * Hook: mynote_post_before
 		 *
 		 * @hooked mynote_post_metadata - 10
 		 */
 		do_action( 'mynote_post_before' ); 
 	?>
-
 	<div class="container">
 		<div class="row row-layout-choice-post">
 			<main id="main-container" class="<?php echo esc_attr( mynote_main_container_css() ); ?>" role="main">
 
 				<?php if ( have_posts() ) : ?>
+
 					<?php while ( have_posts() ) : ?>
 						<?php the_post(); ?>
 
@@ -44,14 +43,24 @@ get_header();
 	
 							<div itemprop="articleBody">
 								<?php
-
+									/**
+									 * Hook: mynote_post_content_before
+									 */
 									do_action( 'mynote_post_content_before' );
+
 									the_content();
+
+									/**
+									 * Hook: mynote_post_content_after
+									 */
 									do_action( 'mynote_post_content_after' );
-									wp_link_pages( array(
-										'before' => '<div class="page-links">' . __( 'Pages:', 'mynote' ),
-										'after'  => '</div>',
-									) );
+
+									wp_link_pages(
+										array(
+											'before' => '<div class="page-links">' . __( 'Pages:', 'mynote' ),
+											'after'  => '</div>',
+										)
+									);
 								?>
 							</div>
 						</article>
@@ -91,14 +100,21 @@ get_header();
 			?>
 		</div><!-- .row -->
 		<?php
-			the_post_navigation( array(
-				'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous Post', 'mynote' ) . '</span> %title',
-				'next_text' => '<i class="fas fa-angle-right"></i> <span class="screen-reader-text">' . __( 'Next Post', 'mynote' ) . '</span> %title',
-			) );
+			the_post_navigation(
+				array(
+					'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous Post', 'mynote' ) . '</span> %title',
+					'next_text' => '<i class="fas fa-angle-right"></i> <span class="screen-reader-text">' . __( 'Next Post', 'mynote' ) . '</span> %title',
+				)
+			);
 		?>
 	</div><!-- .container -->
 
-	<?php do_action( 'mynote_post_after' ); ?>
+	<?php
+		/**
+		 * Hook: mynote_post_after
+		 */
+		do_action( 'mynote_post_after' );
+	?>
 </div><!-- .data-schema -->
 <?php
 

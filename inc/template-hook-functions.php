@@ -249,8 +249,6 @@ if ( ! function_exists( 'mynote_single_post_sidebar' ) ) {
 					<div id="sidebar-sticky" class="sidebar sticky-top">
 						<?php dynamic_sidebar( 'sidebar-3' ); ?>
 					</div>
-				<?php elseif ( 'yes' === get_theme_mod( 'sticky_toc_for_posts') ) : ?>
-					<div id="sidebar-sticky" class="sidebar sticky-top"></div>
 				<?php endif; ?>
 			</aside>
 			<?php

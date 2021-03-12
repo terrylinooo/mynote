@@ -26,8 +26,27 @@ get_header();
 </div>
 <main role="main">
 	<div class="container">
-		<?php get_template_part( 'loop' ); ?>
-		<?php get_template_part( 'pagination' ); ?>
+		<div class="row row-layout-choice-archive">
+			<section id="main-container" class="<?php echo esc_attr( mynote_main_container_css() ); ?>">
+				<?php
+					if ( have_posts() ) {
+						get_template_part( 'template-parts/loop' );
+						get_template_part( 'template-parts/pagination' );
+					} else {
+						get_template_part( 'template-parts/content', 'none' );
+					}
+				?>
+			</section>
+
+			<?php
+				/**
+				 * Functions hooked in to mynote_archive_sidebar action
+				 *
+				 * @hooked mynote_archive_sidebar - 10
+				 */
+				do_action( 'mynote_archive_sidebar' );
+			?>
+		</div>
 	</div>
 </main>
 

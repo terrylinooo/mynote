@@ -63,6 +63,7 @@ A responsive, clean, Markdown friendly WordPress blog theme. It is based on Boot
 - mynote_footer
 - mynote_footer_after
 - mynote_homepage_promotion
+- mynote_homepage_sidebar
 - mynote_homepage_middle_sidebar
 - mynote_loop_before
 - mynote_loop_after
@@ -73,10 +74,12 @@ A responsive, clean, Markdown friendly WordPress blog theme. It is based on Boot
 - mynote_post_content_before
 - mynote_post_content_after
 - mynote_post_after
+- mynote_post_sidebar
 - mynote_page_before
 - mynote_page_content_before
 - mynote_page_content_after
 - mynote_page_after
+- mynote_archive_sidebar
 
 ## Dependencies
 

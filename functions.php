@@ -234,9 +234,9 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 	 *
 	 * @since WP 5.2.0
 	 */
-    function wp_body_open() {
-        do_action( 'wp_body_open' );
-    }
+	function wp_body_open() {
+		do_action( 'wp_body_open' );
+	}
 }
 
 /**

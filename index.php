@@ -17,7 +17,7 @@
 	<main role="main" class="main-header <?php if ( has_header_image() ) echo 'has-custom-header'; ?>">
 		<?php
 			/**
-			 * Functions hooked in to mynote_homepage_promotion action
+			 * Hook: mynote_homepage_promotion
 			 *
 			 * @hooked mynote_homepage_promotion - 10
 			 */
@@ -37,7 +37,7 @@
 				</section>
 				<?php
 					/**
-					 * Functions hooked in to mynote_homepage_sidebar action
+					 * Hook: mynote_homepage_sidebar
 					 *
 					 * @hooked mynote_homepage_sidebar - 10
 					 */
@@ -49,7 +49,7 @@
 	<br class="clearfix" />
 	<?php
 		/**
-		 * Functions hooked in to mynote_homepage_middle_sidebar action
+		 * Hook: mynote_homepage_middle_sidebar
 		 *
 		 * @hooked mynote_homepage_middle_sidebar - 10
 		 */

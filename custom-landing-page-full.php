@@ -16,7 +16,7 @@ get_header();
 get_template_part( 'template-parts/page', 'landing' );
 
 /**
- * Functions hooked in to mynote_homepage_middle_sidebar action
+ * Hook: mynote_homepage_middle_sidebar
  *
  * @hooked mynote_homepage_middle_sidebar - 10
  */

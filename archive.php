@@ -37,7 +37,7 @@ get_header();
 			</section>
 			<?php
 				/**
-				 * Functions hooked in to mynote_archive_sidebar action
+				 * Hook: mynote_archive_sidebar
 				 *
 				 * @hooked mynote_archive_sidebar - 10
 				 */

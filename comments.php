@@ -47,6 +47,7 @@ if ( ! comments_open() && 0 === (int) get_comments_number() ) {
 			<?php wp_list_comments( 'type=comment&callback=mynote_comment' ); ?>
 		<?php endif; ?>
 		<?php
+
 			the_comments_pagination(
 				array(
 					'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous', 'mynote' ) . '</span>',

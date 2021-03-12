@@ -16,25 +16,43 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<?php do_action( 'mynote_head' ); ?>
+
+	<?php
+
+		/**
+		 * Hook: mynote_head
+		 */
+		do_action( 'mynote_head' );
+	?>
+
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class( $addon_body_class ); ?>>
 
 	<?php wp_body_open(); ?>
 
-	<?php do_action( 'mynote_site_wrapper_before' ); ?>
+	<?php
+		/**
+		 * Hook: mynote_header_after
+		 */
+		do_action( 'mynote_site_wrapper_before' );
+	?>
 
 	<div class="wrapper">
 
-		<?php do_action( 'mynote_header_before' ); ?>
+		<?php
+			/**
+			 * Hook: mynote_header_after
+			 */
+			do_action( 'mynote_header_before' );
+		?>
 
 		<header class="header clear" role="banner">
 			<div class="container">
 
 				<?php
 					/**
-					 * Functions hooked in to mynote_header action
+					 * Hook: mynote_header
 					 *
 					 * @hooked mynote_header_navigation - 10
 					 */
@@ -44,5 +62,10 @@
 			</div><!-- .container -->
 		</header>
 
-		<?php do_action( 'mynote_header_after' ); ?>
+		<?php
+			/**
+			 * Hook: mynote_header_after
+			 */
+			do_action( 'mynote_header_after' );
+		?>
 

@@ -61,6 +61,7 @@ add_action( 'mynote_footer', 'mynote_footer_columns', 20 );
  * Homepage
  *
  * - mynote_homepage_promotion
+ * - mynote_homepage_sidebar
  * - mynote_homepage_middle_sidebar
  *
  * @see  mynote_homepage_promotion()
@@ -68,7 +69,7 @@ add_action( 'mynote_footer', 'mynote_footer_columns', 20 );
  * @see  mynote_homepage_middle_sidebar()
  */
 add_action( 'mynote_homepage_promotion', 'mynote_homepage_promotion', 10 );
-add_action( 'mynote_homepage_idebar', 'mynote_homepage_sidebar', 10 );
+add_action( 'mynote_homepage_sidebar', 'mynote_homepage_sidebar', 10 );
 add_action( 'mynote_homepage_middle_sidebar', 'mynote_homepage_middle_sidebar', 10 );
 
 /**

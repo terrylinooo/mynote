@@ -12,13 +12,18 @@
  */
 
 ?>
-		<?php do_action( 'mynote_footer_before' ); ?>
+		<?php
+			/**
+			 * Hook: mynote_footer_before
+			 */
+			do_action( 'mynote_footer_before' );
+		?>
 
 		<footer class="footer" role="contentinfo">
 
 			<?php
 				/**
-				 * Functions hooked in to mynote_footer action
+				 * Hook: mynote_footer
 				 *
 				 * @hooked mynote_footer_widgets - 10
 				 * @hooked mynote_columns        - 20
@@ -28,11 +33,21 @@
 
 		</footer>
 
-		<?php do_action( 'mynote_footer_after' ); ?>
+		<?php
+			/**
+			 * Hook: mynote_footer_after
+			 */
+			do_action( 'mynote_footer_after' );
+		?>
 
 	</div><!-- .wrapper -->
 
-	<?php do_action( 'mynote_site_wrapper_after' ); ?>
+	<?php
+		/**
+		 * Hook: mynote_site_wrapper_after
+		 */
+		do_action( 'mynote_site_wrapper_after' );
+	?>
 
 	<?php wp_footer(); ?>
 

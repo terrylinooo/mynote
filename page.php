@@ -18,16 +18,14 @@ get_header();
 <?php mynote_title_progress_bar(); ?>
 
 <div class="data-schema is-page" itemscope itemtype="<?php mynote_article_schema(); ?>">
-
 	<?php
 		/**
-		 * Functions hooked in to mynote_page_before
+		 * Hook: mynote_page_before
 		 *
 		 * @hooked mynote_post_metadata - 10
 		 */
 		do_action( 'mynote_page_before' ); 
 	?>
-
 	<div class="container">
 		<div class="row">
 			<main id="main-container" class="col" role="main">
@@ -44,14 +42,24 @@ get_header();
 
 							<div itemprop="articleBody">
 								<?php
-
+									/**
+									 * Hook: mynote_page_content_before
+									 */
 									do_action( 'mynote_page_content_before' );
+
 									the_content();
+
+									/**
+									 * Hook: mynote_page_content_after
+									 */
 									do_action( 'mynote_page_content_after' );
-									wp_link_pages( array(
-										'before' => '<div class="page-links">' . __( 'Pages:', 'mynote' ),
-										'after'  => '</div>',
-									) );
+
+									wp_link_pages(
+										array(
+											'before' => '<div class="page-links">' . __( 'Pages:', 'mynote' ),
+											'after'  => '</div>',
+										)
+									);
 								?>
 							</div>
 						</article>
@@ -79,7 +87,13 @@ get_header();
 			</main>
 		</div><!-- .row -->
 	</div><!-- .container -->
-	<?php do_action( 'mynote_page_after' ); ?>
+
+	<?php
+		/**
+		 * Hook: mynote_page_after
+		 */
+		do_action( 'mynote_page_after' );
+	?>
 </div>
 
 <?php
