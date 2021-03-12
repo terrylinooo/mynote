@@ -189,6 +189,75 @@ if ( ! function_exists( 'mynote_homepage_middle_sidebar' ) ) {
 	}
 }
 
+if ( ! function_exists( 'mynote_homepage_sidebar' ) ) {
+	/**
+	 * Display the sidebar in homepage.
+	 *
+	 * @since  2.0.0
+	 * @return void
+	 */
+	function mynote_homepage_sidebar() {
+		if ( mynote_is_sidebar() ) {
+			?>
+			<aside id="aside-container" class="col-lg-4 col-md-4 col-sm-12" role="complementary">
+				<div id="sidebar-home" class="sidebar">
+					<?php dynamic_sidebar( 'sidebar-6' ); ?>
+				</div>
+			</aside>
+			<?php
+		}
+	}
+}
+
+if ( ! function_exists( 'mynote_archive_sidebar' ) ) {
+	/**
+	 * Display the sidebar in archive.
+	 *
+	 * @since  2.0.0
+	 * @return void
+	 */
+	function mynote_archive_sidebar() {
+		if ( mynote_is_sidebar() ) {
+			?>
+			<aside id="aside-container" class="col-lg-4 col-md-4 col-sm-12" role="complementary">
+				<div id="sidebar-home" class="sidebar">
+					<?php dynamic_sidebar( 'sidebar-7' ); ?>
+				</div>
+			</aside>
+			<?php
+		}
+	}
+}
+
+if ( ! function_exists( 'mynote_single_post_sidebar' ) ) {
+	/**
+	 * Display the sidebar in single posts.
+	 *
+	 * @since  2.0.0
+	 * @return void
+	 */
+	function mynote_single_post_sidebar() {
+		if ( mynote_is_sidebar() ) {
+			?>
+			<aside id="aside-container" class="col-lg-4 col-md-4 col-sm-12" role="complementary">
+				<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+					<div id="sidebar" class="sidebar">
+						<?php dynamic_sidebar( 'sidebar-1' ); ?>
+					</div>
+				<?php endif; ?>
+				<?php if ( is_active_sidebar( 'sidebar-3' ) ) : ?>
+					<div id="sidebar-sticky" class="sidebar sticky-top">
+						<?php dynamic_sidebar( 'sidebar-3' ); ?>
+					</div>
+				<?php elseif ( 'yes' === get_theme_mod( 'sticky_toc_for_posts') ) : ?>
+					<div id="sidebar-sticky" class="sidebar sticky-top"></div>
+				<?php endif; ?>
+			</aside>
+			<?php
+		}
+	}
+}
+
 if ( ! function_exists( 'mynote_pagination_section' ) ) {
 	/**
 	 * Display pagination.

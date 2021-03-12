@@ -10,20 +10,16 @@
  * @since 1.0.0
  * @version 1.0.7
  */
-?>
 
-<?php get_header(); ?>
+get_header();
 
-<?php get_template_part( 'template-parts/page/landing', 'page' ); ?>
+get_template_part( 'template-parts/page', 'landing' );
 
-<?php if ( is_active_sidebar( 'sidebar-4' ) ) : ?>
-<aside class="home-middle-sidebar">
-	<div class="container px-responsive">
-		<div class="row my-4">
-			<?php dynamic_sidebar( 'sidebar-4' ); ?>
-		</div>
-	</div>
-</aside>
-<?php endif; ?>
+/**
+ * Functions hooked in to mynote_homepage_middle_sidebar action
+ *
+ * @hooked mynote_homepage_middle_sidebar - 10
+ */
+do_action( 'mynote_homepage_middle_sidebar' );
 
-<?php get_footer(); ?>
+get_footer();

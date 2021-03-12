@@ -33,9 +33,7 @@ get_header();
 			<main id="main-container" class="<?php echo esc_attr( mynote_main_container_css() ); ?>" role="main">
 
 				<?php if ( have_posts() ) : ?>
-
 					<?php while ( have_posts() ) : ?>
-
 						<?php the_post(); ?>
 
 						<article id="post-<?php the_ID(); ?>" <?php post_class( 'markdown-body' ); ?>>
@@ -43,25 +41,19 @@ get_header();
 							<?php if ( mynote_is_post_featured_image() && has_post_thumbnail() ) : ?>
 								<?php mynote_post_figure(); ?>
 							<?php endif; ?>
-
+	
 							<div itemprop="articleBody">
-
-								<?php do_action( 'mynote_post_content_before' ); ?>
-
-								<?php the_content(); ?>
-
-								<?php do_action( 'mynote_post_content_after' ); ?>
-
 								<?php
-									wp_link_pages(
-										array(
-											'before' => '<div class="page-links">' . __( 'Pages:', 'mynote' ),
-											'after'  => '</div>',
-										)
-									);
+
+									do_action( 'mynote_post_content_before' );
+									the_content();
+									do_action( 'mynote_post_content_after' );
+									wp_link_pages( array(
+										'before' => '<div class="page-links">' . __( 'Pages:', 'mynote' ),
+										'after'  => '</div>',
+									) );
 								?>
 							</div>
-
 						</article>
 
 						<section class="modified-date" itemprop="dateModified" content="<?php the_modified_date( 'c' ); ?>">
@@ -80,40 +72,34 @@ get_header();
 						<?php if ( mynote_is_post_comment_section() ) : ?>
 							<?php comments_template(); ?>
 						<?php endif; ?>
-						
+
 					<?php endwhile; ?>
 
 				<?php else : ?>
-
 					<article>
 						<h1><?php esc_html_e( 'Sorry, nothing to display.', 'mynote' ); ?></h1>
 					</article>
-
 				<?php endif; ?>
 			</main>
-
-			<?php if ( mynote_is_sidebar() ) : ?>
-				<aside id="aside-container" class="col-lg-4 col-md-4 col-sm-12" role="complementary">
-					<?php get_sidebar(); ?>
-				</aside>
-			<?php endif; ?>
-
+			<?php
+				/**
+				 * Functions hooked in to mynote_post_sidebar action
+				 *
+				 * @hooked mynote_post_sidebar - 10
+				 */
+				do_action( 'mynote_post_sidebar' );
+			?>
 		</div><!-- .row -->
-
 		<?php
-			the_post_navigation(
-				array(
-					'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous Post', 'mynote' ) . '</span> %title',
-					'next_text' => '<i class="fas fa-angle-right"></i> <span class="screen-reader-text">' . __( 'Next Post', 'mynote' ) . '</span> %title',
-				)
-			);
+			the_post_navigation( array(
+				'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous Post', 'mynote' ) . '</span> %title',
+				'next_text' => '<i class="fas fa-angle-right"></i> <span class="screen-reader-text">' . __( 'Next Post', 'mynote' ) . '</span> %title',
+			) );
 		?>
 	</div><!-- .container -->
 
 	<?php do_action( 'mynote_post_after' ); ?>
-
 </div><!-- .data-schema -->
-
 <?php
 
 get_footer();

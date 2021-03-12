@@ -8,10 +8,11 @@
  * @package WordPress
  * @subpackage Mynote
  * @since 1.0.0
- * @version 1.0.7.0
+ * @version 1.0.7
  */
 
 get_header();
+
 ?>
 
 <div class="category-header">
@@ -26,12 +27,19 @@ get_header();
 		<article id="post-404">
 			<p>
 				<?php esc_html_e( 'The page you are looking for does not exist or it may have been moved.', 'mynote' ); ?>
+
 				<ul>
-					<li><a href="<?php echo esc_url( home_url() ); ?>"><?php esc_html_e( 'Return home?', 'mynote' ); ?></a></li>
+					<li>
+						<a href="<?php echo esc_url( home_url() ); ?>">
+							<?php esc_html_e( 'Return home?', 'mynote' ); ?>
+						</a>
+					</li>
 				</ul>
 			</p>
 		</article>
 	</div>
 </main>
 
-<?php get_footer(); ?>
+<?php
+
+get_footer();

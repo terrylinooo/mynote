@@ -43,20 +43,15 @@ get_header();
 							<?php endif; ?>
 
 							<div itemprop="articleBody">
-
-								<?php do_action( 'mynote_page_content_before' ); ?>
-
-								<?php the_content(); ?>
-
-								<?php do_action( 'mynote_page_content_after' ); ?>
-
 								<?php
-									wp_link_pages(
-										array(
-											'before' => '<div class="page-links">' . __( 'Pages:', 'mynote' ),
-											'after'  => '</div>',
-										)
-									);
+
+									do_action( 'mynote_page_content_before' );
+									the_content();
+									do_action( 'mynote_page_content_after' );
+									wp_link_pages( array(
+										'before' => '<div class="page-links">' . __( 'Pages:', 'mynote' ),
+										'after'  => '</div>',
+									) );
 								?>
 							</div>
 						</article>
@@ -87,4 +82,6 @@ get_header();
 	<?php do_action( 'mynote_page_after' ); ?>
 </div>
 
-<?php get_footer(); ?>
+<?php
+
+get_footer();

@@ -80,7 +80,7 @@ if ( ! function_exists( 'mynote_setup_theme' ) ) {
 			'thumbnail_image_width' => 150,
 			'single_image_width'    => 300,
 	
-			'product_grid'          => array(
+			'product_grid' => array(
 				'default_rows'    => 3,
 				'min_rows'        => 2,
 				'max_rows'        => 8,
@@ -94,17 +94,6 @@ if ( ! function_exists( 'mynote_setup_theme' ) ) {
 	add_editor_style( 'editor-style.css' );
 }
 
-add_action( 'after_setup_theme', 'mynote_setup_theme' );
-
-/**
- * Support WooCommerce.
- */
-function mytheme_add_woocommerce_support() {
-	add_theme_support( 'woocommerce' );
-}
-
-add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
-
 /**
  * Add scripts
  */
@@ -114,8 +103,6 @@ function mynote_header_scripts() {
 		wp_enqueue_script( 'bootstrap' );
 	}
 }
-
-add_action( 'init', 'mynote_header_scripts' );
 
 /**
  * Add styles
@@ -134,8 +121,6 @@ function mynote_styles() {
 	wp_enqueue_style( 'mynote' );
 }
 
-add_action( 'wp_enqueue_scripts', 'mynote_styles' );
-
 /**
  * Enqueue the javascript that performs in-link comment reply fanciness
  *
@@ -147,26 +132,19 @@ function mynote_enqueue_comment_reply() {
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'mynote_enqueue_comment_reply' );
-
 /**
  * Register mynote Navigation
  *
  * @return void
  */
 function mynote_register_mynote_menu() {
-	register_nav_menus(
-		// Using array to specify more menus if needed.
-		array(
-			'header-menu'  => __( 'Header Menu', 'mynote' ),
-			'sidebar-menu' => __( 'Sidebar Menu', 'mynote' ),
-			'footer-menu'  => __( 'Footer Menu', 'mynote' ),
-			'social'       => __( 'Social Links Menu', 'mynote' ),
-		)
-	);
+	register_nav_menus( array(
+		'header-menu'  => __( 'Header Menu', 'mynote' ),
+		'sidebar-menu' => __( 'Sidebar Menu', 'mynote' ),
+		'footer-menu'  => __( 'Footer Menu', 'mynote' ),
+		'social'       => __( 'Social Links Menu', 'mynote' ),
+	) );
 }
-
-add_action( 'init', 'mynote_register_mynote_menu' );
 
 /**
  * Register widget area.
@@ -241,12 +219,11 @@ function mynote_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	register_widget( 'Mynote_Widget_Toc' );
 }
 
-add_action( 'widgets_init', 'mynote_widgets_init' );
-
-
-// I still don't know why should I put this line to ignore them-check warning.
+// I still don't know why should I put this line to ignore theme-check warning.
 if ( ! isset( $content_width ) ) {
 	$content_width = 900;
 }
@@ -280,6 +257,11 @@ require get_parent_theme_file_path( '/inc/customize-css.php' );
 require get_parent_theme_file_path( '/inc/classes/navbar/class-mynote-walker.php' );
 
 /**
+ * Sticky TOC widget for single post.
+ */
+require get_parent_theme_file_path( '/inc/classes/widgets/class-mynote-widget-toc.php' );
+
+/**
  * Custom template tags for this theme.
  */
 require get_parent_theme_file_path( '/inc/template-tags.php' );
@@ -295,7 +277,7 @@ require get_parent_theme_file_path( '/inc/template-functions.php' );
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 /**
- * ynote template functions for hooks.
+ * Mynote template functions for hooks.
  */
 require get_parent_theme_file_path( '/inc/template-hook-functions.php' );
 
@@ -303,10 +285,3 @@ require get_parent_theme_file_path( '/inc/template-hook-functions.php' );
  * Hooks for Mynote theme.
  */
 require get_parent_theme_file_path( '/inc/template-hooks.php' );
-
-
-
-
-
-
-
