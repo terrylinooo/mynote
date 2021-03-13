@@ -28,7 +28,7 @@
 		<div class="container">
 			<div class="row row-layout-choice-home">
 
-				<section id="main-container" class="<?php esc_attr_e( mynote_main_container_css() ); ?>">
+				<section id="main-container" class="<?php echo esc_attr( mynote_main_container_css() ); ?>">
 
 					<?php
 						if ( have_posts() ) {
