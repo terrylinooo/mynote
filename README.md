@@ -93,7 +93,7 @@ A responsive, clean, Markdown friendly WordPress blog theme. It is based on Boot
 
 ## Child Theme
 
-If you would like to customize something by using Mynote, there is an sample ready for you, just copy `mynote-child` into your WordPress theme directory, and then activate the `Mynote Child` them in the control panel.
+If you would like to customize something by using Mynote, there is a sample ready for you, just copy `mynote-child` into your WordPress theme directory, and then activate the `Mynote Child` theme in the control panel.
 
 ## Dependencies
 
