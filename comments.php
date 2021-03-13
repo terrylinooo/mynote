@@ -11,7 +11,7 @@
  * @package WordPress
  * @subpackage Mynote
  * @since 1.0.0
- * @version 1.0.7
+ * @version 2.0.0
  */
 
 /*
@@ -38,16 +38,24 @@ if ( ! comments_open() && 0 === (int) get_comments_number() ) {
 	return;
 }
 
+/**
+ * Hook: mynote_post_comment_before
+ */
+do_action( 'mynote_post_comment_before' );
+
 ?>
 
 <div id="comments" class="discussion-wrapper">
-	<h3 class="section-title"><?php esc_html_e( 'Comments', 'mynote' ); ?></h3>
+	<h3 class="section-title">
+		<?php esc_html_e( 'Comments', 'mynote' ); ?>
+	</h3>
 	<div class="discussion-timeline">
+
 		<?php if ( have_comments() ) : ?>
 			<?php wp_list_comments( 'type=comment&callback=mynote_comment' ); ?>
 		<?php endif; ?>
-		<?php
 
+		<?php
 			the_comments_pagination(
 				array(
 					'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous', 'mynote' ) . '</span>',
@@ -55,10 +63,19 @@ if ( ! comments_open() && 0 === (int) get_comments_number() ) {
 				)
 			);
 		?>
+
 		<?php if ( ! comments_open() && get_comments_number() ) : ?>
 			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'mynote' ); ?></p>
 		<?php endif; ?>
+
 		<?php comment_form(); ?>
+
 	</div>
 </div>
 
+<?php
+
+/**
+ * Hook: mynote_post_comment_after
+ */
+do_action( 'mynote_post_comment_after' );

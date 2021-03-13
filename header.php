@@ -18,14 +18,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<?php
-
 		/**
 		 * Hook: mynote_head
 		 */
 		do_action( 'mynote_head' );
+
+		wp_head();
 	?>
 
-	<?php wp_head(); ?>
 </head>
 <body <?php body_class( $addon_body_class ); ?>>
 
@@ -68,4 +68,3 @@
 			 */
 			do_action( 'mynote_header_after' );
 		?>
-

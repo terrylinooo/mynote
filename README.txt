@@ -188,5 +188,5 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 
 = 2.0.0 =
 
-- Add 27 built-in hooks.
+- Add 35 built-in hooks.
 - Add Sticky TOC widget.

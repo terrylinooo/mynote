@@ -8,16 +8,15 @@
  * @package WordPress
  * @subpackage Mynote
  * @since 1.0.0
- * @version 1.0.7
+ * @version 2.0.0
  */
 
+/**
+ * Hook: mynote_footer_before
+ */
+do_action( 'mynote_footer_before' );
+
 ?>
-		<?php
-			/**
-			 * Hook: mynote_footer_before
-			 */
-			do_action( 'mynote_footer_before' );
-		?>
 
 		<footer class="footer" role="contentinfo">
 
@@ -47,9 +46,9 @@
 		 * Hook: mynote_site_wrapper_after
 		 */
 		do_action( 'mynote_site_wrapper_after' );
-	?>
 
-	<?php wp_footer(); ?>
+		wp_footer();
+	?>
 
 	<a href="javascript:void(0);" class="go-top" style="display: none">
 		<i class="fas fa-arrow-up"></i>

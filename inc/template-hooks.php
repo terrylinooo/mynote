@@ -98,6 +98,8 @@ add_action( 'mynote_homepage_middle_sidebar', 'mynote_homepage_middle_sidebar', 
  * - mynote_post_content_after
  * - mynote_post_after
  * - mynote_post_sidebar
+ * - mynote_post_comment_before
+ * - mynote_post_comment_after
  * 
  * @see  mynote_post_metadata()
  * @see  mynote_single_post_sidebar()
@@ -121,6 +123,12 @@ add_action( 'mynote_page_before', 'mynote_post_metadata', 10 );
  * Archive
  *
  * - mynote_archive_sidebar
+ * - mynote_archive_headline_after
+ * - mynote_archive_loop_before
+ * - mynote_archive_loop_after
+ * - mynote_category_headline_after
+ * - mynote_tag_headline_after
+ * - mynote_search_headline_after
  * 
  * @see  mynote_archive_sidebar()
  */

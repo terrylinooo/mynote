@@ -18,6 +18,7 @@ get_header();
 <?php mynote_title_progress_bar(); ?>
 
 <div class="data-schema is-single" itemscope itemtype="<?php mynote_article_schema(); ?>">
+
 	<?php
 		/**
 		 * Hook: mynote_post_before
@@ -26,6 +27,7 @@ get_header();
 		 */
 		do_action( 'mynote_post_before' ); 
 	?>
+
 	<div class="container">
 		<div class="row row-layout-choice-post">
 			<main id="main-container" class="<?php echo esc_attr( mynote_main_container_css() ); ?>" role="main">
@@ -33,6 +35,7 @@ get_header();
 				<?php if ( have_posts() ) : ?>
 
 					<?php while ( have_posts() ) : ?>
+
 						<?php the_post(); ?>
 
 						<article id="post-<?php the_ID(); ?>" <?php post_class( 'markdown-body' ); ?>>
@@ -42,6 +45,7 @@ get_header();
 							<?php endif; ?>
 	
 							<div itemprop="articleBody">
+
 								<?php
 									/**
 									 * Hook: mynote_post_content_before
@@ -62,6 +66,7 @@ get_header();
 										)
 									);
 								?>
+
 							</div>
 						</article>
 
@@ -89,7 +94,9 @@ get_header();
 						<h1><?php esc_html_e( 'Sorry, nothing to display.', 'mynote' ); ?></h1>
 					</article>
 				<?php endif; ?>
+
 			</main>
+
 			<?php
 				/**
 				 * Functions hooked in to mynote_post_sidebar action
@@ -98,7 +105,9 @@ get_header();
 				 */
 				do_action( 'mynote_post_sidebar' );
 			?>
+
 		</div><!-- .row -->
+
 		<?php
 			the_post_navigation(
 				array(
@@ -107,6 +116,7 @@ get_header();
 				)
 			);
 		?>
+
 	</div><!-- .container -->
 
 	<?php
@@ -115,7 +125,9 @@ get_header();
 		 */
 		do_action( 'mynote_post_after' );
 	?>
+
 </div><!-- .data-schema -->
+
 <?php
 
 get_footer();

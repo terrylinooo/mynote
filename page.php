@@ -8,7 +8,7 @@
  * @package WordPress
  * @subpackage Mynote
  * @since 1.0.0
- * @version 1.0.7
+ * @version 2.0.0
  */
 
 get_header();
@@ -18,6 +18,7 @@ get_header();
 <?php mynote_title_progress_bar(); ?>
 
 <div class="data-schema is-page" itemscope itemtype="<?php mynote_article_schema(); ?>">
+
 	<?php
 		/**
 		 * Hook: mynote_page_before
@@ -26,10 +27,13 @@ get_header();
 		 */
 		do_action( 'mynote_page_before' ); 
 	?>
+
 	<div class="container">
 		<div class="row">
 			<main id="main-container" class="col" role="main">
+
 				<?php if ( have_posts() ) : ?>
+
 					<?php while ( have_posts() ) : ?>
 
 						<?php the_post(); ?>
@@ -84,6 +88,7 @@ get_header();
 					</article>
 
 				<?php endif; ?>
+
 			</main>
 		</div><!-- .row -->
 	</div><!-- .container -->
@@ -94,6 +99,7 @@ get_header();
 		 */
 		do_action( 'mynote_page_after' );
 	?>
+
 </div>
 
 <?php

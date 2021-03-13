@@ -21,35 +21,25 @@ get_header();
 		<h1 id="post-title" class="tag" itemprop="headline">
 			<?php single_cat_title(); ?>
 		</h1>
+
 		<?php if ( ! empty( $cat_description ) ) : ?>
 			<div class="term-desctiotion"><?php echo $cat_description; ?></div>
 		<?php endif; ?>
+
 	</div>
 </div>
-<main role="main">
-	<div class="container">
-		<div class="row row-layout-choice-archive">
-			<section id="main-container" class="<?php echo esc_attr( mynote_main_container_css() ); ?>">
-				<?php
-					if ( have_posts() ) {
-						get_template_part( 'template-parts/loop' );
-						get_template_part( 'template-parts/pagination' );
-					} else {
-						get_template_part( 'template-parts/content', 'none' );
-					}
-				?>
-			</section>
 
-			<?php
-				/**
-				 * Hook: mynote_archive_sidebar
-				 *
-				 * @hooked mynote_archive_sidebar - 10
-				 */
-				do_action( 'mynote_archive_sidebar' );
-			?>
-		</div>
-	</div>
+<?php
+	/**
+	 * Hook: mynote_tag_headline_after
+	 * 
+	 * The width here is wide, style it with proper CSS code.
+	 */
+	do_action( 'mynote_tag_headline_after' );
+?>
+
+<main role="main">
+	<?php get_template_part( 'template-parts/archive' ); ?>
 </main>
 
 <?php

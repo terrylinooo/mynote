@@ -31,6 +31,8 @@ A responsive, clean, Markdown friendly WordPress blog theme. It is based on Boot
   - Footer
   - Homepage intro
   - Homepage middle
+- Widgets:
+  - Sticky TOC
 - Menu areas:
   - Header
   - Sidebar
@@ -75,11 +77,23 @@ A responsive, clean, Markdown friendly WordPress blog theme. It is based on Boot
 - mynote_post_content_after
 - mynote_post_after
 - mynote_post_sidebar
+- mynote_post_comment_before
+- mynote_post_comment_after
 - mynote_page_before
 - mynote_page_content_before
 - mynote_page_content_after
 - mynote_page_after
 - mynote_archive_sidebar
+- mynote_archive_headline_after
+- mynote_archive_loop_before
+- mynote_archive_loop_after
+- mynote_category_headline_after
+- mynote_tag_headline_after
+- mynote_search_headline_after
+
+## Child Theme
+
+If you would like to customize something by using Mynote, there is an sample ready for you, just copy `mynote-child` into your WordPress theme directory, and then activate the `Mynote Child` them in the control panel.
 
 ## Dependencies
 
