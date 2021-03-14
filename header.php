@@ -27,7 +27,7 @@
 	?>
 
 </head>
-<body <?php body_class( $addon_body_class ); ?>>
+<body <?php body_class( mynote_body_class() ); ?>>
 
 	<?php wp_body_open(); ?>
 

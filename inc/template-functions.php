@@ -344,7 +344,7 @@ if ( ! function_exists( 'mynote_replace_language_attributes' ) ) {
 	}
 }
 
-if ( ! function_exists( 'mynote_replace_language_attributes' ) ) {
+if ( ! function_exists( 'mynote_single_post_script' ) ) {
 	/**
 	 * Article reading progress bar.
 	 * Sidebar switcher.

@@ -839,3 +839,24 @@ function mynote_is_responsive() {
 	}
 	return true;
 }
+
+/**
+ * Get body class
+ *
+ * @return string
+ */
+function mynote_body_class() {
+	$addon_body_class = '';
+
+	if ( '' !== mynote_site_icon() ) {
+		$addon_body_class .= 'has-site-icon';
+	}
+
+	if ( '' !== mynote_site_logo() ) {
+		if ( ! empty( $addon_body_class ) ) {
+			$addon_body_class .= ' ';
+		}
+		$addon_body_class .= 'has-site-logo';
+	}
+	return $addon_body_class;
+}

@@ -12,6 +12,11 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+
+        @include media-breakpoint-down(sm) {
+            width: 50%;
+
+        }
     }
 
     i {
@@ -24,3 +29,4 @@
         margin-bottom: 0 !important;
     }
 }
+

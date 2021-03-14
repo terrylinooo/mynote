@@ -5,7 +5,7 @@
 	Tested up to: 5.7.0
 	Requires PHP: 5.2.4
 	Description: Mynote is a responsive, clean, Markdown friendly WordPress blog theme. It is based on Bootstrap 4 and Fontawesome 5. It is suitable for programming, business, technical, professional, niche and any kind of blogging sites. Mynote has landing-page templates so that can your highly customize your homepage, make your website unique and professional.
-	Version: 2.0.0
+	Version: 2.0.1
 	Author: Terry Lin
 	Author URI: https://terryl.in
 	Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, blog, entertainment
@@ -36,6 +36,5 @@
 @import "wordpress";
 @import "responsive";
 @import "video";
-@import "sticky-toc";
 @import "markdown-theme-github";
 
