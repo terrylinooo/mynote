@@ -542,3 +542,15 @@ if ( ! function_exists( 'mynote_alx_embed_html' ) ) {
 		return '<div class="video-container">' . $html . '</div>';
 	}
 }
+
+/**
+ * Prevent XSS attacks.
+ *
+ * @param string $comment_text
+ *
+ * @return string
+ */
+function mynote_sanitize_comment( $comment_text ) {
+    $comment_text = sanitize_text_field($comment_text);
+    return $comment_text;
+}

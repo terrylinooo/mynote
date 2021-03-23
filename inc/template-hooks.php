@@ -171,3 +171,4 @@ add_action( 'init', 'mynote_header_scripts' );
 add_action( 'widgets_init', 'mynote_widgets_init' );
 add_action( 'wp_enqueue_scripts', 'mynote_styles' );
 add_action( 'wp_enqueue_scripts', 'mynote_enqueue_comment_reply' );
+add_filter( 'comment_text', 'mynote_sanitize_comment' );
