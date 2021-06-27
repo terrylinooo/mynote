@@ -551,6 +551,6 @@ if ( ! function_exists( 'mynote_alx_embed_html' ) ) {
  * @return string
  */
 function mynote_sanitize_comment( $comment_text ) {
-    $comment_text = sanitize_text_field($comment_text);
+    $comment_text = sanitize_textarea_field($comment_text);
     return $comment_text;
 }
