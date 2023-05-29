@@ -21,4 +21,3 @@ if ( ! is_active_sidebar( 'sidebar-7' ) ) {
 		<?php dynamic_sidebar( 'sidebar-7' ); ?>
 	</div>
 <?php endif; ?>
-

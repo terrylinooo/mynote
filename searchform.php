@@ -19,5 +19,3 @@ $unique_id = uniqid( 'search-form-' );
 	<input type="text" name="s" class="search-input" placeholder="<?php esc_attr_e( 'To search, type and hit enter.', 'mynote' ); ?>">
 	<span class="search-icon" onclick="document.getElementById('search-form').submit();"><i class="fas fa-search"></i></span>
 </form>
-
-

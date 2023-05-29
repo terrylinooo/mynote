@@ -10,16 +10,16 @@
  * @since 1.0.7
  */
 
- /**
-  * The follwing methods could be defined in child theme:
-  *
-  * - mynote_read_button
-  * - mynote_edit_button
-  * - mynote_comment_button
-  * - mynote_author_posted_date
-  * - mynote_author_card
-  * - mynote_site_info
-  */
+/**
+ * The follwing methods could be defined in child theme:
+ *
+ * - mynote_read_button
+ * - mynote_edit_button
+ * - mynote_comment_button
+ * - mynote_author_posted_date
+ * - mynote_author_card
+ * - mynote_site_info
+ */
 
 /**
  * Mynote navigation.
@@ -52,7 +52,7 @@ function mynote_nav( $position = 'header' ) {
 					'container_id'    => 'mynote-nav-bar',
 					'menu_class'      => 'navbar-nav mr-auto',
 					'menu_id'         => '',
-					'depth'           => 1
+					'depth'           => 1,
 				)
 			);
 		}
@@ -111,22 +111,25 @@ function mynote_post_thumbnail() {
 	$size = 'mynote-thumbnail';
 
 	if ( is_home() || is_front_page() ) {
-		if ( '2' === get_theme_mod( 'layout_cols_per_row_home') ) {
+		$option_home_cols = get_theme_mod( 'layout_cols_per_row_home' );
+
+		if ( '2' === $option_home_cols ) {
 			$size = 'mynote-medium';
-		}
-		if ( '1' === get_theme_mod( 'layout_cols_per_row_home') ) {
+		} elseif ( '1' === $option_home_cols ) {
 			$size = 'post-large';
 		}
 	} else {
-		if ( '2' === get_theme_mod( 'layout_cols_per_row_archive') ) {
+		$option_archive_cols = get_theme_mod( 'layout_cols_per_row_archive' );
+
+		if ( '2' === $option_archive_cols ) {
 			$size = 'mynote-medium';
-		}
-		if ( '1' === get_theme_mod( 'layout_cols_per_row_archive') ) {
+		} elseif ( '1' === $option_archive_cols ) {
 			$size = 'post-large';
 		}
 	}
 
-	the_post_thumbnail( $size,
+	the_post_thumbnail(
+		$size,
 		array(
 			'class' => 'card-img-top',
 			'alt'   => get_the_title(),
@@ -312,7 +315,7 @@ function mynote_article_schema( $schema = '' ) {
 		default:
 			$schema = 'Article';
 	}
-	echo esc_url( 'http://schema.org/' . $schema);
+	echo esc_url( 'http://schema.org/' . $schema );
 }
 
 /**
@@ -367,7 +370,7 @@ if ( ! function_exists( 'mynote_comment_button' ) ) {
 		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
 			return;
 		}
-	
+
 		echo '
 			<a href="' . esc_url( get_the_permalink() ) . '#comments" class="button-like-link">
 				<div class="btn-counter">
@@ -409,10 +412,13 @@ function mynote_post_figure() {
 	?>
 		<figure>
 			<?php
-				the_post_thumbnail( '', array(
-					'itemprop' => 'image',
-					'alt'      => esc_attr( $thumbnail_caption ),
-				) );
+				the_post_thumbnail(
+					'',
+					array(
+						'itemprop' => 'image',
+						'alt'      => esc_attr( $thumbnail_caption ),
+					)
+				);
 			?>
 			<figcaption><?php echo esc_html( $thumbnail_caption ); ?></figcaption>
 		</figure>
@@ -431,7 +437,7 @@ function mynote_posted_date_button( $show_label = false ) {
 			<div class="btn">
 				<i class="far fa-calendar-alt"></i> ' . ( ( $show_label ) ? esc_html__( 'Date', 'mynote' ) : '' ) . '
 			</div>
-			<div class="count-box">' . date( 'Y-m-d', get_the_time( 'U' ) ) . '</div>
+			<div class="count-box">' . wp_date( 'Y-m-d', get_the_time( 'U' ) ) . '</div>
 		</div>
 	';
 }
@@ -451,17 +457,24 @@ if ( ! function_exists( 'mynote_author_posted_date' ) ) {
 			echo '<img src="' . esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => $avatar_size ) ) ) . '" class="rounded-circle poster-avatar" align="middle"> ';
 		}
 
-		printf( '<a href="%1$s" title="written %2$s" class="author-link">%3$s</a> <time itemprop="datePublished" datetime="%4$s">%5$s</time>',
+		printf(
+			'<a href="%1$s" title="written %2$s" class="author-link">%3$s</a> <time itemprop="datePublished" datetime="%4$s">%5$s</time>',
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			sprintf( esc_html__( '%1$s @ %2$s', 'mynote' ),
-				esc_html( get_the_date() ), 
+			sprintf(
+				// translators: %1$s: post date, %2$s: post time.
+				esc_html__( '%1$s @ %2$s', 'mynote' ),
+				esc_html( get_the_date() ),
 				esc_attr( get_the_time() )
 			),
 			get_the_author(),
 			get_the_time( 'c' ),
-			sprintf( 
+			sprintf(
+				// translators: %s: post date.
 				_x( 'written %s ago', '%s', 'mynote' ),
-				human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
+				human_time_diff(
+					get_the_time( 'U' ),
+					current_time( 'timestamp' )
+				)
 			)
 		);
 
@@ -493,8 +506,8 @@ function mynote_site_icon() {
  */
 function mynote_site_logo() {
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
-	$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-	
+	$logo           = wp_get_attachment_image_src( $custom_logo_id, 'full' );
+
 	if ( ! empty( $logo ) ) {
 		return esc_url( $logo[0] );
 	}
@@ -572,7 +585,7 @@ function mynote_category_labels() {
  */
 if ( ! function_exists( 'mynote_site_info' ) ) {
 	function mynote_site_info() {
-		echo esc_html__( 'Copyright', 'mynote' ) . ' &copy; ' . date( 'Y' ) . ' <strong><a href="' . esc_url( get_site_url() ) . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' . esc_html__( 'All rights reserved.', 'mynote' ) . ' ';
+		echo esc_html__( 'Copyright', 'mynote' ) . ' &copy; ' . wp_date( 'Y' ) . ' <strong><a href="' . esc_url( get_site_url() ) . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' . esc_html__( 'All rights reserved.', 'mynote' ) . ' ';
 
 		// Keeping the theme credit link encourages me to improve this theme better. Thank you.
 		$theme_link = 'https://terryl.in/';
@@ -595,7 +608,7 @@ function mynote_post_breadcrumb() {
 		foreach ( $categories as $cat ) {
 			if ( empty( $cat->parent ) && ! $is_first_cat ) {
 				$is_first_cat = true;
-				$first_cat = $cat;
+				$first_cat    = $cat;
 			}
 		}
 		// Looking for child category.
@@ -603,7 +616,7 @@ function mynote_post_breadcrumb() {
 		foreach ( $categories as $cat ) {
 			if ( $cat->category_parent === $first_cat->cat_ID && ! $is_child_cat ) {
 				$is_child_cat = true;
-				$child_cat = $cat;
+				$child_cat    = $cat;
 			}
 		}
 		$pos = 1;
@@ -703,17 +716,17 @@ function mynote_layout_columns() {
 	$css_class_string = 'col-sm-4';
 
 	if ( is_home() || is_front_page() ) {
-		if ( '2' === get_theme_mod( 'layout_cols_per_row_home' ) ) {
+		$home_layout_cols = get_theme_mod( 'layout_cols_per_row_home' );
+		if ( '2' === $home_layout_cols ) {
 			$css_class_string = 'col-sm-6';
-		}
-		if ( '1' === get_theme_mod( 'layout_cols_per_row_home' ) ) {
+		} elseif ( '1' === $home_layout_cols ) {
 			$css_class_string = 'col-sm-12';
 		}
 	} else {
-		if ( '2' === get_theme_mod( 'layout_cols_per_row_archive' ) ) {
+		$archive_layout_cols = get_theme_mod( 'layout_cols_per_row_home' );
+		if ( '2' === $archive_layout_cols ) {
 			$css_class_string = 'col-sm-6';
-		}
-		if ( '1' === get_theme_mod( 'layout_cols_per_row_archive' ) ) {
+		} elseif ( '1' === $archive_layout_cols ) {
 			$css_class_string = 'col-sm-12';
 		}
 	}

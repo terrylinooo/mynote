@@ -11,10 +11,11 @@
  * @version 1.0.7
  */
 $custom_header_image = '';
-$custom_header_css = '';
+$custom_header_css   = '';
+
 if ( has_header_image() ) {
 	$custom_header_image = 'background-image: url(' . get_header_image() . ');';
-	$custom_header_css = 'has-custom-header';
+	$custom_header_css   = 'has-custom-header';
 }
 
 get_header(); ?>

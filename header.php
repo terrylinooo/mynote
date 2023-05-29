@@ -11,14 +11,14 @@
  * @version 1.0.7.0
  */
 
-$is_brand_url = false;
+$is_brand_url     = false;
 $addon_body_class = '';
-$site_brand_url = '';
+$site_brand_url   = '';
 
 if ( '' !== mynote_site_icon() ) {
-	$is_brand_url = true;
+	$is_brand_url      = true;
 	$addon_body_class .= 'has-site-icon';
-	$site_brand_url = mynote_site_icon();
+	$site_brand_url    = mynote_site_icon();
 }
 
 if ( '' !== mynote_site_logo() ) {
@@ -27,7 +27,7 @@ if ( '' !== mynote_site_logo() ) {
 		$addon_body_class .= ' ';
 	}
 	$addon_body_class .= 'has-site-logo';
-	$site_brand_url = mynote_site_logo();
+	$site_brand_url    = mynote_site_logo();
 }
 
 $addon_navbar_class = '';
@@ -67,15 +67,12 @@ if ( ! mynote_is_responsive() ) {
 					<?php endif; ?>
 
 					<div class="search-bar">
-						<?php get_search_form() ?>
+						<?php get_search_form(); ?>
 					</div>
-					
+
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynote-nav-bar" aria-controls="mynote-nav-bar" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'mynote' ); ?>">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 				</nav>
 			</div><!-- .container -->
 		</header>
-
-
-		

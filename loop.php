@@ -18,7 +18,7 @@
 
 		<?php while ( have_posts() ) : ?>
 
-		<?php the_post(); ?>
+			<?php the_post(); ?>
 
 		<div class="<?php mynote_layout_columns(); ?>">
 			<article id="post-<?php the_ID(); ?>" class="article-list">
@@ -38,7 +38,7 @@
 							<div class="effect-layer"></div>
 							<?php endif; ?>
 						</div>
-						
+
 						<?php if ( mynote_is_post_card_body_footer() ) : ?>
 							<div class="card-body-footer">
 								<?php // mynote_posted_date_button(); Uncomment this line if needed. ?>

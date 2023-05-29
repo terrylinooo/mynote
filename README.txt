@@ -1,7 +1,7 @@
 === Mynote ===
 Contributors: Terry Lin
 Requires at least: 3.6
-Tested up to: 5.5.3
+Tested up to: 6.2.2
 Version: 1.6.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html

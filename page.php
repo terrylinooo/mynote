@@ -43,30 +43,30 @@ get_header();
 			<main id="main-container" class="col" role="main">
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : ?>
-				<?php the_post(); ?>
-				<article id="post-<?php the_ID(); ?>" <?php post_class( 'markdown-body' ); ?>>
-					<?php if ( has_post_thumbnail() ) : ?>
-						<?php mynote_post_figure(); ?>
-					<?php endif; ?>
-					<div itemprop="articleBody">
-						<?php the_content(); ?>
-						<?php
-							wp_link_pages(
-								array(
-									'before' => '<div class="page-links">' . __( 'Pages:', 'mynote' ),
-									'after'  => '</div>',
-								)
-							);
-						?>
-					</div>
-				</article>
-				<section class="modified-date" itemprop="dateModified" content="<?php the_modified_date( 'c' ); ?>">
-					<?php esc_html_e( 'Last modified: ', 'mynote' ); ?><?php the_modified_date(); ?>
-				</section>
-				<section class="tags">
-					<?php the_tags( '', '' ); ?>
-				</section>
-				<?php comments_template(); ?>
+					<?php the_post(); ?>
+					<article id="post-<?php the_ID(); ?>" <?php post_class( 'markdown-body' ); ?>>
+						<?php if ( has_post_thumbnail() ) : ?>
+							<?php mynote_post_figure(); ?>
+						<?php endif; ?>
+						<div itemprop="articleBody">
+							<?php the_content(); ?>
+							<?php
+								wp_link_pages(
+									array(
+										'before' => '<div class="page-links">' . __( 'Pages:', 'mynote' ),
+										'after'  => '</div>',
+									)
+								);
+							?>
+						</div>
+					</article>
+					<section class="modified-date" itemprop="dateModified" content="<?php the_modified_date( 'c' ); ?>">
+						<?php esc_html_e( 'Last modified: ', 'mynote' ); ?><?php the_modified_date(); ?>
+					</section>
+					<section class="tags">
+						<?php the_tags( '', '' ); ?>
+					</section>
+					<?php comments_template(); ?>
 				<?php endwhile; ?>
 			<?php else : ?>
 				<article>

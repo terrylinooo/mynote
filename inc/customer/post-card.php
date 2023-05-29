@@ -11,66 +11,79 @@
  * @version 1.3.0
  */
 
-
+/**
+ * Post card
+ *
+ * @param WP_Customize_Manager $wp_customize
+ * @return void
+ */
 function mynote_customize_post_card( $wp_customize ) {
 
-    /**
-     * Panel
-     */
+	/**
+	 * Panel
+	 */
 
-    /**
-     * Section
-     */
-	$wp_customize->add_section( 'section_post_card', 
+	/**
+	 * Section
+	 */
+	$wp_customize->add_section(
+		'section_post_card',
 		array(
 			'title'      => __( 'Post Card', 'mynote' ),
 			'priority'   => 10,
 		)
 	);
-    
-    /**
-     * Setting
-     */
-    $wp_customize->add_setting( 'post_card_show_footer',
-        array( 
-            'default'           => true,
-            'sanitize_callback' => 'sanitize_text_field',
-        )
-    );
 
-    $wp_customize->add_setting( 'post_card_show_header',
-        array( 
-            'default'           => true,
-            'sanitize_callback' => 'sanitize_text_field',
-        )
-	);
-	
-    $wp_customize->add_setting( 'post_card_show_border',
-        array( 
-            'default'           => true,
-            'sanitize_callback' => 'sanitize_text_field',
-        )
-	);
-	
-	$wp_customize->add_setting( 'post_card_show_gradient_mask',
-		array( 
+	/**
+	 * Setting
+	 */
+	$wp_customize->add_setting(
+		'post_card_show_footer',
+		array(
 			'default'           => true,
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 
-	$wp_customize->add_setting( 'post_card_show_body_footer',
-		array( 
+	$wp_customize->add_setting(
+		'post_card_show_header',
+		array(
 			'default'           => true,
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 
-    /**
-     * Control
-     */
-    $wp_customize->add_control(
-		new Customize_Toggle_Control( $wp_customize, 'post_card_header_control',
+	$wp_customize->add_setting(
+		'post_card_show_border',
+		array(
+			'default'           => true,
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'post_card_show_gradient_mask',
+		array(
+			'default'           => true,
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'post_card_show_body_footer',
+		array(
+			'default'           => true,
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	/**
+	 * Control
+	 */
+	$wp_customize->add_control(
+		new Customize_Toggle_Control(
+			$wp_customize,
+			'post_card_header_control',
 			array(
 				'label'       => __( 'Header', 'mynote' ),
 				'section'     => 'section_post_card',
@@ -81,7 +94,9 @@ function mynote_customize_post_card( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		new Customize_Toggle_Control( $wp_customize, 'post_card_footer_control',
+		new Customize_Toggle_Control(
+			$wp_customize,
+			'post_card_footer_control',
 			array(
 				'label'       => __( 'Footer', 'mynote' ),
 				'section'     => 'section_post_card',
@@ -92,7 +107,9 @@ function mynote_customize_post_card( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		new Customize_Toggle_Control( $wp_customize, 'post_card_border_control',
+		new Customize_Toggle_Control(
+			$wp_customize,
+			'post_card_border_control',
 			array(
 				'label'       => __( 'Border', 'mynote' ),
 				'section'     => 'section_post_card',
@@ -103,7 +120,9 @@ function mynote_customize_post_card( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		new Customize_Toggle_Control( $wp_customize, 'post_card_gradient_mask_control',
+		new Customize_Toggle_Control(
+			$wp_customize,
+			'post_card_gradient_mask_control',
 			array(
 				'label'       => __( 'Gradient Mask', 'mynote' ),
 				'section'     => 'section_post_card',
@@ -114,7 +133,9 @@ function mynote_customize_post_card( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		new Customize_Toggle_Control( $wp_customize, 'post_card_body_footer_control',
+		new Customize_Toggle_Control(
+			$wp_customize,
+			'post_card_body_footer_control',
 			array(
 				'label'       => __( 'Buttons', 'mynote' ),
 				'section'     => 'section_post_card',
