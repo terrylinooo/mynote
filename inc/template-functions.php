@@ -57,10 +57,13 @@ if ( ! function_exists( 'mynote_remove_recent_comments_style' ) ) {
 	function mynote_remove_recent_comments_style() {
 		global $wp_widget_factory;
 
-		remove_action( 'wp_head', array(
-			$wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
-			'recent_comments_style',
-		) );
+		remove_action(
+			'wp_head',
+			array(
+				$wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
+				'recent_comments_style',
+			)
+		);
 	}
 }
 
@@ -126,9 +129,9 @@ if ( ! function_exists( 'mynote_comment' ) ) {
 	/**
 	 * Template for comments and pingbacks.
 	 *
-	 * @param array   $comment (optional) Array obtained by get_comments query.
-	 * @param array   $args    (optional) The options for the function.
-	 * @param integer $depth   (optional).
+	 * @param stdClass $comment (optional) Array obtained by get_comments query.
+	 * @param array    $args    (optional) The options for the function.
+	 * @param integer  $depth   (optional).
 	 * @return void
 	 */
 	function mynote_comment( $comment, $args, $depth ) {
@@ -181,13 +184,13 @@ if ( ! function_exists( 'mynote_comment' ) ) {
 							if ( $comment->user_id === $post->post_author ) {
 								$commenter_type_css = 'author';
 
-							?>
+								?>
 
 								<div class="comment-label">
 									<?php esc_html_e( 'Author', 'mynote' ); ?>
 								</div>
 
-							<?php
+								<?php
 
 							} else {
 								$commenter_type_css = 'reader';
@@ -198,11 +201,13 @@ if ( ! function_exists( 'mynote_comment' ) ) {
 							<div class="comment-header-text f-14">
 								<?php
 
-								printf( '<cite class="' . esc_attr( $commenter_type_css ) . '">%1$s</cite>&nbsp;',
+								printf(
+									'<cite class="' . esc_attr( $commenter_type_css ) . '">%1$s</cite>&nbsp;',
 									get_comment_author_link()
 								);
 
-								printf( '<a href="%1$s" title="commented %2$s" class="comment-link"><time itemprop="datePublished" datetime="%3$s">%4$s</time></a>',
+								printf(
+									'<a href="%1$s" title="commented %2$s" class="comment-link"><time itemprop="datePublished" datetime="%3$s">%4$s</time></a>',
 									esc_url( get_comment_link( $comment->comment_ID ) ),
 									sprintf( '%1$s @ %2$s', get_comment_date(), get_comment_time() ),
 									get_comment_time( 'c' ),
@@ -267,7 +272,7 @@ if ( ! function_exists( 'mynote_comment_form' ) ) {
 if ( ! function_exists( 'mynote_comment_fileds' ) ) {
 	/**
 	 * Comment fields
-	 * 
+	 *
 	 * @return array
 	 */
 	function mynote_comment_fileds() {
@@ -353,7 +358,7 @@ if ( ! function_exists( 'mynote_single_post_script' ) ) {
 	 */
 	function mynote_single_post_script() {
 		if ( is_single() ) {
-	?>
+			?>
 		<script>
 
 		jQuery( document ).ready(function( $ ) {
@@ -452,7 +457,7 @@ if ( ! function_exists( 'mynote_single_post_script' ) ) {
 		});
 
 		</script>
-	<?php
+			<?php
 		}
 	}
 }
@@ -507,23 +512,6 @@ if ( ! function_exists( 'mynote_scrolling_script' ) ) {
 			$( '#mynote-nav-bar' ).on( 'hidden.bs.collapse' , function () {
 				$( 'body' ).removeClass( 'menu-is-collapsed' );
 			});
-
-			/*
-
-			$( '#mynote-nav-bar' ).on( 'show.bs.collapse' , function () {
-				$( 'body' ).addClass( 'menu-is-collapsed' );
-				$( '.main-header' ).css( { 'top': '-60px' } ).animate( { 'top': '0px' }, 500 );
-				$( '.has-site-logo .search-bar' ).fadeOut( 500 );
-			});
-
-			$( '#mynote-nav-bar' ).on( 'hidden.bs.collapse' , function () {
-				$( '.main-header' ).css( { 'top': '0px' } ).animate( { 'top': '-60px' }, 500 );
-				$( '.has-site-logo .search-bar' ).fadeIn( 500 );
-				setTimeout(function() {
-					$( 'body' ).removeClass( 'menu-is-collapsed' );
-				}, 500);
-				
-			}); */
 		});
 
 		</script>
@@ -551,6 +539,6 @@ if ( ! function_exists( 'mynote_alx_embed_html' ) ) {
  * @return string
  */
 function mynote_sanitize_comment( $comment_text ) {
-    $comment_text = sanitize_text_field($comment_text);
-    return $comment_text;
+	$comment_text = sanitize_text_field( $comment_text );
+	return $comment_text;
 }

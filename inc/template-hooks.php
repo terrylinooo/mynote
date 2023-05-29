@@ -21,7 +21,7 @@
  * Head
  *
  * - mynote_head
- * 
+ *
  * @see mynote_check_responsive();
  */
 add_action( 'mynote_head', 'mynote_check_responsive', 10 );
@@ -85,7 +85,7 @@ add_action( 'mynote_homepage_middle_sidebar', 'mynote_homepage_middle_sidebar', 
  * - mynote_pagination_before
  * - mynote_pagination
  * - mynote_pagination_after
- * 
+ *
  * @see  mynote_pagination_section()
  */
  add_action( 'mynote_pagination', 'mynote_pagination_section', 10 );
@@ -100,7 +100,7 @@ add_action( 'mynote_homepage_middle_sidebar', 'mynote_homepage_middle_sidebar', 
  * - mynote_post_sidebar
  * - mynote_post_comment_before
  * - mynote_post_comment_after
- * 
+ *
  * @see  mynote_post_metadata()
  * @see  mynote_single_post_sidebar()
  */
@@ -114,7 +114,7 @@ add_action( 'mynote_post_sidebar', 'mynote_single_post_sidebar', 10 );
  * - mynote_page_content_before
  * - mynote_page_content_after
  * - mynote_page_after
- * 
+ *
  * @see  mynote_post_metadata()
  */
 add_action( 'mynote_page_before', 'mynote_post_metadata', 10 );
@@ -129,7 +129,7 @@ add_action( 'mynote_page_before', 'mynote_post_metadata', 10 );
  * - mynote_category_headline_after
  * - mynote_tag_headline_after
  * - mynote_search_headline_after
- * 
+ *
  * @see  mynote_archive_sidebar()
  */
 add_action( 'mynote_archive_sidebar', 'mynote_archive_sidebar', 10 );

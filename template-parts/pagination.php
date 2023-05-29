@@ -22,7 +22,7 @@ do_action( 'mynote_pagination_before' );
 		 *
 		 * @hooked mynote_pagination - 10
 		 */
-		do_action( 'mynote_pagination' ); 
+		do_action( 'mynote_pagination' );
 	?>
 </div>
 

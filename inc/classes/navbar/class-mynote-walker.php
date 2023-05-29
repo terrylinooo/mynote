@@ -22,10 +22,15 @@ class Mynote_Walker extends Walker_Nav_Menu {
 	 * Constructer.
 	 */
 	public function __construct() {
-		add_filter( 'nav_menu_css_class', function( $classes, $item, $args, $depth ) {
-			unset( $classes );
-			return array();
-		}, 10, 4 );
+		add_filter(
+			'nav_menu_css_class',
+			function( $classes, $item, $args, $depth ) {
+				unset( $classes );
+				return array();
+			},
+			10,
+			4
+		);
 	}
 
 	/**

@@ -50,8 +50,8 @@ do_action( 'mynote_loop_before' );
 								<?php
 									// mynote_posted_date_button(); Uncomment this line if needed.
 									mynote_comment_button();
-								    mynote_read_button();
-								    mynote_edit_button(); 
+									mynote_read_button();
+									mynote_edit_button();
 								?>
 							</div>
 						<?php endif; ?>
@@ -68,6 +68,6 @@ do_action( 'mynote_loop_before' );
 		</div>
 	<?php endwhile; ?>
 </div>
-<?php 
+<?php
 
 do_action( 'mynote_loop_before' );

@@ -19,21 +19,21 @@
 
 				/**
 				 * Hook: mynote_archive_loop_before
-				 * 
+				 *
 				 * The width here is the same as the container of the loop.
 				 */
 				do_action( 'mynote_archive_loop_before' );
 
-				if ( have_posts() ) {
-					get_template_part( 'template-parts/loop' );
-					get_template_part( 'template-parts/pagination' );
-				} else {
-					get_template_part( 'template-parts/content', 'none' );
-				}
+			if ( have_posts() ) {
+				get_template_part( 'template-parts/loop' );
+				get_template_part( 'template-parts/pagination' );
+			} else {
+				get_template_part( 'template-parts/content', 'none' );
+			}
 
 				/**
 				 * Hook: mynote_archive_loop_after
-				 * 
+				 *
 				 * The width here is the same as the container of the loop.
 				 */
 				do_action( 'mynote_archive_loop_after' );

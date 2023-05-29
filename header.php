@@ -56,7 +56,7 @@
 					 *
 					 * @hooked mynote_header_navigation - 10
 					 */
-					do_action( 'mynote_header'); 
+					do_action( 'mynote_header' );
 				?>
 
 			</div><!-- .container -->

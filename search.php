@@ -24,7 +24,10 @@ get_header();
 			</span>	
 		</h1>
 		<div class="term-desctiotion">
-			<?php echo sprintf( __( '%s Search Results for %s', 'mynote' ), $wp_query->found_posts, get_search_query() ); ?>
+			<?php
+				// translators: %s is the number of search results.
+				echo sprintf( __( '%1$s Search Results for %2$s', 'mynote' ), $wp_query->found_posts, get_search_query() );
+			?>
 		</div>
 	</div>
 </div>
@@ -32,7 +35,7 @@ get_header();
 <?php
 	/**
 	 * Hook: mynote_search_headline_after
-	 * 
+	 *
 	 * The width here is wide, style it with proper CSS code.
 	 */
 	do_action( 'mynote_search_headline_after' );

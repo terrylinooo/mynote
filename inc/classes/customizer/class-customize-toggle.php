@@ -37,7 +37,7 @@ class Customize_Toggle_Control extends WP_Customize_Control {
 			</span>
 			<input id="mn-<?php echo $this->instance_number; ?>" type="checkbox" class="mn-toggle mn-toggle-blue" value="<?php echo esc_attr( $this->value() ); ?>" 
 			<?php checked( $this->value() ); ?> 
-            <?php $this->link(); ?> />
+			<?php $this->link(); ?> />
 			<label for="mn-<?php echo $this->instance_number; ?>" class="mn-toggle-btn"></label>
 		</div>
 

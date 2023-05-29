@@ -60,7 +60,7 @@ if ( ! function_exists( 'mynote_header_navigation' ) ) {
 				<?php endif; ?>
 
 				<div class="search-bar">
-					<?php get_search_form() ?>
+					<?php get_search_form(); ?>
 				</div>
 
 				<button class="navbar-toggler" 

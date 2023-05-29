@@ -32,7 +32,7 @@ get_header();
 <?php
 	/**
 	 * Hook: mynote_tag_headline_after
-	 * 
+	 *
 	 * The width here is wide, style it with proper CSS code.
 	 */
 	do_action( 'mynote_tag_headline_after' );

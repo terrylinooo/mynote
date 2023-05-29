@@ -13,7 +13,8 @@
 
 function mynote_customize_about( $wp_customize ) {
 
-	$wp_customize->add_section( 'section_about_mynote_theme', 
+	$wp_customize->add_section(
+		'section_about_mynote_theme',
 		array(
 			'title'      => __( 'About Mynote Theme', 'mynote' ),
 			'priority'   => 1,
@@ -21,31 +22,35 @@ function mynote_customize_about( $wp_customize ) {
 		)
 	);
 
-	$about  =  __( 'Mynote is an open source project on GitHub, any suggestions to improve this theme are welcome. Please visit:', 'mynote' );
+	$about  = __( 'Mynote is an open source project on GitHub, any suggestions to improve this theme are welcome. Please visit:', 'mynote' );
 	$about .= '<br /><br /><a href="' . esc_url( 'https://github.com/terrylinooo/mynote' ) . '">https://github.com/terrylinooo/mynote</a>';
 
 	/**
-     * Setting
-     */
-	$wp_customize->add_setting( 'setting_about_mynote_theme',
-		array( 
+	 * Setting
+	 */
+	$wp_customize->add_setting(
+		'setting_about_mynote_theme',
+		array(
 			'default'           => 'no',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 
-    $wp_customize->add_setting( 'is_responsive_website',
-        array( 
-            'default'           => true,
-            'sanitize_callback' => 'sanitize_text_field',
-        )
-    );
+	$wp_customize->add_setting(
+		'is_responsive_website',
+		array(
+			'default'           => true,
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
 
-    /**
-     * Control
-     */
+	/**
+	 * Control
+	 */
 	$wp_customize->add_control(
-		new Customize_Content_Control( $wp_customize, 'control_about_mynote_theme',
+		new Customize_Content_Control(
+			$wp_customize,
+			'control_about_mynote_theme',
 			array(
 				'label'       => __( 'About', 'mynote' ),
 				'section'     => 'section_about_mynote_theme',
@@ -55,8 +60,10 @@ function mynote_customize_about( $wp_customize ) {
 		)
 	);
 
-    $wp_customize->add_control(
-		new Customize_Toggle_Control( $wp_customize, 'is_responsive_control',
+	$wp_customize->add_control(
+		new Customize_Toggle_Control(
+			$wp_customize,
+			'is_responsive_control',
 			array(
 				'label'       => __( 'RWD', 'mynote' ),
 				'section'     => 'section_about_mynote_theme',

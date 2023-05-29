@@ -11,7 +11,7 @@
  * @version 2.0.0
  */
 
-get_header(); 
+get_header();
 
 ?>
 

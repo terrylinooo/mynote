@@ -52,7 +52,7 @@ function mynote_nav( $position = 'header' ) {
 					'container_id'    => 'mynote-nav-bar',
 					'menu_class'      => 'navbar-nav mr-auto',
 					'menu_id'         => '',
-					'depth'           => 1
+					'depth'           => 1,
 				)
 			);
 		}
@@ -111,22 +111,23 @@ function mynote_post_thumbnail() {
 	$size = 'mynote-thumbnail';
 
 	if ( is_home() || is_front_page() ) {
-		if ( '2' === get_theme_mod( 'layout_cols_per_row_home') ) {
+		if ( '2' === get_theme_mod( 'layout_cols_per_row_home' ) ) {
 			$size = 'mynote-medium';
 		}
-		if ( '1' === get_theme_mod( 'layout_cols_per_row_home') ) {
+		if ( '1' === get_theme_mod( 'layout_cols_per_row_home' ) ) {
 			$size = 'post-large';
 		}
 	} else {
-		if ( '2' === get_theme_mod( 'layout_cols_per_row_archive') ) {
+		if ( '2' === get_theme_mod( 'layout_cols_per_row_archive' ) ) {
 			$size = 'mynote-medium';
 		}
-		if ( '1' === get_theme_mod( 'layout_cols_per_row_archive') ) {
+		if ( '1' === get_theme_mod( 'layout_cols_per_row_archive' ) ) {
 			$size = 'post-large';
 		}
 	}
 
-	the_post_thumbnail( $size,
+	the_post_thumbnail(
+		$size,
 		array(
 			'class' => 'card-img-top',
 			'alt'   => get_the_title(),
@@ -312,7 +313,7 @@ function mynote_article_schema( $schema = '' ) {
 		default:
 			$schema = 'Article';
 	}
-	echo esc_url( 'http://schema.org/' . $schema);
+	echo esc_url( 'http://schema.org/' . $schema );
 }
 
 /**
@@ -367,7 +368,7 @@ if ( ! function_exists( 'mynote_comment_button' ) ) {
 		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
 			return;
 		}
-	
+
 		echo '
 			<a href="' . esc_url( get_the_permalink() ) . '#comments" class="button-like-link">
 				<div class="btn-counter">
@@ -409,10 +410,13 @@ function mynote_post_figure() {
 	?>
 		<figure>
 			<?php
-				the_post_thumbnail( '', array(
-					'itemprop' => 'image',
-					'alt'      => esc_attr( $thumbnail_caption ),
-				) );
+				the_post_thumbnail(
+					'',
+					array(
+						'itemprop' => 'image',
+						'alt'      => esc_attr( $thumbnail_caption ),
+					)
+				);
 			?>
 			<figcaption><?php echo esc_html( $thumbnail_caption ); ?></figcaption>
 		</figure>
@@ -451,15 +455,17 @@ if ( ! function_exists( 'mynote_author_posted_date' ) ) {
 			echo '<img src="' . esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => $avatar_size ) ) ) . '" class="rounded-circle poster-avatar" align="middle"> ';
 		}
 
-		printf( '<a href="%1$s" title="written %2$s" class="author-link">%3$s</a> <time itemprop="datePublished" datetime="%4$s">%5$s</time>',
+		printf(
+			'<a href="%1$s" title="written %2$s" class="author-link">%3$s</a> <time itemprop="datePublished" datetime="%4$s">%5$s</time>',
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			sprintf( esc_html__( '%1$s @ %2$s', 'mynote' ),
-				esc_html( get_the_date() ), 
+			sprintf(
+				esc_html__( '%1$s @ %2$s', 'mynote' ),
+				esc_html( get_the_date() ),
 				esc_attr( get_the_time() )
 			),
 			get_the_author(),
 			get_the_time( 'c' ),
-			sprintf( 
+			sprintf(
 				_x( 'written %s ago', '%s', 'mynote' ),
 				human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
 			)
@@ -493,8 +499,8 @@ function mynote_site_icon() {
  */
 function mynote_site_logo() {
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
-	$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-	
+	$logo           = wp_get_attachment_image_src( $custom_logo_id, 'full' );
+
 	if ( ! empty( $logo ) ) {
 		return esc_url( $logo[0] );
 	}
@@ -595,7 +601,7 @@ function mynote_post_breadcrumb() {
 		foreach ( $categories as $cat ) {
 			if ( empty( $cat->parent ) && ! $is_first_cat ) {
 				$is_first_cat = true;
-				$first_cat = $cat;
+				$first_cat    = $cat;
 			}
 		}
 		// Looking for child category.
@@ -603,7 +609,7 @@ function mynote_post_breadcrumb() {
 		foreach ( $categories as $cat ) {
 			if ( $cat->category_parent === $first_cat->cat_ID && ! $is_child_cat ) {
 				$is_child_cat = true;
-				$child_cat = $cat;
+				$child_cat    = $cat;
 			}
 		}
 		$pos = 1;

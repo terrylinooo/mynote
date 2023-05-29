@@ -56,12 +56,14 @@ do_action( 'mynote_post_comment_before' );
 		<?php endif; ?>
 
 		<?php
-			the_comments_pagination(
-				array(
-					'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous', 'mynote' ) . '</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'mynote' ) . '</span> <i class="fas fa-angle-right"></i>',
-				)
-			);
+
+		the_comments_pagination(
+			array(
+				'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous', 'mynote' ) . '</span>',
+				'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'mynote' ) . '</span> <i class="fas fa-angle-right"></i>',
+			)
+		);
+
 		?>
 
 		<?php if ( ! comments_open() && get_comments_number() ) : ?>

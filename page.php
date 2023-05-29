@@ -25,7 +25,7 @@ get_header();
 		 *
 		 * @hooked mynote_post_metadata - 10
 		 */
-		do_action( 'mynote_page_before' ); 
+		do_action( 'mynote_page_before' );
 	?>
 
 	<div class="container">

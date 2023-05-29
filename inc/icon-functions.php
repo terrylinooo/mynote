@@ -91,10 +91,10 @@ function mynote_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 		foreach ( $social_icons as $attr => $value ) {
 			if ( false !== strpos( $item_output, $attr ) ) {
 				$is_icon_found = true;
-				$item_output = preg_replace( '#' . $args->link_before . '(.+)' . $args->link_after . '#i', '<span class="' . $size_css . '"><i class="' . esc_attr( $value ) . ' brand-link"></i></span>', $item_output );
+				$item_output   = preg_replace( '#' . $args->link_before . '(.+)' . $args->link_after . '#i', '<span class="' . $size_css . '"><i class="' . esc_attr( $value ) . ' brand-link"></i></span>', $item_output );
 			}
 		}
-		if ( !$is_icon_found ) {
+		if ( ! $is_icon_found ) {
 			$item_output = preg_replace( '#' . $args->link_before . '(.+)' . $args->link_after . '#i', '<i class="fas fa-link"></i>', $item_output );
 		}
 	}

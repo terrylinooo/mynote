@@ -26,7 +26,7 @@ get_header();
 <?php
 	/**
 	 * Hook: mynote_archive_headline_after
-	 * 
+	 *
 	 * The width here is wide, style it with proper CSS code.
 	 */
 	do_action( 'mynote_archive_headline_after' );
@@ -36,7 +36,7 @@ get_header();
 	<?php get_template_part( 'template-parts/archive' ); ?>
 </main>
 
-<?php 
+<?php
 
 get_footer();
 

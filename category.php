@@ -33,7 +33,7 @@ get_header();
 <?php
 	/**
 	 * Hook: mynote_category_headline_after
-	 * 
+	 *
 	 * The width here is wide, style it with proper CSS code.
 	 */
 	do_action( 'mynote_category_headline_after' );
@@ -46,5 +46,3 @@ get_header();
 <?php
 
 get_footer();
-
-

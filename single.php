@@ -25,7 +25,7 @@ get_header();
 		 *
 		 * @hooked mynote_post_metadata - 10
 		 */
-		do_action( 'mynote_post_before' ); 
+		do_action( 'mynote_post_before' );
 	?>
 
 	<div class="container">
@@ -109,12 +109,14 @@ get_header();
 		</div><!-- .row -->
 
 		<?php
-			the_post_navigation(
-				array(
-					'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous Post', 'mynote' ) . '</span> %title',
-					'next_text' => '<i class="fas fa-angle-right"></i> <span class="screen-reader-text">' . __( 'Next Post', 'mynote' ) . '</span> %title',
-				)
-			);
+
+		the_post_navigation(
+			array(
+				'prev_text' => '<i class="fas fa-angle-left"></i> <span class="screen-reader-text">' . __( 'Previous Post', 'mynote' ) . '</span> %title',
+				'next_text' => '<i class="fas fa-angle-right"></i> <span class="screen-reader-text">' . __( 'Next Post', 'mynote' ) . '</span> %title',
+			)
+		);
+
 		?>
 
 	</div><!-- .container -->

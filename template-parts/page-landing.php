@@ -15,7 +15,7 @@ $custom_header_css = '';
 $intro_style       = '';
 
 if ( has_post_thumbnail() ) {
-    $backgroundImg     = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+	$backgroundImg     = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$intro_style       = ' bg-cover" style="background-image: url(' . esc_url( $backgroundImg[0] ) . ')"';
 	$custom_header_css = 'has-custom-header';
 }
@@ -29,11 +29,11 @@ if ( has_post_thumbnail() ) {
 				<div class="d-md-flex align-items-center">
 					<div class="col-12 col-md-7 text-center text-md-left" style="min-height: 100%; overflow: hidden" >
 						<h1 class="mb-3"><?php the_title(); ?></h1>
-                        <?php if ( has_excerpt() ) : ?>
+						<?php if ( has_excerpt() ) : ?>
 							<p class="mb4 desc-text" id="header-desc-text">
 								<?php echo get_the_excerpt(); ?>
 							</p>
-                        <?php endif; ?>
+						<?php endif; ?>
 					</div>
 					<?php if ( is_active_sidebar( 'sidebar-5' ) ) : ?>
 						<div class="col-12 col-md-5">
@@ -85,19 +85,19 @@ if ( has_post_thumbnail() ) {
 			<div class="row row-layout-choice-home">
 				<section id="main-container" class="<?php echo esc_attr( mynote_main_container_css() ); ?>">
 					<?php
-						if ( get_query_var( 'paged' ) ) {
-							$paged = get_query_var( 'paged' );
-						} elseif ( get_query_var( 'page' ) ) {
-							$paged = get_query_var( 'page' );
-						} else {
-							$paged = 1;
-						}
+					if ( get_query_var( 'paged' ) ) {
+						$paged = get_query_var( 'paged' );
+					} elseif ( get_query_var( 'page' ) ) {
+						$paged = get_query_var( 'page' );
+					} else {
+						$paged = 1;
+					}
 
 						$wp_query = new WP_Query(
-							array( 
-								'post_type'      => 'post', 
-								'posts_per_page' => get_option( 'posts_per_page' ), 
-								'paged'          => $paged 
+							array(
+								'post_type'      => 'post',
+								'posts_per_page' => get_option( 'posts_per_page' ),
+								'paged'          => $paged,
 							)
 						);
 
@@ -107,7 +107,7 @@ if ( has_post_thumbnail() ) {
 						} else {
 							get_template_part( 'template-parts/content', 'none' );
 						}
-					?>
+						?>
 				</section>
 				<?php
 					/**
@@ -120,5 +120,5 @@ if ( has_post_thumbnail() ) {
 			</div>
 		</div>
 	</main>
-    <br class="clearfix" />
+	<br class="clearfix" />
 </div><!-- .data-schema -->
