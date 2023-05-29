@@ -1,0 +1,602 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mynote\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-02 09:03+0000\n"
+"PO-Revision-Date: 2023-05-29 17:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.1; wp-6.2.2"
+
+#: 404.php:20
+msgid "Page not found"
+msgstr "ページが見つかりません"
+
+#: 404.php:28
+msgid "The page you are looking for does not exist or it may have been moved."
+msgstr "探しているページは存在しないか、移動した可能性があります。"
+
+#: 404.php:30
+msgid "Return home?"
+msgstr "ホームに戻りますか？"
+
+#: comments.php:44
+msgid "Comments"
+msgstr "コメント"
+
+#: comments.php:52 inc/template-tags.php:195
+msgid "Previous"
+msgstr "前"
+
+#: comments.php:53 inc/template-tags.php:223
+msgid "Next"
+msgstr "次"
+
+#: comments.php:58
+msgid "Comments are closed."
+msgstr "コメントは閉じられています。"
+
+#. Name of the template
+msgid "Landing Page (full)"
+msgstr "ランディングページ（全）"
+
+#. Name of the template
+msgid "Landing Page (simple)"
+msgstr "ランディングページ（シンプル）"
+
+#: functions.php:138
+msgid "Header Menu"
+msgstr "ヘッダーメニュー"
+
+#: functions.php:139
+msgid "Sidebar Menu"
+msgstr "サイドバーメニュー"
+
+#: functions.php:140
+msgid "Footer Menu"
+msgstr "フッターメニュー"
+
+#: functions.php:141
+msgid "Social Links Menu"
+msgstr "ソーシャルリンクメニュー"
+
+#: functions.php:153
+msgid "Sidebar"
+msgstr "サイドバー"
+
+#: functions.php:155
+msgid "Add widgets here to appear in your sidebar on blog posts."
+msgstr "ここにウィジェットを追加すると、ブログ投稿のサイドバーに表示されます。"
+
+#: functions.php:163 inc/customer/layout.php:56 inc/customer/post-card.php:86
+msgid "Footer"
+msgstr "フッター"
+
+#: functions.php:165
+msgid "Add widgets here to appear in your footer."
+msgstr "ここにウィジェットを追加すると、フッターに表示されます。"
+
+#: functions.php:173
+msgid "Sticky Sidebar"
+msgstr "スティッキーサイドバー"
+
+#: functions.php:175
+msgid "Add widgets here to appear in your sidebar on blog posts and archive pages."
+msgstr "ここにウィジェットを追加すると、ブログ投稿とアーカイブページのサイドバーに表示されます。"
+
+#: functions.php:183
+msgid "Homepage Middle"
+msgstr "ホームページ中央"
+
+#: functions.php:185
+msgid "Add widgets here to appear in your homepage middle section."
+msgstr "ここにウィジェットを追加すると、ホームページの中央部分に表示されます。"
+
+#: functions.php:193
+msgid "Homepage Intro"
+msgstr "ホームページイントロ"
+
+#: functions.php:195
+msgid "Add widgets here to appear in your homepage intro section."
+msgstr "ここにウィジェットを追加すると、ホームページのイントロセクションに表示されます。"
+
+#: functions.php:203
+msgid "Homepage Sidebar"
+msgstr "ホームページサイドバー"
+
+#: functions.php:205
+msgid "Add widgets here to appear in your sidebar on homepage."
+msgstr "ここにウィジェットを追加すると、ホームページのサイドバーに表示されます。"
+
+#: functions.php:213
+msgid "Archive Sidebar"
+msgstr "アーカイブサイドバー"
+
+#: functions.php:215
+msgid "Add widgets here to appear in your sidebar on archive pages."
+msgstr "ここにウィジェットを追加すると、アーカイブページのサイドバーに表示されます。"
+
+#: header.php:59
+msgid "Logo"
+msgstr "ロゴ"
+
+#: header.php:73
+msgid "Toggle navigation"
+msgstr "ナビゲーションを切り替える"
+
+#: loop.php:68 page.php:73 single-product.php:87 single.php:104 template-parts/page/landing-page.php:76
+msgid "Sorry, nothing to display."
+msgstr "申し訳ありません、表示するものがありません。"
+
+#: page.php:56 single-product.php:60 single.php:74 template-parts/page/landing-page.php:66
+msgid "Pages:"
+msgstr "ページ:"
+
+#: page.php:64 single-product.php:70 single.php:84
+msgid "Last modified: "
+msgstr "最終更新: "
+
+#: pagination.php:24
+msgid "Previous page"
+msgstr "前のページ"
+
+#: pagination.php:25
+msgid "Next page"
+msgstr "次のページ"
+
+#: pagination.php:26 inc/template-tags.php:212
+msgid "Page"
+msgstr "ページ"
+
+#: search.php:24
+#, php-format
+msgid "%s Search Results for %s"
+msgstr "%s の検索結果 %s"
+
+#: searchform.php:19
+msgid "To search, type and hit enter."
+msgstr "検索するには、入力してエンターキーを押します。"
+
+#: single-product.php:97 single.php:120
+msgid "Previous Post"
+msgstr "前の投稿"
+
+#: single-product.php:98 single.php:121
+msgid "Next Post"
+msgstr "次の投稿"
+
+#: inc/template-functions.php:76
+msgid "read more"
+msgstr "もっと読む"
+
+#: inc/template-functions.php:148
+msgid "Pingback:"
+msgstr "ピンバック:"
+
+#: inc/template-functions.php:148
+msgid "(Edit)"
+msgstr "(編集)"
+
+#: inc/template-functions.php:189 inc/template-tags.php:516
+msgid "Author"
+msgstr "著者"
+
+#. %s: days
+#: inc/template-functions.php:213
+#, php-format
+msgid "commented %s ago"
+msgstr "%s前にコメントしました"
+
+#: inc/template-functions.php:223
+msgid "Your comment is awaiting moderation."
+msgstr "あなたのコメントは承認待ちです。"
+
+#: inc/template-functions.php:255
+msgid "Send"
+msgstr "送信"
+
+#: inc/template-functions.php:256
+msgid "Write a Reply or Comment"
+msgstr "返信またはコメントを書く"
+
+#: inc/template-functions.php:262
+msgid "Your email address will not be published."
+msgstr "あなたのメールアドレスは公開されません。"
+
+#: inc/template-functions.php:281
+msgid "Name"
+msgstr "名前"
+
+#: inc/template-functions.php:292
+msgid "Email"
+msgstr "メール"
+
+#: inc/template-functions.php:303 inc/customer/navbar.php:53
+msgid "Website"
+msgstr "ウェブサイト"
+
+#: inc/template-tags.php:101 inc/template-tags.php:617
+msgid "Home"
+msgstr "ホーム"
+
+#: inc/template-tags.php:176
+msgid "Page navigation"
+msgstr "ページナビゲーション"
+
+#: inc/template-tags.php:186
+msgid "First Page"
+msgstr "最初のページ"
+
+#: inc/template-tags.php:187
+msgid "First"
+msgstr "最初"
+
+#: inc/template-tags.php:194
+msgid "Previous Page"
+msgstr "前のページ"
+
+#: inc/template-tags.php:205
+msgid "Current Page"
+msgstr "現在のページ"
+
+#: inc/template-tags.php:222
+msgid "Next Page"
+msgstr "次のページ"
+
+#: inc/template-tags.php:230
+msgid "Last Page"
+msgstr "最後のページ"
+
+#: inc/template-tags.php:231
+msgid "Last"
+msgstr "最後"
+
+#: inc/template-tags.php:334
+msgid "Edit"
+msgstr "編集"
+
+#: inc/template-tags.php:375
+msgid "Comment"
+msgstr "コメント"
+
+#: inc/template-tags.php:395
+msgid "Read"
+msgstr "読む"
+
+#: inc/template-tags.php:432
+msgid "Date"
+msgstr "日付"
+
+#: inc/template-tags.php:456
+#, php-format
+msgid "%1$s @ %2$s"
+msgstr "%1$s @ %2$s"
+
+#: inc/template-tags.php:463
+#, php-format
+msgctxt "%s"
+msgid "written %s ago"
+msgstr "%s前に書かれました"
+
+#: inc/template-tags.php:575
+msgid "Copyright"
+msgstr "著作権"
+
+#: inc/template-tags.php:575
+msgid "All rights reserved."
+msgstr "全著作権所有。"
+
+#: inc/template-tags.php:579
+msgid "Theme by"
+msgstr "テーマ提供："
+
+#. Name of the theme
+#: inc/template-tags.php:579
+msgid "Mynote"
+msgstr "Mynote"
+
+#: inc/customer/about.php:18
+msgid "About Mynote Theme"
+msgstr "Mynoteテーマについて"
+
+#: inc/customer/about.php:24
+msgid "Mynote is an open source project on GitHub, any suggestions to improve this theme are welcome. Please visit:"
+msgstr "MynoteはGitHubのオープンソースプロジェクトで、このテーマの改善提案はどんなものでも歓迎されます。訪問してください："
+
+#: inc/customer/about.php:50
+msgid "About"
+msgstr "約"
+
+#: inc/customer/about.php:61
+msgid "RWD"
+msgstr "RWD"
+
+#: inc/customer/about.php:64
+msgid "Mynote is a responsive theme (RWD, responsive web design). However, if you would like to disable RWD, here it is."
+msgstr "Mynoteはレスポンシブなテーマ（RWD、レスポンシブウェブデザイン）です。しかし、RWDを無効にしたい場合は、ここにあります。"
+
+#: inc/customer/homepage.php:31
+msgid "Scrolling down button"
+msgstr "スクロールダウンボタン"
+
+#: inc/customer/homepage.php:34
+msgid "Would you like to display the scrolling down button? (desktop version)"
+msgstr "スクロールダウンボタンを表示しますか？（デスクトップ版）"
+
+#: inc/customer/layout.php:22
+msgid "Layout"
+msgstr "レイアウト"
+
+#: inc/customer/layout.php:32 inc/customer/navbar.php:45
+msgid "Homepage"
+msgstr "ホームページ"
+
+#: inc/customer/layout.php:40
+msgid "Archive"
+msgstr "アーカイブ"
+
+#: inc/customer/layout.php:48
+msgid "Post"
+msgstr "投稿"
+
+#: inc/customer/layout.php:120 inc/customer/layout.php:136 inc/customer/layout.php:186
+msgid "Sidebar Location"
+msgstr "サイドバーの位置"
+
+#: inc/customer/layout.php:124 inc/customer/layout.php:140 inc/customer/layout.php:190
+msgid "Choose a preferred layout for desktop version."
+msgstr "デスクトップ版の好みのレイアウトを選択してください。"
+
+#: inc/customer/layout.php:152 inc/customer/layout.php:169
+msgid "Columns"
+msgstr "列"
+
+#: inc/customer/layout.php:156 inc/customer/layout.php:173
+msgid "Adjust the number of columns per row."
+msgstr "行ごとの列数を調整します。"
+
+#: inc/customer/layout.php:202
+msgid "Social Icon Size"
+msgstr "ソーシャルアイコンのサイズ"
+
+#: inc/customer/layout.php:206
+msgid "Choose a preferred icon size."
+msgstr "好みのアイコンサイズを選択してください。"
+
+#: inc/customer/layout.php:208
+msgid "Small - 32 x 32"
+msgstr "小 - 32 x 32"
+
+#: inc/customer/layout.php:209
+msgid "Medium - 40 x 40"
+msgstr "中 - 40 x 40"
+
+#: inc/customer/layout.php:210
+msgid "Large - 48 x 48"
+msgstr "大 - 48 x 48"
+
+#: inc/customer/layout.php:211
+msgid "Extra large - 64 x 64"
+msgstr "特大 - 64 x 64"
+
+#: inc/customer/layout.php:220
+msgid "Footer Location"
+msgstr "フッターの位置"
+
+#: inc/customer/layout.php:224
+msgid "Choose a preferred layout for footer section."
+msgstr "フッターセクションの好みのレイアウトを選択してください。"
+
+#: inc/customer/navbar.php:35
+msgid "Navbar"
+msgstr "ナビゲーションバー"
+
+#: inc/customer/navbar.php:61
+msgid "Search Bar"
+msgstr "検索バー"
+
+#: inc/customer/navbar.php:181 inc/customer/navbar.php:242 inc/customer/navbar.php:331 inc/customer/progress-bar.php:167
+msgid "Background Color"
+msgstr "背景色"
+
+#: inc/customer/navbar.php:182 inc/customer/navbar.php:195 inc/customer/navbar.php:206 inc/customer/navbar.php:219 inc/customer/navbar.php:232
+msgid "This option is for homepage only."
+msgstr "このオプションはホームページのみに適用されます。"
+
+#: inc/customer/navbar.php:194 inc/customer/navbar.php:254
+msgid "Link Color"
+msgstr "リンクの色"
+
+#: inc/customer/navbar.php:205 inc/customer/navbar.php:264
+msgid "Link Hover Color"
+msgstr "リンクホバーの色"
+
+#: inc/customer/navbar.php:216 inc/customer/navbar.php:274
+msgid "Menu Toggler's Border Color"
+msgstr "メニュートグルのボーダー色"
+
+#: inc/customer/navbar.php:219 inc/customer/navbar.php:232 inc/customer/navbar.php:279 inc/customer/navbar.php:292
+msgid "It is visible only when the screen width is less than 768px."
+msgstr "画面幅が768px未満のときにのみ表示されます。"
+
+#: inc/customer/navbar.php:229 inc/customer/navbar.php:287
+msgid "Menu Toggler's Background Color"
+msgstr "メニュートグルの背景色"
+
+#: inc/customer/navbar.php:300
+msgid "Display a Search Bar"
+msgstr "検索バーを表示する"
+
+#: inc/customer/navbar.php:303
+msgid "Would you like to display a search bar in header navbar area?"
+msgstr "ヘッダーナビゲーションバー領域に検索バーを表示しますか？"
+
+#: inc/customer/navbar.php:311
+msgid "Placeholder Color"
+msgstr "プレースホルダーの色"
+
+#: inc/customer/navbar.php:321
+msgid "Input Text Color"
+msgstr "入力テキストの色"
+
+#: inc/customer/navbar.php:343
+msgid "Size"
+msgstr "サイズ"
+
+#: inc/customer/navbar.php:348 inc/customer/progress-bar.php:156
+msgid "Default"
+msgstr "デフォルト"
+
+#: inc/customer/navbar.php:349
+msgid "Big"
+msgstr "大"
+
+#: inc/customer/post-card.php:26
+msgid "Post Card"
+msgstr "ポストカード"
+
+#: inc/customer/post-card.php:75
+msgid "Header"
+msgstr "ヘッダー"
+
+#: inc/customer/post-card.php:78
+msgid "Would you like to display the header of the post card? (Post thumbnail is located on this section. Choosing No will hide it.)"
+msgstr "ポストカードのヘッダーを表示しますか？（ポストサムネイルはこのセクションに位置しています。Noを選択すると非表示になります。）"
+
+#: inc/customer/post-card.php:89
+msgid "Would you like to display the footer of the post card?"
+msgstr "ポストカードのフッターを表示しますか？"
+
+#: inc/customer/post-card.php:97
+msgid "Border"
+msgstr "ボーダー"
+
+#: inc/customer/post-card.php:100
+msgid "Would you like to display the border of the post card?"
+msgstr "ポストカードのボーダーを表示しますか？"
+
+#: inc/customer/post-card.php:108
+msgid "Gradient Mask"
+msgstr "グラデーションマスク"
+
+#: inc/customer/post-card.php:111
+msgid "Would you like to display the gradient mask on the text?"
+msgstr "テキストにグラデーションマスクを表示しますか？"
+
+#: inc/customer/post-card.php:119
+msgid "Buttons"
+msgstr "ボタン"
+
+#: inc/customer/post-card.php:122
+msgid "Would you like to display the buttons in the post body?"
+msgstr "投稿本文内にボタンを表示しますか？"
+
+#: inc/customer/post-page.php:27
+msgid "Post Page"
+msgstr "投稿ページ"
+
+#: inc/customer/post-page.php:76
+msgid "Breadcrumb"
+msgstr "ブレッドクラム"
+
+#: inc/customer/post-page.php:86
+msgid "Post Author and Date"
+msgstr "投稿者と日付"
+
+#: inc/customer/post-page.php:96
+msgid "Featured Image"
+msgstr "特集画像"
+
+#: inc/customer/post-page.php:106
+msgid "Author Card"
+msgstr "著者カード"
+
+#: inc/customer/post-page.php:116
+msgid "Comment Section"
+msgstr "コメントセクション"
+
+#: inc/customer/progress-bar.php:32
+msgid "Progress Bar"
+msgstr "プログレスバー"
+
+#: inc/customer/progress-bar.php:41
+msgid "Basic Settings"
+msgstr "基本設定"
+
+#: inc/customer/progress-bar.php:42
+msgid "The basic settings of the page progress bar."
+msgstr "ページ進行バーの基本設定"
+
+#: inc/customer/progress-bar.php:50
+msgid "Color"
+msgstr "色"
+
+#: inc/customer/progress-bar.php:51
+msgid "Customize the color pattern of the page progress bar."
+msgstr "ページ進行バーの色パターンをカスタマイズします。"
+
+#: inc/customer/progress-bar.php:128
+msgid "Display Progress Bar"
+msgstr "プログレスバーを表示する"
+
+#: inc/customer/progress-bar.php:131
+msgid "Would you like to display a progress bar while reading?"
+msgstr "読み進める際にプログレスバーを表示しますか？"
+
+#: inc/customer/progress-bar.php:139
+msgid "Display Percentage Number"
+msgstr "パーセンテージ数を表示する"
+
+#: inc/customer/progress-bar.php:142
+msgid "Would you like to display a percentage number on the progress bar?"
+msgstr "プログレスバーにパーセンテージ数を表示しますか？"
+
+#: inc/customer/progress-bar.php:150
+msgid "Color Pattern"
+msgstr "色パターン"
+
+#: inc/customer/progress-bar.php:154
+msgid "Choose a preferred color pattern and apply it to the progress bar."
+msgstr "好みの色パターンを選択し、プログレスバーに適用します。"
+
+#: inc/customer/progress-bar.php:157
+msgid "As same as website menu"
+msgstr "ウェブサイトメニューと同様"
+
+#: inc/customer/progress-bar.php:158
+msgid "Custom"
+msgstr "カスタム"
+
+#: inc/customer/progress-bar.php:179
+msgid "Text Color"
+msgstr "テキストの色"
+
+#: inc/customer/progress-bar.php:189
+msgid "Border Color"
+msgstr "ボーダーの色"
+
+#. Name of the template
+msgid "Landing page"
+msgstr "ランディングページ"
+
+#. Description of the theme
+msgid "Mynote is a responsive, clean, Markdown friendly WordPress blog theme. It is based on Bootstrap 4 and Fontawesome 5. It is suitable for programming, business, technical, professional, niche and any kind of blogging sites. Mynote has landing-page templates so that can your highly customize your homepage, make your website unique and professional."
+msgstr "Mynoteは、レスポンシブでクリーンなMarkdown対応のWordPressブログテーマです。Bootstrap 4とFontawesome 5をベースにしており、プログラミング、ビジネス、テクニカル、専門的なブログ、あらゆる種類のブログサイトに適しています。Mynoteにはランディングページのテンプレートがあり、あなたのホームページを高度にカスタマイズして、あなたのウェブサイトをユニークでプロフェッショナルにすることができます。"
+
+#. URI of the theme
+msgid "https://terryl.in/en/repository/mynote/"
+msgstr "https://terryl.in/en/repository/mynote/"
+
+#. Author of the theme
+msgid "Terry Lin"
+msgstr "テリーリン"
+
+#. Author URI of the theme
+msgid "https://terryl.in"
+msgstr "https://terryl.in"

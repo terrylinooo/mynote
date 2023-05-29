@@ -198,4 +198,6 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 = 2.0.4 =
 
 - Test with PHP 8.2.5 and WordPress 6.2.2
+- Fix widget style for WordPress 6.
 - Fix coding style.
+- Add Japanese translation.

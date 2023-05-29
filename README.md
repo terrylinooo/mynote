@@ -103,6 +103,7 @@ If you would like to customize something by using Mynote, there is a sample read
 ## Translations
 
 - Portuguese (pt_BR) by @mauromascarenhas
+- Japanese (ja_JP) by [@colocal](https://colocal.com/)
 
 ## Author
 
