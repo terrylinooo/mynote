@@ -10,22 +10,44 @@
  * @since 1.0.7
  * @version 1.3.0
  */
-require get_parent_theme_file_path( '/inc/classes/customizer/class-customize-alpha-color.php' );
-require get_parent_theme_file_path( '/inc/classes/customizer/class-customize-image-radio.php' );
-require get_parent_theme_file_path( '/inc/classes/customizer/class-customize-toggle.php' );
-require get_parent_theme_file_path( '/inc/classes/customizer/class-customize-content.php' );
-require get_parent_theme_file_path( '/inc/customer/about.php' );
-require get_parent_theme_file_path( '/inc/customer/homepage.php' );
-require get_parent_theme_file_path( '/inc/customer/navbar.php' );
-require get_parent_theme_file_path( '/inc/customer/progress-bar.php' );
-require get_parent_theme_file_path( '/inc/customer/layout.php' );
-require get_parent_theme_file_path( '/inc/customer/post-card.php' );
-require get_parent_theme_file_path( '/inc/customer/post-page.php' );
 
-add_action( 'customize_register', 'mynote_customize_about' );
-add_action( 'customize_register', 'mynote_customize_homepage' );
-add_action( 'customize_register', 'mynote_customize_layout' );
-add_action( 'customize_register', 'mynote_customize_navbar' );
-add_action( 'customize_register', 'mynote_customize_post_card' );
-add_action( 'customize_register', 'mynote_customize_post_page' );
-add_action( 'customize_register', 'mynote_customize_progress_bar' );
+$includes = array(
+	'/classes/customizer/class-customize-alpha-color-control.php',
+	'/classes/customizer/class-customize-image-radio-control.php',
+	'/classes/customizer/class-customize-toggle-control.php',
+	'/classes/customizer/class-customize-content-control.php',
+	'/customer/about.php',
+	'/customer/homepage.php',
+	'/customer/navbar.php',
+	'/customer/progress-bar.php',
+	'/customer/layout.php',
+	'/customer/post-card.php',
+	'/customer/post-page.php',
+);
+
+foreach ( $includes as $file ) {
+	require get_parent_theme_file_path( '/inc' . $file );
+}
+
+
+/**
+ * Customizer
+ *
+ * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+ * @return void
+ */
+
+$customizer_options = array(
+	'about',
+	'homepage',
+	'layout',
+	'navbar',
+	'post_card',
+	'post_page',
+	'progress_bar',
+);
+
+foreach ( $customizer_options as $customizer_option ) {
+	add_action( 'customize_register', 'mynote_customize_' . $customizer_option );
+}
+

@@ -1,13 +1,13 @@
 === Mynote ===
 Contributors: Terry Lin
 Requires at least: 3.6
-Tested up to: 5.7.0
-Version: 2.0.1
+Tested up to: 6.2.2
+Version: 2.0.4
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, blog, entertainment
 Requires PHP: 5.2.4
-Stable tag: 2.0.1
+Stable tag: 2.0.4
 
 == Description ==
 
@@ -194,3 +194,8 @@ Source: https://stocksnap.io/photo/9XRMMD2VPW
 = 2.0.1 =
 
 - Fix a bug in homepage.
+
+= 2.0.4 =
+
+- Test with PHP 8.2.5 and WordPress 6.2.2
+- Fix coding style.

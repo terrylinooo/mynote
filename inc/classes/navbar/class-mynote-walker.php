@@ -38,10 +38,10 @@ class Mynote_Walker extends Walker_Nav_Menu {
 	 *
 	 * @param string  $output Used to append additional content (passed by reference).
 	 * @param integer $depth  Depth of menu item. Used for padding.
-	 * @param array   $args   An object of wp_nav_menu() arguments.
+	 * @param object   $args   An object of wp_nav_menu() arguments.
 	 * @return void
 	 */
-	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+	public function start_lvl( &$output, $depth = 0, $args = null ) {
 		$output .= '<div class="dropdown-menu">';
 	}
 
@@ -50,10 +50,10 @@ class Mynote_Walker extends Walker_Nav_Menu {
 	 *
 	 * @param string  $output Used to append additional content (passed by reference).
 	 * @param integer $depth  Depth of menu item. Used for padding.
-	 * @param array   $args   An object of wp_nav_menu() arguments.
+	 * @param object  $args   An object of wp_nav_menu() arguments.
 	 * @return void
 	 */
-	public function end_lvl( &$output, $depth = 0, $args = array() ) {
+	public function end_lvl( &$output, $depth = 0, $args = null ) {
 		$output .= '</div>';
 	}
 
@@ -63,11 +63,11 @@ class Mynote_Walker extends Walker_Nav_Menu {
 	 * @param string  $output Used to append additional content (passed by reference).
 	 * @param object  $item   Menu item data object.
 	 * @param integer $depth  Depth of menu item. Used for padding.
-	 * @param array   $args   An object of wp_nav_menu() arguments.
+	 * @param object  $args   An object of wp_nav_menu() arguments.
 	 * @param integer $id     Current item ID.
 	 * @return void
 	 */
-	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
 		$classes      = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[]    = 'menu-item-' . $item->ID;
 		$class_names  = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );

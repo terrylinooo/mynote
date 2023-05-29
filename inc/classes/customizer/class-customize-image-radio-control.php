@@ -50,7 +50,7 @@ class Customize_Image_Radio_Control extends WP_Customize_Control {
 		<ul class="radio-controls">
 			<?php
 			foreach ( $this->choices as $value => $label ) {
-				$class = ( $this->value() == $value ) ? 'radio-img-selected radio-img' : 'radio-img';
+				$class = ( $this->value() === $value ) ? 'radio-img-selected radio-img' : 'radio-img';
 				?>
 				<li>
 					<label>

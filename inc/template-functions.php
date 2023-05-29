@@ -372,7 +372,7 @@ if ( ! function_exists( 'mynote_single_post_script' ) ) {
 			const pageTitle = $( '#post-title' );
 			const pageTitleTop = pageTitle.offset().top;
 			const progressBarContainer = $( '.single-post-title-bar' );
-			const headerNavBrand = $( '.header .navbar-brand' );
+			const headerNavBrand = $( '#mynote-nav-bar' );
 			const progressTitle = $( '#progress-title' );
 			const headerBarContainer = $( '.header .container' );
 

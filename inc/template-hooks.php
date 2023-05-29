@@ -88,7 +88,7 @@ add_action( 'mynote_homepage_middle_sidebar', 'mynote_homepage_middle_sidebar', 
  *
  * @see  mynote_pagination_section()
  */
- add_action( 'mynote_pagination', 'mynote_pagination_section', 10 );
+add_action( 'mynote_pagination', 'mynote_pagination_section', 10 );
 
 /**
  * Post

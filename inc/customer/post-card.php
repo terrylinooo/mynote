@@ -12,7 +12,7 @@
  */
 
 /**
- * Undocumented function
+ * Post card
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  * @return void

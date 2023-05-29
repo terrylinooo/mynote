@@ -12,7 +12,7 @@
  */
 
 /**
- * Undocumented function
+ * Progress bar
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  * @return void
