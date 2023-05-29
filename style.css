@@ -3,10 +3,14 @@
 	Theme Name: Mynote
 	Theme URI: https://terryl.in/en/repository/mynote/
 	Requires at least: 3.6
+<<<<<<< HEAD
 	Tested up to: 6.2.2
+=======
+	Tested up to: 5.7.0
+>>>>>>> develop
 	Requires PHP: 5.2.4
 	Description: Mynote is a responsive, clean, Markdown friendly WordPress blog theme. It is based on Bootstrap 4 and Fontawesome 5. It is suitable for programming, business, technical, professional, niche and any kind of blogging sites. Mynote has landing-page templates so that can your highly customize your homepage, make your website unique and professional.
-	Version: 1.6.3
+	Version: 2.0.3
 	Author: Terry Lin
 	Author URI: https://terryl.in
 	Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, blog, entertainment
@@ -1473,6 +1477,11 @@ nav[data-toggle='toc'] .nav-link.active + ul {
   white-space: nowrap;
   overflow: hidden;
 }
+@media (max-width: 767.98px) {
+  .breadcrumb li:last-child {
+    width: 50%;
+  }
+}
 .breadcrumb i {
   color: #333333;
 }
@@ -1774,6 +1783,10 @@ p > object:only-child {
   .column-control {
     display: none;
   }
+
+  .breadcrumb li:last-child {
+    width: 50% !important;
+  }
 }
 /* 576px - 767.98px */
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -1855,41 +1868,6 @@ p > object:only-child {
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-/* WooCommerce */
-.woocommerce input, .woocommerce button {
-  height: 45px;
-  line-height: 45px;
-  font-size: 1.2rem;
-  border-radius: 4px;
-}
-.woocommerce input[type="number"], .woocommerce select {
-  border: 1px #cccccc solid;
-  border-radius: 4px;
-}
-.woocommerce .entry-summary {
-  font-size: 13px;
-}
-.woocommerce .entry-summary h1, .woocommerce .entry-summary h2, .woocommerce .entry-summary h3, .woocommerce .entry-summary h4, .woocommerce .entry-summary h5, .woocommerce .entry-summary h6 {
-  font-size: 1rem !important;
-  line-height: 170%;
-}
-.woocommerce .entry-summary p {
-  font-size: 13px;
-}
-.woocommerce .entry-summary p.price {
-  font-size: 1.2rem !important;
-  line-height: 175%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.woocommerce .entry-summary .product_meta {
-  border-top: 1px #dddddd solid;
-  padding: 10px;
-  margin: 10px;
-}
-.woocommerce .is-page .post-mynote-buttons, .woocommerce .is-page .modified-date, .woocommerce .is-page .post-meta {
-  display: none !important;
 }
 
 @font-face {

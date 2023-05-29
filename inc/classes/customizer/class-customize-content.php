@@ -16,24 +16,24 @@ class Customize_Content_Control extends WP_Customize_Control {
 	/**
 	 * Define control type.
 	 */
-    public $type = 'content';
+	public $type = 'content';
 
 	/**
 	 * Render the control.
 	 */
-    public function render_content() {
+	public function render_content() {
 
-        if ( isset( $this->label ) && '' !== $this->label ) {
-            echo '<span class="customize-control-title">' . $this->label . '</span>';
-        }
+		if ( isset( $this->label ) && '' !== $this->label ) {
+			echo '<span class="customize-control-title">' . $this->label . '</span>';
+		}
 
-        if ( isset( $this->input_attrs['content'] ) ) {
-            echo $this->input_attrs['content'];
-        }
+		if ( isset( $this->input_attrs['content'] ) ) {
+			echo $this->input_attrs['content'];
+		}
 
-        if ( isset( $this->description ) ) {
-            echo '<span class="description customize-control-description">' . $this->description . '</span>';
-        }
-    }
+		if ( isset( $this->description ) ) {
+			echo '<span class="description customize-control-description">' . $this->description . '</span>';
+		}
+	}
 }
 

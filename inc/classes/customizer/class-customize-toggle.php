@@ -30,14 +30,14 @@ class Customize_Toggle_Control extends WP_Customize_Control {
 	 */
 	public function render_content() {
 		?>
-		
+
 		<div class="toggle-controls">
 			<span class="customize-control-title" style="flex: 2 0 0; vertical-align: middle;">
 				<?php echo esc_html( $this->label ); ?>
 			</span>
 			<input id="mn-<?php echo $this->instance_number; ?>" type="checkbox" class="mn-toggle mn-toggle-blue" value="<?php echo esc_attr( $this->value() ); ?>" 
 			<?php checked( $this->value() ); ?> 
-            <?php $this->link(); ?> />
+			<?php $this->link(); ?> />
 			<label for="mn-<?php echo $this->instance_number; ?>" class="mn-toggle-btn"></label>
 		</div>
 

@@ -8,14 +8,11 @@
  * @package WordPress
  * @subpackage Mynote
  * @since 1.0.0
- * @version 1.0.7
+ * @version 2.0.0
  */
-?>
 
-<?php get_header(); ?>
+get_header();
 
-<?php get_template_part( 'template-parts/page/landing', 'page' ); ?>
-
-<?php
+get_template_part( 'template-parts/page', 'landing' );
 
 get_footer();

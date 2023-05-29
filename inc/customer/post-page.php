@@ -12,9 +12,9 @@
  */
 
 /**
- * Page
+ * Undocumented function
  *
- * @param WP_Customize_Manager $wp_customize
+ * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  * @return void
  */
 function mynote_customize_post_page( $wp_customize ) {
@@ -29,8 +29,8 @@ function mynote_customize_post_page( $wp_customize ) {
 	$wp_customize->add_section(
 		'section_post_page',
 		array(
-			'title'      => __( 'Post Page', 'mynote' ),
-			'priority'   => 10,
+			'title'    => __( 'Post Page', 'mynote' ),
+			'priority' => 10,
 		)
 	);
 
@@ -133,9 +133,9 @@ function mynote_customize_post_page( $wp_customize ) {
 			$wp_customize,
 			'post_page_show_comments_control',
 			array(
-				'label'       => __( 'Comment Section', 'mynote' ),
-				'section'     => 'section_post_page',
-				'settings'    => 'post_page_show_comments',
+				'label'    => __( 'Comment Section', 'mynote' ),
+				'section'  => 'section_post_page',
+				'settings' => 'post_page_show_comments',
 			)
 		)
 	);

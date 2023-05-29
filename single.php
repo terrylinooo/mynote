@@ -18,36 +18,15 @@ get_header();
 <?php mynote_title_progress_bar(); ?>
 
 <div class="data-schema is-single" itemscope itemtype="<?php mynote_article_schema(); ?>">
-	<?php if ( have_posts() ) : ?>
-		<?php while ( have_posts() ) : ?>
-			<?php the_post(); ?>
-			<?php mynote_post_breadcrumb(); ?>
 
-			<div class="single-post-header">
-				<div class="container">
-
-					<h1 id="post-title" itemprop="headline"><?php the_title(); ?></h1>
-					<div class="post-mynote-buttons">
-
-						<?php if ( mynote_is_sidebar() ) : ?>
-							<?php mynote_column_control_button(); ?>
-						<?php endif; ?>
-
-						<?php mynote_edit_button(); ?>
-						<?php mynote_comment_button(); ?>
-					</div><!-- .post-mynote-buttons -->
-
-					<?php if ( mynote_is_post_author_date() ) : ?>
-						<div class="post-meta">
-							<?php mynote_author_posted_date( true ); ?>
-						</div>
-					<?php endif; ?>
-
-				</div><!-- .container -->
-			</div><!-- .single-post-header -->
-
-		<?php endwhile; ?>
-	<?php endif; ?>
+	<?php
+		/**
+		 * Hook: mynote_post_before
+		 *
+		 * @hooked mynote_post_metadata - 10
+		 */
+		do_action( 'mynote_post_before' );
+	?>
 
 	<div class="container">
 		<div class="row row-layout-choice-post">
@@ -64,11 +43,22 @@ get_header();
 							<?php if ( mynote_is_post_featured_image() && has_post_thumbnail() ) : ?>
 								<?php mynote_post_figure(); ?>
 							<?php endif; ?>
-
+	
 							<div itemprop="articleBody">
-								<?php the_content(); ?>
 
 								<?php
+									/**
+									 * Hook: mynote_post_content_before
+									 */
+									do_action( 'mynote_post_content_before' );
+
+									the_content();
+
+									/**
+									 * Hook: mynote_post_content_after
+									 */
+									do_action( 'mynote_post_content_after' );
+
 									wp_link_pages(
 										array(
 											'before' => '<div class="page-links">' . __( 'Pages:', 'mynote' ),
@@ -76,12 +66,13 @@ get_header();
 										)
 									);
 								?>
-							</div>
 
+							</div>
 						</article>
 
 						<section class="modified-date" itemprop="dateModified" content="<?php the_modified_date( 'c' ); ?>">
-							<?php esc_html_e( 'Last modified: ', 'mynote' ); ?><?php the_modified_date(); ?>
+							<?php esc_html_e( 'Last modified: ', 'mynote' ); ?>
+							<?php the_modified_date(); ?>
 						</section>
 
 						<section class="tags">
@@ -95,25 +86,28 @@ get_header();
 						<?php if ( mynote_is_post_comment_section() ) : ?>
 							<?php comments_template(); ?>
 						<?php endif; ?>
-						
+
 					<?php endwhile; ?>
 
 				<?php else : ?>
-
 					<article>
 						<h1><?php esc_html_e( 'Sorry, nothing to display.', 'mynote' ); ?></h1>
 					</article>
-
 				<?php endif; ?>
+
 			</main>
 
-			<?php if ( mynote_is_sidebar() ) : ?>
-				<aside id="aside-container" class="col-lg-4 col-md-4 col-sm-12" role="complementary">
-					<?php get_sidebar(); ?>
-				</aside>
-			<?php endif; ?>
+			<?php
+				/**
+				 * Functions hooked in to mynote_post_sidebar action
+				 *
+				 * @hooked mynote_post_sidebar - 10
+				 */
+				do_action( 'mynote_post_sidebar' );
+			?>
 
 		</div><!-- .row -->
+
 		<?php
 
 		the_post_navigation(
@@ -124,7 +118,16 @@ get_header();
 		);
 
 		?>
+
 	</div><!-- .container -->
+
+	<?php
+		/**
+		 * Hook: mynote_post_after
+		 */
+		do_action( 'mynote_post_after' );
+	?>
+
 </div><!-- .data-schema -->
 
 <?php

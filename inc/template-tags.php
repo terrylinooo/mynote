@@ -10,16 +10,16 @@
  * @since 1.0.7
  */
 
-/**
- * The follwing methods could be defined in child theme:
- *
- * - mynote_read_button
- * - mynote_edit_button
- * - mynote_comment_button
- * - mynote_author_posted_date
- * - mynote_author_card
- * - mynote_site_info
- */
+ /**
+  * The follwing methods could be defined in child theme:
+  *
+  * - mynote_read_button
+  * - mynote_edit_button
+  * - mynote_comment_button
+  * - mynote_author_posted_date
+  * - mynote_author_card
+  * - mynote_site_info
+  */
 
 /**
  * Mynote navigation.
@@ -111,19 +111,17 @@ function mynote_post_thumbnail() {
 	$size = 'mynote-thumbnail';
 
 	if ( is_home() || is_front_page() ) {
-		$option_home_cols = get_theme_mod( 'layout_cols_per_row_home' );
-
-		if ( '2' === $option_home_cols ) {
+		if ( '2' === get_theme_mod( 'layout_cols_per_row_home' ) ) {
 			$size = 'mynote-medium';
-		} elseif ( '1' === $option_home_cols ) {
+		}
+		if ( '1' === get_theme_mod( 'layout_cols_per_row_home' ) ) {
 			$size = 'post-large';
 		}
 	} else {
-		$option_archive_cols = get_theme_mod( 'layout_cols_per_row_archive' );
-
-		if ( '2' === $option_archive_cols ) {
+		if ( '2' === get_theme_mod( 'layout_cols_per_row_archive' ) ) {
 			$size = 'mynote-medium';
-		} elseif ( '1' === $option_archive_cols ) {
+		}
+		if ( '1' === get_theme_mod( 'layout_cols_per_row_archive' ) ) {
 			$size = 'post-large';
 		}
 	}
@@ -437,7 +435,7 @@ function mynote_posted_date_button( $show_label = false ) {
 			<div class="btn">
 				<i class="far fa-calendar-alt"></i> ' . ( ( $show_label ) ? esc_html__( 'Date', 'mynote' ) : '' ) . '
 			</div>
-			<div class="count-box">' . wp_date( 'Y-m-d', get_the_time( 'U' ) ) . '</div>
+			<div class="count-box">' . date( 'Y-m-d', get_the_time( 'U' ) ) . '</div>
 		</div>
 	';
 }
@@ -461,7 +459,6 @@ if ( ! function_exists( 'mynote_author_posted_date' ) ) {
 			'<a href="%1$s" title="written %2$s" class="author-link">%3$s</a> <time itemprop="datePublished" datetime="%4$s">%5$s</time>',
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			sprintf(
-				// translators: %1$s: post date, %2$s: post time.
 				esc_html__( '%1$s @ %2$s', 'mynote' ),
 				esc_html( get_the_date() ),
 				esc_attr( get_the_time() )
@@ -469,12 +466,8 @@ if ( ! function_exists( 'mynote_author_posted_date' ) ) {
 			get_the_author(),
 			get_the_time( 'c' ),
 			sprintf(
-				// translators: %s: post date.
 				_x( 'written %s ago', '%s', 'mynote' ),
-				human_time_diff(
-					get_the_time( 'U' ),
-					current_time( 'timestamp' )
-				)
+				human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
 			)
 		);
 
@@ -585,7 +578,7 @@ function mynote_category_labels() {
  */
 if ( ! function_exists( 'mynote_site_info' ) ) {
 	function mynote_site_info() {
-		echo esc_html__( 'Copyright', 'mynote' ) . ' &copy; ' . wp_date( 'Y' ) . ' <strong><a href="' . esc_url( get_site_url() ) . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' . esc_html__( 'All rights reserved.', 'mynote' ) . ' ';
+		echo esc_html__( 'Copyright', 'mynote' ) . ' &copy; ' . date( 'Y' ) . ' <strong><a href="' . esc_url( get_site_url() ) . '">' . get_bloginfo( 'name' ) . '</a></strong>. ' . esc_html__( 'All rights reserved.', 'mynote' ) . ' ';
 
 		// Keeping the theme credit link encourages me to improve this theme better. Thank you.
 		$theme_link = 'https://terryl.in/';
@@ -716,17 +709,17 @@ function mynote_layout_columns() {
 	$css_class_string = 'col-sm-4';
 
 	if ( is_home() || is_front_page() ) {
-		$home_layout_cols = get_theme_mod( 'layout_cols_per_row_home' );
-		if ( '2' === $home_layout_cols ) {
+		if ( '2' === get_theme_mod( 'layout_cols_per_row_home' ) ) {
 			$css_class_string = 'col-sm-6';
-		} elseif ( '1' === $home_layout_cols ) {
+		}
+		if ( '1' === get_theme_mod( 'layout_cols_per_row_home' ) ) {
 			$css_class_string = 'col-sm-12';
 		}
 	} else {
-		$archive_layout_cols = get_theme_mod( 'layout_cols_per_row_home' );
-		if ( '2' === $archive_layout_cols ) {
+		if ( '2' === get_theme_mod( 'layout_cols_per_row_archive' ) ) {
 			$css_class_string = 'col-sm-6';
-		} elseif ( '1' === $archive_layout_cols ) {
+		}
+		if ( '1' === get_theme_mod( 'layout_cols_per_row_archive' ) ) {
 			$css_class_string = 'col-sm-12';
 		}
 	}
@@ -851,4 +844,25 @@ function mynote_is_responsive() {
 		return false;
 	}
 	return true;
+}
+
+/**
+ * Get body class
+ *
+ * @return string
+ */
+function mynote_body_class() {
+	$addon_body_class = '';
+
+	if ( '' !== mynote_site_icon() ) {
+		$addon_body_class .= 'has-site-icon';
+	}
+
+	if ( '' !== mynote_site_logo() ) {
+		if ( ! empty( $addon_body_class ) ) {
+			$addon_body_class .= ' ';
+		}
+		$addon_body_class .= 'has-site-logo';
+	}
+	return $addon_body_class;
 }

@@ -31,6 +31,8 @@ A responsive, clean, Markdown friendly WordPress blog theme. It is based on Boot
   - Footer
   - Homepage intro
   - Homepage middle
+- Widgets:
+  - Sticky TOC
 - Menu areas:
   - Header
   - Sidebar
@@ -50,6 +52,48 @@ A responsive, clean, Markdown friendly WordPress blog theme. It is based on Boot
 
 `#1` CJK: Chinese, Japanese, Koreanese.
 `#2`, `#3` Featured image will be displayed as header cover.
+
+## Built-in Hooks
+
+- mynote_head
+- mynote_header_before
+- mynote_header
+- mynote_header_after
+- mynote_site_wrapper_before
+- mynote_site_wrapper_after
+- mynote_footer_before
+- mynote_footer
+- mynote_footer_after
+- mynote_homepage_promotion
+- mynote_homepage_sidebar
+- mynote_homepage_middle_sidebar
+- mynote_loop_before
+- mynote_loop_after
+- mynote_pagination_before
+- mynote_pagination
+- mynote_pagination_after
+- mynote_post_before
+- mynote_post_content_before
+- mynote_post_content_after
+- mynote_post_after
+- mynote_post_sidebar
+- mynote_post_comment_before
+- mynote_post_comment_after
+- mynote_page_before
+- mynote_page_content_before
+- mynote_page_content_after
+- mynote_page_after
+- mynote_archive_sidebar
+- mynote_archive_headline_after
+- mynote_archive_loop_before
+- mynote_archive_loop_after
+- mynote_category_headline_after
+- mynote_tag_headline_after
+- mynote_search_headline_after
+
+## Child Theme
+
+If you would like to customize something by using Mynote, there is a sample ready for you, just copy `mynote-child` into your WordPress theme directory, and then activate the `Mynote Child` theme in the control panel.
 
 ## Dependencies
 
@@ -72,8 +116,3 @@ Terry L.
 ## License
 
 GPLv3 (or later)
-
-
-
-
-

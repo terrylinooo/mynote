@@ -12,9 +12,9 @@
  */
 
 /**
- * Post card
+ * Undocumented function
  *
- * @param WP_Customize_Manager $wp_customize
+ * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  * @return void
  */
 function mynote_customize_post_card( $wp_customize ) {
@@ -29,8 +29,8 @@ function mynote_customize_post_card( $wp_customize ) {
 	$wp_customize->add_section(
 		'section_post_card',
 		array(
-			'title'      => __( 'Post Card', 'mynote' ),
-			'priority'   => 10,
+			'title'    => __( 'Post Card', 'mynote' ),
+			'priority' => 10,
 		)
 	);
 

@@ -12,9 +12,9 @@
  */
 
 /**
- * Progress bar
+ * Undocumented function
  *
- * @param WP_Customize_Manager $wp_customize
+ * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  * @return void
  */
 function mynote_customize_progress_bar( $wp_customize ) {
@@ -90,7 +90,6 @@ function mynote_customize_progress_bar( $wp_customize ) {
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
-
 	$wp_customize->add_setting(
 		'progressbar_percentage_bg_color',
 		array(
