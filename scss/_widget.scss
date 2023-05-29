@@ -8,10 +8,6 @@
         padding: 10px;
         margin: 0 0 10px 0;
 
-        .search-form {
-
-        }
-
         .search-field-wrapper {
             padding: 10px;
         }
@@ -123,4 +119,25 @@
     .search-field {
         border-right: 0;
     }
+}
+
+h2 {
+    &.wp-block-heading {
+        font-size: 1.25rem;
+    }
+}
+
+.wp-block-search {
+    &__input {
+        border: 1px #dddddd solid;
+        border-radius: 4px;
+    }
+
+    &__button {
+        border-radius: 4px;
+    }
+}
+
+.wp-block-latest-comments {
+    padding-left: 0;
 }

@@ -954,6 +954,22 @@ article figcaption {
   border-right: 0;
 }
 
+h2.wp-block-heading {
+  font-size: 1.25rem;
+}
+
+.wp-block-search__input {
+  border: 1px #dddddd solid;
+  border-radius: 4px;
+}
+.wp-block-search__button {
+  border-radius: 4px;
+}
+
+.wp-block-latest-comments {
+  padding-left: 0;
+}
+
 .btn-counter {
   display: inline-block;
 }
@@ -1778,10 +1794,6 @@ p > object:only-child {
 
   .column-control {
     display: none;
-  }
-
-  .breadcrumb li:last-child {
-    width: 50% !important;
   }
 }
 /* 576px - 767.98px */
