@@ -49,7 +49,7 @@ if ( ! function_exists( 'mynote_header_navigation' ) ) {
 			<nav class="navbar navbar-expand-lg navbar-dark <?php echo $addon_navbar_class; ?>" role="navigation">
 				<?php if ( $is_brand_url ) : ?>
 					<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>">
-						<img src="<?php echo esc_url( $site_brand_url ); ?>" alt="<?php esc_attr_e( 'Logo', 'mynote' ); ?>" class="logo-img">
+						<img src="<?php echo esc_url( $site_brand_url ); ?>" alt="<?php esc_attr_e( 'Logo', 'mynote' ); ?>" class="logo-img" />
 					</a>
 				<?php endif; ?>
 

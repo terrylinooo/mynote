@@ -395,7 +395,6 @@ if ( ! function_exists( 'mynote_single_post_script' ) ) {
 				if ( doc.scrollTop() > headerNavBrand.height() ) {
 					//headerBarContainer.fadeOut( 800 );
 					progressTitle.html( pageTitle.html() );
-					progressBarContainer.find( '.navbar-brand' ).html( headerNavBrand.html() );
 					progressBarContainer.fadeIn( 100 );
 					progressBarContainer.addClass( 'fixed-top' );
 					progressBarContainer.addClass( 'slide-down' );

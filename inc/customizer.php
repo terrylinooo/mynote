@@ -50,4 +50,3 @@ $customizer_options = array(
 foreach ( $customizer_options as $customizer_option ) {
 	add_action( 'customize_register', 'mynote_customize_' . $customizer_option );
 }
-

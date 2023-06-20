@@ -100,4 +100,3 @@ function mynote_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	}
 	return $item_output;
 }
-

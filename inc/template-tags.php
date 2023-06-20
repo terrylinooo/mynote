@@ -277,7 +277,6 @@ function mynote_title_progress_bar() {
 		<div class="single-post-title-bar clear" role="banner">
 			<div class="container">
 				<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
-					<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>"></a>
 					<div id="progress-title"></div>
 				</nav>
 			</div>
