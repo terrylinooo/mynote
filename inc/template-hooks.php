@@ -148,7 +148,6 @@ add_action( 'get_header', 'mynote_enable_threaded_comments' );
 add_filter( 'the_category', 'mynote_remove_invalid_rel_for_category' );
 add_filter( 'body_class', 'mynote_add_slug_to_body_class' );
 add_filter( 'excerpt_more', 'mynote_read_more' );
-add_filter( 'post_thumbnail_html', 'mynote_remove_thumbnail_dimensions', 10 );
 add_filter( 'avatar_defaults', 'mynote_custom_gravatar' );
 add_filter( 'comment_form_defaults', 'mynote_comment_form' );
 add_filter( 'comment_form_default_fields', 'mynote_comment_fileds' );

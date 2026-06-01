@@ -4,6 +4,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     default-mysql-client \
     git \
+    libfreetype6-dev \
     libjpeg-dev \
     libonig-dev \
     libpng-dev \
@@ -11,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     unzip \
     zip \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd mysqli pdo pdo_mysql zip
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \

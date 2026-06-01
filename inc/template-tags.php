@@ -129,7 +129,7 @@ function mynote_post_thumbnail() {
 	the_post_thumbnail(
 		$size,
 		array(
-			'class' => 'card-img-top',
+			'class' => 'card-img-top img-fluid',
 			'alt'   => get_the_title(),
 		)
 	);
