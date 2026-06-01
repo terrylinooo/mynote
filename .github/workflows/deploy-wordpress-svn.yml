@@ -128,9 +128,17 @@ jobs:
           VERSION: ${{ steps.release.outputs.version }}
         run: |
           set -euo pipefail
-          svn checkout --depth immediates "${SVN_URL}" svn
-          svn update svn/trunk
-          svn update --depth immediates svn/tags
+          svn checkout "${SVN_URL}" svn
+
+          if [[ ! -d svn/trunk ]]; then
+            mkdir -p svn/trunk
+            svn add svn/trunk
+          fi
+
+          if [[ ! -d svn/tags ]]; then
+            mkdir -p svn/tags
+            svn add svn/tags
+          fi
 
           if svn info "svn/tags/${VERSION}" >/dev/null 2>&1; then
             if [[ "${{ inputs.overwrite_existing_tag }}" != "true" ]]; then
