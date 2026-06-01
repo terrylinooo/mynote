@@ -74,11 +74,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RAW_TAG: ${{ steps.release.outputs.raw_tag }}
+          REPOSITORY: ${{ github.repository }}
           VERSION: ${{ steps.release.outputs.version }}
         run: |
           set -euo pipefail
           mkdir -p dist package
           gh release download "${RAW_TAG}" \
+            --repo "${REPOSITORY}" \
             --pattern "${THEME_SLUG}-${VERSION}.zip" \
             --dir dist
 
