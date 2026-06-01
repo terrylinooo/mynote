@@ -1,0 +1,48 @@
+name: Test
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Docker Compose
+        uses: KengoTODA/actions-setup-docker-compose@v1
+        if: ${{ env.ACT }}
+        with:
+          version: '2.14.2'
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache PHP packages
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Install PHP dependencies
+        run: docker compose run --rm wordpress composer install
+
+      - name: Validate Composer config
+        run: docker compose run --rm wordpress composer validate --strict
+
+      - name: Run PHP Code Sniffer
+        run: docker compose run --rm wordpress make phpcs
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install JS dependencies
+        run: npm ci
+
+      - name: Build CSS
+        run: npm run build

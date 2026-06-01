@@ -1,16 +1,16 @@
 /**
  * Alpha Color Picker CSS
  */
-.customize-control-alpha-color .wp-picker-container {
-  max-width: 257px;
-}
 .customize-control-alpha-color .wp-picker-container .iris-picker {
   border-bottom: none;
+}
+.customize-control-alpha-color .wp-picker-container {
+  max-width: 257px;
 }
 .customize-control-alpha-color .wp-picker-open + .wp-picker-input-wrap {
   width: 100%;
 }
-.customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.alpha-color-control {
+.customize-control-alpha-color .wp-picker-input-wrap input[type=text].wp-color-picker.alpha-color-control {
   float: left;
   width: 195px;
 }
@@ -52,7 +52,7 @@
   text-align: center;
   margin: 0 auto;
   width: 88%;
-  width: calc( 100% - 28px );
+  width: calc(100% - 28px);
 }
 .alpha-color-picker-container .ui-slider-handle, .alpha-color-picker-container .ui-widget-content .ui-state-default {
   color: #777;
@@ -104,12 +104,12 @@
 }
 
 @media only screen and (max-width: 782px) {
-  .customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.alpha-color-control {
+  .customize-control-alpha-color .wp-picker-input-wrap input[type=text].wp-color-picker.alpha-color-control {
     width: 184px;
   }
 }
 @media only screen and (max-width: 640px) {
-  .customize-control-alpha-color .wp-picker-input-wrap input[type="text"].wp-color-picker.alpha-color-control {
+  .customize-control-alpha-color .wp-picker-input-wrap input[type=text].wp-color-picker.alpha-color-control {
     width: 172px;
     height: 33px;
   }

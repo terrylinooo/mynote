@@ -1,0 +1,13 @@
+{
+  "name": "mynote",
+  "private": true,
+  "packageManager": "npm@10.8.2",
+  "scripts": {
+    "build": "npm run build:css",
+    "build:css": "sass scss/style.scss style.css --style=expanded --no-source-map --silence-deprecation=import,global-builtin,if-function,color-functions && sass scss/editor-style.scss editor-style.css --style=expanded --no-source-map --silence-deprecation=import,global-builtin,if-function,color-functions && sass inc/assets/scss/mynote-alpha-color-picker.scss inc/assets/css/mynote-alpha-color-picker.css --style=expanded --no-source-map && sass inc/assets/scss/mynote-image-radio.scss inc/assets/css/mynote-image-radio.css --style=expanded --no-source-map && sass inc/assets/scss/mynote-toggle.scss inc/assets/css/mynote-toggle.css --style=expanded --no-source-map",
+    "watch:css": "sass --watch scss/style.scss:style.css scss/editor-style.scss:editor-style.css inc/assets/scss/mynote-alpha-color-picker.scss:inc/assets/css/mynote-alpha-color-picker.css inc/assets/scss/mynote-image-radio.scss:inc/assets/css/mynote-image-radio.css inc/assets/scss/mynote-toggle.scss:inc/assets/css/mynote-toggle.css --style=expanded --no-source-map --silence-deprecation=import,global-builtin,if-function,color-functions"
+  },
+  "devDependencies": {
+    "sass": "^1.94.0"
+  }
+}
