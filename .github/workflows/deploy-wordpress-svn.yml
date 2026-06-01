@@ -130,25 +130,15 @@ jobs:
           set -euo pipefail
           svn checkout "${SVN_URL}" svn
 
-          if [[ ! -d svn/trunk ]]; then
-            mkdir -p svn/trunk
-            svn add svn/trunk
-          fi
-
-          if [[ ! -d svn/tags ]]; then
-            mkdir -p svn/tags
-            svn add svn/tags
-          fi
-
-          if svn info "svn/tags/${VERSION}" >/dev/null 2>&1; then
+          if svn info "svn/${VERSION}" >/dev/null 2>&1; then
             if [[ "${{ inputs.overwrite_existing_tag }}" != "true" ]]; then
-              echo "SVN tag ${VERSION} already exists. Re-run with overwrite_existing_tag=true to replace it."
+              echo "SVN version directory ${VERSION} already exists. Re-run with overwrite_existing_tag=true to replace it."
               exit 1
             fi
-            svn update "svn/tags/${VERSION}"
+            svn update "svn/${VERSION}"
           else
-            mkdir -p "svn/tags/${VERSION}"
-            svn add "svn/tags/${VERSION}"
+            mkdir -p "svn/${VERSION}"
+            svn add "svn/${VERSION}"
           fi
 
       - name: Sync release package into SVN
@@ -156,11 +146,10 @@ jobs:
           VERSION: ${{ steps.release.outputs.version }}
         run: |
           set -euo pipefail
-          rsync -a --delete "package/${THEME_SLUG}/" svn/trunk/
-          rsync -a --delete "package/${THEME_SLUG}/" "svn/tags/${VERSION}/"
+          rsync -a --delete "package/${THEME_SLUG}/" "svn/${VERSION}/"
 
           cd svn
-          svn add --force trunk "tags/${VERSION}"
+          svn add --force "${VERSION}"
 
           svn status | while IFS= read -r line; do
             status="${line:0:1}"
