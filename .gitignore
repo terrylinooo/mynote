@@ -1,5 +1,12 @@
 .DS_Store
 *.rej
+*.log
+.phpcs-cache
+.phpunit.result.cache
+node_modules/
+vendor/
+wp-content/
+.pnpm-store
 
 # IDE Files
 #-------------------------

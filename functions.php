@@ -24,6 +24,15 @@ if ( ! function_exists( 'mynote_setup_theme' ) ) {
 		// Enables post and comment RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
+		// Add block editor and block-template compatibility for modern WordPress.
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'custom-line-height' );
+		add_theme_support( 'custom-spacing' );
+		add_theme_support( 'custom-units' );
+		add_theme_support( 'editor-styles' );
+		add_theme_support( 'responsive-embeds' );
+		add_theme_support( 'wp-block-styles' );
+
 		// Custom Thumbnail Size call using the_post_thumbnail( 'mynote-thumbnail' ); .
 		add_image_size( 'mynote-thumbnail', 360, 240, true );
 		add_image_size( 'mynote-medium', 600, 400, true );

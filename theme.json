@@ -1,0 +1,70 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"color": {
+			"custom": true,
+			"customDuotone": true,
+			"customGradient": true,
+			"defaultDuotone": true,
+			"defaultGradients": true,
+			"defaultPalette": true,
+			"palette": [
+				{
+					"color": "#04a4cc",
+					"name": "Mynote Blue",
+					"slug": "mynote-blue"
+				},
+				{
+					"color": "#24292e",
+					"name": "GitHub Dark",
+					"slug": "github-dark"
+				},
+				{
+					"color": "#586069",
+					"name": "GitHub Muted",
+					"slug": "github-muted"
+				},
+				{
+					"color": "#fafbfc",
+					"name": "GitHub Canvas",
+					"slug": "github-canvas"
+				}
+			]
+		},
+		"layout": {
+			"contentSize": "1140px",
+			"wideSize": "1320px"
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true,
+			"units": [
+				"px",
+				"em",
+				"rem",
+				"%",
+				"vw",
+				"vh"
+			]
+		},
+		"typography": {
+			"customFontSize": true,
+			"dropCap": true,
+			"fontFamilies": [
+				{
+					"fontFamily": "\"Roboto\", \"-apple-system\", \"BlinkMacSystemFont\", \"Helvetica Neue\", \"Segoe UI\", sans-serif",
+					"name": "Mynote Sans",
+					"slug": "mynote-sans"
+				}
+			],
+			"lineHeight": true
+		}
+	},
+	"styles": {
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--mynote-sans)"
+		}
+	}
+}

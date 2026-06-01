@@ -154,7 +154,7 @@ body input {
   margin: 0;
   overflow: visible;
 }
-body [type="checkbox"] {
+body [type=checkbox] {
   box-sizing: border-box;
   padding: 0;
 }

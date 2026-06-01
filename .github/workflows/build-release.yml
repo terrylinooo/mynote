@@ -1,0 +1,110 @@
+name: Build and Deploy
+
+on:
+  release:
+    types: [published]
+
+env:
+  THEME_SLUG: mynote
+  THEME_STYLESHEET: style.css
+  THEME_README: README.txt
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve release version
+        id: version
+        run: |
+          set -euo pipefail
+          raw_tag="${{ github.event.release.tag_name }}"
+          version="${raw_tag#v}"
+          if [[ ! "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[A-Za-z]+[0-9]*)?$ ]]; then
+            echo "Release tag must be a semantic version, optionally with prerelease suffix like 2.0.3-rc1, and may use a v prefix. Got: ${raw_tag}"
+            exit 1
+          fi
+          echo "tag=${version}" >> "$GITHUB_OUTPUT"
+          echo "Using release tag: ${raw_tag}"
+          echo "Resolved theme version: ${version}"
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer
+
+      - name: Install PHP dependencies
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install JS dependencies
+        run: npm ci
+
+      - name: Build CSS
+        run: npm run build
+
+      - name: Inject version from release tag
+        run: |
+          set -euo pipefail
+          version="${{ steps.version.outputs.tag }}"
+          sed -Ei "s/^([[:space:]]*Version:[[:space:]]*).*/\1${version}/" "${THEME_STYLESHEET}"
+          sed -Ei "s/^(Version:[[:space:]]*).*/\1${version}/" "${THEME_README}"
+          sed -Ei "s/^(Stable tag:[[:space:]]*).*/\1${version}/" "${THEME_README}"
+
+      - name: Assemble release directory
+        run: |
+          set -euo pipefail
+          rm -rf .release-build .release-zip
+          mkdir -p ".release-build/${THEME_SLUG}"
+          rsync -a ./ ".release-build/${THEME_SLUG}/" \
+            --exclude ".git/" \
+            --exclude ".github/" \
+            --exclude ".docker/" \
+            --exclude ".release-build/" \
+            --exclude ".release-zip/" \
+            --exclude ".gitignore" \
+            --exclude "composer.json" \
+            --exclude "composer.lock" \
+            --exclude "Dockerfile" \
+            --exclude "docker-compose.yml" \
+            --exclude "Makefile" \
+            --exclude "node_modules/" \
+            --exclude "package.json" \
+            --exclude "package-lock.json" \
+            --exclude "phpcs.xml" \
+            --exclude "router.php" \
+            --exclude "vendor/" \
+            --exclude "wp-content/" \
+            --exclude ".DS_Store" \
+            --exclude "*.log"
+
+      - name: Create release zip
+        id: pack
+        run: |
+          set -euo pipefail
+          zip_path="$GITHUB_WORKSPACE/${THEME_SLUG}-${{ steps.version.outputs.tag }}.zip"
+          rm -f "${zip_path}"
+          (
+            cd .release-build
+            zip -rq "${zip_path}" "${THEME_SLUG}"
+          )
+          echo "zip_path=${zip_path}" >> "$GITHUB_OUTPUT"
+
+      - name: Attach zip to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          files: ${{ steps.pack.outputs.zip_path }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

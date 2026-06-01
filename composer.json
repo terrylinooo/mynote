@@ -1,5 +1,6 @@
 {
     "name": "terrylinooo/mynote",
+    "type": "wordpress-theme",
     "description": "A WordPress theme for developers and programmers.",
     "keywords": ["wordpress-theme", "wordpress", "bootstrap-theme"],
     "homepage": "https://github.com/terrylinooo/githuber-md",
@@ -13,5 +14,20 @@
     ],
     "require": {
         "php": ">=5.3"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "wp-coding-standards/wpcs": "^3.2"
+    },
+    "scripts": {
+        "phpcs": "php -d xdebug.mode=off vendor/bin/phpcs --parallel=20",
+        "phpcbf": "php -d xdebug.mode=off vendor/bin/phpcbf"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true
     }
 }
