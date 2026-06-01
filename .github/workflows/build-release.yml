@@ -84,6 +84,7 @@ jobs:
             --exclude "package-lock.json" \
             --exclude "phpcs.xml" \
             --exclude "router.php" \
+            --exclude "scss/" \
             --exclude "vendor/" \
             --exclude "wp-content/" \
             --exclude ".DS_Store" \
