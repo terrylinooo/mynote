@@ -1,0 +1,185 @@
+name: Deploy to WordPress.org SVN
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Release tag to deploy. Leave empty to deploy the latest stable GitHub Release.'
+        required: false
+        type: string
+      overwrite_existing_tag:
+        description: 'Overwrite the matching SVN tag if it already exists.'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  THEME_SLUG: mynote
+  SVN_URL: https://themes.svn.wordpress.org/mynote
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install deployment tools
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y jq rsync subversion unzip
+
+      - name: Resolve stable release
+        id: release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_TAG: ${{ inputs.release_tag }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          if [[ -n "${INPUT_TAG}" ]]; then
+            raw_tag="${INPUT_TAG}"
+          else
+            raw_tag="$(gh api "repos/${REPOSITORY}/releases/latest" --jq '.tag_name')"
+          fi
+
+          release_json="$(gh api "repos/${REPOSITORY}/releases/tags/${raw_tag}")"
+          is_draft="$(jq -r '.draft' <<< "${release_json}")"
+          is_prerelease="$(jq -r '.prerelease' <<< "${release_json}")"
+          version="${raw_tag#v}"
+
+          if [[ "${is_draft}" != "false" ]]; then
+            echo "Refusing to deploy draft release: ${raw_tag}"
+            exit 1
+          fi
+
+          if [[ "${is_prerelease}" != "false" ]]; then
+            echo "Refusing to deploy prerelease: ${raw_tag}"
+            exit 1
+          fi
+
+          if [[ ! "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "WordPress.org SVN deploy only accepts stable semantic versions like 2.0.3. Got: ${raw_tag}"
+            exit 1
+          fi
+
+          echo "raw_tag=${raw_tag}" >> "${GITHUB_OUTPUT}"
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+          echo "Deploying stable release ${raw_tag} as version ${version}"
+
+      - name: Download release zip
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RAW_TAG: ${{ steps.release.outputs.raw_tag }}
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          set -euo pipefail
+          mkdir -p dist package
+          gh release download "${RAW_TAG}" \
+            --pattern "${THEME_SLUG}-${VERSION}.zip" \
+            --dir dist
+
+          zip_path="dist/${THEME_SLUG}-${VERSION}.zip"
+          if [[ ! -f "${zip_path}" ]]; then
+            echo "Release asset not found: ${zip_path}"
+            exit 1
+          fi
+
+          unzip -q "${zip_path}" -d package
+          test -f "package/${THEME_SLUG}/style.css"
+          test -f "package/${THEME_SLUG}/README.txt"
+
+      - name: Validate release package version
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          set -euo pipefail
+
+          style_version="$(awk -F: '/^[[:space:]]*Version:/ { gsub(/^[[:space:]]+|[[:space:]]+$/, "", $2); print $2; exit }' "package/${THEME_SLUG}/style.css")"
+          readme_version="$(awk -F: '/^Version:/ { gsub(/^[[:space:]]+|[[:space:]]+$/, "", $2); print $2; exit }' "package/${THEME_SLUG}/README.txt")"
+          stable_tag="$(awk -F: '/^Stable tag:/ { gsub(/^[[:space:]]+|[[:space:]]+$/, "", $2); print $2; exit }' "package/${THEME_SLUG}/README.txt")"
+
+          if [[ "${style_version}" != "${VERSION}" ]]; then
+            echo "style.css Version must be ${VERSION}; got ${style_version}"
+            exit 1
+          fi
+
+          if [[ "${readme_version}" != "${VERSION}" ]]; then
+            echo "README.txt Version must be ${VERSION}; got ${readme_version}"
+            exit 1
+          fi
+
+          if [[ "${stable_tag}" != "${VERSION}" ]]; then
+            echo "README.txt Stable tag must be ${VERSION}; got ${stable_tag}"
+            exit 1
+          fi
+
+      - name: Checkout WordPress.org SVN
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          set -euo pipefail
+          svn checkout --depth immediates "${SVN_URL}" svn
+          svn update svn/trunk
+          svn update --depth immediates svn/tags
+
+          if svn info "svn/tags/${VERSION}" >/dev/null 2>&1; then
+            if [[ "${{ inputs.overwrite_existing_tag }}" != "true" ]]; then
+              echo "SVN tag ${VERSION} already exists. Re-run with overwrite_existing_tag=true to replace it."
+              exit 1
+            fi
+            svn update "svn/tags/${VERSION}"
+          else
+            mkdir -p "svn/tags/${VERSION}"
+            svn add "svn/tags/${VERSION}"
+          fi
+
+      - name: Sync release package into SVN
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          set -euo pipefail
+          rsync -a --delete "package/${THEME_SLUG}/" svn/trunk/
+          rsync -a --delete "package/${THEME_SLUG}/" "svn/tags/${VERSION}/"
+
+          cd svn
+          svn add --force trunk "tags/${VERSION}"
+
+          svn status | while IFS= read -r line; do
+            status="${line:0:1}"
+            path="${line:8}"
+            if [[ "${status}" == "!" ]]; then
+              svn rm "${path}"
+            fi
+          done
+
+      - name: Commit to WordPress.org SVN
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+          WPORG_USERNAME: ${{ secrets.WPORG_USERNAME }}
+          WPORG_PASSWORD: ${{ secrets.WPORG_PASSWORD }}
+        run: |
+          set -euo pipefail
+
+          if [[ -z "${WPORG_USERNAME}" || -z "${WPORG_PASSWORD}" ]]; then
+            echo "Missing WPORG_USERNAME or WPORG_PASSWORD secret."
+            exit 1
+          fi
+
+          cd svn
+          svn status
+
+          if [[ -z "$(svn status)" ]]; then
+            echo "No SVN changes to commit."
+            exit 0
+          fi
+
+          svn commit \
+            --non-interactive \
+            --no-auth-cache \
+            --username "${WPORG_USERNAME}" \
+            --password "${WPORG_PASSWORD}" \
+            -m "Deploy ${THEME_SLUG} ${VERSION}"
