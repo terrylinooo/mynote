@@ -30,6 +30,19 @@ if ( ! function_exists( 'mynote_setup_theme' ) ) {
 		add_theme_support( 'custom-spacing' );
 		add_theme_support( 'custom-units' );
 		add_theme_support( 'editor-styles' );
+		add_theme_support(
+			'html5',
+			array(
+				'caption',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'navigation-widgets',
+				'search-form',
+				'script',
+				'style',
+			)
+		);
 		add_theme_support( 'responsive-embeds' );
 		add_theme_support( 'wp-block-styles' );
 

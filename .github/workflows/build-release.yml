@@ -79,6 +79,7 @@ jobs:
             --exclude "Dockerfile" \
             --exclude "docker-compose.yml" \
             --exclude "Makefile" \
+            --exclude "mynote-child/" \
             --exclude "node_modules/" \
             --exclude "package.json" \
             --exclude "package-lock.json" \

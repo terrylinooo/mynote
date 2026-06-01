@@ -1,12 +1,12 @@
 === Mynote ===
 Contributors: Terry Lin
 Requires at least: 3.6
-Tested up to: 7.0.0
+Tested up to: 7.0
 Version: 0.0.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-menu, custom-logo, custom-colors, custom-header, featured-images, featured-image-header, microformats, theme-options, footer-widgets, threaded-comments, translation-ready, blog, entertainment
-Requires PHP: 5.2.4
+Requires PHP: 5.2
 Stable tag: 0.0.0
 
 == Description ==
@@ -22,7 +22,7 @@ Mynote is a responsive, clean, Markdown friendly WordPress blog theme. It is bas
 
 == Copyright ==
 
-Mynote WordPress Theme, Copyright 2018 TerryL.in
+Mynote WordPress Theme, Copyright 2018-2026 Terry Lin
 Mynote is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
